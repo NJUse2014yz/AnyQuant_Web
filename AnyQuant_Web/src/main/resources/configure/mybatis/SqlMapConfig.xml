@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <!--
+  	加载属性文件
+  	在properties元素体内定义的属性首先被读取
+  	然后读取properties元素中resource或url加载的属性，它会覆盖已读取的同名属性
+  	最后读取parameterType传递的属性，它会覆盖已读取的同名属性
+  	建议不要在properties元素体内添加任何属性值，只将属性值定义在properties文件中
+  	在properties文件中定义属性名要有一定的特殊性，如：xxx.xxx
+  -->
+  <!-- 
+  <properties resource="db.properties">
+	properties中还可以配置一些属性名和属性值
+	<property name="jdbc.dirver" value=""/>
+  </properties> 
+  -->
+  
+  <!--
+	全局的配置参数，影响mybatis的运行行为
+	mybatis框架在运行时可以调整一些运行参数，如开启二级缓存，开启延迟加载...
+  -->
+	<settings>
+		<!-- 打开延迟加载的开关 -->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<!-- 将积极加载改为消极加载即按需要加载 -->
+		<setting name="aggressiveLazyLoading" value="false"/>
+		<!-- 开启二级缓存 -->
+		<setting name="cacheEnabled" value="true"/>
+	</settings>
+
+  
+  <!-- 别名定义 -->
+  <typeAliases>
+	<!--
+	 	针对单个别名的定义
+	 	type:类型的路径
+	 	alias：别名
+	  <typeAlias type="po.User" alias="user"/>
+	-->
+	<!-- 
+		批量别名的定义
+		指定包名，mybatis自动扫描包中的po类,自动定义别名，别名就是类型，首字母大写或小写都可以		
+	-->
+	<package name="po"/>
+  </typeAliases>
+  
+  <!--
+  	typeHandlers
+  	类型处理器,用于java类型和jdbc类型映射
+  	mybatis中自带一些类型处理器，一般不需要自己定义
+  -->
+  
+  <!--
+  	objectFactory
+  	对象工厂
+  -->
+  
+  <!--
+  	plugins
+  	插件
+  -->
+</configuration>

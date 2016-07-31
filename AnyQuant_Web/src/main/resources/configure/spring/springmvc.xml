@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<beans xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+       	xmlns:context="http://www.springframework.org/schema/context"  
+      	xmlns:mvc="http://www.springframework.org/schema/mvc"  
+      	xmlns:aop="http://www.springframework.org/schema/aop"
+      	xmlns:tx="http://www.springframework.org/schema/tx" 
+       	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd  
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd  
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+	<!--
+		可以不配置，前端控制器会从DispatcherSerlvet.properties中加载处理器映射器、适配器、视图解析器等组件
+		如果不在springmvc.xml中配置，使用默认加载的
+	-->
+	<!--
+		使用这个可以代替下边注解处理器映射器和注解处理器适配器的配置
+		而且默认加载很多的参数绑定方法，如json转换解析器
+		实际开发中很多使用这个
+	-->
+	<!-- <mvc:annotation-driven/> -->
+	
+  	<!--
+  		对于注解的Handler可以单个配置
+  		可以不写id，因为在Handler中已经注解
+  	-->
+  	<!-- <bean class="controller.UserController3" /> -->
+  	<!--
+  		在实际开发中建议使用组件扫描
+  		可以扫描Controller、service...默认扫描的注解类型是 @Component
+  		这里扫描Controller，指定controller的包
+  		对标记有Controller的类中标记有RequestMappering的方法进行映射，在RequestMapping中定义要映射的url
+  		使用注解的映射器不用在xml中配置url和Handler的映射关系
+  	-->
+  	<context:component-scan base-package="controller" />
+  	<mvc:annotation-driven/>
+  	
+    
+    
+	
+	<!--
+		配置视图解析器
+		解析jsp视图，默认使用jstl标签，classpath下得有jstl的包
+	-->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" /> -->
+		<!-- 可以使用jsp路径的前缀和后缀 -->
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" /> 
+		
+	</bean>
+	
+	<!-- 全局异常处理器 -->
+	<!--<bean  class="exception.CustomExceptionResolver"/>-->
+</beans>     
