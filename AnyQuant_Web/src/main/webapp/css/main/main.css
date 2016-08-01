@@ -11,6 +11,7 @@ a{text-decoration:none;}
 html{
 	overflow-x:hidden;
 }
+
 .head{
 	position:fixed;
 	top:0px;
@@ -37,4 +38,27 @@ html{
 	min-height:20px;
 	width:100%;
 	z-index:9999;
+}
+#back-to-top {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background-color: rgba(120, 148, 212, 70);
+    color: #ffffff;
+    text-align: center;
+    border-radius: 2px;
+    z-index: 1;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    display: none;
+}
+
+#back-to-top:hover {
+    background-color: #5678C4;
+}
+
+#back-to-top i {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
 }
