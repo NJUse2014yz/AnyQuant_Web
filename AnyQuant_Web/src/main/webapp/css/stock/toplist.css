@@ -1,0 +1,133 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+*:focus, *:active {
+	outline: none;
+	-moz-outline: none;
+	outline-style: none;
+	-moz-outline-style: none;
+	-webkit-outline: none;
+	-webkit-outline-style: none;
+}
+
+.clear {
+	clear: both;
+	height: 0;
+	display: block;
+}
+a {
+	outline: none;
+	text-decoration: none;
+	color: #333333;
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+#ranking {
+	display: block;
+	width: 80%;
+	min-width:800px;
+	height: 290px;
+	position: absolute;
+	left: 10%;
+	top: 15%;
+	border: 2px #463445 solid;
+	background-color: #fff;
+	border-radius: 20px;
+	padding: 30px 15px;
+}
+#ranking_list {
+	display: block;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	overflow-y:auto;
+}
+
+#ranking_list::-webkit-scrollbar-track {
+ -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+ background-color: #F5F5F5;
+ border-radius: 10px;
+}
+ #ranking_list::-webkit-scrollbar {
+ width: 5px;
+ background-color: #F5F5F5;
+}
+ #ranking_list::-webkit-scrollbar-thumb {
+ border-radius: 10px;
+ background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.44, rgb(50,32,69)),color-stop(0.72, rgb(60,42,59)),color-stop(0.86, rgb(70,52,69)));
+}
+
+#ranking_title, #play_game, #return_back {
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 20px;
+	position: absolute;
+}
+#ranking_title {
+	width: 50%;
+	left: 25%;
+	top: -21px;
+	background-color: #463445;
+}
+.box {
+	width: 100%;
+	background-color: #fffaef;
+	height: 40px;
+	line-height: 40px;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	border-radius: 10px;
+	margin:5px auto 5px;
+}
+.box:hover{
+	background-color: #91caf6;
+	color��ffffff;	
+}
+
+.col_1 {
+	width: 40px;
+	text-align: center;
+	font-size:18px;
+	color:#463445;
+	background-repeat:no-repeat; background-position:center bottom; background-size:38px 38px;
+}
+
+.col_1[title="1"]{ color:#fff; background-image:url(../../graphics/data/toplist/r1.png); line-height:38px;}
+.col_1[title="2"]{ color:#fff; background-image:url(../../graphics/data/toplist/r2.png); line-height:38px;}
+.col_1[title="3"]{ color:#fff;  background-image:url(../../graphics/data/toplist/r3.png);line-height:38px;}
+.col_2 {
+	width: 150px;
+	text-align:center;
+	font-size:18px;
+	color:#563445;
+}
+
+.col_3 {
+	width:150px;
+	color:#463445;
+	font-size:17px;	
+	text-align:center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.col_4 {
+	width:700px;
+	text-align:left;
+	color:#763445;
+	font-size:15px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}

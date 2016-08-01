@@ -1,0 +1,142 @@
+/*Բ��߽�*/
+.chart{
+	border-top-right-radius:10px; 
+	border-top-left-radius:10px; 
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+	background-color: white;
+	box-shadow: 0 1px 1px #ccc; 
+}
+
+.kLineContainer{
+	min-width:1200px;
+	height:500px;
+	position: absolute;
+	top:250px;
+	left:80px;
+	z-index:0
+}
+
+/*��Сk��ͼ����ʾԲ��*/
+.kLine{
+	min-width:1200px;
+	height:480px;
+	position: absolute;
+	top:10px;
+	z-index:0
+}
+
+.smallChart{
+	position:absolute;
+	height:370px;
+	top:10px;
+	min-width:390px;
+}
+
+.rsi{
+	min-width:390px;
+	height:390px;
+	position: absolute;
+	top:770px;/*y segment is 20 px*/
+	left:80px;
+	z-index:0
+}
+
+.kdj{
+	min-width:390px;
+	height:390px;
+	position: absolute;
+	top:770px;/*y segment is 20 px*/
+	left:485px;/*x segment is 15 px*/
+	z-index:0
+}
+
+.boll{
+	min-width:390px;
+	height:390px;
+	position: absolute;
+	top:770px;/*y segment is 20 px*/
+	left:890px;/*x segment is 15 px*/
+	z-index:0
+}
+
+.bias{
+	min-width:390px;
+	height:390px;
+	position: absolute;
+	top:1180px;/*y segment is 20 px*/
+	left:80px;/*x segment is 15 px*/
+	z-index:0
+}
+
+.vr{
+	min-width:390px;
+	height:390px;
+	position: absolute;
+	top:1180px;/*y segment is 20 px*/
+	left:485px;/*x segment is 15 px*/
+	z-index:0
+}
+
+.rsv{
+	min-width:390px;
+	height:390px;
+	position: absolute;
+	top:1180px;/*y segment is 20 px*/
+	left:890px;/*x segment is 15 px*/
+	z-index:0
+}
+
+.macd{
+	min-width:390px;
+	height:390px;
+	position: absolute;
+	top:1590px;/*y segment is 20 px*/
+	left:80px;/*x segment is 15 px*/
+	z-index:0
+}
+
+.roc{
+	min-width:390px;
+	height:390px;
+	position: absolute;
+	top:1590px;/*y segment is 20 px*/
+	left:485px;/*x segment is 15 px*/
+	z-index:0
+}
+
+.obv{
+	min-width:390px;
+	height:390px;
+	position: absolute;
+	top:1590px;/*y segment is 20 px*/
+	left:890px;/*x segment is 15 px*/
+	z-index:0
+}
+
+.futurePrice{
+	min-width:390px;
+	height:390px;
+	position: absolute;
+	top:2000px;/*y segment is 20 px*/
+	left:80px;/*x segment is 15 px*/
+	z-index:0
+}
+
+.futureVolume{
+	min-width:390px;
+	height:390px;
+	position: absolute;
+	top:2000px;/*y segment is 20 px*/
+	left:485px;/*x segment is 15 px*/
+	z-index:0
+}
+
+.futureTrade{
+	min-width:390px;
+	height:390px;
+	position: absolute;
+	top:2000px;/*y segment is 20 px*/
+	left:890px;/*x segment is 15 px*/
+	z-index:0
+}
