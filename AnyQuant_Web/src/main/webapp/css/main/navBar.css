@@ -3,14 +3,20 @@
     padding: 0;
 }
 html{ background-color: white; }
-.container {
-    width: 60%;
-    height:40px;
-    position:fixed;
-    top:0px;
-    left:200px;
-    right:200px;
-    min-width:600px;
+
+/*修改bootstrap自带样式*/
+.navbar-inverse {
+    background-color: #000;
+}
+.navbar-brand {
+    padding: 2px 0px;
+}
+
+#logo {
+	position:relative;
+    margin:5px auto;
+    width: 182px;
+    height: 40px;
 }
 
 .menu, .menu ul {
