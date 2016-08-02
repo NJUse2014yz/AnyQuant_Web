@@ -93,7 +93,7 @@ $(function(){
 <body>
 	
 	<div class="head">
-		<jsp:include page="/WEB-INF/jsp/main/navBar.jsp"></jsp:include>
+		<jsp:include page="/WEB-INF/jsp/main/NavBar.jsp"></jsp:include>
 	</div>
 
 
@@ -190,9 +190,9 @@ $(function(){
 	<!-- news -->
 	
 	
-	<div class="footer">
-		<jsp:include page="/WEB-INF/jsp/main/foot.jsp"></jsp:include>
-	</div>
+<!-- 	<div class="footer"> -->
+<%-- 		<jsp:include page="/WEB-INF/jsp/main/foot.jsp"></jsp:include> --%>
+<!-- 	</div> -->
 
 	<!-- kline -->
 	<div  class="chart kLineContainer">
