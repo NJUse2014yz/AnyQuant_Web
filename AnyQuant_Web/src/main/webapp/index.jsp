@@ -8,7 +8,15 @@
   	<div class="head">
 		<jsp:include page="/WEB-INF/jsp/main/NavBar.jsp"></jsp:include>
 	</div>
-    
+	
+	jdjdjdjjd
+	
+	d
+	d
 	<h1>你好世界</h1>
+    <div class="foot">
+		<jsp:include page="/WEB-INF/jsp/main/Foot.jsp"></jsp:include>
+	</div>
+	
   </body>
 </html>
