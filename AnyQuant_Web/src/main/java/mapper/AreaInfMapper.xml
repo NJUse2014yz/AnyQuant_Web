@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.AreaInfMapper">
+	<update id="createAreaInfTable">
+		create table AreaInf
+		(
+			sid varchar(16) not null,
+			name varchar(32),
+			area varchar(32) not null
+		)
+	</update>
+	
+	<insert id="initAreaInfTable" parameterType="AreaInfPack">
+		insert into AreaInf
+		(sid,name,area)
+		values
+		<foreach collection="areaInfList" item="areaInf" index="index" separator=",">
+			(#{areaInf.sid},#{areaInf.name},#{areaInf.area})		
+		</foreach>
+	</insert>
+	
+	<delete id="deleteAreaInf_st">
+		delete from AreaInf
+		where name like '%ST%'
+	</delete>
+	<delete id="deleteAreaInf_single" parameterType="String">
+		delete from AreaInf
+		where sid=#{value}
+	</delete>
+	
+	<select id="selectAreaInf_all" resultType="AreaInf">
+		select * from AreaInf
+	</select>
+	<select id="selectAreaInfCname_all" resultType="String">
+		select distinct area from AreaInf
+	</select>
+	
+	<select id="selectAreaInfSid_all" resultType="String">
+		select distinct sid from AreaInf
+	</select>
+	
+	<select id="selectAreaInf_area" parameterType="AreaInfPack" resultType="AreaInf">
+		select * from AreaInf
+		where area=#{area}
+	</select>
+	<select id="selectAreaInf_sid"  parameterType="AreaInfPack" resultType="AreaInf">
+		select * from AreaInf
+		where sid=#{sid}
+	</select>
+</mapper>

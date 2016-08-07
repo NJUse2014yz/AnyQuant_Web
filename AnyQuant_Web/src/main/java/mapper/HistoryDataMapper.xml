@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.HistoryDataMapper">
+	<update id="createHistoryDataTable" parameterType="String">
+		create table anyquant.historydata_${value}
+		(
+			id int(11) not null,
+			date Date not null primary key,
+			weekid int(11),
+			monthid int(11),
+			yearid int(11),
+			open double,
+			close double,
+			increase double,
+			incrPer double,
+			low double,
+			high double,
+			volume long,
+			amount double,
+			turnover double
+		)
+	</update>
+	<update id="dropHistoryDataTable" parameterType="String">
+		drop table anyquant.historydata_${value}
+	</update>
+	
+	<insert id="insertHistoryData_single" parameterType="HistoryDataPack">
+		insert into anyquant.historydata_${siid}
+		(id,date,weekid,monthid,yearid,open,close,increase,incrPer,low,high,volume,amount,turnover)
+		values(#{historyData1.id},#{historyData1.date},#{historyData1.weekid},#{historyData1.monthid},#{historyData1.yearid},#{historyData1.open},#{historyData1.close},#{historyData1.increase},#{historyData1.incrPer},#{historyData1.low},#{historyData1.high},#{historyData1.volume},#{historyData1.amount},#{historyData1.turnover})
+	</insert>
+	<insert id="insertHistoryData_list" parameterType="HistoryDataPack">
+		insert into anyquant.historydata_${siid}
+		(id,date,weekid,monthid,yearid,open,close,increase,incrPer,low,high,volume,amount,turnover)
+		values
+			<foreach collection="list" item="historyData" index="index" separator="," >  
+		   	(#{historyData.id},#{historyData.date},#{historyData.weekid},#{historyData.monthid},#{historyData.yearid},#{historyData.open},#{historyData.close},#{historyData.increase},#{historyData.incrPer},#{historyData.low},#{historyData.high},#{historyData.volume},#{historyData.amount},#{historyData.turnover})
+		   	</foreach>
+   	</insert>
+   	
+	<delete id="deleteHistoryData_e_date" parameterType="DatePack">
+		delete from anyquant.historydata_${siid}
+		where date=#{date1}
+	</delete>
+	
+	<select id="selectHistoryData_new_single" parameterType="String" resultType="HistoryData">
+		select * from anyquant.historydata_${value}
+		where id=(
+			select max(id) from anyquant.historydata_${value}
+		)
+	</select>
+	<select id="selectHistoryData_new_list" parameterType="List" resultType="HistoryData">
+		<foreach collection="list" item="item" open="(" close=")" separator=") union (">
+			select * from anyquant.historydata_${item}
+			where id=(
+				select max(id) from anyquant.historydata_${item}
+			)
+		</foreach>
+	</select>
+	
+	<select id="countHistoryData_b_date" parameterType="DatePack" resultType="int">
+		select count(*) from anyquant.historydata_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+	</select>
+	<select id="selectHistoryData_num_date" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		<where> 
+			(
+				select max(id) from anyquant.historydata_${siid}
+				where date &lt;= #{date1}
+			) between id and id+#{num}-1
+		</where>
+		order by id
+	</select>
+	<select id="selectHistoryData_num_id" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where id between #{id1}-#{num}+1 and #{id1}
+		order by id
+	</select>
+	
+	<select id="selectHistoryData_e_date" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where date=#{date1}
+	</select>
+	<select id="selectHistoryData_ge_date" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where date &gt;= #{date1}
+		order by id
+	</select>
+	<select id="selectHistoryData_le_date" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where date &lt;= #{date1}
+		order by id
+	</select>
+	<select id="selectHistoryData_g_date" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where date &gt; #{date1}
+		order by id
+	</select>
+	<select id="selectHistoryData_l_date" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where date &lt; #{date1}
+		order by id
+	</select>
+	<select id="selectHistoryData_b_date" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	
+	<select id="selectHistoryData_e_id" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where id = #{id1}
+		order by id
+	</select>
+	<select id="selectHistoryData_le_id" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where id &lt;= #{id1}
+		order by id
+	</select>
+	<select id="selectHistoryData_b_id" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where id between #{id1} and #{id2}
+		order by id
+	</select>
+	
+	<select id="selectHistoryDataWeekid" parameterType="DatePack" resultType="int">
+		select max(weekid) from anyquant.historydata_${siid}
+	</select>
+	<select id="selectHistoryData_e_weekid" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where weekid = #{id1}
+		order by id
+	</select>
+	<select id="selectHistoryData_le_weekid" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where weekid &lt;= #{id1}
+		order by id
+	</select>
+	<select id="selectHistoryData_ge_weekid" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where weekid &gt;= #{id1}
+		order by id
+	</select>
+	<select id="selectHistoryData_b_weekid" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where weekid between #{id1} and #{id2}
+		order by id
+	</select>
+	
+	<select id="selectHistoryDataMonthid" parameterType="DatePack" resultType="int">
+		select max(monthid) from anyquant.historydata_${siid}
+	</select>
+	<select id="selectHistoryData_e_monthid" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where monthid = #{id1}
+		order by id
+	</select>
+	<select id="selectHistoryData_le_monthid" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where monthid &lt;= #{id1}
+		order by id
+	</select>
+	<select id="selectHistoryData_ge_monthid" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where monthid &gt;= #{id1}
+		order by id
+	</select>
+	<select id="selectHistoryData_b_monthid" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where monthid between #{id1} and #{id2}
+		order by id
+	</select>
+
+	<select id="selectHistoryDataYearid" parameterType="DatePack" resultType="int">
+		select max(yearid) from anyquant.historydata_${siid}
+	</select>
+	<select id="selectHistoryData_e_yearid" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where yearid = #{id1}
+		order by id
+	</select>
+	<select id="selectHistoryData_le_yearid" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where yearid &lt;= #{id1}
+		order by id
+	</select>
+	<select id="selectHistoryData_ge_yearid" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where yearid &gt;= #{id1}
+		order by id
+	</select>
+	<select id="selectHistoryData_b_yearid" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.historydata_${siid}
+		where yearid between #{id1} and #{id2}
+		order by id
+	</select>
+	
+	<select id="selectHistoryDataClose_num_date" parameterType="DatePack" resultType="double">
+		select close from anyquant.historydata_${siid}
+		<where> 
+			(
+				select max(id) from anyquant.historydata_${siid}
+				where date &lt;= #{date1}
+			) between id and id+#{num}-1
+		</where>
+		order by id
+	</select>
+	<select id="selectHistoryDataClose_num_id" parameterType="DatePack" resultType="double">
+		select close from anyquant.historydata_${siid}
+		where id between #{id1}-#{num}+1 and #{id1}
+		order by id
+	</select>
+	<select id="selectHistoryDataIncrease_num_date" parameterType="DatePack" resultType="double">
+		select increase from anyquant.historydata_${siid}
+		<where> 
+			(
+				select max(id) from anyquant.historydata_${siid}
+				where date &lt;= #{date1}
+			) between id and id+#{num}-1
+		</where>
+		order by id
+	</select>
+	<select id="selectHistoryDataIncrease_num_id" parameterType="DatePack" resultType="double">
+		select increase from anyquant.historydata_${siid}
+		where id between #{id1}-#{num}+1 and #{id1}
+		order by id
+	</select>
+	<select id="selectHistoryDataVolume_num_date" parameterType="DatePack" resultType="long">
+		select volume from anyquant.historydata_${siid}
+		<where> 
+			(
+				select max(id) from anyquant.historydata_${siid}
+				where date &lt;= #{date1}
+			) between id and id+#{num}-1
+		</where>
+		order by id
+	</select>
+	<select id="selectHistoryDataVolume_num_id" parameterType="DatePack" resultType="long">
+		select volume from anyquant.historydata_${siid}
+		where id between #{id1}-#{num}+1 and #{id1}
+		order by id
+	</select>
+</mapper>

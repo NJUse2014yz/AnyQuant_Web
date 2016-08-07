@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.MonthHDataMapper">
+	<update id="dropAll" parameterType="List">
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+			drop table anyquant.monthhData_${item}
+		</foreach>
+	</update>
+	<update id="createMonthHDataTable" parameterType="String">
+		create table anyquant.monthhdata_${value}
+		(
+			monthid int(11) not null primary key,
+			date date not null,
+			open double,
+			close double,
+			increase double,
+			incrPer double,
+			low double,
+			high double,
+			volume long,
+			amount double
+		)
+	</update>
+	<update id="dropMonthHDatatable" parameterType="String">
+		drop table anyquant.monthhdata_${value}
+	</update>
+	
+	<insert id="insertMonthHData_list" parameterType="HistoryDataPack">
+		insert into anyquant.monthhdata_${siid}
+		(monthid,date,open,close,increase,incrPer,low,high,volume,amount)
+		values
+		<foreach collection="list" item="historyData" index="index" separator="," >  
+		   	(#{historyData.monthid},#{historyData.date},#{historyData.open},#{historyData.close},#{historyData.increase},#{historyData.incrPer},#{historyData.low},#{historyData.high},#{historyData.volume},#{historyData.amount})
+		</foreach>
+	</insert>
+	
+	<delete id="deleteMonthHData_e_monthid" parameterType="DatePack">
+		delete from anyquant.monthhdata_${siid}
+		where monthid=#{id1}
+	</delete>
+	
+	<select id="selectMonthHData_e_monthid" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.monthhdata_${siid}
+		where monthid=#{id1}
+		order by monthid
+	</select>
+	<select id="selectMonthHData_le_monthid" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.monthhdata_${siid}
+		where monthid &lt;= #{id1}
+		order by monthid
+	</select>
+	<select id="selectMonthHData_num_monthid" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.monthhdata_${siid}
+		where monthid between #{id1}-#{num}+1 and #{id1}
+		order by monthid
+	</select>
+	
+	<select id="selectMonthHData_b_date" parameterType="DatePack" resultType="HistoryData">
+		select * from anyquant.monthhdata_${siid}
+		where date between #{date1} and #{date2}
+		order by monthid
+	</select>
+	
+</mapper>

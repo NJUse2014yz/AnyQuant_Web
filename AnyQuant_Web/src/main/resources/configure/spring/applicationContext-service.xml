@@ -15,4 +15,5 @@
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
 	<bean id="UserService" class="serviceImpl.UserServiceImpl"/>
+	<bean id="StockDataService" class="serviceImpl.StockDataServiceImpl"/>
 </beans>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.IndustryInfMapper">
+	<update id="createIndustryInfTable">
+		create table IndustryInf
+		(
+			sid varchar(16) not null,
+			name varchar(32),
+			cname varchar(32) not null
+		)
+	</update>
+	<insert id="initIndustryInfTable" parameterType="IndustryInfPack">
+		insert into IndustryInf
+		(sid,name,cname)
+		values
+		<foreach collection="industryInfList" item="industryInf" index="index" separator=",">
+			(#{industryInf.sid},#{industryInf.name},#{industryInf.cname})		
+		</foreach>
+	</insert>
+	
+	<delete id="deleteIndustryInf_st">
+		delete from IndustryInf
+		where name like '%ST%'
+	</delete>
+	<delete id="deleteIndustryInf_single" parameterType="String">
+		delete from IndustryInf
+		where sid=#{value}
+	</delete>
+	
+	<select id="selectIndustryInf_all" resultType="IndustryInf">
+		select * from IndustryInf
+	</select>
+	<select id="selectIndustryInfCname_all" resultType="String">
+		select distinct cname from IndustryInf
+	</select>
+	<select id="selectIndustryInfSid_all" resultType="String">
+		select distinct sid from IndustryInf
+	</select>
+	
+	<select id="selectIndustryInf_cname" parameterType="IndustryInfPack" resultType="IndustryInf">
+		select * from IndustryInf
+		where cname=#{cname}
+	</select>
+	<select id="selectIndustryInf_sid"  parameterType="IndustryInfPack" resultType="IndustryInf">
+		select * from IndustryInf
+		where sid=#{sid}
+	</select>
+</mapper>
