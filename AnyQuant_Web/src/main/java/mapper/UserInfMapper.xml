@@ -8,4 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into UserInf(userName,password)
 		values(#{userName},#{password})
 	</insert>
+	<select id="select" parameterType="String" resultType="UserInf">
+		select * from UserInf where userName=#{value}
+	</select>
 </mapper>

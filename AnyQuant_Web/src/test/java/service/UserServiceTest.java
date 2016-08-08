@@ -18,6 +18,10 @@ public class UserServiceTest {
 			e.printStackTrace();
 		}
 	}
+	public void select()
+	{
+//		userService
+	}
 	public static void main(String[] args)
 	{
 		new UserServiceTest().signUp();

@@ -21,8 +21,16 @@ public class UserInfMapperTest {
 			e.printStackTrace();
 		}
 	}
+	public void select()
+	{
+		try {
+			System.out.println(userInfMapper.select("u2"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public static void main(String[] args)
 	{
-		new UserInfMapperTest().signUp();
+		new UserInfMapperTest().select();
 	}
 }
