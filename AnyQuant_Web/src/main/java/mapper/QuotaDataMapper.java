@@ -16,21 +16,6 @@ import po.StockInf;
  * @date 2016年5月21日
  */
 public interface QuotaDataMapper {
-	public void dropAll(List<StockInf> list) throws Exception;
-	
-	/**创建指标数据表*/
-	public void createQuotaDataTable(String siid) throws Exception;
-	/**删除指标数据表*/
-	public void dropQuotaDataTable(String siid) throws Exception;
-	
-	/**插入指标数据-单条*/
-	public void insertQuotaData_single(QuotaDataPack quotaDataPack) throws Exception;
-	/**插入指标数据-多条*/
-	public void insertQuotaData_list(QuotaDataPack quotaDataPack) throws Exception;
-	
-	/**删除指标数据-=date*/
-	public void deleteQuotaData_e_date(DatePack datePack) throws Exception;
-	
 	/**查找一个时间范围内有多少条数据*/
 	public int countQuotaData_b_date(DatePack datePack) throws Exception;
 	

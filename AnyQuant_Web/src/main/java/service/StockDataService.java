@@ -29,8 +29,6 @@ public interface StockDataService {
 	public List<StockListInf> showHistory(String id,String date1,String date2)throws Exception;
 	//股票序号查询
 	public List<StockListInf> searchStock(String key)throws Exception;
-	//股票的分时图
-//	public List<RealTimeInf> getRealTime(String id)throws Exception;
 	//股票的K线图数据
 	public List<KgraInf> getKgraph(String id,Ktype type,String date1,String date2) throws Exception;
 	//股票的折线图数据

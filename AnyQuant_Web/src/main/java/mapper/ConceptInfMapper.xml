@@ -4,32 +4,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mapper.ConceptInfMapper">
-	<update id="createConceptInfTable">
-		create table ConceptInf
-		(
-			sid varchar(16) not null,
-			name varchar(32),
-			cname varchar(32) not null
-		)
-	</update>
-	<insert id="initConceptInfTable" parameterType="ConceptInfPack">
-		insert into ConceptInf
-		(sid,name,cname)
-		values
-		<foreach collection="conceptInfList" item="conceptInf" index="index" separator=",">
-			(#{conceptInf.sid},#{conceptInf.name},#{conceptInf.cname})		
-		</foreach>
-	</insert>
-	
-	<delete id="deleteConceptInf_st">
-		delete from ConceptInf
-		where name like '%ST%'
-	</delete>
-	<delete id="deleteConceptInf_single" parameterType="String">
-		delete from ConceptInf
-		where sid=#{value}
-	</delete>
-	
 	<select id="selectConceptInf_all" resultType="ConceptInf">
 		select * from ConceptInf
 	</select>

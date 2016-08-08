@@ -1,12 +1,6 @@
 package pr;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.sql.Date;
-import java.util.Calendar;
-import java.util.List;
 
 import mapper.IndiceInfMapper;
 import mapper.StockInfMapper;
@@ -17,9 +11,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import po.DatePack;
 import po.HistoryData;
-import po.HistoryDataPack;
-import po.IndiceInf;
-import po.StockInf;
 
 public class HistoryDataPr {
 	private ApplicationContext applicationContext;

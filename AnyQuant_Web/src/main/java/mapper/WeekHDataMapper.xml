@@ -4,43 +4,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mapper.WeekHDataMapper">
-	<update id="dropAll" parameterType="List">
-		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
-			drop table anyquant.weekhData_${item}
-		</foreach>
-	</update>
-	<update id="createWeekHDataTable" parameterType="String">
-		create table anyquant.weekhdata_${value}
-		(
-			weekid int(11) not null primary key,
-			date date not null,
-			open double,
-			close double,
-			increase double,
-			incrPer double,
-			low double,
-			high double,
-			volume long,
-			amount double
-		)
-	</update>
-	<update id="dropWeekHDataTable" parameterType="String">
-		drop table anyquant.weekhdata_${value}
-	</update>
-	<insert id="insertWeekHData_list" parameterType="HistoryDataPack">
-		insert into anyquant.weekhdata_${siid}
-		(weekid,date,open,close,increase,incrPer,low,high,volume,amount)
-		values
-		<foreach collection="list" item="historyData" index="index" separator="," >  
-		   	(#{historyData.weekid},#{historyData.date},#{historyData.open},#{historyData.close},#{historyData.increase},#{historyData.incrPer},#{historyData.low},#{historyData.high},#{historyData.volume},#{historyData.amount})
-		</foreach>
-	</insert>
-	
-	<delete id="deleteWeekHData_e_weekid" parameterType="DatePack">
-		delete from anyquant.weekhdata_${siid}
-		where weekid=#{id1}
-	</delete>
-	
 	<select id="selectWeekHData_e_weekid" parameterType="DatePack" resultType="HistoryData">
 		select * from anyquant.weekhdata_${siid}
 		where weekid=#{id1}

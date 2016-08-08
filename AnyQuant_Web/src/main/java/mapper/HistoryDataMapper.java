@@ -14,18 +14,6 @@ import po.HistoryDataPack;
  * @date 2016年5月19日
  */
 public interface HistoryDataMapper {
-	/**创建历史基本数据表*/
-	public void createHistoryDataTable(String siid) throws Exception;
-	/**删除历史基本数据表*/
-	public void dropHistoryDataTable(String siid) throws Exception;
-	
-	/**插入历史基本数据-单条-historyDataPack.siid historyDataPack.historyData1*/
-	public void insertHistoryData_single(HistoryDataPack historyDataPack) throws Exception;
-	/**插入历史基本数据-多条-historyDataPack.siid historyDataPack.list*/
-	public void insertHistoryData_list(HistoryDataPack historyDataPack) throws Exception;
-	
-	/**删除历史基本数据-=datePack.date*/
-	public void deleteHistoryData_e_date(DatePack datePack) throws Exception;
 	
 	/**查找最近历史数据-siid*/
 	public HistoryData selectHistoryData_new_single(String siid) throws Exception;

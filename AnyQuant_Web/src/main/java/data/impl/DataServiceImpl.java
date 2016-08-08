@@ -16,7 +16,6 @@ import mapper.IndustryLatestMapper;
 import mapper.MonthHDataMapper;
 import mapper.MonthQDataMapper;
 import mapper.QuotaDataMapper;
-//import mapper.RealTimeDataMapper;
 import mapper.StockInfMapper;
 import mapper.WeekHDataMapper;
 import mapper.WeekQDataMapper;
@@ -34,7 +33,6 @@ import po.IndiceInf;
 import po.IndustryInf;
 import po.IndustryInfPack;
 import po.QuotaData;
-//import po.RealTimeData;
 import po.BlockHistoryData;
 import po.StockInf;
 import pr.HistoryDataPr;
@@ -51,8 +49,6 @@ public class DataServiceImpl implements DataService {
 	private IndustryLatestMapper industryLatestMapper;
 	private ConceptLatestMapper conceptLatestMapper;
 	private AreaLatestMapper areaLatestMapper;
-	
-//	private RealTimeDataMapper realTimeDataMapper;
 	
 	private HistoryDataMapper historyDataMapper;
 	private WeekHDataMapper weekHDataMapper;
@@ -92,13 +88,6 @@ public class DataServiceImpl implements DataService {
 		monthQDataMapper=(MonthQDataMapper) applicationContext.getBean("monthQDataMapper");
 	}
 	
-//	@Override
-//	public List<RealTimeData> getRealTimeData_siid(String siid) throws Exception {
-//		DatePack datePack=new DatePack();
-//		datePack.setSiid(siid);
-//		return realTimeDataMapper.selectRealTimeData_all(datePack);
-//	}
-
 	@Override
 	public List<HistoryData> getHistoryStockData_siidTime(String siid,
 			Date startdate, Date enddate) throws Exception {

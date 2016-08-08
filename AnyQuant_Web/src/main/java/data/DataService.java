@@ -9,14 +9,10 @@ import po.HistoryData;
 import po.IndiceInf;
 import po.IndustryInf;
 import po.QuotaData;
-//import po.RealTimeData;
 import po.BlockHistoryData;
 import po.StockInf;
 
 public interface DataService {
-	/**由代码获取今日分时基本数据*/
-//	public List<RealTimeData> getRealTimeData_siid(String siid) throws Exception;
-	
 	/**股票列表*/
 	public List<StockInf> getStockList() throws Exception;
 	/**指数列表*/

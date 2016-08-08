@@ -4,52 +4,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mapper.ConceptLatestMapper">
-	<update id="createLatestDataTable">
-		create table anyquant.conceptlatest
-		(
-			sid varchar(16) not null,
-			name varchar(32),
-			block varchar(32),
-			id int(11),
-			date Date,
-			weekid int(11),
-			monthid int(11),
-			yearid int(11),
-			open double,
-			close double,
-			increase double,
-			incrPer double,
-			low double,
-			high double,
-			volume long,
-			amount double,
-			turnover double
-		)
-	</update>
-	<insert id="initLatestData">
-		insert into anyquant.conceptlatest
-		(sid,name,block)
-		(select * from anyquant.conceptinf)
-	</insert>
-	<update id="updateLatestData" parameterType="HistoryDataPack">
-		update anyquant.conceptlatest
-		set
-			id=#{historyData1.id},
-			date=#{historyData1.date},
-			weekid=#{historyData1.weekid},
-			monthid=#{historyData1.monthid},
-			yearid=#{historyData1.yearid},
-			open=#{historyData1.open},
-			close=#{historyData1.close},
-			increase=#{historyData1.increase},
-			incrPer=#{historyData1.incrPer},
-			low=#{historyData1.low},
-			high=#{historyData1.high},
-			volume=#{historyData1.volume},
-			amount=#{historyData1.amount},
-			turnover=#{historyData1.turnover}
-		where sid=#{siid}
-	</update>
 		<select id="selectHistoryData_concept" parameterType="String" resultType="BlockHistoryData">
 		select * from anyquant.conceptlatest
 		where block=#{value}

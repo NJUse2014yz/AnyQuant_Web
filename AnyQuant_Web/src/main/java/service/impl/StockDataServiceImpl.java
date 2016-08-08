@@ -1,4 +1,4 @@
-package serviceImpl;
+package service.impl;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -23,7 +23,6 @@ import data.impl.QuotaServiceImpl;
 import po.HistoryData;
 import po.IndiceInf;
 import po.QuotaData;
-//import po.RealTimeData;
 import po.StockInf;
 import service.StockDataService;
 import tool.DateExchangeTool;
@@ -32,7 +31,6 @@ import vo.HaltStockInf;
 import vo.KgraInf;
 import vo.LinegraInf;
 import vo.NewStockInf;
-//import vo.RealTimeInf;
 import vo.StockListInf;
 import vo.StockNewsInf;
 import vo.StockTopInf;
@@ -149,18 +147,6 @@ public class StockDataServiceImpl implements StockDataService {
 				DateExchangeTool.stringToSqlDate(date2));
 		return DataHelper.TurnLinegraInf(id, list_q);
 	}
-
-//	@Override
-//	public List<RealTimeInf> getRealTime(String id) throws Exception {
-//		// TODO Auto-generated method stub
-//		List<RealTimeData> temp = dataService.getRealTimeData_siid(id);
-//		ArrayList<RealTimeInf> result = new ArrayList<RealTimeInf>();
-//		for (int i = 0; i < temp.size(); i++) {
-//			result.add(DataHelper.TurnRealTimeInf(temp.get(i)));
-//		}
-//
-//		return result;
-//	}
 
 	@Override
 	public List<StockTopInf> getRank() throws Exception {
