@@ -11,4 +11,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="select" parameterType="String" resultType="UserInf">
 		select * from UserInf where userName=#{value}
 	</select>
+	<update id="modifyUserName" parameterType="ModifyPack">
+		update UserInf set userName=#{str_new} where userName=#{str_key}
+	</update>
+	<update id="modifyPassword" parameterType="ModifyPack">
+		update UserInf set password=#{str_new} where userName=#{str_key}
+	</update>
 </mapper>
