@@ -40,6 +40,25 @@ public interface HistoryDataMapper {
 	/**查找历史基本数据-(包括)边界*/
 	public List<HistoryData> selectHistoryData_b_date(DatePack datePack) throws Exception;
 	
+	/**查找open*/
+	public List<Double> selectOpen_b_date(DatePack datePack) throws Exception;
+	/**查找close*/
+	public List<Double> selectClose_b_date(DatePack datePack) throws Exception;
+	/**查找increase*/
+	public List<Double> selectIncrease_b_date(DatePack datePack) throws Exception;
+	/**查找incrPer*/
+	public List<Double> selectIncrPer_b_date(DatePack datePack) throws Exception;
+	/**查找low*/
+	public List<Double> selectLow_b_date(DatePack datePack) throws Exception;
+	/**查找high*/
+	public List<Double> selectHigh_b_date(DatePack datePack) throws Exception;
+	/**查找volume*/
+	public List<Double> selectVolume_b_date(DatePack datePack) throws Exception;
+	/**查找amount*/
+	public List<Double> selectAmount_b_date(DatePack datePack) throws Exception;
+	/**查找turnover*/
+	public List<Double> selectTurnover_b_date(DatePack datePack) throws Exception;
+
 	/**查找历史基本数据-=DatePack.id1*/
 	public HistoryData selectHistoryData_e_id(DatePack datePack) throws Exception;
 	/**查找历史基本数据-<=DatePack.id1*/

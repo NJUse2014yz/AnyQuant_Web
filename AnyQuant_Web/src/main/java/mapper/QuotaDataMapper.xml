@@ -66,6 +66,232 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by id
 	</select>
 	
+	<select id="selectM5" parameterType="DatePack" resultType="QuotaData">
+		select m5 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectM10" parameterType="DatePack" resultType="QuotaData">
+		select m10 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectM20" parameterType="DatePack" resultType="QuotaData">
+		select m20 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectM30" parameterType="DatePack" resultType="QuotaData">
+		select m30 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectBias5" parameterType="DatePack" resultType="QuotaData">
+		select bias5 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectBias10" parameterType="DatePack" resultType="QuotaData">
+		select bias10 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectBias20" parameterType="DatePack" resultType="QuotaData">
+		select bias20 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectBoll1" parameterType="DatePack" resultType="QuotaData">
+		select boll1 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectBoll2" parameterType="DatePack" resultType="QuotaData">
+		select boll2 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectBoll3" parameterType="DatePack" resultType="QuotaData">
+		select boll3 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectRsi" parameterType="DatePack" resultType="QuotaData">
+		select rsi from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectRsi5" parameterType="DatePack" resultType="QuotaData">
+		select rsi5 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectRsi10" parameterType="DatePack" resultType="QuotaData">
+		select rsi10 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectRsi20" parameterType="DatePack" resultType="QuotaData">
+		select rsi20 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectVr" parameterType="DatePack" resultType="QuotaData">
+		select vr from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectRsv" parameterType="DatePack" resultType="QuotaData">
+		select rsv from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectK" parameterType="DatePack" resultType="QuotaData">
+		select k from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectD" parameterType="DatePack" resultType="QuotaData">
+		select d from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectJ" parameterType="DatePack" resultType="QuotaData">
+		select  from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectEma12" parameterType="DatePack" resultType="QuotaData">
+		select ema12 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectEma26" parameterType="DatePack" resultType="QuotaData">
+		select ema26 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectEma50" parameterType="DatePack" resultType="QuotaData">
+		select ema50 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectEma5" parameterType="DatePack" resultType="QuotaData">
+		select ma5 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectEma35" parameterType="DatePack" resultType="QuotaData">
+		select ema35 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectEma10" parameterType="DatePack" resultType="QuotaData">
+		select ma10 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectEma60" parameterType="DatePack" resultType="QuotaData">
+		select ema60 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDiff" parameterType="DatePack" resultType="QuotaData">
+		select diff from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDea" parameterType="DatePack" resultType="QuotaData">
+		select dea from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectMacd" parameterType="DatePack" resultType="QuotaData">
+		select macd from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDmh" parameterType="DatePack" resultType="QuotaData">
+		select dmh from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDml" parameterType="DatePack" resultType="QuotaData">
+		select dml from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectTr" parameterType="DatePack" resultType="QuotaData">
+		select tr from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDmh12" parameterType="DatePack" resultType="QuotaData">
+		select dmh12 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDml12" parameterType="DatePack" resultType="QuotaData">
+		select dml12 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectTr12" parameterType="DatePack" resultType="QuotaData">
+		select tr12 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDih" parameterType="DatePack" resultType="QuotaData">
+		select dih from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDil" parameterType="DatePack" resultType="QuotaData">
+		select dil from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDih12" parameterType="DatePack" resultType="QuotaData">
+		select dih12 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDil12" parameterType="DatePack" resultType="QuotaData">
+		select dil12 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDx" parameterType="DatePack" resultType="QuotaData">
+		select dx from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectAdx" parameterType="DatePack" resultType="QuotaData">
+		select adx from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectAdxr" parameterType="DatePack" resultType="QuotaData">
+		select adxr from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectObv" parameterType="DatePack" resultType="QuotaData">
+		select obv from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectRoc12" parameterType="DatePack" resultType="QuotaData">
+		select roc12 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectRoc25" parameterType="DatePack" resultType="QuotaData">
+		select roc25 from anyquant.quotadata_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	
 	<select id="selectQuotaData_num_id" parameterType="DatePack" resultType="QuotaData">
 		select * from anyquant.quotadata_${siid}
 		where id between #{id1}-#{num}+1 and #{id1}
