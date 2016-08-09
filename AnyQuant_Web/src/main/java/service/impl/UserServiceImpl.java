@@ -1,9 +1,8 @@
 package service.impl;
 
-import mapper.UserInfMapper;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
+import mapper.UserInfMapper;
 import po.UserInf;
 import service.UserService;
 
@@ -36,5 +35,29 @@ public class UserServiceImpl implements UserService {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public void changeUserId(String OldUserid, String newUserid) throws Exception {
+		// TODO Auto-generated method stub
+		//假设界面已经判断newUserid非空
+		
+	}
+
+	@Override
+	public void changePassword(String Userid, String OldPassword, String NewPassword) throws Exception {
+		// TODO Auto-generated method stub
+		String old_Pass=OldPassword.trim();
+		String new_Pass=NewPassword.trim();
+		
+		UserInf userInf=null;
+			userInf=userInfMapper.select(Userid);
+		if(userInf.getPassword().equals(old_Pass))
+		{
+			//修改密码
+		}else{
+			throw new Exception();
+		}
+		
 	}
 }
