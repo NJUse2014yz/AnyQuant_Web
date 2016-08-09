@@ -14,7 +14,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="modifyUserName" parameterType="ModifyPack">
 		update UserInf set userName=#{str_new} where userName=#{str_key}
 	</update>
-	<update id="modifyPassword" parameterType="ModifyPack">
-		update UserInf set password=#{str_new} where userName=#{str_key}
+	<update id="modifyPassword" parameterType="UserInf">
+		update UserInf set password=#{password} where userName=#{userName}
+	</update>
+	<update id="modifyScoreRank" parameterType="UserInf">
+		update UserInf set score=#{score},rank=#{rank} where userName=#{userName}
 	</update>
 </mapper>

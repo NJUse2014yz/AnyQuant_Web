@@ -1,14 +1,27 @@
 package po;
-
+/**用于修改数据库的类型
+ * *_key表示在数据库中以*类型为关键字来查找
+ * *_old表示修改的*类型的原值（不太用得到）
+ * *_new表示修改的*类型的新值
+ * */
 public class ModifyPack {
+	/**String类型的关键字*/
 	public String str_key;
+	/**int类型的关键字*/
 	public int i_key;
+	/**double类型的关键字*/
 	public double d_key;
+	/**String类型的旧值*/
 	public String str_old;
+	/**String类型的新值*/
 	public String str_new;
+	/**int类型的旧值*/
 	public int i_old;
+	/**int类型的新值*/
 	public int i_new;
+	/**double类型的旧值*/
 	public double d_old;
+	/**double类型的新值*/
 	public double d_new;
 	
 	public String getStr_key() {
