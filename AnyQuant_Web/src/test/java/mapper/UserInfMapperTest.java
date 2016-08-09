@@ -25,7 +25,7 @@ public class UserInfMapperTest {
 	public void select()
 	{
 		try {
-			System.out.println(userInfMapper.select("u2"));
+			System.out.println(userInfMapper.select("u2") instanceof UserInf);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -66,8 +66,9 @@ public class UserInfMapperTest {
 	}
 	public static void main(String[] args)
 	{
+		new UserInfMapperTest().select();
 //		new UserInfMapperTest().modifyUserName();
 //		new UserInfMapperTest().modifyPassword();
-		new UserInfMapperTest().modifyScoreRank();
+//		new UserInfMapperTest().modifyScoreRank();
 	}
 }

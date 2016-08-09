@@ -7,8 +7,9 @@ public interface UserService {
 	//登录
 	public boolean LoginUser(String Userid,String password) throws Exception;
 	//修改用户名
-	public void changeUserId(String OldUserid,String newUserid)throws Exception;
+	public void modifyUserId(String OldUserid,String newUserid)throws Exception;
 	//修改密码
-	public void changePassword(String Userid,String OldPassword,String newPassword)throws Exception;
-	
+	public void modifyPassword(String Userid,String OldPassword,String newPassword)throws Exception;
+	//加分
+	public void modifyScore(String Userid,int add_score)throws Exception;
 }
