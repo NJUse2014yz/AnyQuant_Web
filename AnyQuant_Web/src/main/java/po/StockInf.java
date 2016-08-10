@@ -36,7 +36,18 @@ public class StockInf {
 	private int monthhisid;
 	/**最近在月指标数据中的id*/
 	private int monthquoid;
-	
+	/**配对股票*/
+	private String partner1;
+	/**相关系数*/
+	private double coe1;
+	/**配对股票*/
+	private String partner2;
+	/**相关系数*/
+	private double coe2;
+	/**配对股票*/
+	private String partner3;
+	/**相关系数*/
+	private double coe3;
 	public StockInf()
 	{
 		super();
@@ -52,6 +63,12 @@ public class StockInf {
 		monthid=-1;
 		monthhisid=-1;
 		monthquoid=-1;
+		partner1=null;
+		coe1=0;
+		partner2=null;
+		coe2=0;
+		partner3=null;
+		coe3=0;
 	}
 	public StockInf(String sid,String name)
 	{
@@ -68,6 +85,12 @@ public class StockInf {
 		monthid=-1;
 		monthhisid=-1;
 		monthquoid=-1;
+		partner1=null;
+		coe1=0;
+		partner2=null;
+		coe2=0;
+		partner3=null;
+		coe3=0;
 	}
 	public StockInf(int id, String sid, String sname, Date date, int hisid,
 			int quoid, int weekid, int weekhisid, int weekquoid, int monthid,
@@ -85,6 +108,12 @@ public class StockInf {
 		this.monthid = monthid;
 		this.monthhisid = monthhisid;
 		this.monthquoid = monthquoid;
+		partner1=null;
+		coe1=0;
+		partner2=null;
+		coe2=0;
+		partner3=null;
+		coe3=0;
 	}
 
 	public int getId() {
@@ -182,7 +211,42 @@ public class StockInf {
 	public void setMonthquoid(int monthquoid) {
 		this.monthquoid = monthquoid;
 	}
-
+	public String getPartner1() {
+		return partner1;
+	}
+	public void setPartner1(String partner1) {
+		this.partner1 = partner1;
+	}
+	public double getCoe1() {
+		return coe1;
+	}
+	public void setCoe1(double coe1) {
+		this.coe1 = coe1;
+	}
+	public String getPartner2() {
+		return partner2;
+	}
+	public void setPartner2(String partner2) {
+		this.partner2 = partner2;
+	}
+	public double getCoe2() {
+		return coe2;
+	}
+	public void setCoe2(double coe2) {
+		this.coe2 = coe2;
+	}
+	public String getPartner3() {
+		return partner3;
+	}
+	public void setPartner3(String partner3) {
+		this.partner3 = partner3;
+	}
+	public double getCoe3() {
+		return coe3;
+	}
+	public void setCoe3(double coe3) {
+		this.coe3 = coe3;
+	}
 	@Override
 	public String toString() {
 		return "StockInf [id=" + id + ", sid=" + sid + ", sname=" + sname
@@ -190,7 +254,8 @@ public class StockInf {
 				+ ", weekid=" + weekid + ", weekhisid=" + weekhisid
 				+ ", weekquoid=" + weekquoid + ", monthid=" + monthid
 				+ ", monthhisid=" + monthhisid + ", monthquoid=" + monthquoid
-				+ "]";
+				+ ", partner1=" + partner1 + ", coe1=" + coe1 + ", partner2="
+				+ partner2 + ", coe2=" + coe2 + ", partner3=" + partner3
+				+ ", coe3=" + coe3 + "]";
 	}
-	
 }

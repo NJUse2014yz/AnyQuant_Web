@@ -1,4 +1,4 @@
-package tool;
+package bl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +12,8 @@ import po.DatePack;
 import po.QuotaData;
 import pr.QuotaDataPr;
 import tool.MMSTool;
-import tool.TrendFlag;
-import tool.TrendPoint;
+import bl.TrendFlag;
+import bl.TrendPoint;
 
 public class TrendTool {
 	public TrendFlag flag;

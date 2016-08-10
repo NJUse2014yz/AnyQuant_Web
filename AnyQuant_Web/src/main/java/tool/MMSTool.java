@@ -3,6 +3,7 @@ package tool;
 import java.util.ArrayList;
 import java.util.List;
 
+import bl.TrendPoint;
 import po.HistoryData;
 
 public class MMSTool {

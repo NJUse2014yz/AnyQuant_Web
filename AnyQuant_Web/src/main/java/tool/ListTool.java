@@ -1,23 +1,24 @@
-package function;
+package tool;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
-
-import mapper.HistoryDataMapper;
-import mapper.QuotaDataMapper;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import po.DatePack;
-import vo.FunctionResult;
+import po.StockInf;
+import mapper.HistoryDataMapper;
+import mapper.QuotaDataMapper;
+import mapper.StockInfMapper;
 
-public class TrendFunction implements Function{
+public class ListTool {
 	public ApplicationContext applicationContext=new ClassPathXmlApplicationContext("classpath:configure/spring/applicationContext-dao.xml");
-	public HistoryDataMapper historyDataMapper;
-	public List<Double> list;
-	public TrendFunction(String siid,String attribute,Date start,Date end)
+
+	public List<Double> getList(String siid,String attribute,Date start,Date end)
 	{
+		List<Double> list=null;
 		DatePack datePack=new DatePack();
 		datePack.setSiid(siid);
 		datePack.setDate1(start);
@@ -188,12 +189,20 @@ public class TrendFunction implements Function{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return list;
 	}
-
-	@Override
-	public FunctionResult getResult() {
-		
-		return null;
+	public List<String> getPair(String siid,int num)
+	{
+		List<String> list=new ArrayList<String>();
+		StockInf stockInf=null;
+		try {
+			stockInf = ((StockInfMapper) applicationContext.getBean("stockInfMapper")).selectStockInf_e_sid(siid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		list.add(stockInf.getPartner1());
+		list.add(stockInf.getPartner2());
+		list.add(stockInf.getPartner3());
+		return list;
 	}
-	
 }

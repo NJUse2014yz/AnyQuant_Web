@@ -1,4 +1,4 @@
-package tool;
+package bl;
 
 public class CrossResult {
 	/**交叉结果：上穿：1，下穿：-1，其它：0*/
