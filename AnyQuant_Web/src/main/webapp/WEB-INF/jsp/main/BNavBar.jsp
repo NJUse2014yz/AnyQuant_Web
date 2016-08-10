@@ -7,13 +7,15 @@
 		<link rel="stylesheet" type="text/css" media="screen and (min-width: 768px)" href="css/main/navBar-cool.css">
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	    <script src="js/jquery-3.1.0.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
 	</head>
 	
 	<body>
 		<div class="top">
 			<img alt="top" src="graphics/main/top.png">
 		</div>
-		<div class="container">
+		<div class="contain">
 			<ul class="menu">
 				<li id="home"><a href="/index.action">首页</a></li>
 				<li class="active"><a href="#s2">学习分区</a>

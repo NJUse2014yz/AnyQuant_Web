@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="css/main/foot.css">
 </head>
 <body>
-	<div id="foot">
+	<div class="foot">
 		<img alt="img" class="f" src="graphics/main/foot.png">
 		<img alt="img" class="sf" src="graphics/main/s-foot.png">
 	</div>

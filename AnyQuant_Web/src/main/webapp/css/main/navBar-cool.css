@@ -22,7 +22,7 @@ ol, ul {
 .top img{
 	margin-top:5px;
 }
-.container {
+.contain{
     width: 460px;
     height:35px;
     position:fixed;
@@ -31,7 +31,7 @@ ol, ul {
     min-width:460px;
 }
 @media (max-width: 800px){
-	.container {
+	.contain{
 		left:180px;
 	}
 }
@@ -41,6 +41,7 @@ ol, ul {
 }
 .menu {
     height: 35px;
+    
 }
 .menu li {
     background: -moz-linear-gradient(#292929, #252525);
@@ -111,7 +112,7 @@ ol, ul {
     max-height: 0;
     position: absolute;
     top: 100%;
-    z-index: 0;
+    z-index: 10;
 
     -webkit-perspective: 400px;
     -moz-perspective: 400px;
@@ -133,6 +134,7 @@ ol, ul {
     -ms-transition: opacity .4s, -ms-transform .5s;
     -o-transition: opacity .4s, -o-transform .5s;
     transition: opacity .4s, transform .5s;
+    z-index: 10;
 }
 
 .submenu li  a{
