@@ -1,12 +1,13 @@
 div.card{
-	position:absolute;
-	width:200px;
+	
+/* 	width:200px; */
 	height:100px;
 	top:110px;
 }
 
 div.pinkCard{
-	left:80px;
+/* 	left:80px; */
+	position:relative;
 	color: white;
 	border-top-right-radius:10px; 
 	border-top-left-radius:10px; 
@@ -16,8 +17,9 @@ div.pinkCard{
 }
 
 div.greenCard{
-	left:330px;
+/* 	left:330px; */
 	color:white;
+	position:relative;
 	background-color: #16a085;
 	border-top-right-radius:10px; 
 	border-top-left-radius:10px; 
@@ -26,7 +28,7 @@ div.greenCard{
 }
 
 div.blueCard{
-	left:580px;/*segment is 40px*/
+/* 	left:580px;segment is 40px */
 	color:white;
 	border-top-right-radius:10px; 
 	border-top-left-radius:10px; 
@@ -39,7 +41,7 @@ div.blueCard{
 
 
 div.grayCard{
-	left:830px;
+/* 	left:830px; */
 	color:white;
 	background-color: #3f4e62;
 	border-top-right-radius:10px; 
@@ -49,7 +51,7 @@ div.grayCard{
 }
 
 div.orangeCard{
-	left:1080px;
+/* 	left:1080px; */
 	color:white;
 	background-color: #1693a5;
 	border-top-right-radius:10px; 
@@ -62,7 +64,7 @@ div.orangeCard{
 	font-size: 20px;
     color: rgba(255, 255, 255, 0.5);
     font-weight: 400;
-    position:absolute;
+
     top:20px;
     left:90px;
 }
@@ -70,7 +72,7 @@ div.orangeCard{
 .card h2{
 	font-family: "Roboto", "Arial", sans-serif;
     font-weight: 350;
-    position:absolute;
+
     font-size:35px;
     color:white;
     border:none;
@@ -79,7 +81,7 @@ div.orangeCard{
 }
 
 .card img{
-	position:absolute;
+
 	top:13px;
 	left:13px;
 	width:75px;

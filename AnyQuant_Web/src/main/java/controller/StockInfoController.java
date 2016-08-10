@@ -10,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * 单支股票页面
  * @author 周聪
- * 2016年5月22日
  */
 @Controller
 public class StockInfoController {
