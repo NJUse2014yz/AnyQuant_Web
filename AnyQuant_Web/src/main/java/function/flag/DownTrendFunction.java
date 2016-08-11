@@ -5,13 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tool.ListTool;
+import function.Flag;
 import function.Function;
 import function.FunctionResult;
 import bl.TrendFlag;
 import bl.TrendPoint;
 import bl.TrendTool;
-
+/**下趋势判断*/
 public class DownTrendFunction extends Function{
+	public String function;
 	public String siid;
 	public String attribute;
 	public long start;
@@ -19,7 +21,7 @@ public class DownTrendFunction extends Function{
 	public double standard;
 	
 	public DownTrendFunction(TrendVO vo) {
-		this.function=DownTrendFunction.class;
+		this.function="DownTrend";
 		this.siid=vo.siid;
 		this.attribute=vo.attribute;
 		this.start=vo.start;
@@ -39,6 +41,13 @@ public class DownTrendFunction extends Function{
 		result.location.add(3);
 		result.rD=flag.downtrend;
 		return result;
+	}
+	
+	public String getFunction() {
+		return function;
+	}
+	public void setFunction(String function) {
+		this.function = function;
 	}
 	public String getSiid() {
 		return siid;

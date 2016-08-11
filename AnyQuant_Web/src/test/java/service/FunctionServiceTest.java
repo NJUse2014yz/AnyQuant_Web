@@ -11,11 +11,11 @@ import function.FunctionInfo;
 import service.impl.FunctionServiceImpl;
 
 public class FunctionServiceTest {
-	public static FunctionService instance=new FunctionServiceImpl();
-	public static void choose()
-	{
-		List<FunctionInfo> list=instance.choose(Choose.PAIR);
-		System.out.println(list);
-	}
+//	public static FunctionService instance=new FunctionServiceImpl();
+//	public static void choose()
+//	{
+//		List<FunctionInfo> list=instance.choose(Choose.PAIR);
+//		System.out.println(list);
+//	}
 	
 }

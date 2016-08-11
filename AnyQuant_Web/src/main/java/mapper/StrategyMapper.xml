@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.StrategyMapper">
+	<select id="insert" parameterType="Strategy">
+		insert into Strategy(userName,createrName,strategyName,stockList,choose,flag)
+		values(#{userName},#{createrName},#{strategyName},#{stockList},#{choose},#{flag})
+	</select>
+
+	<select id="selectStrategy" parameterType="StrategySearch" resultType="Strategy">
+		select * from Strategy where userName=#{userName} and createrName=#{createrName} and strategyName=#{strategyName}
+	</select>
+	<select id="selectSelf" parameterType="StrategySearch" resultType="Strategy">
+		select * from Strategy where userName=#{userName} and createrName=#{userName}
+	</select>
+	<select id="selectSave" parameterType="StrategySearch" resultType="Strategy">
+		select * from Strategy where userName=#{userName} and createrName!=userName
+	</select>
+</mapper>

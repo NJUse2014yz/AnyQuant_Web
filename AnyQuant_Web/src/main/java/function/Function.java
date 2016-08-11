@@ -1,7 +1,5 @@
 package function;
-
-
+/**所有的工具方法*/
 public abstract class Function {
-	public Class function=Function.class;
 	public abstract FunctionResult getResult();
 }

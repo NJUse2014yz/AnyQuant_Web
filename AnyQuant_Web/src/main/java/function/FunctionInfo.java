@@ -1,5 +1,5 @@
 package function;
-
+/**目前没有使用*/
 public class FunctionInfo {
 	/**参数名*/
 	public String name;

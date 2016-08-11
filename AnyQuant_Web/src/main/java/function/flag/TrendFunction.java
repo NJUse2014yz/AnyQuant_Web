@@ -4,14 +4,16 @@ import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
 
+import function.Flag;
 import function.Function;
 import function.FunctionResult;
 import bl.TrendFlag;
 import bl.TrendPoint;
 import bl.TrendTool;
 import tool.ListTool;
-
+/**趋势判断*/
 public class TrendFunction extends Function{
+	public String function;
 	public String siid;
 	public String attribute;
 	public long start;
@@ -20,7 +22,7 @@ public class TrendFunction extends Function{
 	
 	public TrendFunction(TrendVO vo)
 	{
-		this.function=TrendFunction.class;
+		this.function="Trend";
 		this.siid=vo.siid;
 		this.attribute=vo.attribute;
 		this.start=vo.start;
@@ -41,6 +43,14 @@ public class TrendFunction extends Function{
 		result.location.add(3);
 		result.rD=flag.trend;
 		return result;
+	}
+	
+	public String getFunction() {
+		return function;
+	}
+
+	public void setFunction(String function) {
+		this.function = function;
 	}
 
 	public String getSiid() {

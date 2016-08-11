@@ -10,8 +10,6 @@ import function.Function;
 import function.FunctionInfo;
 
 public interface FunctionService {
-	public List<FunctionInfo> choose(Choose choose);
-	public List<FunctionInfo> flag(Flag flag);
-	
-
+//	public List<FunctionInfo> choose(Choose choose);
+//	public List<FunctionInfo> flag(Flag flag);
 }

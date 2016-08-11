@@ -1,15 +1,17 @@
 package function.choose;
 
 import tool.ListTool;
+import function.Choose;
 import function.Function;
 import function.FunctionResult;
-
+/**配对选股方法*/
 public class PairFunction extends Function{
+	public String function;
 	public String siid;
 	public int num;
 	public PairFunction(PairVO vo)
 	{
-		this.function=PairFunction.class;
+		this.function="Pair";
 		this.siid=vo.siid;
 		this.num=vo.num;
 	}
@@ -21,7 +23,12 @@ public class PairFunction extends Function{
 		return result;
 	}
 	
-	
+	public String getFunction() {
+		return function;
+	}
+	public void setFunction(String function) {
+		this.function = function;
+	}
 	public String getSiid() {
 		return siid;
 	}

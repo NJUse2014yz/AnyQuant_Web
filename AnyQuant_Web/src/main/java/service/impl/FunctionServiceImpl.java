@@ -15,34 +15,34 @@ import function.FunctionInfo;
 
 public class FunctionServiceImpl implements FunctionService {
 
-	@Override
-	public List<FunctionInfo> choose(Choose choose) {
-		List<FunctionInfo> list=new ArrayList<FunctionInfo>();
-		switch(choose)
-		{
-		case PAIR:
-			list.add(new FunctionInfo("sid",String.class));
-			list.add(new FunctionInfo("num",int.class));
-			break;
-		}
-		return list;
-	}
-
-	@Override
-	public List<FunctionInfo> flag(Flag flag) {
-		List<FunctionInfo> list=new ArrayList<FunctionInfo>();
-		switch(flag)
-		{
-		case TREND:
-			list.add(new FunctionInfo("siid",String.class));
-			list.add(new FunctionInfo("attribute",String.class));
-			list.add(new FunctionInfo("start",Date.class));
-			list.add(new FunctionInfo("end",Date.class));
-			list.add(new FunctionInfo("standard",Double.class));
-			break;
-		}
-		return list;
-	}
+//	@Override
+//	public List<FunctionInfo> choose(Choose choose) {
+//		List<FunctionInfo> list=new ArrayList<FunctionInfo>();
+//		switch(choose)
+//		{
+//		case PAIR:
+//			list.add(new FunctionInfo("sid",String.class));
+//			list.add(new FunctionInfo("num",int.class));
+//			break;
+//		}
+//		return list;
+//	}
+//
+//	@Override
+//	public List<FunctionInfo> flag(Flag flag) {
+//		List<FunctionInfo> list=new ArrayList<FunctionInfo>();
+//		switch(flag)
+//		{
+//		case TREND:
+//			list.add(new FunctionInfo("siid",String.class));
+//			list.add(new FunctionInfo("attribute",String.class));
+//			list.add(new FunctionInfo("start",Date.class));
+//			list.add(new FunctionInfo("end",Date.class));
+//			list.add(new FunctionInfo("standard",Double.class));
+//			break;
+//		}
+//		return list;
+//	}
 
 
 }

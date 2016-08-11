@@ -6,10 +6,12 @@ import java.util.List;
 import bl.CrossResult;
 import bl.CrossTool;
 import tool.ListTool;
+import function.Flag;
 import function.Function;
 import function.FunctionResult;
-
+/**判断双线交叉方向方法*/
 public class CrossFunction extends Function {
+	public String function;
 	public String siid1;
 	public String attribute1;
 	public String siid2;
@@ -19,7 +21,7 @@ public class CrossFunction extends Function {
 	
 	public CrossFunction(CrossVO vo)
 	{
-		this.function=CrossFunction.class;
+		this.function="Cross";
 		this.siid1=vo.siid1;
 		this.attribute1=vo.attribute1;
 		this.siid2=vo.siid2;
@@ -36,6 +38,14 @@ public class CrossFunction extends Function {
 		result.location.add(2);
 		result.rI=crossResult.cross;
 		return result;
+	}
+	
+	
+	public String getFunction() {
+		return function;
+	}
+	public void setFunction(String function) {
+		this.function = function;
 	}
 	public String getSiid1() {
 		return siid1;
