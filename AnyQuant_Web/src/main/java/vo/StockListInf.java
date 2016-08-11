@@ -26,6 +26,19 @@ public class StockListInf {
 	public long amount;
 	/** 换手率 */
 	public double turnover;
+	
+	/**配对1*/
+	public String partner1;
+	/**系数1*/
+	public double coe1;
+	/**配对2*/
+	public String partner2;
+	/**系数2*/
+	public double coe2;
+	/**配对3*/
+	public String partner3;
+	/**系数3*/
+	public double coe3;
 
 	public StockListInf(String stockId, String date, double open, double close, double increase, double incrPer,
 			double low, double high, long volume, long amount, double turnover) {
@@ -153,4 +166,51 @@ public class StockListInf {
 		this.turnover = turnover;
 	}
 
+	public String getPartner1() {
+		return partner1;
+	}
+
+	public void setPartner1(String partner1) {
+		this.partner1 = partner1;
+	}
+
+	public double getCoe1() {
+		return coe1;
+	}
+
+	public void setCoe1(double coe1) {
+		this.coe1 = coe1;
+	}
+
+	public String getPartner2() {
+		return partner2;
+	}
+
+	public void setPartner2(String partner2) {
+		this.partner2 = partner2;
+	}
+
+	public double getCoe2() {
+		return coe2;
+	}
+
+	public void setCoe2(double coe2) {
+		this.coe2 = coe2;
+	}
+
+	public String getPartner3() {
+		return partner3;
+	}
+
+	public void setPartner3(String partner3) {
+		this.partner3 = partner3;
+	}
+
+	public double getCoe3() {
+		return coe3;
+	}
+
+	public void setCoe3(double coe3) {
+		this.coe3 = coe3;
+	}
 }

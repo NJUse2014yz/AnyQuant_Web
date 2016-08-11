@@ -5,45 +5,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mapper.StockInfMapper">
 	<select id="countStockInf" resultType="int">
-		select count(*) from anyquant.stockinf
+		select count(*) from StockInf
 	</select>
 	<select id="selectStockInf_e_id" parameterType="int" resultType="StockInf">
-		select * from anyquant.stockinf
+		select * from StockInf
 		where id = #{value}
 	</select>
 	<select id="selectStockInf_e_sid" parameterType="String" resultType="StockInf">
-		select * from anyquant.stockinf
+		select * from StockInf
 		where sid = #{value}
 	</select>
 	<select id="selectStockInf_e_sname" parameterType="String" resultType="StockInf">
-		select * from anyquant.stockinf
+		select * from StockInf
 		where sname = #{value}
 	</select>
 	<select id="selectStockInf_ge_id" parameterType="int" resultType="StockInf">
-		select * from anyquant.stockinf
+		select * from StockInf
 		where id &gt;= #{value}
 		order by id
 	</select>
 	<select id="selectStockInf_le_id" parameterType="int" resultType="StockInf">
-		select * from anyquant.stockinf
+		select * from StockInf
 		where id &lt;= #{value}
 		order by id
 	</select>
 	<select id="selectStockInf_g_id" parameterType="int" resultType="StockInf">
-		select * from anyquant.stockinf
+		select * from StockInf
 		where id &gt; #{value}
 		order by id
 	</select>
 	<select id="selectStockInf_l_id" parameterType="int" resultType="StockInf">
-		select * from anyquant.stockinf
+		select * from StockInf
 		where id &lt; #{value}
 		order by id
 	</select>
 	<select id="selectStockInf_all" resultType="StockInf">
-		select * from anyquant.stockinf
+		select * from StockInf
 		order by id
 	</select>
 	<select id="selectStockInf_sid" resultType="String">
-		select sid from anyquant.stockinf
+		select sid from StockInf
 	</select>
 </mapper>

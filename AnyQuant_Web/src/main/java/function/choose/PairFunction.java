@@ -1,17 +1,17 @@
 package function.choose;
 
 import tool.ListTool;
-import bl.PairStrategy;
 import function.Function;
 import function.FunctionResult;
 
-public class PairFunction implements Function{
+public class PairFunction extends Function{
 	public String siid;
 	public int num;
-	public PairFunction(String siid,int num)
+	public PairFunction(PairVO vo)
 	{
-		this.siid=siid;
-		this.num=num;
+		this.function=PairFunction.class;
+		this.siid=vo.siid;
+		this.num=vo.num;
 	}
 	@Override
 	public FunctionResult getResult() {
@@ -20,5 +20,22 @@ public class PairFunction implements Function{
 		result.rLS=new ListTool().getPair(siid, num);
 		return result;
 	}
-
+	
+	
+	public String getSiid() {
+		return siid;
+	}
+	public void setSiid(String siid) {
+		this.siid = siid;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	@Override
+	public String toString() {
+		return "PairFunction [siid=" + siid + ", num=" + num + "]";
+	}
 }

@@ -70,47 +70,47 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="selectOpen_b_date" parameterType="DatePack" resultType="Double">
-		select open from historyData_${siid}
+		select open from HistoryData_${siid}
 		where date &gt;= #{date1} and date &lt;= #{date2}
 		order by id
 	</select>
 	<select id="selectClose_b_date" parameterType="DatePack" resultType="Double">
-		select close from historyData_${siid}
+		select close from HistoryData_${siid}
 		where date &gt;= #{date1} and date &lt;= #{date2}
 		order by id
 	</select>
 	<select id="selectIncrease_b_date" parameterType="DatePack" resultType="Double">
-		select increase from historyData_${siid}
+		select increase from HistoryData_${siid}
 		where date &gt;= #{date1} and date &lt;= #{date2}
 		order by id
 	</select>
 	<select id="selectIncrPer_b_date" parameterType="DatePack" resultType="Double">
-		select incrPer from historyData_${siid}
+		select incrPer from HistoryData_${siid}
 		where date &gt;= #{date1} and date &lt;= #{date2}
 		order by id
 	</select>
 	<select id="selectLow_b_date" parameterType="DatePack" resultType="Double">
-		select low from historyData_${siid}
+		select low from HistoryData_${siid}
 		where date &gt;= #{date1} and date &lt;= #{date2}
 		order by id
 	</select>
 	<select id="selectHigh_b_date" parameterType="DatePack" resultType="Double">
-		select high from historyData_${siid}
+		select high from HistoryData_${siid}
 		where date &gt;= #{date1} and date &lt;= #{date2}
 		order by id
 	</select>
 	<select id="selectVolume_b_date" parameterType="DatePack" resultType="Double">
-		select volume from historyData_${siid}
+		select volume from HistoryData_${siid}
 		where date &gt;= #{date1} and date &lt;= #{date2}
 		order by id
 	</select>
 	<select id="selectAmount_b_date" parameterType="DatePack" resultType="Double">
-		select amount from historyData_${siid}
+		select amount from HistoryData_${siid}
 		where date &gt;= #{date1} and date &lt;= #{date2}
 		order by id
 	</select>
 	<select id="selectTurnover_b_date" parameterType="DatePack" resultType="Double">
-		select turnover from historyData_${siid}
+		select turnover from HistoryData_${siid}
 		where date &gt;= #{date1} and date &lt;= #{date2}
 		order by id
 	</select>

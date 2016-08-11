@@ -1,6 +1,7 @@
 package function;
 
 
-public interface Function {
-	public FunctionResult getResult();
+public abstract class Function {
+	public Class function=Function.class;
+	public abstract FunctionResult getResult();
 }

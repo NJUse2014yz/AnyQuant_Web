@@ -1,41 +1,21 @@
 package function.flag;
 
-import java.sql.Date;
-import java.util.List;
-
-import bl.CrossResult;
-import bl.CrossTool;
-import tool.ListTool;
-import function.Function;
-import function.FunctionResult;
-
-public class CrossFunction extends Function {
+public class CrossVO {
 	public String siid1;
 	public String attribute1;
 	public String siid2;
 	public String attribute2;
 	public long start;
 	public long end;
-	
-	public CrossFunction(CrossVO vo)
-	{
-		this.function=CrossFunction.class;
-		this.siid1=vo.siid1;
-		this.attribute1=vo.attribute1;
-		this.siid2=vo.siid2;
-		this.attribute2=vo.attribute2;
-		this.start=vo.start;
-		this.end=vo.end;
-	}
-	@Override
-	public FunctionResult getResult() {
-		List<Double> activelist=new ListTool().getList(siid1,attribute1,new Date(start),new Date(end));
-		List<Double> passivelist=new ListTool().getList(siid2,attribute2,new Date(start),new Date(end));
-		CrossResult crossResult=new CrossTool(activelist,passivelist).cross();
-		FunctionResult result=new FunctionResult();
-		result.location.add(2);
-		result.rI=crossResult.cross;
-		return result;
+	public CrossVO(String siid1, String attribute1, String siid2,
+			String attribute2, long start, long end) {
+		super();
+		this.siid1 = siid1;
+		this.attribute1 = attribute1;
+		this.siid2 = siid2;
+		this.attribute2 = attribute2;
+		this.start = start;
+		this.end = end;
 	}
 	public String getSiid1() {
 		return siid1;
@@ -75,7 +55,7 @@ public class CrossFunction extends Function {
 	}
 	@Override
 	public String toString() {
-		return "CrossFunction [siid1=" + siid1 + ", attribute1=" + attribute1
+		return "CrossVO [siid1=" + siid1 + ", attribute1=" + attribute1
 				+ ", siid2=" + siid2 + ", attribute2=" + attribute2
 				+ ", start=" + start + ", end=" + end + "]";
 	}
