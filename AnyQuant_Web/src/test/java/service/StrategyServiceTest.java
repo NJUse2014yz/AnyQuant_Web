@@ -31,7 +31,7 @@ public class StrategyServiceTest {
 		String siid="sh600004";
 		
 		//userName
-		String userName="u2";
+		String userName="u1";
 		String createrName="u1";
 		//strategyName
 		String strategyName="s1";
@@ -140,7 +140,8 @@ public class StrategyServiceTest {
 	public static void main(String[] args)
 	{
 //		StrategyServiceTest.makeStrategy();
+		StrategyServiceTest.getStrategy();
 //		StrategyServiceTest.getSelfStrategy();
-		StrategyServiceTest.getSaveStrategy();
+//		StrategyServiceTest.getSaveStrategy();
 	}
 }
