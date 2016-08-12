@@ -26,7 +26,7 @@
 
 				<div class="form-group">
 
-					<input type="text" placeholder="用户名" required/>
+					<input id="userName" type="text" placeholder="用户名" required/>
 
 					<span class="error-notic">用户名不存在</span>
 
@@ -34,7 +34,7 @@
 
 				<div class="form-group">
 
-					<input type="password" placeholder="密码" required/>
+					<input id="password" type="password" placeholder="密码" required/>
 
 					<span class="error-notic">密码不正确</span>
 
@@ -44,7 +44,7 @@
 
 					<button type="submit" class="tran pr">
 
-						<a href="/AnyQuant_Web/login.action" class="tran">登录</a>
+						<a id="login" class="tran">登录</a>
 
 						<img class="loading" src="images/loading.gif" style="display:block">
 
@@ -136,11 +136,54 @@
 	</div>
 
 	<script>
-
+		
+		function verifyPassword(){
+		    var userName=$("#userName").val();
+		    var password=$("#password").val();
+		    $.ajax({
+				type:'post',
+				url:'${pageContext.request.contextPath}/verifyPassword.action',
+				data:'userName='+userName+'&password='+password,
+				success:function(isValid){
+				    if(!isValid){
+						showNotic("#password");
+						return;
+				    }
+				    hideNotic("#password");
+						
+				}
+		    });
+		}
+	
 		var _handle='';//储存电话是否填写正确
 
 		$(function(){
 
+		    //登录按钮
+		    $("a#login").on("click",function(){
+				var userName=$("#userName").val();
+				var password=$("#password").val();
+				
+				if(userName==null||password==null)
+				    return;
+				//先验证用户名是否存在
+				$.ajax({
+					type:'post',
+					url:'${pageContext.request.contextPath}/isUserNameExists.action',
+					data:'userName='+userName,
+					success:function(isExists){
+					    if(!isExists){
+							showNotic("#userName");
+							return;
+					    }
+					    else
+							hideNotic("#userName");
+						//验证密码是否正确
+					}
+				
+		    	});
+			 });
+		    
 			$(".signup-form input").on("focus",function(){
 
 				$(this).parent().addClass("border");
@@ -251,7 +294,7 @@
 
 			$(_this).parents(".form-group").find(".error-notic").fadeIn(100);
 
-            $(_this).focus();
+            
 
 		}//错误提示显示
 

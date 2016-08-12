@@ -50,10 +50,10 @@
 			<!--未登陆的界面 -->
 			<ul class="unlogin">
 				<li class="header-signup">
-                    <a href="/askForRegister.action">注册</a>
+                    <a href="/AnyQuant_web/askForRegister.action">注册</a>
                 </li>	
 				<li class="header-signin">
-                    <a class="login" href="/askForLogin.action">登录</a>
+                    <a class="login" href="/AnyQuant_web/askForLogin.action">登录</a>
                 </li>			
 			</ul>
 		</div>

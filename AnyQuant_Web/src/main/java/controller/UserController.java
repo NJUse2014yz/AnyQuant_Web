@@ -17,50 +17,64 @@ import tool.CookieHelper;
 public class UserController {
 	@Autowired
 	public UserService userService;
+	
+	
+	/**
+	 * 进入登录界面
+	 * 2016年8月12日
+	 */
 	@RequestMapping("/askForLogin")
 	public ModelAndView askForLogin(HttpServletRequest request) {
 		ModelAndView modelAndView = new ModelAndView();
 
 		modelAndView.setViewName("user/login");
 
-		String userName = CookieHelper.getCookie(request, CookieHelper.USER_NAME);
-		
-		modelAndView.addObject(CookieHelper.USER_NAME, userName);
-		
-
 		return modelAndView;
 	}
 
+	/**
+	 * 验证用户密码是否正确
+	 * 2016年8月12日
+	 */
+	@RequestMapping("/verifyPassword")
+	public @ResponseBody Boolean verifyPassword(String userName, String password) {
+
+		boolean isValid = true;
+		
+		return isValid;
+	}
+	
+	/**
+	 * 验证用户名是否存在
+	 */
+	@RequestMapping("/isUserNameExists")
+	public @ResponseBody Boolean isUserNameExists(String userName){
+		boolean isExists = true;
+		System.out.println("userName:"+userName);
+		return isExists;
+	}
+	
+	/**
+	 * 登录
+	 * 保存用户登录状态，跳转到首页
+	 * 2016年8月12日
+	 */
 	@RequestMapping("/login")
-	public ModelAndView login(String userName, String password, String rememberMe, HttpServletRequest request,
+	public ModelAndView login(String userName, String password,HttpServletRequest request,
 			HttpServletResponse response) {
 
 		ModelAndView modelAndView = new ModelAndView();
 
 		boolean isValid = true;
-		CookieHelper.addCookie(CookieHelper.USER_NAME, userName, response, request);
+		
 		if (isValid) {
-			if (rememberMe != null) {
-				// 重新登录并且要求保存密码
-				CookieHelper.addCookie(CookieHelper.PASSWORD, password, response, request);
-
-			} else {
-				// 重新登录并且要求不保存密码
-				CookieHelper.deleteCookie(CookieHelper.PASSWORD, request, response);
-			}
-
-			// TODO 返回首页
-			modelAndView.setViewName("main/index");
-			return modelAndView;
+			CookieHelper.addCookie(CookieHelper.USER_NAME, userName, response, request);
 		}
-
-		// 用户名不正确
-		modelAndView.setViewName("user/login");
-		modelAndView.addObject("loginResult", "fail");
-
+		
+		modelAndView.setViewName("main/index");
 		return modelAndView;
 	}
-
+	
 	@RequestMapping("/register")
 	public ModelAndView register(String userName,String password,String qq,String email,String mobile) {
 		ModelAndView modelAndView=new ModelAndView();
