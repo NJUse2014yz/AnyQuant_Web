@@ -1,8 +1,11 @@
-package vo;
+package function.choose;
 
 public class ChooseStock {
+	/**股票代码*/
 	public String siid;
+	/**该股占比*/
 	public double percent;
+	
 	public ChooseStock(String siid, double percent) {
 		super();
 		this.siid = siid;

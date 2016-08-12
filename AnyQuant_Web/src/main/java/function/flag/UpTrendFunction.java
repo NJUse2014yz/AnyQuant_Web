@@ -12,12 +12,22 @@ import bl.TrendFlag;
 import bl.TrendPoint;
 import bl.TrendTool;
 /**上趋势判断*/
-public class UpTrendFunction extends Function{
+public class UpTrendFunction implements Function{
+	/**方法名*/
 	public String function;
+	/**方法结果的上界*/
+	public FunctionResult resultUp;
+	/**方法结果的下界*/
+	public FunctionResult resultDown;
+	/**股票代码*/
 	public String siid;
+	/**数据属性，具体见ListTool的switch中*/
 	public String attribute;
+	/**数据开始日期的毫秒数*/
 	public long start;
+	/**数据截止日期的毫秒数*/
 	public long end;
+	/**数据标准值，一般取该数据最近一段时间取值的平均数*/
 	public double standard;
 	
 	public UpTrendFunction(TrendVO vo) 
@@ -28,6 +38,8 @@ public class UpTrendFunction extends Function{
 		this.start=vo.start;
 		this.end=vo.end;
 		this.standard=vo.standard;
+		this.resultUp=vo.resultUp;
+		this.resultDown=vo.resultDown;
 	}
 	public FunctionResult getResult()
 	{
@@ -49,6 +61,18 @@ public class UpTrendFunction extends Function{
 	}
 	public void setFunction(String function) {
 		this.function = function;
+	}
+	public FunctionResult getResultUp() {
+		return resultUp;
+	}
+	public void setResultUp(FunctionResult resultUp) {
+		this.resultUp = resultUp;
+	}
+	public FunctionResult getResultDown() {
+		return resultDown;
+	}
+	public void setResultDown(FunctionResult resultDown) {
+		this.resultDown = resultDown;
 	}
 	public String getSiid() {
 		return siid;
@@ -82,9 +106,9 @@ public class UpTrendFunction extends Function{
 	}
 	@Override
 	public String toString() {
-		return "UpTrendFunction [siid=" + siid + ", attribute=" + attribute
-				+ ", start=" + start + ", end=" + end + ", standard="
-				+ standard + "]";
+		return "UpTrendFunction [function=" + function + ", resultUp="
+				+ resultUp + ", resultDown=" + resultDown + ", siid=" + siid
+				+ ", attribute=" + attribute + ", start=" + start + ", end="
+				+ end + ", standard=" + standard + "]";
 	}
-
 }

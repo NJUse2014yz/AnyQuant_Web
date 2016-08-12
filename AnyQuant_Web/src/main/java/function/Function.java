@@ -1,5 +1,5 @@
 package function;
-/**所有的工具方法*/
-public abstract class Function {
+/**所有的工具方法的接口*/
+public interface Function {
 	public abstract FunctionResult getResult();
 }

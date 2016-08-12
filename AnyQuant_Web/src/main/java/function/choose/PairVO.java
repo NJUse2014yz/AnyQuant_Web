@@ -1,8 +1,11 @@
 package function.choose;
 
 public class PairVO {
+	/**主动配对的股票代码*/
 	public String siid;
+	/**配对股票数（1或2或3）*/
 	public int num;
+	
 	public PairVO(String siid, int num) {
 		super();
 		this.siid = siid;

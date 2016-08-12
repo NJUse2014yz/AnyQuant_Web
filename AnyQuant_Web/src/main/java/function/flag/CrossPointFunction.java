@@ -10,13 +10,24 @@ import function.Flag;
 import function.Function;
 import function.FunctionResult;
 /**判断双线交叉点方法*/
-public class CrossPointFunction extends Function{
+public class CrossPointFunction implements Function{
+	/**方法名*/
 	public String function;
+	/**方法结果的上界*/
+	public FunctionResult resultUp;
+	/**方法结果的下界*/
+	public FunctionResult resultDown;
+	/**主动交叉股票代码*/
 	public String siid1;
+	/**主动数据属性，具体见ListTool的switch中*/
 	public String attribute1;
+	/**被动交叉股票代码*/
 	public String siid2;
+	/**被动数据属性*/
 	public String attribute2;
+	/**数据开始日期的毫秒数*/
 	public long start;
+	/**数据截止日期的毫秒数*/
 	public long end;
 	
 	public CrossPointFunction(CrossVO vo)
@@ -28,6 +39,8 @@ public class CrossPointFunction extends Function{
 		this.attribute2=vo.attribute2;
 		this.start=vo.start;
 		this.end=vo.end;
+		this.resultUp=vo.resultUp;
+		this.resultDown=vo.resultDown;
 	}
 	@Override
 	public FunctionResult getResult() {
@@ -45,6 +58,18 @@ public class CrossPointFunction extends Function{
 	}
 	public void setFunction(String function) {
 		this.function = function;
+	}
+	public FunctionResult getResultUp() {
+		return resultUp;
+	}
+	public void setResultUp(FunctionResult resultUp) {
+		this.resultUp = resultUp;
+	}
+	public FunctionResult getResultDown() {
+		return resultDown;
+	}
+	public void setResultDown(FunctionResult resultDown) {
+		this.resultDown = resultDown;
 	}
 	public String getSiid1() {
 		return siid1;
@@ -84,9 +109,10 @@ public class CrossPointFunction extends Function{
 	}
 	@Override
 	public String toString() {
-		return "CrossPointFunction [siid1=" + siid1 + ", attribute1="
-				+ attribute1 + ", siid2=" + siid2 + ", attribute2="
-				+ attribute2 + ", start=" + start + ", end=" + end + "]";
+		return "CrossPointFunction [function=" + function + ", resultUp="
+				+ resultUp + ", resultDown=" + resultDown + ", siid1=" + siid1
+				+ ", attribute1=" + attribute1 + ", siid2=" + siid2
+				+ ", attribute2=" + attribute2 + ", start=" + start + ", end="
+				+ end + "]";
 	}
-	
 }

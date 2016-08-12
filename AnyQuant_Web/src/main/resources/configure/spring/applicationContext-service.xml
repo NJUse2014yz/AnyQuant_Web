@@ -16,4 +16,5 @@
 
 	<bean id="UserService" class="service.impl.UserServiceImpl"/>
 	<bean id="StockDataService" class="service.impl.StockDataServiceImpl"/>
+	<bean id="StrategyService" class="service.impl.StrategyServiceImpl"/>
 </beans>

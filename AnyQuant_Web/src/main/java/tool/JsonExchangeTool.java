@@ -20,6 +20,7 @@ import com.fasterxml.jackson.databind.AnnotationIntrospector.Pair;
 import function.Choose;
 import function.Flag;
 import function.Function;
+import function.choose.ChooseStock;
 import function.choose.PairFunction;
 import function.choose.PairVO;
 import function.flag.TrendFunction;
@@ -31,7 +32,6 @@ import po.ConceptInf;
 import po.HistoryData;
 import po.IndustryInf;
 import po.StockInf;
-import vo.ChooseStock;
 import vo.StockPair;
 
 public class JsonExchangeTool {
