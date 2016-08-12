@@ -25,9 +25,10 @@ public class UserInfMapperTest {
 	public void select()
 	{
 		try {
-			System.out.println(userInfMapper.select("u2") instanceof UserInf);
+			System.out.println(userInfMapper.select("u7"));
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("JJJJJJHHHHHHHHH");
 		}
 	}
 	public void modifyUserName()

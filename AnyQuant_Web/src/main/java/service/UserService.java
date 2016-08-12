@@ -2,6 +2,8 @@ package service;
 
 
 public interface UserService {
+	//查询用户名是否存在
+	public boolean UserNameExists(String Userid)throws Exception;
 	//增加用户账户
 	public void addUser(String Userid,String password) throws Exception;
 	//登录

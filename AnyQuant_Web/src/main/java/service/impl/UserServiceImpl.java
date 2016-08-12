@@ -22,6 +22,21 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public boolean UserNameExists(String Userid) throws Exception {
+		UserInf userInf = null;
+		try {
+			userInf = userInfMapper.select(Userid);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		if(userInf==null){
+			return false;
+		}
+		return true;
+	}
+	
+	@Override
 	// 增加用户账户
 	public void addUser(String Userid, String password) {
 		UserInf userInf = new UserInf(Userid, password);
@@ -39,7 +54,10 @@ public class UserServiceImpl implements UserService {
 		try {
 			userInf = userInfMapper.select(Userid);
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
+			return false;
+		}
+		if(userInf==null){
 			return false;
 		}
 		if (userInf.getPassword().equals(password)) {
@@ -101,6 +119,10 @@ public class UserServiceImpl implements UserService {
 	
 	public static void main(String[] args) throws Exception {
 		UserServiceImpl user=new UserServiceImpl();
-		user.modifyScore("u4",1000);
-	}
+//		user.modifyScore("u4",1000);
+//		System.out.println(user.UserNameExists("u2"));
+		System.out.println(user.LoginUser("u7","77777"));
+		}
+
+	
 }
