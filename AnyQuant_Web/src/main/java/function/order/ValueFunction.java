@@ -3,24 +3,26 @@ package function.order;
 import function.Function;
 import function.FunctionResult;
 /**指定交易价值订单*/
-public class ValueFunction implements Function{
-	public String function;
+public class ValueFunction extends Function{
+//	public String function;
 	/**买入1，卖出-1*/
 	public int order;
 	public String siid;
 	public double value;
 	
-	public ValueFunction(){}
+	public ValueFunction(){
+		this.function="Value";
+	}
 	public ValueFunction(String function, int order, String siid, double value) {
 		super();
-		this.function = function;
+		this.function="Value";
 		this.order = order;
 		this.siid = siid;
 		this.value = value;
 	}
 	public ValueFunction(ValueVO vo)
 	{
-		function="Percent";
+		this.function="Value";
 		this.order=vo.order;
 		this.siid=vo.siid;
 		this.value=vo.value;
@@ -35,12 +37,12 @@ public class ValueFunction implements Function{
 		return result;
 	}
 	
-	public String getFunction() {
-		return function;
-	}
-	public void setFunction(String function) {
-		this.function = function;
-	}
+//	public String getFunction() {
+//		return function;
+//	}
+//	public void setFunction(String function) {
+//		this.function = function;
+//	}
 	public int getOrder() {
 		return order;
 	}

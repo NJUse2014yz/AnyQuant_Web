@@ -5,9 +5,9 @@ import function.Choose;
 import function.Function;
 import function.FunctionResult;
 /**配对选股方法*/
-public class PairFunction implements Function{
-	/**方法名*/
-	public String function;
+public class PairFunction extends Function{
+//	/**方法名*/
+//	public String function;
 	/**主动配对的股票代码*/
 	public String siid;
 	/**配对股票数（1或2或3）*/
@@ -27,12 +27,12 @@ public class PairFunction implements Function{
 		return result;
 	}
 	
-	public String getFunction() {
-		return function;
-	}
-	public void setFunction(String function) {
-		this.function = function;
-	}
+//	public String getFunction() {
+//		return function;
+//	}
+//	public void setFunction(String function) {
+//		this.function = function;
+//	}
 	public String getSiid() {
 		return siid;
 	}

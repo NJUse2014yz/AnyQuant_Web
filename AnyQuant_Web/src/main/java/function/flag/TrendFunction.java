@@ -12,9 +12,9 @@ import function.tool.TrendPoint;
 import function.tool.TrendTool;
 import tool.ListTool;
 /**趋势判断*/
-public class TrendFunction implements Function{
-	/**方法名*/
-	public String function;
+public class TrendFunction extends Function{
+//	/**方法名*/
+//	public String function;
 	/**方法结果的上界*/
 	public FunctionResult resultUp;
 	/**方法结果的下界*/
@@ -57,13 +57,13 @@ public class TrendFunction implements Function{
 		return result;
 	}
 	
-	public String getFunction() {
-		return function;
-	}
-
-	public void setFunction(String function) {
-		this.function = function;
-	}
+//	public String getFunction() {
+//		return function;
+//	}
+//
+//	public void setFunction(String function) {
+//		this.function = function;
+//	}
 	public FunctionResult getResultUp() {
 		return resultUp;
 	}

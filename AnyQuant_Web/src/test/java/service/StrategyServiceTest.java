@@ -64,8 +64,8 @@ public class StrategyServiceTest {
 		}
 		String partner=stockInf.getPartner1();
 		List<ChooseStock> stockList=new ArrayList<ChooseStock>();
-		stockList.add(new ChooseStock(siid,50.5));
-		stockList.add(new ChooseStock(partner,49.5));
+		stockList.add(new ChooseStock(siid,0.505));
+		stockList.add(new ChooseStock(partner,0.495));
 		//flag
 		String attribute="close";
 		Date start=new Date(2015-1900,0,1);
@@ -83,7 +83,7 @@ public class StrategyServiceTest {
 		flag.add(trend);
 		ShareFunction share=new ShareFunction();
 		
-		Strategy strategy=new Strategy(userName,createrName,strategyName,JSONArray.fromObject(stockList).toString(),JSONArray.fromObject(choose).toString(),JSONArray.fromObject(flag).toString(),JSONObject.fromObject(share).toString());
+		Strategy strategy=new Strategy(userName,createrName,strategyName,JSONObject.fromObject(share).toString(),JSONArray.fromObject(stockList).toString(),JSONArray.fromObject(choose).toString(),JSONArray.fromObject(flag).toString());
 		instance.makeStrategy(strategy);
 	}
 	public static void getStrategy()
@@ -142,8 +142,8 @@ public class StrategyServiceTest {
 	}
 	public static void main(String[] args)
 	{
-//		StrategyServiceTest.makeStrategy();
-		StrategyServiceTest.getStrategy();
+		StrategyServiceTest.makeStrategy();
+//		StrategyServiceTest.getStrategy();
 //		StrategyServiceTest.getSelfStrategy();
 //		StrategyServiceTest.getSaveStrategy();
 	}

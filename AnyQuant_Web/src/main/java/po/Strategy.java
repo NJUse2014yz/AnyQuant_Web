@@ -7,19 +7,19 @@ public class Strategy {
 	public String createrName;
 	/**策略名*/
 	public String strategyName;
+	/**订单类型*/
+	public String orderType;
 	/**选股列表List<ChooseStock>的Json*/
 	public String stockList;
 	/**选股方法列表List<Function>的Json*/
 	public String choose;
 	/**出入场标志列表List<Function>的Json*/
 	public String flag;
-	/**订单类型*/
-	public String order;
 
 	public Strategy(){}
 
 	public Strategy(String userName, String createrName, String strategyName,
-			String stockList, String choose, String flag, String order) {
+			String orderType,String stockList, String choose, String flag) {
 		super();
 		this.userName = userName;
 		this.createrName = createrName;
@@ -27,7 +27,7 @@ public class Strategy {
 		this.stockList = stockList;
 		this.choose = choose;
 		this.flag = flag;
-		this.order = order;
+		this.orderType = orderType;
 	}
 
 	public String getUserName() {
@@ -78,12 +78,12 @@ public class Strategy {
 		this.flag = flag;
 	}
 
-	public String getOrder() {
-		return order;
+	public String getOrderType() {
+		return orderType;
 	}
 
-	public void setOrder(String order) {
-		this.order = order;
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
 	}
 
 	@Override
@@ -91,6 +91,6 @@ public class Strategy {
 		return "Strategy [userName=" + userName + ", createrName="
 				+ createrName + ", strategyName=" + strategyName
 				+ ", stockList=" + stockList + ", choose=" + choose + ", flag="
-				+ flag + ", order=" + order + "]";
+				+ flag + ", order=" + orderType + "]";
 	}
 }

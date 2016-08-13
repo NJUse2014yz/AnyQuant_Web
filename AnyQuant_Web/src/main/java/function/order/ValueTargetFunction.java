@@ -3,21 +3,23 @@ package function.order;
 import function.Function;
 import function.FunctionResult;
 /**指定持仓价值订单*/
-public class ValueTargetFunction implements Function{
-	public String function;
+public class ValueTargetFunction extends Function{
+//	public String function;
 	public String siid;
 	public double value;
 	
-	public ValueTargetFunction(){}
+	public ValueTargetFunction(){
+		this.function="ValueTarget";
+	}
 	public ValueTargetFunction(String function, String siid, double value) {
 		super();
-		this.function = function;
+		this.function="ValueTarget";
 		this.siid = siid;
 		this.value = value;
 	}
 	public ValueTargetFunction(ValueVO vo)
 	{
-		function="Percent";
+		this.function="ValueTarget";
 		this.siid=vo.siid;
 		this.value=vo.value;
 	}
@@ -30,12 +32,12 @@ public class ValueTargetFunction implements Function{
 		result.rS=siid;
 		return result;
 	}
-	public String getFunction() {
-		return function;
-	}
-	public void setFunction(String function) {
-		this.function = function;
-	}
+//	public String getFunction() {
+//		return function;
+//	}
+//	public void setFunction(String function) {
+//		this.function = function;
+//	}
 	public String getSiid() {
 		return siid;
 	}

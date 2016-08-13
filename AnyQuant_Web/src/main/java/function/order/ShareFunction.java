@@ -3,24 +3,27 @@ package function.order;
 import function.Function;
 import function.FunctionResult;
 /**指定交易股数订单*/
-public class ShareFunction implements Function{
-	public String function;
+public class ShareFunction extends Function{
+//	public String function;
 	/**买入1，卖出-1*/
 	public int order;
 	public String siid;
 	public int share;
 	
-	public ShareFunction(){}
-	public ShareFunction(String function, int order, String siid, int share) {
+	public ShareFunction(){
 		super();
-		this.function = function;
+		this.function = "Share";
+	}
+	public ShareFunction(int order, String siid, int share) {
+		super();
+		this.function = "Share";
 		this.order = order;
 		this.siid = siid;
 		this.share = share;
 	}
 	public ShareFunction(ShareVO vo)
 	{
-		function="Percent";
+		function="Share";
 		this.order=vo.order;
 		this.siid=vo.siid;
 		this.share=vo.share;
@@ -33,6 +36,31 @@ public class ShareFunction implements Function{
 		result.rD=share;
 		result.rS=siid;
 		return result;
+	}
+	
+//	public String getFunction() {
+//		return function;
+//	}
+//	public void setFunction(String function) {
+//		this.function = function;
+//	}
+	public int getOrder() {
+		return order;
+	}
+	public void setOrder(int order) {
+		this.order = order;
+	}
+	public String getSiid() {
+		return siid;
+	}
+	public void setSiid(String siid) {
+		this.siid = siid;
+	}
+	public int getShare() {
+		return share;
+	}
+	public void setShare(int share) {
+		this.share = share;
 	}
 	@Override
 	public String toString() {

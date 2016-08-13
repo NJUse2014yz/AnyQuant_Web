@@ -3,22 +3,24 @@ package function.order;
 import function.Function;
 import function.FunctionResult;
 /**指定仓位股数订单*/
-public class ShareTargetFunction implements Function{
-	public String function;
+public class ShareTargetFunction extends Function{
+//	public String function;
 	public String siid;
 	public int share;
 	
-	public ShareTargetFunction(){}
+	public ShareTargetFunction(){
+		this.function="ShareTarget";
+	}
 	public ShareTargetFunction(ShareVO vo)
 	{
-		function="ShareTarget";
+		this.function="ShareTarget";
 		this.siid=vo.siid;
 		this.share=vo.share;
 	}
 	
 	public ShareTargetFunction(String function, String siid, int share) {
 		super();
-		this.function = function;
+		this.function="ShareTarget";
 		this.siid = siid;
 		this.share = share;
 	}
@@ -32,12 +34,12 @@ public class ShareTargetFunction implements Function{
 		result.rS=siid;
 		return result;
 	}
-	public String getFunction() {
-		return function;
-	}
-	public void setFunction(String function) {
-		this.function = function;
-	}
+//	public String getFunction() {
+//		return function;
+//	}
+//	public void setFunction(String function) {
+//		this.function = function;
+//	}
 	public String getSiid() {
 		return siid;
 	}

@@ -3,25 +3,27 @@ package function.order;
 import function.Function;
 import function.FunctionResult;
 /**指定交易价值百分比订单*/
-public class ValuePercentFunction implements Function{
-	public String function;
+public class ValuePercentFunction extends Function{
+//	public String function;
 	/**买入1，卖出-1*/
 	public int order;
 	public String siid;
 	public double percent;
 	
-	public ValuePercentFunction(){}
+	public ValuePercentFunction(){
+		this.function="ValuePercent";
+	}
 	public ValuePercentFunction(String function, int order, String siid,
 			double percent) {
 		super();
-		this.function = function;
+		this.function="ValuePercent";
 		this.order = order;
 		this.siid = siid;
 		this.percent = percent;
 	}
 	public ValuePercentFunction(PercentVO vo)
 	{
-		function="Percent";
+		this.function="ValuePercent";
 		this.order=vo.order;
 		this.siid=vo.siid;
 		this.percent=vo.percent;
@@ -35,12 +37,12 @@ public class ValuePercentFunction implements Function{
 		result.rS=siid;
 		return result;
 	}
-	public String getFunction() {
-		return function;
-	}
-	public void setFunction(String function) {
-		this.function = function;
-	}
+//	public String getFunction() {
+//		return function;
+//	}
+//	public void setFunction(String function) {
+//		this.function = function;
+//	}
 	public int getOrder() {
 		return order;
 	}

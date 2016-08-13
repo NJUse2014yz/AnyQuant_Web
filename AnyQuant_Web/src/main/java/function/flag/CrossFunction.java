@@ -10,9 +10,9 @@ import function.FunctionResult;
 import function.tool.CrossResult;
 import function.tool.CrossTool;
 /**判断双线交叉方向方法*/
-public class CrossFunction implements Function {
-	/**方法名*/
-	public String function;
+public class CrossFunction extends Function {
+//	/**方法名*/
+//	public String function;
 	/**方法结果的上界*/
 	public FunctionResult resultUp;
 	/**方法结果的下界*/
@@ -54,12 +54,12 @@ public class CrossFunction implements Function {
 	}
 	
 	
-	public String getFunction() {
-		return function;
-	}
-	public void setFunction(String function) {
-		this.function = function;
-	}
+//	public String getFunction() {
+//		return function;
+//	}
+//	public void setFunction(String function) {
+//		this.function = function;
+//	}
 	public FunctionResult getResultUp() {
 		return resultUp;
 	}
