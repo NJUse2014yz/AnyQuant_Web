@@ -3,12 +3,12 @@ package function.flag;
 import java.sql.Date;
 import java.util.List;
 
-import bl.CrossResult;
-import bl.CrossTool;
 import tool.ListTool;
 import function.Flag;
 import function.Function;
 import function.FunctionResult;
+import function.tool.CrossResult;
+import function.tool.CrossTool;
 /**判断双线交叉方向方法*/
 public class CrossFunction implements Function {
 	/**方法名*/

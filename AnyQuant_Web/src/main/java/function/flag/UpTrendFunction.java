@@ -8,9 +8,9 @@ import tool.ListTool;
 import function.Flag;
 import function.Function;
 import function.FunctionResult;
-import bl.TrendFlag;
-import bl.TrendPoint;
-import bl.TrendTool;
+import function.tool.TrendFlag;
+import function.tool.TrendPoint;
+import function.tool.TrendTool;
 /**上趋势判断*/
 public class UpTrendFunction implements Function{
 	/**方法名*/

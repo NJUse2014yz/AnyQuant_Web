@@ -1,12 +1,12 @@
-package bl;
+package function.tool;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import bl.CrossResult;
+import function.tool.CrossResult;
+import function.tool.TrendFlag;
+import function.tool.TrendPoint;
 import tool.MMSTool;
-import bl.TrendFlag;
-import bl.TrendPoint;
 
 public class CrossTool {
 	public List<Double> activelist;

@@ -10,6 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import mapper.StrategyMapper;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import data.impl.DataServiceImpl;
 import po.StockInf;
 import po.Strategy;
@@ -22,6 +23,7 @@ import function.choose.PairFunction;
 import function.choose.PairVO;
 import function.flag.TrendFunction;
 import function.flag.TrendVO;
+import function.order.ShareFunction;
 
 public class StrategyServiceTest {
 	public static ApplicationContext applicationContext1 =new ClassPathXmlApplicationContext("classpath:configure/spring/applicationContext-dao.xml");
@@ -79,8 +81,9 @@ public class StrategyServiceTest {
 		TrendFunction trend=new TrendFunction(trendVO);
 		List<Function> flag=new ArrayList<Function>();
 		flag.add(trend);
+		ShareFunction share=new ShareFunction();
 		
-		Strategy strategy=new Strategy(userName,createrName,strategyName,JSONArray.fromObject(stockList).toString(),JSONArray.fromObject(choose).toString(),JSONArray.fromObject(flag).toString());
+		Strategy strategy=new Strategy(userName,createrName,strategyName,JSONArray.fromObject(stockList).toString(),JSONArray.fromObject(choose).toString(),JSONArray.fromObject(flag).toString(),JSONObject.fromObject(share).toString());
 		instance.makeStrategy(strategy);
 	}
 	public static void getStrategy()

@@ -1,4 +1,4 @@
-package bl;
+package function.tool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,12 +8,12 @@ import mapper.QuotaDataMapper;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import function.tool.TrendFlag;
+import function.tool.TrendPoint;
 import po.DatePack;
 import po.QuotaData;
 import pr.QuotaDataPr;
 import tool.MMSTool;
-import bl.TrendFlag;
-import bl.TrendPoint;
 
 public class TrendTool {
 	public TrendFlag flag;

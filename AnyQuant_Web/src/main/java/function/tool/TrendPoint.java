@@ -1,4 +1,4 @@
-package bl;
+package function.tool;
 
 public class TrendPoint {
 	public int index;

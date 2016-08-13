@@ -1,7 +1,5 @@
 package po;
 
-import net.sf.json.JSONArray;
-
 public class Strategy {
 	/**用户名*/
 	public String userName;
@@ -15,12 +13,13 @@ public class Strategy {
 	public String choose;
 	/**出入场标志列表List<Function>的Json*/
 	public String flag;
+	/**订单类型*/
+	public String order;
 
 	public Strategy(){}
 
-	
 	public Strategy(String userName, String createrName, String strategyName,
-			String stockList, String choose, String flag) {
+			String stockList, String choose, String flag, String order) {
 		super();
 		this.userName = userName;
 		this.createrName = createrName;
@@ -28,6 +27,7 @@ public class Strategy {
 		this.stockList = stockList;
 		this.choose = choose;
 		this.flag = flag;
+		this.order = order;
 	}
 
 	public String getUserName() {
@@ -78,12 +78,19 @@ public class Strategy {
 		this.flag = flag;
 	}
 
+	public String getOrder() {
+		return order;
+	}
+
+	public void setOrder(String order) {
+		this.order = order;
+	}
+
 	@Override
 	public String toString() {
 		return "Strategy [userName=" + userName + ", createrName="
 				+ createrName + ", strategyName=" + strategyName
 				+ ", stockList=" + stockList + ", choose=" + choose + ", flag="
-				+ flag + "]";
+				+ flag + ", order=" + order + "]";
 	}
-	
 }

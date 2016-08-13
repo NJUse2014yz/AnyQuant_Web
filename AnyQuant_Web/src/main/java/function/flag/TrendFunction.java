@@ -7,9 +7,9 @@ import java.util.List;
 import function.Flag;
 import function.Function;
 import function.FunctionResult;
-import bl.TrendFlag;
-import bl.TrendPoint;
-import bl.TrendTool;
+import function.tool.TrendFlag;
+import function.tool.TrendPoint;
+import function.tool.TrendTool;
 import tool.ListTool;
 /**趋势判断*/
 public class TrendFunction implements Function{
