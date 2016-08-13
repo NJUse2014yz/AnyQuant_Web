@@ -37,6 +37,8 @@ public interface DataService {
 	public List<HistoryData> getHistoryData_new_list(List<String> list) throws Exception;
 	/**由股票代码获取一段时间的基本历史数据,大盘为sh000001和sz399001*/
 	public List<HistoryData> getHistoryStockData_siidTime(String siid,Date startdate,Date enddate) throws Exception;
+/**【new】获取一定数目的最新数据(日期由老至新)*/
+	public List<HistoryData> getHistoryData_latest_n(String siid,int n) throws Exception;
 	/**由代码和日期获得周历史数据*/
 	public List<HistoryData> getWeekHData(String siid,Date startdate,Date enddate) throws Exception;
 	/**由代码和日期获得月历史数据*/
