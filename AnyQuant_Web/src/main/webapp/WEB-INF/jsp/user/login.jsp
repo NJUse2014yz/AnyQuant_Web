@@ -78,7 +78,7 @@
 
 					<div class="signup-form">
 
-						<input type="text" placeholder="用户名" class="email-mobile" onblur="verify.verifyEmail(this)">
+						<input id="signupUserName" type="text" placeholder="用户名" class="email-mobile" onblur="verify.verifyEmail(this)">
 
 
 					</div>
@@ -93,7 +93,7 @@
 
 					<div class="form-group">
 
-						<input type="password" placeholder="密码（字母、数字，至少6位）" onblur="verify.PasswordLenght(this)">
+						<input id="signupPassword" type="password" placeholder="密码（字母、数字，至少6位）" onblur="verify.PasswordLenght(this)">
 
 						<span class="error-notic">密码长度不够</span>
 
@@ -103,7 +103,7 @@
 
 						<button type="submit" class="tran pr">
 
-							<a href="javascript:;" class="tran">注册</a>
+							<a id="signup" class="tran">注册</a>
 
 							<img class="loading" src="images/loading.gif">
 
@@ -150,7 +150,7 @@
 						return;
 				    }
 				    hideNotic("#password");
-						
+					
 				}
 		    });
 		}
@@ -179,10 +179,44 @@
 					    else
 							hideNotic("#userName");
 						//验证密码是否正确
+						verifyPassword();
+						
+						//登录
+						window.location.href="${pageContext.request.contextPath}/login.action?userName="+
+							userName+"&password="+password;
 					}
 				
 		    	});
 			 });
+		    
+		    
+		    var isValidUserName=false;
+		    //注册按钮
+		    $("#signup").on("click",function(){
+			 var userName=$("#signupUserName").val();
+				var password=$("#signupPassword").val();
+				//先验证用户名是否存在
+				$.ajax({
+					type:'post',
+					url:'${pageContext.request.contextPath}/isUserNameExists.action',
+					data:'userName='+userName,
+					success:function(isExists){
+					    if(isExists){
+							showNotic("#signupUserName");
+							isValidUserName=false;
+							return;
+					    }
+					    isValidUserName=true;
+						hideNotic("#signupUserName");
+						window.location.href="${pageContext.request.contextPath}/register.action?userName="
+							+userName+"&password="+password;
+					}
+				});
+				
+				
+			
+		    });
+		    
 		    
 			$(".signup-form input").on("focus",function(){
 
@@ -306,23 +340,7 @@
 
 		var verify={
 
-			verifyEmail:function(_this){
-
-				var validateReg = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-
-				var _value=$(_this).val();
-
-            	if(!validateReg.test(_value)){
-
-            		showNotic(_this)
-
-            	}else{
-
-            		hideNotic(_this)
-
-            	}
-
-			},//验证邮箱
+			
 
 			
 

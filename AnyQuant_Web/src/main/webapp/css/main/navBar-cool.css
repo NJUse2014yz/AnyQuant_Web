@@ -257,6 +257,11 @@ ol, ul {
 	width:130px;
 	height:30px;
 }
+.logined{
+	position:relative;
+	width:130px;
+	height:30px;
+}
 .header-signin,
 .header-signup{
 	float:right;

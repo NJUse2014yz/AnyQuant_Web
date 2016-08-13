@@ -46,11 +46,12 @@ public class UserController {
 	
 	/**
 	 * 验证用户名是否存在
+	 * @throws Exception 
 	 */
 	@RequestMapping("/isUserNameExists")
-	public @ResponseBody Boolean isUserNameExists(String userName){
-		boolean isExists = true;
-		System.out.println("userName:"+userName);
+	public @ResponseBody Boolean isUserNameExists(String userName) throws Exception{
+		boolean isExists = userService.UserNameExists(userName);
+		
 		return isExists;
 	}
 	
@@ -67,17 +68,22 @@ public class UserController {
 
 		boolean isValid = true;
 		
+		
+		
 		if (isValid) {
 			CookieHelper.addCookie(CookieHelper.USER_NAME, userName, response, request);
 		}
 		
-		modelAndView.setViewName("main/index");
+		modelAndView.setViewName("redirect:index.jsp");
 		return modelAndView;
 	}
 	
 	@RequestMapping("/register")
-	public ModelAndView register(String userName,String password,String qq,String email,String mobile) {
+	public ModelAndView register(String userName,String password) throws Exception {
 		ModelAndView modelAndView=new ModelAndView();
+		System.out.println("userName:"+userName);
+		System.out.println("password:"+password);
+		userService.addUser(userName, password);
 		modelAndView.setViewName("user/login");
 		return modelAndView;
 	}
