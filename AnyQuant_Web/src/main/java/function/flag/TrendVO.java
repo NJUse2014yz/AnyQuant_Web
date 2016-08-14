@@ -3,10 +3,14 @@ package function.flag;
 import function.FunctionResult;
 
 public class TrendVO {
-	/**方法结果的上界*/
-	public FunctionResult resultUp;
-	/**方法结果的下界*/
-	public FunctionResult resultDown;
+	/**方法买入结果的上界*/
+	public FunctionResult resultUpI;
+	/**方法买入结果的下界*/
+	public FunctionResult resultDownI;
+	/**方法卖出结果的上界*/
+	public FunctionResult resultUpO;
+	/**方法卖出结果的下界*/
+	public FunctionResult resultDownO;
 	/**股票代码*/
 	public String siid;
 	/**数据属性，具体见ListTool的switch中*/
@@ -18,29 +22,43 @@ public class TrendVO {
 	/**数据标准值，一般取该数据最近一段时间取值的平均数*/
 	public double standard;
 	
-	
-	public TrendVO(FunctionResult resultUp, FunctionResult resultDown,
-			String siid, String attribute, long start, long end, double standard) {
+	public TrendVO(FunctionResult resultUpI, FunctionResult resultDownI,
+			FunctionResult resultUpO, FunctionResult resultDownO, String siid,
+			String attribute, long start, long end, double standard) {
 		super();
-		this.resultUp = resultUp;
-		this.resultDown = resultDown;
+		this.resultUpI = resultUpI;
+		this.resultDownI = resultDownI;
+		this.resultUpO = resultUpO;
+		this.resultDownO = resultDownO;
 		this.siid = siid;
 		this.attribute = attribute;
 		this.start = start;
 		this.end = end;
 		this.standard = standard;
 	}
-	public FunctionResult getResultUp() {
-		return resultUp;
+	public FunctionResult getResultUpI() {
+		return resultUpI;
 	}
-	public void setResultUp(FunctionResult resultUp) {
-		this.resultUp = resultUp;
+	public void setResultUpI(FunctionResult resultUpI) {
+		this.resultUpI = resultUpI;
 	}
-	public FunctionResult getResultDown() {
-		return resultDown;
+	public FunctionResult getResultDownI() {
+		return resultDownI;
 	}
-	public void setResultDown(FunctionResult resultDown) {
-		this.resultDown = resultDown;
+	public void setResultDownI(FunctionResult resultDownI) {
+		this.resultDownI = resultDownI;
+	}
+	public FunctionResult getResultUpO() {
+		return resultUpO;
+	}
+	public void setResultUpO(FunctionResult resultUpO) {
+		this.resultUpO = resultUpO;
+	}
+	public FunctionResult getResultDownO() {
+		return resultDownO;
+	}
+	public void setResultDownO(FunctionResult resultDownO) {
+		this.resultDownO = resultDownO;
 	}
 	public String getSiid() {
 		return siid;
@@ -74,9 +92,10 @@ public class TrendVO {
 	}
 	@Override
 	public String toString() {
-		return "TrendVO [resultUp=" + resultUp + ", resultDown=" + resultDown
-				+ ", siid=" + siid + ", attribute=" + attribute + ", start="
-				+ start + ", end=" + end + ", standard=" + standard + "]";
+		return "TrendVO [resultUpI=" + resultUpI + ", resultDownI="
+				+ resultDownI + ", resultUpO=" + resultUpO + ", resultDownO="
+				+ resultDownO + ", siid=" + siid + ", attribute=" + attribute
+				+ ", start=" + start + ", end=" + end + ", standard="
+				+ standard + "]";
 	}
-	
 }

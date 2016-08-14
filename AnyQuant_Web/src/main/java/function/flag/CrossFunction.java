@@ -13,10 +13,14 @@ import function.tool.CrossTool;
 public class CrossFunction extends Function {
 //	/**方法名*/
 //	public String function;
-	/**方法结果的上界*/
-	public FunctionResult resultUp;
-	/**方法结果的下界*/
-	public FunctionResult resultDown;
+	/**方法买入结果的上界*/
+	public FunctionResult resultUpI;
+	/**方法买入结果的下界*/
+	public FunctionResult resultDownI;
+	/**方法卖出结果的上界*/
+	public FunctionResult resultUpO;
+	/**方法卖出结果的下界*/
+	public FunctionResult resultDownO;
 	/**主动交叉股票代码*/
 	public String siid1;
 	/**主动数据属性，具体见ListTool的switch中*/
@@ -39,8 +43,10 @@ public class CrossFunction extends Function {
 		this.attribute2=vo.attribute2;
 		this.start=vo.start;
 		this.end=vo.end;
-		this.resultUp=vo.resultUp;
-		this.resultDown=vo.resultDown;
+		this.resultUpI=vo.resultUpI;
+		this.resultDownI=vo.resultDownI;
+		this.resultUpO=vo.resultUpO;
+		this.resultDownO=vo.resultDownO;
 	}
 	@Override
 	public FunctionResult getResult() {
@@ -60,20 +66,33 @@ public class CrossFunction extends Function {
 //	public void setFunction(String function) {
 //		this.function = function;
 //	}
-	public FunctionResult getResultUp() {
-		return resultUp;
-	}
-	public void setResultUp(FunctionResult resultUp) {
-		this.resultUp = resultUp;
-	}
-	public FunctionResult getResultDown() {
-		return resultDown;
-	}
-	public void setResultDown(FunctionResult resultDown) {
-		this.resultDown = resultDown;
-	}
+	
 	public String getSiid1() {
 		return siid1;
+	}
+	public FunctionResult getResultUpI() {
+		return resultUpI;
+	}
+	public void setResultUpI(FunctionResult resultUpI) {
+		this.resultUpI = resultUpI;
+	}
+	public FunctionResult getResultDownI() {
+		return resultDownI;
+	}
+	public void setResultDownI(FunctionResult resultDownI) {
+		this.resultDownI = resultDownI;
+	}
+	public FunctionResult getResultUpO() {
+		return resultUpO;
+	}
+	public void setResultUpO(FunctionResult resultUpO) {
+		this.resultUpO = resultUpO;
+	}
+	public FunctionResult getResultDownO() {
+		return resultDownO;
+	}
+	public void setResultDownO(FunctionResult resultDownO) {
+		this.resultDownO = resultDownO;
 	}
 	public void setSiid1(String siid1) {
 		this.siid1 = siid1;
@@ -110,10 +129,10 @@ public class CrossFunction extends Function {
 	}
 	@Override
 	public String toString() {
-		return "CrossFunction [function=" + function + ", resultUp=" + resultUp
-				+ ", resultDown=" + resultDown + ", siid1=" + siid1
-				+ ", attribute1=" + attribute1 + ", siid2=" + siid2
-				+ ", attribute2=" + attribute2 + ", start=" + start + ", end="
-				+ end + "]";
+		return "CrossFunction [resultUpI=" + resultUpI + ", resultDownI="
+				+ resultDownI + ", resultUpO=" + resultUpO + ", resultDownO="
+				+ resultDownO + ", siid1=" + siid1 + ", attribute1="
+				+ attribute1 + ", siid2=" + siid2 + ", attribute2="
+				+ attribute2 + ", start=" + start + ", end=" + end + "]";
 	}
 }

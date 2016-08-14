@@ -3,10 +3,14 @@ package function.flag;
 import function.FunctionResult;
 
 public class CrossVO {
-	/**方法结果的上界*/
-	public FunctionResult resultUp;
-	/**方法结果的下界*/
-	public FunctionResult resultDown;
+	/**方法买入结果的上界*/
+	public FunctionResult resultUpI;
+	/**方法买入结果的下界*/
+	public FunctionResult resultDownI;
+	/**方法卖出结果的上界*/
+	public FunctionResult resultUpO;
+	/**方法卖出结果的下界*/
+	public FunctionResult resultDownO;
 	/**主动交叉股票代码*/
 	public String siid1;
 	/**主动数据属性，具体见ListTool的switch中*/
@@ -19,12 +23,16 @@ public class CrossVO {
 	public long start;
 	/**数据截止日期的毫秒数*/
 	public long end;
-	public CrossVO(FunctionResult resultUp, FunctionResult resultDown,
-			String siid1, String attribute1, String siid2, String attribute2,
-			long start, long end) {
+	
+	public CrossVO(FunctionResult resultUpI, FunctionResult resultDownI,
+			FunctionResult resultUpO, FunctionResult resultDownO, String siid1,
+			String attribute1, String siid2, String attribute2, long start,
+			long end) {
 		super();
-		this.resultUp = resultUp;
-		this.resultDown = resultDown;
+		this.resultUpI = resultUpI;
+		this.resultDownI = resultDownI;
+		this.resultUpO = resultUpO;
+		this.resultDownO = resultDownO;
 		this.siid1 = siid1;
 		this.attribute1 = attribute1;
 		this.siid2 = siid2;
@@ -32,18 +40,39 @@ public class CrossVO {
 		this.start = start;
 		this.end = end;
 	}
-	public FunctionResult getResultUp() {
-		return resultUp;
+	
+	public FunctionResult getResultUpI() {
+		return resultUpI;
 	}
-	public void setResultUp(FunctionResult resultUp) {
-		this.resultUp = resultUp;
+
+	public void setResultUpI(FunctionResult resultUpI) {
+		this.resultUpI = resultUpI;
 	}
-	public FunctionResult getResultDown() {
-		return resultDown;
+
+	public FunctionResult getResultDownI() {
+		return resultDownI;
 	}
-	public void setResultDown(FunctionResult resultDown) {
-		this.resultDown = resultDown;
+
+	public void setResultDownI(FunctionResult resultDownI) {
+		this.resultDownI = resultDownI;
 	}
+
+	public FunctionResult getResultUpO() {
+		return resultUpO;
+	}
+
+	public void setResultUpO(FunctionResult resultUpO) {
+		this.resultUpO = resultUpO;
+	}
+
+	public FunctionResult getResultDownO() {
+		return resultDownO;
+	}
+
+	public void setResultDownO(FunctionResult resultDownO) {
+		this.resultDownO = resultDownO;
+	}
+
 	public String getSiid1() {
 		return siid1;
 	}
@@ -80,11 +109,13 @@ public class CrossVO {
 	public void setEnd(long end) {
 		this.end = end;
 	}
+
 	@Override
 	public String toString() {
-		return "CrossVO [resultUp=" + resultUp + ", resultDown=" + resultDown
-				+ ", siid1=" + siid1 + ", attribute1=" + attribute1
-				+ ", siid2=" + siid2 + ", attribute2=" + attribute2
-				+ ", start=" + start + ", end=" + end + "]";
+		return "CrossVO [resultUpI=" + resultUpI + ", resultDownI="
+				+ resultDownI + ", resultUpO=" + resultUpO + ", resultDownO="
+				+ resultDownO + ", siid1=" + siid1 + ", attribute1="
+				+ attribute1 + ", siid2=" + siid2 + ", attribute2="
+				+ attribute2 + ", start=" + start + ", end=" + end + "]";
 	}
 }

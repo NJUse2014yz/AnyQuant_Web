@@ -71,14 +71,22 @@ public class JsonExchangeTool {
 			String attribute1=null;
 			String attribute2=null;
 			int num=0;
-			JSONObject upFRJ=null;
-			JSONObject downFRJ=null;
-			JSONArray upLocationJA=null;
-			JSONArray downLocationJA=null;
-			List<Integer> upLocationA=null;
-			List<Integer> downLocationA=null;
-			FunctionResult upFR=null;
-			FunctionResult downFR=null;
+			JSONObject upFRJI=null;
+			JSONObject downFRJI=null;
+			JSONObject upFRJO=null;
+			JSONObject downFRJO=null;
+			JSONArray upLocationJAI=null;
+			JSONArray downLocationJAI=null;
+			JSONArray upLocationJAO=null;
+			JSONArray downLocationJAO=null;
+			List<Integer> upLocationAI=null;
+			List<Integer> downLocationAI=null;
+			List<Integer> upLocationAO=null;
+			List<Integer> downLocationAO=null;
+			FunctionResult upFRI=null;
+			FunctionResult downFRI=null;
+			FunctionResult upFRO=null;
+			FunctionResult downFRO=null;
 			long start=0;
 			long end=0;
 			double standard=0;
@@ -91,123 +99,45 @@ public class JsonExchangeTool {
 				num=(int)jObject.get("num");
 				list.add(new PairFunction(new PairVO(siid,num)));
 				break;
-			case "UpTrend":
-				upFRJ=(JSONObject)jObject.get("resultUp");
-				downFRJ=(JSONObject)jObject.get("resultDown");
-				upFR=new FunctionResult();
-				downFR=new FunctionResult();				
-				upLocationJA=(JSONArray)jObject.get("location");
-				downLocationJA=(JSONArray)jObject.get("location");
-				upLocationA=new ArrayList<Integer>();
-				downLocationA=new ArrayList<Integer>();
-				for(int j=0;i<upLocationA.size();j++)
-				{
-					upLocationA.add((int)upLocationJA.get(j));	
-					downLocationA.add((int)downLocationJA.get(j));
-				}
-				upFR.setrD((double)upFRJ.get("rD"));
-				downFR.setrD((double)downFRJ.getDouble("rD"));
-				siid=(String)jObject.get("siid");
-				attribute=(String)jObject.get("attribute");
-				start=(long)jObject.get("start");
-				end=(long)jObject.get("end");
-				standard=(double)jObject.get("standard");
-				list.add(new UpTrendFunction(new TrendVO(upFR,downFR,siid,attribute,start,end,standard)));
-				break;
-			case "DownTrend":
-				upFRJ=(JSONObject)jObject.get("resultUp");
-				downFRJ=(JSONObject)jObject.get("resultDown");
-				upFR=new FunctionResult();
-				downFR=new FunctionResult();				
-				upLocationJA=(JSONArray)jObject.get("location");
-				downLocationJA=(JSONArray)jObject.get("location");
-				upLocationA=new ArrayList<Integer>();
-				downLocationA=new ArrayList<Integer>();
-				for(int j=0;i<upLocationA.size();j++)
-				{
-					upLocationA.add((int)upLocationJA.get(j));	
-					downLocationA.add((int)downLocationJA.get(j));
-				}
-				upFR.setrD((double)upFRJ.get("rD"));
-				downFR.setrD((double)downFRJ.getDouble("rD"));
-				siid=(String)jObject.get("siid");
-				attribute=(String)jObject.get("attribute");
-				start=(long)jObject.get("start");
-				end=(long)jObject.get("end");
-				standard=(double)jObject.get("standard");
-				list.add(new DownTrendFunction(new TrendVO(upFR,downFR,siid,attribute,start,end,standard)));
-				break;
 			case "Trend":
-				upFRJ=(JSONObject)jObject.get("resultUp");
-				downFRJ=(JSONObject)jObject.get("resultDown");
-				upFR=new FunctionResult();
-				downFR=new FunctionResult();				
-				upLocationJA=(JSONArray)jObject.get("location");
-				downLocationJA=(JSONArray)jObject.get("location");
-				upLocationA=new ArrayList<Integer>();
-				downLocationA=new ArrayList<Integer>();
-				for(int j=0;i<upLocationA.size();j++)
+				upFRJI=(JSONObject)jObject.get("resultUpI");
+				downFRJI=(JSONObject)jObject.get("resultDownI");
+				upFRI=new FunctionResult();
+				downFRI=new FunctionResult();
+				upFRJO=(JSONObject)jObject.get("resultUpO");
+				downFRJO=(JSONObject)jObject.get("resultDownO");
+				upFRO=new FunctionResult();
+				downFRO=new FunctionResult();
+				upLocationJAI=(JSONArray)upFRJI.get("location");
+				downLocationJAI=(JSONArray)downFRJI.get("location");
+				upLocationJAO=(JSONArray)upFRJO.get("location");
+				downLocationJAO=(JSONArray)downFRJO.get("location");
+				upLocationAI=new ArrayList<Integer>();
+				downLocationAI=new ArrayList<Integer>();
+				upLocationAO=new ArrayList<Integer>();
+				downLocationAO=new ArrayList<Integer>();
+				for(int j=0;i<upLocationAI.size();j++)
 				{
-					upLocationA.add((int)upLocationJA.get(j));	
-					downLocationA.add((int)downLocationJA.get(j));
+					upLocationAI.add((int)upLocationJAI.get(j));	
+					downLocationAI.add((int)downLocationJAI.get(j));
+					upLocationAO.add((int)upLocationJAO.get(j));	
+					downLocationAO.add((int)downLocationJAO.get(j));
 				}
-				upFR.setrD((double)upFRJ.get("rD"));
-				downFR.setrD((double)downFRJ.getDouble("rD"));
+				upFRI.setrD((double)upFRJI.get("rD"));
+				downFRI.setrD((double)downFRJI.getDouble("rD"));
+				upFRO.setrD((double)upFRJO.get("rD"));
+				downFRO.setrD((double)downFRJO.getDouble("rD"));
 				siid=(String)jObject.get("siid");
 				attribute=(String)jObject.get("attribute");
 				start=(long)jObject.get("start");
 				end=(long)jObject.get("end");
 				standard=(double)jObject.get("standard");
-				list.add(new TrendFunction(new TrendVO(upFR,downFR,siid,attribute,start,end,standard)));
+				list.add(new UpTrendFunction(new TrendVO(upFRI,downFRI,upFRO,downFRI,siid,attribute,start,end,standard)));
 				break;
+			case "UpTrend":
+			case "DownTrend":
 			case "Cross":
-				upFRJ=(JSONObject)jObject.get("resultUp");
-				downFRJ=(JSONObject)jObject.get("resultDown");
-				upFR=new FunctionResult();
-				downFR=new FunctionResult();				
-				upLocationJA=(JSONArray)jObject.get("location");
-				downLocationJA=(JSONArray)jObject.get("location");
-				upLocationA=new ArrayList<Integer>();
-				downLocationA=new ArrayList<Integer>();
-				for(int j=0;i<upLocationA.size();j++)
-				{
-					upLocationA.add((int)upLocationJA.get(j));	
-					downLocationA.add((int)downLocationJA.get(j));
-				}
-				upFR.setrI((int)upFRJ.get("rI"));
-				downFR.setrI((int)downFRJ.getDouble("rI"));
-				siid1=(String)jObject.get("siid1");
-				attribute1=(String)jObject.get("attribute1");
-				siid2=(String)jObject.get("siid2");
-				attribute2=(String)jObject.get("attribute2");
-				start=(long)jObject.get("start");
-				end=(long)jObject.get("end");
-				list.add(new CrossFunction(new CrossVO(upFR,downFR,siid1,attribute1,siid2,attribute2,start,end)));
-				break;
 			case "CrossPoint":
-				upFRJ=(JSONObject)jObject.get("resultUp");
-				downFRJ=(JSONObject)jObject.get("resultDown");
-				upFR=new FunctionResult();
-				downFR=new FunctionResult();				
-				upLocationJA=(JSONArray)jObject.get("location");
-				downLocationJA=(JSONArray)jObject.get("location");
-				upLocationA=new ArrayList<Integer>();
-				downLocationA=new ArrayList<Integer>();
-				for(int j=0;i<upLocationA.size();j++)
-				{
-					upLocationA.add((int)upLocationJA.get(j));	
-					downLocationA.add((int)downLocationJA.get(j));
-				}
-				upFR.setrI((int)upFRJ.get("rI"));
-				downFR.setrI((int)downFRJ.getDouble("rI"));
-				siid1=(String)jObject.get("siid1");
-				attribute1=(String)jObject.get("attribute1");
-				siid2=(String)jObject.get("siid2");
-				attribute2=(String)jObject.get("attribute2");
-				start=(long)jObject.get("start");
-				end=(long)jObject.get("end");
-				list.add(new CrossFunction(new CrossVO(upFR,downFR,siid1,attribute1,siid2,attribute2,start,end)));
-				break;
 			}
 		}
 		return list;

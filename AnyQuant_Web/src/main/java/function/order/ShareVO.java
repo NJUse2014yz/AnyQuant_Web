@@ -4,11 +4,14 @@ public class ShareVO {
 	public int order;
 	public String siid;
 	public int share;
-	public ShareVO(int order, String siid, int share) {
+	/**交易价格*/
+	public double price;
+	public ShareVO(int order, String siid, int share, double price) {
 		super();
 		this.order = order;
 		this.siid = siid;
 		this.share = share;
+		this.price = price;
 	}
 	public int getOrder() {
 		return order;
@@ -28,9 +31,15 @@ public class ShareVO {
 	public void setShare(int share) {
 		this.share = share;
 	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
 	@Override
 	public String toString() {
 		return "ShareVO [order=" + order + ", siid=" + siid + ", share="
-				+ share + "]";
+				+ share + ", price=" + price + "]";
 	}
 }

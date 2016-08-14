@@ -9,17 +9,19 @@ public class ShareFunction extends Function{
 	public int order;
 	public String siid;
 	public int share;
+	public double price;
 	
 	public ShareFunction(){
 		super();
 		this.function = "Share";
 	}
-	public ShareFunction(int order, String siid, int share) {
+	public ShareFunction(int order, String siid, int share, double price) {
 		super();
 		this.function = "Share";
 		this.order = order;
 		this.siid = siid;
 		this.share = share;
+		this.price=price;
 	}
 	public ShareFunction(ShareVO vo)
 	{
@@ -27,6 +29,7 @@ public class ShareFunction extends Function{
 		this.order=vo.order;
 		this.siid=vo.siid;
 		this.share=vo.share;
+		this.price=vo.price;
 	}
 	@Override
 	public FunctionResult getResult() {
@@ -62,9 +65,15 @@ public class ShareFunction extends Function{
 	public void setShare(int share) {
 		this.share = share;
 	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
 	@Override
 	public String toString() {
-		return "ShareFunction [function=" + function + ", order=" + order
-				+ ", siid=" + siid + ", share=" + share + "]";
+		return "ShareFunction [order=" + order + ", siid=" + siid + ", share="
+				+ share + ", price=" + price + "]";
 	}
 }
