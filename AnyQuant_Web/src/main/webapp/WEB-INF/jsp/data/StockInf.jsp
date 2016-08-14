@@ -8,23 +8,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>Bootstrap 101 Template</title>
+    <title>股票信息</title>
 
     <!-- Bootstrap -->
     <link href="css/main/bootstrap.min.css" rel="stylesheet">
-
-	<link href="css/main/main.css" type="text/css" rel="stylesheet"/>
-	<link rel="stylesheet" type="text/css" href="css/stock/card.css">
-	<link rel="stylesheet" type="text/css" href="css/stock/head.css">
-	<link rel="stylesheet" type="text/css" href="css/stock/chart.css">
-	<link rel="stylesheet" type="text/css" href="css/stock/StockInf.css">
-	<link rel="stylesheet" type="text/css" href="css/stock/searchComponent/default.css" />
-	<link rel="stylesheet" type="text/css" href="css/stock/searchComponent/component.css" />
-	<link rel="stylesheet" type="text/css" href="css/tool/poshytip.css">
-	<link rel="stylesheet" type="text/css" href="css/table.css">
-	<link type="text/css" rel="stylesheet" href="css/tool/starRaty/application.css">
-	<link rel="stylesheet" type="text/css" href="css/user/button3d.css">
-	<style type="text/css">
+<link href="css/main/main.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="css/stock/card.css">
+<link rel="stylesheet" type="text/css" href="css/stock/head.css">
+<link rel="stylesheet" type="text/css" href="css/stock/chart.css">
+<link rel="stylesheet" type="text/css" href="css/stock/StockInf.css">
+<link rel="stylesheet" type="text/css" href="css/stock/searchComponent/default.css" />
+<link rel="stylesheet" type="text/css" href="css/stock/searchComponent/component.css" />
+<link rel="stylesheet" type="text/css" href="css/tool/poshytip.css">
+<link rel="stylesheet" type="text/css" href="css/table.css">
+<link type="text/css" rel="stylesheet" href="css/tool/starRaty/application.css">
+<link rel="stylesheet" type="text/css" href="css/user/button3d.css">
+<style type="text/css">
 	
 	.bordered td:hover{
 		background: #fbf8e9;
@@ -35,19 +34,18 @@
 	    transition: all 0.1s ease-in-out; 
 	
 	}
-	</style>
-	
-	<script src="js/jquery-3.1.0.js"></script>
-	<script type="text/javascript" src="js/tool/starRaty/jquery.raty.js"></script>
-	<script src="js/tool/jquery.poshytip.js"></script>
-	<script src="js/searchComponent/modernizr.custom.js"></script>
-	<script src="js/chart/KLine.js"></script>
-	<script src="js/chart/Line.js"></script>
-	<script src="js/chart/bar.js"></script>
-	<script src="js/Highstock-4.2.5/js/highstock.js"></script>
-	<script src="js/cookie.js"></script>
-	
-	<script type="text/javascript">
+</style>
+
+<script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/tool/jquery.poshytip.js"></script>
+<script src="js/searchComponent/modernizr.custom.js"></script>
+<script src="js/chart/KLine.js"></script>
+<script src="js/chart/Line.js"></script>
+<script src="js/chart/bar.js"></script>
+<script src="js/Highstock-4.2.5/js/highstock.js"></script>
+<script src="js/cookie.js"></script>
+
+<script type="text/javascript">
 $(function(){
 	
 	$('.likeImage').poshytip({
@@ -91,7 +89,7 @@ $(function(){
 <title>单只股票信息</title>
 </head>
 <body>
-	<div class="container">
+	
 	<div class="head">
 		<jsp:include page="/WEB-INF/jsp/main/NavBar.jsp"></jsp:include>
 	</div>
@@ -125,40 +123,39 @@ $(function(){
 		
 
 	<!-- cards -->
-	<div class="row">
-		<div class="col-lg-2 col-lg-offset-1 card pinkCard">
-			<img class="card" alt="rmb" src="graphics/data/rmb.gif"> <small>开盘价</small>
-			<h2></h2>
+	<div class="card pinkCard">
+		<img class="card" alt="rmb" src="graphics/data/rmb.gif"> <small>开盘价</small>
+		<h2></h2>
+
+	</div>
+
+	<div class="card greenCard">
+		<img class="card" alt="down" src="graphics/data/down.gif"> <small>涨跌幅</small>
+		<h2>${latestInfo.incrPer}%</h2>
+	</div>
+
+	<div class="card blueCard">
+		<img class="card" alt="trade" src="graphics/data/trade.gif"> <small>换手率</small>
+		<h2></h2>
+<!-- 		<h2> --</h2> -->
 	
-		</div>
-	
-		<div class="col-lg-2 card greenCard">
-			<img class="card" alt="down" src="graphics/data/down.gif"> <small>涨跌幅</small>
-			<h2>${latestInfo.incrPer}%</h2>
-		</div>
-	
-		<div class="col-lg-2 card blueCard">
-			<img class="card" alt="trade" src="graphics/data/trade.gif"> <small>换手率</small>
-			<h2></h2>
-	<!-- 		<h2> --</h2> -->
-		
-		</div>
-	
-		<div class="col-lg-2 card grayCard">
-			<img class="card" alt="profit" src="graphics/data/profit.gif"><small>RSI</small>
-			<h2 id="rsih2"></h2>
-		</div>
-	
-		<div class="col-lg-2 card orangeCard">
-			<img class="card" alt="value" src="graphics/data/rmb.gif"><small>收盘价</small>
-			<h2></h2>
-		</div>
+	</div>
+
+	<div class="card grayCard">
+		<img class="card" alt="profit" src="graphics/data/profit.gif"><small>RSI</small>
+		<h2 id="rsih2"></h2>
+	</div>
+
+	<div class="card orangeCard">
+		<img class="card" alt="value" src="graphics/data/rmb.gif"><small>收盘价</small>
+		<h2></h2>
 	</div>
 	<!-- cards -->
 	
-<!-- 	<div class="footer"> -->
-<%-- 		<jsp:include page="/WEB-INF/jsp/main/foot.jsp"></jsp:include> --%>
-<!-- 	</div> -->
+	
+	<div class="footer">
+		<jsp:include page="/WEB-INF/jsp/main/Foot.jsp"></jsp:include>
+	</div>
 
 	<!-- kline -->
 	<div  class="chart kLineContainer">
@@ -423,6 +420,5 @@ $(function(){
 		}
 	</script>
 
-	</div>
 </body>
 </html>

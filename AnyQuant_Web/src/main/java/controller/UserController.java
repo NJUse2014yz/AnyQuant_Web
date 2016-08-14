@@ -35,13 +35,11 @@ public class UserController {
 	/**
 	 * 验证用户密码是否正确
 	 * 2016年8月12日
+	 * @throws Exception 
 	 */
 	@RequestMapping("/verifyPassword")
-	public @ResponseBody Boolean verifyPassword(String userName, String password) {
-
-		boolean isValid = true;
-		
-		return isValid;
+	public @ResponseBody Boolean verifyPassword(String userName, String password) throws Exception {
+		return userService.LoginUser(userName, password);
 	}
 	
 	/**
@@ -59,16 +57,15 @@ public class UserController {
 	 * 登录
 	 * 保存用户登录状态，跳转到首页
 	 * 2016年8月12日
+	 * @throws Exception 
 	 */
 	@RequestMapping("/login")
 	public ModelAndView login(String userName, String password,HttpServletRequest request,
-			HttpServletResponse response) {
+			HttpServletResponse response) throws Exception {
 
 		ModelAndView modelAndView = new ModelAndView();
 
-		boolean isValid = true;
-		
-		
+		boolean isValid = userService.LoginUser(userName, password);
 		
 		if (isValid) {
 			CookieHelper.addCookie(CookieHelper.USER_NAME, userName, response, request);
