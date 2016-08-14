@@ -4,8 +4,27 @@
 }
 
 .bg{
-	display: block;
+	width:100%;
+	min-width:768px;
  	margin:auto;
- 	margin-top:50px;
+ 	margin-top:0px;
 	z-index: 0;
+}
+
+.bgw{
+	position:relative;
+	width:350px;
+ 	clear: both;
+ 	display: block;
+ 	margin:auto;
+ 	margin-top:-350px;
+	z-index: 1;
+}
+.lt{
+	position:relative;
+	width:350px;
+ 	clear: both;
+ 	display: block;
+ 	margin:auto;
+ 	margin-top:170px;
 }

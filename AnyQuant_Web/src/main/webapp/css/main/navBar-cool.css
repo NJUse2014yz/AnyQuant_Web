@@ -247,10 +247,11 @@ ol, ul {
 }
 
 #login-area {
+	position:fixed;
 	width: 130px;
   	height:30px;
-  	float:right;
-    margin:10px 20px 10px 20px;
+  	right:20px;
+    top:10px
 }
 .unlogin{
 	position:relative;
