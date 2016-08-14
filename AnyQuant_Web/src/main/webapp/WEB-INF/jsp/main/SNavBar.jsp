@@ -16,7 +16,7 @@
 		<link rel="stylesheet" type="text/css" media="screen and (min-width: 768px)" href="css/main/navBar-cool.css">
 		
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	    <script src="js/jquery-3.1.0.min.js"></script>
+<!-- 	    <script src="js/jquery-3.1.0.min.js"></script> -->
 	</head>
 	
 	<body>

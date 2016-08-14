@@ -17,6 +17,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import function.Function;
 import function.FunctionResult;
 import function.choose.ChooseStock;
+import function.order.ShareFunction;
 import po.DatePack;
 import po.HistoryData;
 import po.QuotaData;
@@ -157,6 +158,9 @@ public class BackTest {
 	
 	public TestReport test() throws Exception
 	{
+		List<Function> orders=new ArrayList<Function>();
+		//order类型选择 TODO
+		
 		//填充历史数据
 		ApplicationContext applicationContext=new ClassPathXmlApplicationContext("classpath:configure/spring/applicationContext-dao.xml");
 		HistoryDataMapper historyDataMapper=(HistoryDataMapper) applicationContext.getBean("historyDataMapper");
@@ -199,6 +203,7 @@ public class BackTest {
 		List<Double> inPrice=new ArrayList<Double>();
 		List<Double> outPrice=new ArrayList<Double>();
 		
+		//下订单
 		for(int k=n-1;k<HQstatisticlist.get(0).hislist.size();k=k+n)//n=10默认每五天
 		{
 			double capitaltoday=0;//今日股票资本
@@ -207,12 +212,7 @@ public class BackTest {
 			for(int j=0;j<flagList.size();j++)
 			{
 				Function function=flagList.get(j);
-//				switch(function.getFunction())
-//				{
-//				case "Share":
-//					
-//					break;
-//				}
+
 				FunctionResult result=function.getResult();
 				FunctionResult upFR=function.getResult();
 				FunctionResult downFR=function.getResult();
@@ -225,7 +225,16 @@ public class BackTest {
 				case 3://double
 					if(result.rD<=upFR.rD&&result.rD>=downFR.rD)
 					{
-						//触发交易
+						//触发订单
+						switch(orderType.function)
+						{
+						case "Share":
+							for(int i=0;i<stockList.size();i++)
+							{//                              |                         |
+								orders.add(new ShareFunction(1,stockList.get(i).siid,1000));
+							}
+						}
+						
 					}
 					break;
 				case 4://String

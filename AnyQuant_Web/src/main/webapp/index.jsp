@@ -3,6 +3,7 @@
 <html>
   <head>
     <title>首页</title>
+    <script src="js/jquery-3.1.0.min.js"></script>
   </head>
   <body>
   	<div class="head">

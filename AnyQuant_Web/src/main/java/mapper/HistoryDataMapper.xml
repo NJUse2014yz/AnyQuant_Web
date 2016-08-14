@@ -5,66 +5,66 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mapper.HistoryDataMapper">
 	<select id="selectHistoryData_new_single" parameterType="String" resultType="HistoryData">
-		select * from Historydata_${value}
+		select * from HistoryData_${value}
 		where id=(
-			select max(id) from Historydata_${value}
+			select max(id) from HistoryData_${value}
 		)
 	</select>
 	<select id="selectHistoryData_new_list" parameterType="List" resultType="HistoryData">
 		<foreach collection="list" item="item" open="(" close=")" separator=") union (">
-			select * from Historydata_${item}
+			select * from HistoryData_${item}
 			where id=(
-				select max(id) from Historydata_${item}
+				select max(id) from HistoryData_${item}
 			)
 		</foreach>
 	</select>
 	
 	<select id="countHistoryData_b_date" parameterType="DatePack" resultType="int">
-		select count(*) from Historydata_${siid}
+		select count(*) from HistoryData_${siid}
 		where date &gt;= #{date1} and date &lt;= #{date2}
 	</select>
 	<select id="selectHistoryData_num_date" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		<where> 
 			(
-				select max(id) from Historydata_${siid}
+				select max(id) from HistoryData_${siid}
 				where date &lt;= #{date1}
 			) between id and id+#{num}-1
 		</where>
 		order by id
 	</select>
 	<select id="selectHistoryData_num_id" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1}
 		order by id
 	</select>
 	
 	<select id="selectHistoryData_e_date" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where date=#{date1}
 	</select>
 	<select id="selectHistoryData_ge_date" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where date &gt;= #{date1}
 		order by id
 	</select>
 	<select id="selectHistoryData_le_date" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where date &lt;= #{date1}
 		order by id
 	</select>
 	<select id="selectHistoryData_g_date" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where date &gt; #{date1}
 		order by id
 	</select>
 	<select id="selectHistoryData_l_date" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where date &lt; #{date1}
 		order by id
 	</select>
 	<select id="selectHistoryData_b_date" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where date &gt;= #{date1} and date &lt;= #{date2}
 		order by id
 	</select>
@@ -116,135 +116,135 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="selectHistoryData_e_id" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where id = #{id1}
 		order by id
 	</select>
 	<select id="selectHistoryData_le_id" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where id &lt;= #{id1}
 		order by id
 	</select>
 	<select id="selectHistoryData_b_id" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where id between #{id1} and #{id2}
 		order by id
 	</select>
 	
 	<select id="selectHistoryDataWeekid" parameterType="DatePack" resultType="int">
-		select max(weekid) from Historydata_${siid}
+		select max(weekid) from HistoryData_${siid}
 	</select>
 	<select id="selectHistoryData_e_weekid" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where weekid = #{id1}
 		order by id
 	</select>
 	<select id="selectHistoryData_le_weekid" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where weekid &lt;= #{id1}
 		order by id
 	</select>
 	<select id="selectHistoryData_ge_weekid" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where weekid &gt;= #{id1}
 		order by id
 	</select>
 	<select id="selectHistoryData_b_weekid" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where weekid between #{id1} and #{id2}
 		order by id
 	</select>
 	
 	<select id="selectHistoryDataMonthid" parameterType="DatePack" resultType="int">
-		select max(monthid) from Historydata_${siid}
+		select max(monthid) from HistoryData_${siid}
 	</select>
 	<select id="selectHistoryData_e_monthid" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where monthid = #{id1}
 		order by id
 	</select>
 	<select id="selectHistoryData_le_monthid" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where monthid &lt;= #{id1}
 		order by id
 	</select>
 	<select id="selectHistoryData_ge_monthid" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where monthid &gt;= #{id1}
 		order by id
 	</select>
 	<select id="selectHistoryData_b_monthid" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where monthid between #{id1} and #{id2}
 		order by id
 	</select>
 
 	<select id="selectHistoryDataYearid" parameterType="DatePack" resultType="int">
-		select max(yearid) from Historydata_${siid}
+		select max(yearid) from HistoryData_${siid}
 	</select>
 	<select id="selectHistoryData_e_yearid" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where yearid = #{id1}
 		order by id
 	</select>
 	<select id="selectHistoryData_le_yearid" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where yearid &lt;= #{id1}
 		order by id
 	</select>
 	<select id="selectHistoryData_ge_yearid" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where yearid &gt;= #{id1}
 		order by id
 	</select>
 	<select id="selectHistoryData_b_yearid" parameterType="DatePack" resultType="HistoryData">
-		select * from Historydata_${siid}
+		select * from HistoryData_${siid}
 		where yearid between #{id1} and #{id2}
 		order by id
 	</select>
 	
 	<select id="selectHistoryDataClose_num_date" parameterType="DatePack" resultType="double">
-		select close from Historydata_${siid}
+		select close from HistoryData_${siid}
 		<where> 
 			(
-				select max(id) from Historydata_${siid}
+				select max(id) from HistoryData_${siid}
 				where date &lt;= #{date1}
 			) between id and id+#{num}-1
 		</where>
 		order by id
 	</select>
 	<select id="selectHistoryDataClose_num_id" parameterType="DatePack" resultType="double">
-		select close from Historydata_${siid}
+		select close from HistoryData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1}
 		order by id
 	</select>
 	<select id="selectHistoryDataIncrease_num_date" parameterType="DatePack" resultType="double">
-		select increase from Historydata_${siid}
+		select increase from HistoryData_${siid}
 		<where> 
 			(
-				select max(id) from Historydata_${siid}
+				select max(id) from HistoryData_${siid}
 				where date &lt;= #{date1}
 			) between id and id+#{num}-1
 		</where>
 		order by id
 	</select>
 	<select id="selectHistoryDataIncrease_num_id" parameterType="DatePack" resultType="double">
-		select increase from Historydata_${siid}
+		select increase from HistoryData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1}
 		order by id
 	</select>
 	<select id="selectHistoryDataVolume_num_date" parameterType="DatePack" resultType="long">
-		select volume from Historydata_${siid}
+		select volume from HistoryData_${siid}
 		<where> 
 			(
-				select max(id) from Historydata_${siid}
+				select max(id) from HistoryData_${siid}
 				where date &lt;= #{date1}
 			) between id and id+#{num}-1
 		</where>
 		order by id
 	</select>
 	<select id="selectHistoryDataVolume_num_id" parameterType="DatePack" resultType="long">
-		select volume from Historydata_${siid}
+		select volume from HistoryData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1}
 		order by id
 	</select>

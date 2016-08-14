@@ -150,7 +150,9 @@
 						return;
 				    }
 				    hideNotic("#password");
-					
+				 	 //登录
+					window.location.href="${pageContext.request.contextPath}/login.action?userName="+
+						userName+"&password="+password;
 				}
 		    });
 		}
@@ -181,9 +183,7 @@
 						//验证密码是否正确
 						verifyPassword();
 						
-						//登录
-						window.location.href="${pageContext.request.contextPath}/login.action?userName="+
-							userName+"&password="+password;
+						
 					}
 				
 		    	});

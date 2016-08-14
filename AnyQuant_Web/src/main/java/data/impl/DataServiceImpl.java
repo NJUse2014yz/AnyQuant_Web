@@ -258,4 +258,14 @@ public class DataServiceImpl implements DataService {
 	public List<BlockHistoryData> getHistoryData_area(String area) throws Exception {
 		return areaLatestMapper.selectHistoryData_area(area);
 	}
+	
+	/**【new】获取一定数目的最新数据*/
+	public List<HistoryData> getHistoryData_latest_n(String siid,int n) throws Exception
+	{
+		DatePack datePack=new DatePack();
+		datePack.setSiid(siid);
+		datePack.setNum(n);
+		datePack.setDate1(new Date(Calendar.getInstance().getTimeInMillis()));
+		return historyDataMapper.selectHistoryData_num_date(datePack);
+	}
 }
