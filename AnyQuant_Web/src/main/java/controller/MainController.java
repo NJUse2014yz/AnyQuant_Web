@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 	@RequestMapping("/welcome")
 	public String m(){
-		return "main/NavBar";
+		return "welcome";
 		
 	}
 }
