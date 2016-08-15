@@ -21,10 +21,10 @@
 				<li id="home"><a href="/index.action">首页</a></li>
 				<li class="active"><a href="#s2">学习分区</a>
 					<ul class="submenu">
-						<li><a href="/AnyQuant_Web/stock.action">指标介绍</a></li>
-						<li><a href="/AnyQuant_Web/stockInfo.action?id=sh000001">工具介绍</a></li>
-						<li><a href="/AnyQuant_Web/stockInfo.action?id=sz399001">策略学习</a></li>
-						<li><a href="/AnyQuant_Web/compare.action">讨论区</a></li>
+						<li><a href="#">指标介绍</a></li>
+						<li><a href="#">工具介绍</a></li>
+						<li><a href="#">策略学习</a></li>
+						<li><a href="#">讨论区</a></li>
 					</ul>
 				</li>
 				<li><a href="#">实践分区</a>
@@ -40,7 +40,7 @@
 					<ul class="submenu">
 						<li><a href="#">个人策略</a></li>
 						<li><a href="#">收藏策略</a></li>
-						<li><a href="/AnyQuant_Web/personalStock.action">个人资料</a></li>
+						<li><a href="#">个人资料</a></li>
 						<li><a href="#">消息空间</a></li>
 					</ul>
 				</li>

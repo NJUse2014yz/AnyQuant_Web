@@ -1,5 +1,10 @@
+.head{
+	position:relative;
+	z-index: 100;
+}
 .container{
 	position:relative;
+	width:100%;
 	margin-top: 50px;
 }
 
@@ -7,7 +12,7 @@
 	width:100%;
 	min-width:768px;
  	margin:auto;
- 	margin-top:0px;
+ 	margin-top:50px;
 	z-index: 0;
 }
 
@@ -18,7 +23,6 @@
  	display: block;
  	margin:auto;
  	margin-top:-350px;
-	z-index: 1;
 }
 .lt{
 	position:relative;
@@ -26,5 +30,62 @@
  	clear: both;
  	display: block;
  	margin:auto;
- 	margin-top:170px;
+ 	margin-top:150px;
+}
+ ul {
+    padding: 0;
+    list-style: none;
+ }
+ li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.modules .feature {
+    position: relative;
+    border: 1px solid #f0f0fb;
+    color: #333;
+    background-color: #fff;
+    transition: background-color .1s ease-out;
+}
+.modules li {
+	display: inline-block;
+    height: 10rem;
+}
+.col-6 {
+    width: 50%;
+}
+.col-5, .col-6 {
+    min-height: 1px;
+    float: left;
+    padding: 0 .5rem;
+    box-sizing: border-box;
+}
+.modules .feature span .rqicon {
+    font-size: 2.5rem;
+    color: #5584ff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%,-50%,0);
+    -ms-transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%,-50%,0);
+}
+.modules div,.modules i, #page-index .modules li {
+    display: inline-block;
+}
+.rqicon, .rqicon+span {
+    vertical-align: middle;
+}
+.rqicon {
+    font-family: rqicon!important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    background-color: transparent;
+}
+.modules .feature-title {
+    font-size: 20px;
+    
 }
