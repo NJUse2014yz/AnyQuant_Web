@@ -19,7 +19,7 @@
 				<br />
 				AnyQuant给你不一样的量化交易平台！</p>
 				<ul class="actions">
-					<li><a href="http://www.anyquant.net:25002/AnyQuant_web/" class="button" id="start">Start Now!</a></li>
+					<li><a href="http://www.anyquant.net:25002/AnyQuant_Web/" class="button" id="start">Start Now!</a></li>
 				</ul>
 				<a href="https://github.com/NJUse2014yz/AnyQuant_Web.git" class="git">Check Github</a>
 			</div>
@@ -66,7 +66,7 @@
 					<h3>Welcome to AnyQuant</h3>
 					<p>服务于小白，集成于大师，准备好了吗？</p>
 					<ul class="actions">
-						<li><a href="http://www.anyquant.net:25002/AnyQuant_web/" class="button" id="s2">Start Now!</a></li>
+						<li><a href="http://www.anyquant.net:25002/AnyQuant_Web/" class="button" id="s2">Start Now!</a></li>
 					</ul>
 				</footer>
 
