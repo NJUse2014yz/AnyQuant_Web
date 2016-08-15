@@ -2,6 +2,7 @@ package function.order;
 
 import function.Function;
 import function.FunctionResult;
+import function.ResultType;
 /**指定交易价值订单*/
 public class ValueFunction extends Function{
 //	public String function;
@@ -30,8 +31,8 @@ public class ValueFunction extends Function{
 	@Override
 	public FunctionResult getResult() {
 		FunctionResult result=new FunctionResult();
-		result.location.add(4);
-		result.location.add(3);
+		result.location.add(ResultType.STRING);
+		result.location.add(ResultType.DOUBLELIST);
 		result.rD=value;
 		result.rS=siid;
 		return result;

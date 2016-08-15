@@ -7,6 +7,7 @@ import tool.ListTool;
 import function.Flag;
 import function.Function;
 import function.FunctionResult;
+import function.ResultType;
 import function.tool.CrossResult;
 import function.tool.CrossTool;
 /**判断双线交叉方向方法*/
@@ -54,7 +55,7 @@ public class CrossFunction extends Function {
 		List<Double> passivelist=new ListTool().getList(siid2,attribute2,new Date(start),new Date(end));
 		CrossResult crossResult=new CrossTool(activelist,passivelist).cross();
 		FunctionResult result=new FunctionResult();
-		result.location.add(2);
+		result.location.add(ResultType.DOUBLELIST);
 		result.rI=crossResult.cross;
 		return result;
 	}

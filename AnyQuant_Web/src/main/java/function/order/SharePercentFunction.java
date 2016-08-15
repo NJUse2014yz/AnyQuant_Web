@@ -2,6 +2,7 @@ package function.order;
 
 import function.Function;
 import function.FunctionResult;
+import function.ResultType;
 /**指定交易股数百分比订单*/
 public class SharePercentFunction extends Function{
 //	public String function;
@@ -32,8 +33,8 @@ public class SharePercentFunction extends Function{
 	@Override
 	public FunctionResult getResult() {
 		FunctionResult result=new FunctionResult();
-		result.location.add(4);
-		result.location.add(3);
+		result.location.add(ResultType.STRING);
+		result.location.add(ResultType.DOUBLELIST);
 		result.rD=percent;
 		result.rS=siid;
 		return result;

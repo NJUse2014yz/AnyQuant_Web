@@ -4,6 +4,7 @@ import tool.ListTool;
 import function.Choose;
 import function.Function;
 import function.FunctionResult;
+import function.ResultType;
 /**配对选股方法*/
 public class PairFunction extends Function{
 //	/**方法名*/
@@ -22,7 +23,7 @@ public class PairFunction extends Function{
 	@Override
 	public FunctionResult getResult() {
 		FunctionResult result=new FunctionResult();
-		result.location.add(7);
+		result.location.add(ResultType.STRINGLIST);
 		result.rLS=new ListTool().getPair(siid, num);
 		return result;
 	}

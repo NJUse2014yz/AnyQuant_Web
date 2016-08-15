@@ -5,7 +5,7 @@ import java.util.List;
 
 /**工具方法的通用返回结果*/
 public class FunctionResult {
-	public List<Integer> location=new ArrayList<Integer>();
+	public List<ResultType> location=new ArrayList<ResultType>();
 	public boolean rB=false;
 	public int rI=0;
 	public double rD=0;
@@ -18,7 +18,7 @@ public class FunctionResult {
 	{
 		
 	}
-	public FunctionResult(List<Integer> location, boolean rB, int rI,
+	public FunctionResult(List<ResultType> location, boolean rB, int rI,
 			double rD, String rS, List<Integer> rLI, List<Double> rLD,
 			List<String> rLS) {
 		super();
@@ -31,10 +31,10 @@ public class FunctionResult {
 		this.rLD = rLD;
 		this.rLS = rLS;
 	}
-	public List<Integer> getLocation() {
+	public List<ResultType> getLocation() {
 		return location;
 	}
-	public void setLocation(List<Integer> location) {
+	public void setLocation(List<ResultType> location) {
 		this.location = location;
 	}
 	public boolean isrB() {

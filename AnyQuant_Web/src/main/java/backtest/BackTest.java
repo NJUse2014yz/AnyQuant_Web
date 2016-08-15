@@ -1,8 +1,5 @@
 package backtest;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -17,19 +14,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import function.Function;
 import function.FunctionResult;
 import function.choose.ChooseStock;
+import function.flag.TrendFunction;
 import function.order.ShareFunction;
 import po.DatePack;
 import po.HistoryData;
 import po.QuotaData;
-//import vo.QuotaAnalysis;
-//import vo.TradeSignal;
-//import backtest.BackTestInnerService;
-//import backtest.tool.AnalyseSignalPack;
-//import backtest.tool.DateDouble;
-//import backtest.tool.HisQuoPack;
-//import backtest.tool.TestReport;
-//import bl.BiasAnalyse;
-//import bl.QuotaAnalyse;
 
 public class BackTest {
 	/**股仓*/
@@ -67,17 +56,17 @@ public class BackTest {
 	/**交易订单类型*/
 	public Function orderType;
 	
-	public void setParam(List<ChooseStock> stockList,
+	public BackTest(List<ChooseStock> stockList,
 			List<Function> flagList,Function orderType,
 			double cash,Date startdate,Date enddate,int n,
 			String benchmark) throws Exception
 	{
 		this.stockList=stockList;
 		//保证股票池占比总和为1
-		int sum=0;
+		double sum=0;
 		for(int i=0;i<stockList.size();i++)
 		{
-			sum+=stockList.get(i).percent;
+			sum=sum+stockList.get(i).percent;
 		}
 		if(sum!=1)
 			throw new Exception();
@@ -103,7 +92,7 @@ public class BackTest {
 		//-------------------
 		stockList.add(new ChooseStock(benchmark,1));//末尾加上基准
 	}
-
+	
 	public TestReport test() throws Exception
 	{
 		//交易订单类型
@@ -135,6 +124,7 @@ public class BackTest {
 			List<QuotaData> quoList=quotaDataMapper.selectQuotaData_b_date(datePack);
 			HQstatisticlist.add(new HisQuoPack(hisList,quoList));
 		}
+		
 		//历史第一日日期资本
 		capital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(0).getDate(),cash));
 		bCapital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(0).getDate(),bCash));
@@ -159,25 +149,29 @@ public class BackTest {
 		List<Double> inPrice=new ArrayList<Double>();
 		List<Double> outPrice=new ArrayList<Double>();
 		
+		TrendFunction function0=(TrendFunction)flagList.get(0);
+		FunctionResult upFRI=function0.getResultUpI();
+		FunctionResult downFRI=function0.getResultDownI();
+		FunctionResult upFRO=function0.getResultUpO();
+		FunctionResult downFRO=function0.getResultDownO();
+		
 		//下订单
-		for(int k=n-1;k<HQstatisticlist.get(0).hislist.size();k=k+n)//n=10默认每五天
+		int length=HQstatisticlist.get(0).hislist.size();
+		for(int k=n-1;k<length-1;k=k+n)//n=10默认每五天
 		{
 			for(int j=0;j<flagList.size();j++)//暂时只有1个flag
 			{
 				Function function=flagList.get(j);
 
 				FunctionResult result=function.getResult();
-				FunctionResult upFRI=function.getUpFRI();
-				FunctionResult downFRI=function.getDownFRI();
-				FunctionResult upFRO=function.getUpFRO();
-				FunctionResult downFRO=function.getDownFRO();
+				
 				switch(result.location.get(0))
 				{
-				case 1://boolean
+				case BOOLEAN://boolean
 					break;
-				case 2://int
+				case INT://int
 					break;
-				case 3://double
+				case DOUBLE://double
 					//触发订单
 					switch(orderType.function)
 					{
@@ -214,58 +208,59 @@ public class BackTest {
 					case "Value":
 						break;
 					}
-				case 4://String
 					break;
-				case 5://int list
+				case STRING://String
 					break;
-				case 6://double list
+				case INTLIST://int list
 					break;
-				case 7://String list
+				case DOUBLELIST://double list
+					break;
+				case STRINGLIST://String list
 					break;
 				}
-			}				
+			}			
 		}
 		switch(orderType.getFunction())
 		{
 		case "Share":
 			//产生交易
-			for(int i=0;i<inOrders.size()-1;i++)
+			for(int i=0;i<inOrders.get(0).size();i++)
 			{//每次应交易情况
 				double capitaltoday=0;//今日股票资本
 				double inprice=0;//今日买入总价
 				double outprice=0;//今日卖出总价
 				
-				for(int j=0;j<stockList.size();i++)
-				{
+				for(int j=0;j<stockList.size()-1;j++)
+				{//每只股票
 					if(inOrders.get(j).get(i)!=null)
 					{
 						
-							ShareFunction order=(ShareFunction)inOrders.get(j).get(i);
-							if(order.order==1)
+						ShareFunction order=(ShareFunction)inOrders.get(j).get(i);
+						if(order.order==1)
+						{
+							cash-=order.share*order.price*(1+inTaxRatio);
+							numlist.set(j,numlist.get(j)+order.share);//加仓
+							inprice+=order.share*order.price;
+						}
+						else if(order.order==-1)
+						{
+							if(order.share>=numlist.get(j))
 							{
-								cash-=order.share*order.price*(1+inTaxRatio);
-								numlist.set(j,numlist.get(j)+order.share);//加仓
-								inprice+=order.share*order.price;
+								cash+=order.share*order.price*(1-outTaxRatio);
+								numlist.set(j,numlist.get(j)-order.share);
+								outprice+=order.share*order.price;
 							}
-							else if(order.order==-1)
+							else
 							{
-								if(order.share>=numlist.get(j))
-								{
-									cash+=order.share*order.price*(1-outTaxRatio);
-									numlist.set(j,numlist.get(j)-order.share);
-									outprice+=order.share*order.price;
-								}
-								else
-								{
-									cash+=numlist.get(j)*order.price*(1-outTaxRatio);
-									numlist.set(j,0);//减仓
-									outprice+=numlist.get(j)*order.price;
-								}
+								cash+=numlist.get(j)*order.price*(1-outTaxRatio);
+								numlist.set(j,0);//减仓
+								outprice+=numlist.get(j)*order.price;
 							}
-							capitaltoday+=numlist.get(j)*order.price;
-							capital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(i).getDate(),capitaltoday+cash));
+						}
+						capitaltoday+=numlist.get(j)*order.price;
 					}
 				}
+				capital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(i).getDate(),capitaltoday+cash));
 				inPrice.add(inprice);
 				outPrice.add(outprice);
 				
@@ -298,14 +293,17 @@ public class BackTest {
 						}
 					}
 					bCapitalToday+=numlist.get(b)*order.price;
-					bCapital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(i).getDate(),bCapitalToday+bCash));
 				}
+				bCapital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(i).getDate(),bCapitalToday+bCash));
 			}
 			break;
+		default:
+			System.out.println("not in");
 		}
 		//生成回测报告
 		TestReport testReport=new TestReport(HQstatisticlist.get(0).hislist.size()/n,capital,bCapital,inPrice,outPrice);
-		
+		System.out.println(inOrders.get(0).size());
+		System.out.println(capital.size());
 		testReport.run(capital.get(capital.size()-1).value,capital.get(0).value,bCapital.get(bCapital.size()-1).value,bCapital.get(0).value);
 		return testReport;
 	}

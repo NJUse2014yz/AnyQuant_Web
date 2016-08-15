@@ -228,6 +228,7 @@ public class TestReport {
 	public double md(List<Double> capital)
 	{
 		List<Double> ratios=new ArrayList<Double>();
+//		System.out.println(capital.size());
 		for(int i=0;i<capital.size();i++)
 		{
 			for(int j=i+1;j<capital.size();j++)

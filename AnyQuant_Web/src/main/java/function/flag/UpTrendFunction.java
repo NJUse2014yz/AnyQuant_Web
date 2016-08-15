@@ -8,6 +8,7 @@ import tool.ListTool;
 import function.Flag;
 import function.Function;
 import function.FunctionResult;
+import function.ResultType;
 import function.tool.TrendFlag;
 import function.tool.TrendPoint;
 import function.tool.TrendTool;
@@ -57,7 +58,7 @@ public class UpTrendFunction extends Function{
 		}
 		TrendFlag flag=new TrendTool(standard,trendList).trend();
 		FunctionResult result=new FunctionResult();
-		result.location.add(3);
+		result.location.add(ResultType.DOUBLELIST);
 		result.rD=flag.uptrend;
 		return result;
 	}

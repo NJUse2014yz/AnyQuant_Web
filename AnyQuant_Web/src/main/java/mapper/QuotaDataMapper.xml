@@ -5,423 +5,423 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mapper.QuotaDataMapper">
 	<select id="countQuotaData_b_date" parameterType="DatePack" resultType="int">
-		select count(*) from anyquant.quotadata_${siid}
+		select count(*) from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 	</select>
 
 	<select id="selectQuotaData_new" parameterType="String" resultType="QuotaData">
-		select * from anyquant.quotadata_${value}
+		select * from QuotaData_${value}
 		where id=
 		(
-			select max(id) from anyquant.quotadata_${value}
+			select max(id) from QuotaData_${value}
 			where date &lt;= #{date1}
 		)
 	</select>	
 	<select id="selectQuotaData_latest" parameterType="DatePack" resultType="QuotaData">
-		select * from anyquant.quotadata_${siid}
+		select * from QuotaData_${siid}
 		where id=
 		(
-			select max(id) from anyquant.quotadata_${siid}
+			select max(id) from QuotaData_${siid}
 			where date &lt;= #{date1}
 		)
 	</select>
 	
 	<select id="selectQuotaData_num_date" parameterType="DatePack" resultType="QuotaData">
-		select * from anyquant.quotadata_${siid}
+		select * from QuotaData_${siid}
 		<where> 
 			(
-				select max(id) from anyquant.quotadata_${siid}
+				select max(id) from QuotaData_${siid}
 				where date &lt;= #{date1}
 			) between id and id+#{num}-1
 		</where>
 		order by id
 	</select>
 	<select id="selectQuotaData_e_date" parameterType="DatePack" resultType="QuotaData">
-		select * from anyquant.quotadata_${siid}
+		select * from QuotaData_${siid}
 		where date=#{date1}
 	</select>
 	<select id="selectQuotaData_ge_date" parameterType="DatePack" resultType="QuotaData">
-		select * from anyquant.quotadata_${siid}
+		select * from QuotaData_${siid}
 		where date &gt;= #{date1}
 		order by id
 	</select>
 	<select id="selectQuotaData_le_date" parameterType="DatePack" resultType="QuotaData">
-		select * from anyquant.quotadata_${siid}
+		select * from QuotaData_${siid}
 		where date &lt;= #{date1}
 		order by id
 	</select>
 	<select id="selectQuotaData_g_date" parameterType="DatePack" resultType="QuotaData">
-		select * from anyquant.quotadata_${siid}
+		select * from QuotaData_${siid}
 		where date &gt; #{date1}
 		order by id
 	</select>
 	<select id="selectQuotaData_l_date" parameterType="DatePack" resultType="QuotaData">
-		select * from anyquant.quotadata_${siid}
+		select * from QuotaData_${siid}
 		where date &lt; #{date1}
 		order by id
 	</select>
 	<select id="selectQuotaData_b_date" parameterType="DatePack" resultType="QuotaData">
-		select * from anyquant.quotadata_${siid}
+		select * from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	
 	<select id="selectM5" parameterType="DatePack" resultType="QuotaData">
-		select m5 from anyquant.quotadata_${siid}
+		select m5 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectM10" parameterType="DatePack" resultType="QuotaData">
-		select m10 from anyquant.quotadata_${siid}
+		select m10 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectM20" parameterType="DatePack" resultType="QuotaData">
-		select m20 from anyquant.quotadata_${siid}
+		select m20 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectM30" parameterType="DatePack" resultType="QuotaData">
-		select m30 from anyquant.quotadata_${siid}
+		select m30 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectBias5" parameterType="DatePack" resultType="QuotaData">
-		select bias5 from anyquant.quotadata_${siid}
+		select bias5 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectBias10" parameterType="DatePack" resultType="QuotaData">
-		select bias10 from anyquant.quotadata_${siid}
+		select bias10 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectBias20" parameterType="DatePack" resultType="QuotaData">
-		select bias20 from anyquant.quotadata_${siid}
+		select bias20 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectBoll1" parameterType="DatePack" resultType="QuotaData">
-		select boll1 from anyquant.quotadata_${siid}
+		select boll1 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectBoll2" parameterType="DatePack" resultType="QuotaData">
-		select boll2 from anyquant.quotadata_${siid}
+		select boll2 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectBoll3" parameterType="DatePack" resultType="QuotaData">
-		select boll3 from anyquant.quotadata_${siid}
+		select boll3 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectRsi" parameterType="DatePack" resultType="QuotaData">
-		select rsi from anyquant.quotadata_${siid}
+		select rsi from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectRsi5" parameterType="DatePack" resultType="QuotaData">
-		select rsi5 from anyquant.quotadata_${siid}
+		select rsi5 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectRsi10" parameterType="DatePack" resultType="QuotaData">
-		select rsi10 from anyquant.quotadata_${siid}
+		select rsi10 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectRsi20" parameterType="DatePack" resultType="QuotaData">
-		select rsi20 from anyquant.quotadata_${siid}
+		select rsi20 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectVr" parameterType="DatePack" resultType="QuotaData">
-		select vr from anyquant.quotadata_${siid}
+		select vr from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectRsv" parameterType="DatePack" resultType="QuotaData">
-		select rsv from anyquant.quotadata_${siid}
+		select rsv from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectK" parameterType="DatePack" resultType="QuotaData">
-		select k from anyquant.quotadata_${siid}
+		select k from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectD" parameterType="DatePack" resultType="QuotaData">
-		select d from anyquant.quotadata_${siid}
+		select d from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectJ" parameterType="DatePack" resultType="QuotaData">
-		select  from anyquant.quotadata_${siid}
+		select  from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectEma12" parameterType="DatePack" resultType="QuotaData">
-		select ema12 from anyquant.quotadata_${siid}
+		select ema12 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectEma26" parameterType="DatePack" resultType="QuotaData">
-		select ema26 from anyquant.quotadata_${siid}
+		select ema26 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectEma50" parameterType="DatePack" resultType="QuotaData">
-		select ema50 from anyquant.quotadata_${siid}
+		select ema50 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectEma5" parameterType="DatePack" resultType="QuotaData">
-		select ma5 from anyquant.quotadata_${siid}
+		select ma5 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectEma35" parameterType="DatePack" resultType="QuotaData">
-		select ema35 from anyquant.quotadata_${siid}
+		select ema35 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectEma10" parameterType="DatePack" resultType="QuotaData">
-		select ma10 from anyquant.quotadata_${siid}
+		select ma10 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectEma60" parameterType="DatePack" resultType="QuotaData">
-		select ema60 from anyquant.quotadata_${siid}
+		select ema60 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectDiff" parameterType="DatePack" resultType="QuotaData">
-		select diff from anyquant.quotadata_${siid}
+		select diff from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectDea" parameterType="DatePack" resultType="QuotaData">
-		select dea from anyquant.quotadata_${siid}
+		select dea from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectMacd" parameterType="DatePack" resultType="QuotaData">
-		select macd from anyquant.quotadata_${siid}
+		select macd from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectDmh" parameterType="DatePack" resultType="QuotaData">
-		select dmh from anyquant.quotadata_${siid}
+		select dmh from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectDml" parameterType="DatePack" resultType="QuotaData">
-		select dml from anyquant.quotadata_${siid}
+		select dml from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectTr" parameterType="DatePack" resultType="QuotaData">
-		select tr from anyquant.quotadata_${siid}
+		select tr from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectDmh12" parameterType="DatePack" resultType="QuotaData">
-		select dmh12 from anyquant.quotadata_${siid}
+		select dmh12 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectDml12" parameterType="DatePack" resultType="QuotaData">
-		select dml12 from anyquant.quotadata_${siid}
+		select dml12 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectTr12" parameterType="DatePack" resultType="QuotaData">
-		select tr12 from anyquant.quotadata_${siid}
+		select tr12 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectDih" parameterType="DatePack" resultType="QuotaData">
-		select dih from anyquant.quotadata_${siid}
+		select dih from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectDil" parameterType="DatePack" resultType="QuotaData">
-		select dil from anyquant.quotadata_${siid}
+		select dil from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectDih12" parameterType="DatePack" resultType="QuotaData">
-		select dih12 from anyquant.quotadata_${siid}
+		select dih12 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectDil12" parameterType="DatePack" resultType="QuotaData">
-		select dil12 from anyquant.quotadata_${siid}
+		select dil12 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectDx" parameterType="DatePack" resultType="QuotaData">
-		select dx from anyquant.quotadata_${siid}
+		select dx from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectAdx" parameterType="DatePack" resultType="QuotaData">
-		select adx from anyquant.quotadata_${siid}
+		select adx from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectAdxr" parameterType="DatePack" resultType="QuotaData">
-		select adxr from anyquant.quotadata_${siid}
+		select adxr from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectObv" parameterType="DatePack" resultType="QuotaData">
-		select obv from anyquant.quotadata_${siid}
+		select obv from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectRoc12" parameterType="DatePack" resultType="QuotaData">
-		select roc12 from anyquant.quotadata_${siid}
+		select roc12 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	<select id="selectRoc25" parameterType="DatePack" resultType="QuotaData">
-		select roc25 from anyquant.quotadata_${siid}
+		select roc25 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
 	
 	<select id="selectQuotaData_num_id" parameterType="DatePack" resultType="QuotaData">
-		select * from anyquant.quotadata_${siid}
+		select * from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1}
 		order by id 
 	</select>
 	<select id="selectQuotaData_e_id" parameterType="DatePack" resultType="QuotaData">
-		select * from anyquant.quotadata_${siid}
+		select * from QuotaData_${siid}
 		where id = #{id1}
 	</select>
 	<select id="selectQuotaData_le_id" parameterType="DatePack" resultType="QuotaData">
-		select * from anyquant.quotadata_${siid}
+		select * from QuotaData_${siid}
 		where id &lt;= #{id1}
 		order by id
 	</select>
 	<select id="selectQuotaData_b_id" parameterType="DatePack" resultType="QuotaData">
-		select * from anyquant.quotadata_${siid}
+		select * from QuotaData_${siid}
 		where id between #{id1} and #{id2}
 		order by id
 	</select>
 	
 	<select id="selectBias5Max_b_date" parameterType="DatePack" resultType="double">
-		select max(bias5) from anyquant.quotadata_${siid}
+		select max(bias5) from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 	</select>
 	<select id="selectBias5Min_b_date" parameterType="DatePack" resultType="double">
-		select min(bias5) from anyquant.quotadata_${siid}
+		select min(bias5) from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 	</select>
 	<select id="selectBias10Max_b_date" parameterType="DatePack" resultType="double">
-		select max(bias10) from anyquant.quotadata_${siid}
+		select max(bias10) from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 	</select>
 	<select id="selectBias10Min_b_date" parameterType="DatePack" resultType="double">
-		select min(bias10) from anyquant.quotadata_${siid}
+		select min(bias10) from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 	</select>
 	<select id="selectBias20Max_b_date" parameterType="DatePack" resultType="double">
-		select max(bias20) from anyquant.quotadata_${siid}
+		select max(bias20) from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 	</select>
 	<select id="selectBias20Min_b_date" parameterType="DatePack" resultType="double">
-		select min(bias20) from anyquant.quotadata_${siid}
+		select min(bias20) from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 	</select>
 	
 	<select id="selectBias5Posi_12_b_date" parameterType="DatePack" resultType="double">
-		select bias5 from anyquant.quotadata_${siid}
+		select bias5 from QuotaData_${siid}
 		where bias5 &gt; 0 and date between #{date1} and #{date2}
 		order by bias5 asc
 	</select>
 	<select id="selectBias5Posi_21_b_date" parameterType="DatePack" resultType="double">
-		select bias5 from anyquant.quotadata_${siid}
+		select bias5 from QuotaData_${siid}
 		where bias5 &gt; 0 and date between #{date1} and #{date2}
 		order by bias5 desc
 	</select>
 	<select id="selectBias5Nega_12_b_date" parameterType="DatePack" resultType="double">
-		select bias5 from anyquant.quotadata_${siid}
+		select bias5 from QuotaData_${siid}
 		where bias5 &lt; 0 and date between #{date1} and #{date2}
 		order by bias5 asc
 	</select>
 	<select id="selectBias5Nega_21_b_date" parameterType="DatePack" resultType="double">
-		select bias5 from anyquant.quotadata_${siid}
+		select bias5 from QuotaData_${siid}
 		where bias5 &lt; 0 and date between #{date1} and #{date2}
 		order by bias5 desc
 	</select>
 	
 	<select id="selectBias10Posi_12_b_date" parameterType="DatePack" resultType="double">
-		select bias10 from anyquant.quotadata_${siid}
+		select bias10 from QuotaData_${siid}
 		where bias10 &gt; 0 and date between #{date1} and #{date2}
 		order by bias10 asc
 	</select>
 	<select id="selectBias10Posi_21_b_date" parameterType="DatePack" resultType="double">
-		select bias10 from anyquant.quotadata_${siid}
+		select bias10 from QuotaData_${siid}
 		where bias10 &gt; 0 and date between #{date1} and #{date2}
 		order by bias10 desc
 	</select>
 	<select id="selectBias10Nega_12_b_date" parameterType="DatePack" resultType="double">
-		select bias10 from anyquant.quotadata_${siid}
+		select bias10 from QuotaData_${siid}
 		where bias10 &lt; 0 and date between #{date1} and #{date2}
 		order by bias10 asc
 	</select>
 	<select id="selectBias10Nega_21_b_date" parameterType="DatePack" resultType="double">
-		select bias10 from anyquant.quotadata_${siid}
+		select bias10 from QuotaData_${siid}
 		where bias10 &lt; 0 and date between #{date1} and #{date2}
 		order by bias10 desc
 	</select>
 	
 	<select id="selectBias20Posi_12_b_date" parameterType="DatePack" resultType="double">
-		select bias20 from anyquant.quotadata_${siid}
+		select bias20 from QuotaData_${siid}
 		where bias20 &gt; 0 and date between #{date1} and #{date2}
 		order by bias20 asc
 	</select>
 	<select id="selectBias20Posi_21_b_date" parameterType="DatePack" resultType="double">
-		select bias20 from anyquant.quotadata_${siid}
+		select bias20 from QuotaData_${siid}
 		where bias20 &gt; 0 and date between #{date1} and #{date2}
 		order by bias20 desc
 	</select>
 	<select id="selectBias20Nega_12_b_date" parameterType="DatePack" resultType="double">
-		select bias20 from anyquant.quotadata_${siid}
+		select bias20 from QuotaData_${siid}
 		where bias20 &lt; 0 and date between #{date1} and #{date2}
 		order by bias20 asc
 	</select>
 	<select id="selectBias20Nega_21_b_date" parameterType="DatePack" resultType="double">
-		select bias20 from anyquant.quotadata_${siid}
+		select bias20 from QuotaData_${siid}
 		where bias20 &lt; 0 and date between #{date1} and #{date2}
 		order by bias20 desc
 	</select>
 	
 	<select id="selectRsi_12_b_date" parameterType="DatePack" resultType="double">
-		select rsi from anyquant.quotadata_${siid}
+		select rsi from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by rsi asc
 	</select>
 	<select id="selectRsi5_12_b_date" parameterType="DatePack" resultType="double">
-		select rsi5 from anyquant.quotadata_${siid}
+		select rsi5 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by rsi5 asc
 	</select>
 	<select id="selectRsi10_12_b_date" parameterType="DatePack" resultType="double">
-		select rsi10 from anyquant.quotadata_${siid}
+		select rsi10 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by rsi10 asc
 	</select>
 	<select id="selectRsi20_12_b_date" parameterType="DatePack" resultType="double">
-		select rsi20 from anyquant.quotadata_${siid}
+		select rsi20 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by rsi20 asc
 	</select>
 	<select id="selectObv_num_date" parameterType="DatePack" resultType="double">
-		select obv from anyquant.quotadata_${siid}
+		select obv from QuotaData_${siid}
 		<where> 
 			(
 				select max(id) from anyquant.historydata_${siid}
@@ -430,11 +430,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<select id="selectObv_num_id" parameterType="DatePack" resultType="double">
-		select obv from anyquant.quotadata_${siid}
+		select obv from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 	<select id="selectBoll1_num_date" parameterType="DatePack" resultType="double">
-		select boll1 from anyquant.quotadata_${siid}
+		select boll1 from QuotaData_${siid}
 		<where> 
 			(
 				select max(id) from anyquant.historydata_${siid}
@@ -443,11 +443,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<select id="selectBoll1_num_id" parameterType="DatePack" resultType="double">
-		select boll1 from anyquant.quotadata_${siid}
+		select boll1 from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 	<select id="selectBoll2_num_date" parameterType="DatePack" resultType="double">
-		select boll2 from anyquant.quotadata_${siid}
+		select boll2 from QuotaData_${siid}
 		<where> 
 			(
 				select max(id) from anyquant.historydata_${siid}
@@ -456,11 +456,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<select id="selectBoll2_num_id" parameterType="DatePack" resultType="double">
-		select boll2 from anyquant.quotadata_${siid}
+		select boll2 from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 	<select id="selectBoll3_num_date" parameterType="DatePack" resultType="double">
-		select boll3 from anyquant.quotadata_${siid}
+		select boll3 from QuotaData_${siid}
 		<where> 
 			(
 				select max(id) from anyquant.historydata_${siid}
@@ -469,11 +469,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<select id="selectBoll3_num_id" parameterType="DatePack" resultType="double">
-		select boll3 from anyquant.quotadata_${siid}
+		select boll3 from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 	<select id="selectRoc12_num_date" parameterType="DatePack" resultType="double">
-		select roc12 from anyquant.quotadata_${siid}
+		select roc12 from QuotaData_${siid}
 		<where> 
 			(
 				select max(id) from anyquant.historydata_${siid}
@@ -482,16 +482,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<select id="selectRoc12_num_id" parameterType="DatePack" resultType="double">
-		select roc12 from anyquant.quotadata_${siid}
+		select roc12 from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 	<select id="selectRoc12_12_b_date" parameterType="DatePack" resultType="double">
-		select roc12 from anyquant.quotadata_${siid}
+		select roc12 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by roc12 asc
 	</select>
 	<select id="selectRoc25_num_date" parameterType="DatePack" resultType="double">
-		select roc25 from anyquant.quotadata_${siid}
+		select roc25 from QuotaData_${siid}
 		<where> 
 			(
 				select max(id) from anyquant.historydata_${siid}
@@ -500,16 +500,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<select id="selectRoc25_num_id" parameterType="DatePack" resultType="double">
-		select Roc25 from anyquant.quotadata_${siid}
+		select Roc25 from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 		<select id="selectRoc25_12_b_date" parameterType="DatePack" resultType="double">
-		select roc25 from anyquant.quotadata_${siid}
+		select roc25 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by roc25 asc
 	</select>
 	<select id="selectDmh_num_date" parameterType="DatePack" resultType="double">
-		select dmh from anyquant.quotadata_${siid}
+		select dmh from QuotaData_${siid}
 		<where> 
 			(
 				select max(id) from anyquant.historydata_${siid}
@@ -518,11 +518,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<select id="selectDmh_num_id" parameterType="DatePack" resultType="double">
-		select dmh from anyquant.quotadata_${siid}
+		select dmh from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 	<select id="selectDml_num_date" parameterType="DatePack" resultType="double">
-		select dml from anyquant.quotadata_${siid}
+		select dml from QuotaData_${siid}
 		<where> 
 			(
 				select max(id) from anyquant.historydata_${siid}
@@ -531,11 +531,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<select id="selectDmi_num_id" parameterType="DatePack" resultType="double">
-		select dmi from anyquant.quotadata_${siid}
+		select dmi from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 	<select id="selectDih_num_date" parameterType="DatePack" resultType="double">
-		select dih from anyquant.quotadata_${siid}
+		select dih from QuotaData_${siid}
 		<where> 
 			(
 				select max(id) from anyquant.historydata_${siid}
@@ -544,11 +544,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<select id="selectDih_num_id" parameterType="DatePack" resultType="double">
-		select dih from anyquant.quotadata_${siid}
+		select dih from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 	<select id="selectDil_num_date" parameterType="DatePack" resultType="double">
-		select dil from anyquant.quotadata_${siid}
+		select dil from QuotaData_${siid}
 		<where> 
 			(
 				select max(id) from anyquant.historydata_${siid}
@@ -557,11 +557,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<select id="selectDil_num_id" parameterType="DatePack" resultType="double">
-		select dil from anyquant.quotadata_${siid}
+		select dil from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 	<select id="selectDih12_num_date" parameterType="DatePack" resultType="double">
-		select dih12 from anyquant.quotadata_${siid}
+		select dih12 from QuotaData_${siid}
 		<where> 
 			(
 				select max(id) from anyquant.historydata_${siid}
@@ -570,12 +570,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<select id="selectDih12_num_id" parameterType="DatePack" resultType="double">
-		select dih12 from anyquant.quotadata_${siid}
+		select dih12 from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 		order by id asc
 	</select>
 	<select id="selectDil12_num_date" parameterType="DatePack" resultType="double">
-		select dil12 from anyquant.quotadata_${siid}
+		select dil12 from QuotaData_${siid}
 		<where> 
 			(
 				select max(id) from anyquant.historydata_${siid}
@@ -584,12 +584,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<select id="selectDil12_num_id" parameterType="DatePack" resultType="double">
-		select dil12 from anyquant.quotadata_${siid}
+		select dil12 from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 		order by id asc
 	</select>
 	<select id="selectDx_num_date" parameterType="DatePack" resultType="double">
-		select dx from anyquant.quotadata_${siid}
+		select dx from QuotaData_${siid}
 		<where> 
 			(
 				select max(id) from anyquant.historydata_${siid}
@@ -598,11 +598,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<select id="selectDx_num_id" parameterType="DatePack" resultType="double">
-		select dx from anyquant.quotadata_${siid}
+		select dx from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 	<select id="selectAdx_num_date" parameterType="DatePack" resultType="double">
-		select adx from anyquant.quotadata_${siid}
+		select adx from QuotaData_${siid}
 		<where> 
 			(
 				select max(id) from anyquant.historydata_${siid}
@@ -611,11 +611,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<select id="selectAdx_num_id" parameterType="DatePack" resultType="double">
-		select adx from anyquant.quotadata_${siid}
+		select adx from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 	<select id="selectAdxr_num_date" parameterType="DatePack" resultType="double">
-		select adxr from anyquant.quotadata_${siid}
+		select adxr from QuotaData_${siid}
 		<where> 
 			(
 				select max(id) from anyquant.historydata_${siid}
@@ -624,24 +624,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<select id="selectAdxr_num_id" parameterType="DatePack" resultType="double">
-		select adxr from anyquant.quotadata_${siid}
+		select adxr from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 	<select id="selectDiff_num_id" parameterType="DatePack" resultType="double">
-		select diff from anyquant.quotadata_${siid}
+		select diff from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 	<select id="selectDea_num_id" parameterType="DatePack" resultType="double">
-		select dea from anyquant.quotadata_${siid}
+		select dea from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 	<select id="selectMacd_num_id" parameterType="DatePack" resultType="double">
-		select macd from anyquant.quotadata_${siid}
+		select macd from QuotaData_${siid}
 		where id between #{id1}-#{num}+1 and #{id1} 
 	</select>
 	
 	<select id="selectVr_12_b_date" parameterType="DatePack" resultType="double">
-		select vr from anyquant.quotadata_${siid}
+		select vr from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by vr asc
 	</select>

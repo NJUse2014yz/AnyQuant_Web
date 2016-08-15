@@ -2,10 +2,14 @@ package function;
 /**所有的工具方法的接口*/
 public abstract class Function {
 	public String function;
-	public FunctionResult upFRI;
-	public FunctionResult downFRI;
-	public FunctionResult upFRO;
-	public FunctionResult downFRO;
+	/**方法买入结果的上界*/
+	public FunctionResult resultUpI;
+	/**方法买入结果的下界*/
+	public FunctionResult resultDownI;
+	/**方法卖出结果的上界*/
+	public FunctionResult resultUpO;
+	/**方法卖出结果的下界*/
+	public FunctionResult resultDownO;
 	public abstract FunctionResult getResult();
 	public String getFunction() {
 		return function;
@@ -13,29 +17,29 @@ public abstract class Function {
 	public void setFunction(String function) {
 		this.function = function;
 	}
-	public FunctionResult getUpFRI() {
-		return upFRI;
+	public FunctionResult getResultUpI() {
+		return resultUpI;
 	}
-	public void setUpFRI(FunctionResult upFRI) {
-		this.upFRI = upFRI;
+	public void setResultUpI(FunctionResult resultUpI) {
+		this.resultUpI = resultUpI;
 	}
-	public FunctionResult getDownFRI() {
-		return downFRI;
+	public FunctionResult getResultDownI() {
+		return resultDownI;
 	}
-	public void setDownFRI(FunctionResult downFRI) {
-		this.downFRI = downFRI;
+	public void setResultDownI(FunctionResult resultDownI) {
+		this.resultDownI = resultDownI;
 	}
-	public FunctionResult getUpFRO() {
-		return upFRO;
+	public FunctionResult getResultUpO() {
+		return resultUpO;
 	}
-	public void setUpFRO(FunctionResult upFRO) {
-		this.upFRO = upFRO;
+	public void setResultUpO(FunctionResult resultUpO) {
+		this.resultUpO = resultUpO;
 	}
-	public FunctionResult getDownFRO() {
-		return downFRO;
+	public FunctionResult getResultDownO() {
+		return resultDownO;
 	}
-	public void setDownFRO(FunctionResult downFRO) {
-		this.downFRO = downFRO;
+	public void setResultDownO(FunctionResult resultDownO) {
+		this.resultDownO = resultDownO;
 	}
 	
 }

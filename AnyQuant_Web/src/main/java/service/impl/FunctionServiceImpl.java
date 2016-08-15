@@ -8,7 +8,6 @@ import java.util.Map;
 
 import service.FunctionService;
 import function.Choose;
-import function.DataType;
 import function.Flag;
 import function.Function;
 import function.FunctionInfo;
