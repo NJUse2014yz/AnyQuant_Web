@@ -7,11 +7,11 @@ public class Strategy {
 	public String createrName;
 	/**策略名*/
 	public String strategyName;
-	/**订单类型*/
+	/**订单类型的Json*/
 	public String orderType;
 	/**选股列表List<ChooseStock>的Json*/
 	public String stockList;
-	/**选股方法列表List<Function>的Json*/
+	/**选股方法列表List<List<Function>>(内列表且，外列表或)的Json*/
 	public String choose;
 	/**出入场标志列表List<List<Function>>(内列表且，外列表或)的Json*/
 	public String flag;

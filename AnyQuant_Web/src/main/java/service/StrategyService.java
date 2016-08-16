@@ -3,14 +3,16 @@ package service;
 import java.util.List;
 
 import po.Strategy;
+import vo.StrategyVO;
 
 public interface StrategyService {
 	/**定制策略*/
-	public void makeStrategy(Strategy strategy);
+	public void makeStrategy(StrategyVO vo);
 	/**获取保存的策略,用户名.创建用户名.策略名*/
 	public Strategy getSingleStrategy(String userName,String createrName,String strategyName);
 	/**获取自己的策略*/
 	public List<Strategy> getSelfStrategy(String userName);
 	/**获取收藏的策略*/
 	public List<Strategy> getSaveStrategy(String userName);
+	
 }

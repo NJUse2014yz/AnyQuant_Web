@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tool.ListTool;
-import function.Flag;
 import function.Function;
 import function.FunctionResult;
 import function.ResultType;

@@ -42,7 +42,7 @@ public class JsonExchangeTool {
 			jArrayIn=(JSONArray) jArrayOut.get(j);
 			for(int i=0;i<jArrayIn.size();i++)
 			{
-				JSONObject jObject=null;
+				JSONObject jObject=(JSONObject) jArrayIn.get(i);
 				String siid=null;
 				String siid1=null;
 				String siid2=null;

@@ -1,7 +1,6 @@
 package function.choose;
 
 import tool.ListTool;
-import function.Choose;
 import function.Function;
 import function.FunctionResult;
 import function.ResultType;

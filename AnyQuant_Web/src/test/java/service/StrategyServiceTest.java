@@ -16,6 +16,7 @@ import po.StockInf;
 import po.Strategy;
 import service.impl.StrategyServiceImpl;
 import tool.JsonExchangeTool;
+import vo.StrategyVO;
 import function.Function;
 import function.FunctionResult;
 import function.ResultType;
@@ -37,25 +38,15 @@ public class StrategyServiceTest {
 		String userName="u1";
 		String createrName="u1";
 		//strategyName
-		String strategyName="s1";
+		String strategyName="s2";
 		//choose
-		int num=100;
+		int num=1;
 		PairVO pairVO=new PairVO(siid,num);
 		PairFunction pair=new PairFunction(pairVO);
-//		List<FunctionInfo> list=new FunctionServiceImpl().choose(Choose.PAIR);
-//		Map map=new HashMap();
-//		for(int i=0;i<list.size();i++)
-//		{
-//			switch(list.get(i).name)
-//			{
-//			case "sid":
-//				map.put("sid",siid);
-//			case "num":
-//				map.put("num",num);
-//			}
-//		}
-		List<Function> choose=new ArrayList<Function>();
-		choose.add(pair);
+
+		List<List<Function>> choose=new ArrayList<List<Function>>();
+		choose.add(new ArrayList<Function>());
+		choose.get(0).add(pair);
 		//chooseStock
 		StockInf stockInf=null;
 		try {
@@ -72,24 +63,31 @@ public class StrategyServiceTest {
 		Date start=new Date(2015-1900,0,1);
 		Date end=new Date(Calendar.getInstance().getTimeInMillis());
 		Double standard=0.5;
-		FunctionResult upFR=new FunctionResult();
-		upFR.location.add(ResultType.DOUBLELIST);
-		upFR.rD=0.5;
-		FunctionResult downFR=new FunctionResult();
-		downFR.location.add(ResultType.DOUBLELIST);
-		downFR.rD=0.2;
-		TrendVO trendVO=null;//new TrendVO(upFR,downFR,siid,attribute,start.getTime(),end.getTime(),standard);
+		FunctionResult upFRI=new FunctionResult();
+		upFRI.location.add(ResultType.DOUBLELIST);
+		upFRI.rD=0.5;
+		FunctionResult downFRI=new FunctionResult();
+		downFRI.location.add(ResultType.DOUBLELIST);
+		downFRI.rD=0.2;
+		FunctionResult upFRO=new FunctionResult();
+		upFRO.location.add(ResultType.DOUBLELIST);
+		upFRO.rD=-0.2;
+		FunctionResult downFRO=new FunctionResult();
+		downFRO.location.add(ResultType.DOUBLELIST);
+		downFRO.rD=-0.5;
+		TrendVO trendVO=new TrendVO(upFRI,downFRI,upFRO,downFRO,siid,attribute,start.getTime(),end.getTime(),standard);
 		TrendFunction trend=new TrendFunction(trendVO);
-		List<Function> flag=new ArrayList<Function>();
-		flag.add(trend);
+		List<List<Function>> flag=new ArrayList<List<Function>>();
+		flag.add(new ArrayList<Function>());
+		flag.get(0).add(trend);
 		ShareFunction share=new ShareFunction();
+		StrategyVO strategy=new StrategyVO(userName,createrName,strategyName,share,stockList,choose,flag);
 		
-		Strategy strategy=new Strategy(userName,createrName,strategyName,JSONObject.fromObject(share).toString(),JSONArray.fromObject(stockList).toString(),JSONArray.fromObject(choose).toString(),JSONArray.fromObject(flag).toString());
 		instance.makeStrategy(strategy);
 	}
 	public static void getStrategy()
 	{
-		Strategy strategy=instance.getSingleStrategy("u1","u1","s1");
+		Strategy strategy=instance.getSingleStrategy("u1","u1","s2");
 		String userName=strategy.userName;
 		String createrName=strategy.createrName;
 		String strategyName=strategy.strategyName;
@@ -143,8 +141,8 @@ public class StrategyServiceTest {
 	}
 	public static void main(String[] args)
 	{
-		StrategyServiceTest.makeStrategy();
-//		StrategyServiceTest.getStrategy();
+//		StrategyServiceTest.makeStrategy();
+		StrategyServiceTest.getStrategy();
 //		StrategyServiceTest.getSelfStrategy();
 //		StrategyServiceTest.getSaveStrategy();
 	}

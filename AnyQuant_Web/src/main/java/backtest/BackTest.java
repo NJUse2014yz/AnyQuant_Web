@@ -19,6 +19,7 @@ import function.order.ShareFunction;
 import po.DatePack;
 import po.HistoryData;
 import po.QuotaData;
+import tool.MMSTool;
 
 public class BackTest {
 	/**股仓*/
@@ -132,7 +133,7 @@ public class BackTest {
 		//建仓,假设没有税费,从此次开始买入和卖出均用收盘价
 		for(int i=0;i<stockList.size()-1;i++)
 		{
-			numlist.add((int)(cash*stockList.get(i).percent/100.0/HQstatisticlist.get(i).hislist.get(0).getClose()));
+			numlist.add((int)(cash*stockList.get(i).percent/HQstatisticlist.get(i).hislist.get(0).getClose()));
 		}
 		for(int i=0;i<stockList.size()-1;i++)
 		{
@@ -150,7 +151,12 @@ public class BackTest {
 		List<Double> outPrice=new ArrayList<Double>();
 		
 		//下订单
-		int length=HQstatisticlist.get(0).hislist.size();
+		List<Double> lenList=new ArrayList<Double>();
+		for(int i=0;i<stockList.size();i++)
+		{
+			lenList.add((double)HQstatisticlist.get(i).hislist.size());	
+		}
+		int length=(int) MMSTool.min_double(lenList);
 		for(int k=n-1;k<length-1;k=k+n)//n=10默认每五天
 		{
 			boolean flagOutI=true;
@@ -218,7 +224,7 @@ public class BackTest {
 				flagOutI=flagOutI&&flagInI;
 				flagOutO=flagOutO&&flagInO;
 			}
-			
+
 			if(flagOutI)
 			{
 				for(int i=0;i<stockList.size();i++)
@@ -247,108 +253,115 @@ public class BackTest {
 					outOrders.get(i).add(null);//如果不交易传入null
 				}
 			}
-			
-			switch(orderType.getFunction())
-			{
-			case "Share":
-				//产生交易
-				for(int i=0;i<inOrders.get(0).size();i++)
-				{//每次应交易情况
-					double capitaltoday=0;//今日股票资本
-					double inprice=0;//今日买入总价
-					double outprice=0;//今日卖出总价
-					
-					for(int j=0;j<stockList.size()-1;j++)
-					{//每只股票
-						if(inOrders.get(j).get(i)!=null)
-						{
-							
-							ShareFunction order=(ShareFunction)inOrders.get(j).get(i);
-							if(order.order==1)
-							{
-								if(cash<=0)
-								{
-									;
-								}
-								else
-								{
-									cash-=order.share*order.price*(1+inTaxRatio);
-									numlist.set(j,numlist.get(j)+order.share);//加仓
-									inprice+=order.share*order.price;
-								}
-							}
-							else if(order.order==-1)
-							{
-								if(order.share>=numlist.get(j))
-								{
-									cash+=order.share*order.price*(1-outTaxRatio);
-									numlist.set(j,numlist.get(j)-order.share);
-									outprice+=order.share*order.price;
-								}
-								else
-								{
-									cash+=numlist.get(j)*order.price*(1-outTaxRatio);
-									numlist.set(j,0);//减仓
-									outprice+=numlist.get(j)*order.price;
-								}
-							}
-							capitaltoday+=numlist.get(j)*order.price;
-						}
-					}
-					capital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(i).getDate(),capitaltoday+cash));
-					inPrice.add(inprice);
-					outPrice.add(outprice);
-					
-					double bCapitalToday=0;
-					double bInprice=0;
-					double bOutprice=0;
-					
-					if(inOrders.get(b).get(i)!=null)
+		}
+		
+		switch(orderType.getFunction())
+		{
+		case "Share":
+			//产生交易
+			for(int i=0;i<inOrders.get(0).size();i++)
+			{//每次应交易情况
+				double capitaltoday=0;//今日股票资本
+				double inprice=0;//今日买入总价
+				double outprice=0;//今日卖出总价
+				
+				for(int j=0;j<stockList.size()-1;j++)
+				{//每只股票
+					ShareFunction order=(ShareFunction)inOrders.get(j).get(i);
+					if(inOrders.get(j).get(i)!=null)
 					{
-						ShareFunction order=(ShareFunction)inOrders.get(b).get(i);
 						if(order.order==1)
 						{
-							if(cash<=0)
+							if(cash-order.share*order.price*(1+inTaxRatio)<0)
 							{
-								;
+								int share=(int) (cash*(1-inTaxRatio)/order.price);
+								cash-=share*order.price*(1+inTaxRatio);
+								numlist.set(j,numlist.get(j)+share);//加仓
+								inprice+=share*order.price;
 							}
 							else
 							{
-								bCash-=order.share*order.price*(1+inTaxRatio);
-								numlist.set(b,numlist.get(b)+order.share);//加仓
-								inprice+=order.share*order.price;	
+								cash-=order.share*order.price*(1+inTaxRatio);
+								numlist.set(j,numlist.get(j)+order.share);//加仓
+								inprice+=order.share*order.price;
 							}
 						}
 						else if(order.order==-1)
 						{
-							if(order.share>=numlist.get(b))
+							if(order.share>=numlist.get(j))
 							{
-								bCash+=order.share*order.price*(1-outTaxRatio);
-								numlist.set(b,numlist.get(b)-order.share);
+								cash+=order.share*order.price*(1-outTaxRatio);
+								numlist.set(j,numlist.get(j)-order.share);
 								outprice+=order.share*order.price;
 							}
 							else
 							{
-								cash+=numlist.get(b)*order.price*(1-outTaxRatio);
-								numlist.set(b,0);//减仓
-								outprice+=numlist.get(b)*order.price;
+								cash+=numlist.get(j)*order.price*(1-outTaxRatio);
+								numlist.set(j,0);//减仓
+								outprice+=numlist.get(j)*order.price;
 							}
 						}
-						bCapitalToday+=numlist.get(b)*order.price;
 					}
-					bCapital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(i).getDate(),bCapitalToday+bCash));
+					capitaltoday+=numlist.get(j)*order.price;
 				}
-				break;
-			default:
-				System.out.println("not in");
+				
+				capital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(i).getDate(),capitaltoday+cash));
+				inPrice.add(inprice);
+				outPrice.add(outprice);
+
+//				System.out.println("inprice "+inPrice.get(i));
+//				System.out.println("outprice "+outPrice.get(i));
+//				double v=capitaltoday+cash;
+//				System.out.println(HQstatisticlist.get(0).hislist.get(i).getDate()+" "+v);
+				
+				double bCapitalToday=0;
+				double bInprice=0;
+				double bOutprice=0;
+				
+				ShareFunction order=(ShareFunction)inOrders.get(b).get(i);
+				if(inOrders.get(b).get(i)!=null)
+				{
+					if(order.order==1)
+					{
+						if(cash-order.share*order.price*(1+inTaxRatio)<0)
+						{
+							int share=(int) (cash*(1-inTaxRatio)/order.price);
+							cash-=share*order.price*(1+inTaxRatio);
+							numlist.set(b,numlist.get(b)+share);//加仓
+							inprice+=share*order.price;
+						}
+						else
+						{
+							bCash-=order.share*order.price*(1+inTaxRatio);
+							numlist.set(b,numlist.get(b)+order.share);//加仓
+							inprice+=order.share*order.price;	
+						}
+					}
+					else if(order.order==-1)
+					{
+						if(order.share>=numlist.get(b))
+						{
+							bCash+=order.share*order.price*(1-outTaxRatio);
+							numlist.set(b,numlist.get(b)-order.share);
+							outprice+=order.share*order.price;
+						}
+						else
+						{
+							cash+=numlist.get(b)*order.price*(1-outTaxRatio);
+							numlist.set(b,0);//减仓
+							outprice+=numlist.get(b)*order.price;
+						}
+					}
+				}
+				bCapitalToday+=numlist.get(b)*order.price;
+				bCapital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(i).getDate(),bCapitalToday+bCash));
 			}
+			break;
+		default:
+			System.out.println("not in");
 		}
 		//生成回测报告
 		TestReport testReport=new TestReport(HQstatisticlist.get(0).hislist.size()/n,capital,bCapital,inPrice,outPrice);
-//		System.out.println(inOrders.get(0).size());
-//		System.out.println(capital.size());
-//		System.out.println(bCapital.size());
-//		System.out.println(bCapital.get(0));
 		testReport.run(capital.get(capital.size()-1).value,capital.get(0).value,bCapital.get(bCapital.size()-1).value,bCapital.get(0).value);
 		return testReport;
 	}

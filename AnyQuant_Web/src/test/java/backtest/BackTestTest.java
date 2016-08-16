@@ -1,5 +1,9 @@
 package backtest;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +22,8 @@ public class BackTestTest {
 	public TestReport test()
 	{
 		List<ChooseStock> stockList=new ArrayList<ChooseStock>();
-		stockList.add(new ChooseStock("sh600000",0.2));
-		stockList.add(new ChooseStock("sh600004",0.8));
+		stockList.add(new ChooseStock("sh600008",0.2));
+		stockList.add(new ChooseStock("sh600009",0.8));
 		List<List<Function>> flagList=new ArrayList<List<Function>>();
 		flagList.add(new ArrayList<Function>());
 		FunctionResult resultUpI=new FunctionResult();
@@ -69,6 +73,28 @@ public class BackTestTest {
 	}
 	public static void main(String[] args)
 	{
-		System.out.println(new BackTestTest().test());
+		File file=new File("test.txt");
+		FileWriter fw=null;
+		try {
+			fw = new FileWriter(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		BufferedWriter bw=new BufferedWriter(fw);
+		try {
+			bw.write(new BackTestTest().test().toString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			fw.close();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 	}
 }

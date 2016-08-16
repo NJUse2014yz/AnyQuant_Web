@@ -2,12 +2,16 @@ package service.impl;
 
 import java.util.List;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import po.Strategy;
 import po.StrategySearch;
 import mapper.StrategyMapper;
 import service.StrategyService;
+import vo.StrategyVO;
 
 public class StrategyServiceImpl implements StrategyService {
 	@Autowired
@@ -18,7 +22,14 @@ public class StrategyServiceImpl implements StrategyService {
 		this.strategyMapper = strategyMapper;
 	}
 	@Override
-	public void makeStrategy(Strategy strategy) {
+	public void makeStrategy(StrategyVO vo) {
+		Strategy strategy=new Strategy();
+		strategy.setUserName(vo.getUserName());
+		strategy.setCreaterName(vo.getCreaterName());
+		strategy.setStrategyName(vo.getStrategyName());
+		strategy.setOrderType(JSONObject.fromObject(vo.getChoose()).toString());
+		strategy.setChoose(JSONArray.fromObject(vo.getChoose()).toString());
+		strategy.setFlag(JSONArray.fromObject(vo.getFlag()).toString());
 		try {
 			strategyMapper.insert(strategy);
 		} catch (Exception e) {

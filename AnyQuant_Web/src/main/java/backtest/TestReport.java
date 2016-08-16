@@ -79,10 +79,11 @@ public class TestReport {
 			brlist.add(bCapital.get(i+1).value-bCapital.get(i).value);
 			arrlist.add(arlist.get(i)/capital.get(i).value);
 			brrlist.add(brlist.get(i)/bCapital.get(i).value);
-			cumlist.add(new DateDouble(capital.get(i).date,DataHelper.controldigit(arrlist.get(i)*100+cum)));
+			
 			cum+=arrlist.get(i)*100;
-			bCumlist.add(new DateDouble(capital.get(i).date,DataHelper.controldigit(brrlist.get(i)*100+bCum)));
+			cumlist.add(new DateDouble(capital.get(i).date,DataHelper.controldigit(cum)));
 			bCum+=brrlist.get(i)*100;
+			bCumlist.add(new DateDouble(capital.get(i).date,DataHelper.controldigit(bCum)));
 		}
 
 		
@@ -103,10 +104,7 @@ public class TestReport {
 		}
 		maxDrawdown=md(capitalvalue);
 		turnoverRate=tr(Math.min(MMSTool.sum_double(inPrice),MMSTool.sum_double(outPrice)),MMSTool.mean(capitalvalue));
-//System.out.println(inPrice);
-//System.out.println(outPrice);
-//System.out.println(Math.min(MMSTool.sum_double(inPrice),MMSTool.sum_double(outPrice)));
-//System.out.println(MMSTool.mean(capitalvalue));
+
 		//扩大100倍
 		annualizedReturns*=100;
 		benchmarkReturns*=100;
@@ -259,6 +257,8 @@ public class TestReport {
 	 * */
 	public double tr(double pX,double pAvg)
 	{
+		System.out.println(pX);
+		System.out.println(pAvg);
 		return pX/pAvg;
 	}
 
@@ -269,8 +269,10 @@ public class TestReport {
 				+ ", beta=" + beta + ", sharpeRatio=" + sharpeRatio
 				+ ", volatility=" + volatility + ", informationRatio="
 				+ informationRatio + ", maxDrawdown=" + maxDrawdown
-				+ ", turnoverRate=" + turnoverRate + ", \ncumlist=" + cumlist
-				+ ", \nbCumlist=" + bCumlist + "]";
+				+ ", turnoverRate=" + turnoverRate 
+				+ "\ncumlist=" + cumlist
+				+ "\nbCumlist=" + bCumlist 
+				+ "]";
 	}
 	
 
