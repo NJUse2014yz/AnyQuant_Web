@@ -13,7 +13,7 @@ public class Strategy {
 	public String stockList;
 	/**选股方法列表List<Function>的Json*/
 	public String choose;
-	/**出入场标志列表List<Function>的Json*/
+	/**出入场标志列表List<List<Function>>(内列表且，外列表或)的Json*/
 	public String flag;
 
 	public Strategy(){}
