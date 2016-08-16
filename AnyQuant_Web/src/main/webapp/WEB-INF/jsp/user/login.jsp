@@ -46,7 +46,7 @@
 
 						<a id="login" class="tran">登录</a>
 
-						<img class="loading" src="images/loading.gif" style="display:block">
+						<img class="loading" src="graphics/user/loading.gif" style="display:block">
 
 					</button>
 
