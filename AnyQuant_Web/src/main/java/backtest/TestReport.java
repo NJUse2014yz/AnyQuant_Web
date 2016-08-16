@@ -64,7 +64,6 @@ public class TestReport {
 	public void run(Double pEnd,Double pStart,Double mEnd,Double mStart)
 	{
 		annualizedReturns=DataHelper.controldigit(ar(n,pEnd,pStart));
-		System.out.println(br(n,mEnd,mStart));
 		benchmarkReturns=DataHelper.controldigit(br(n,mEnd,mStart));
 		
 		
@@ -228,16 +227,29 @@ public class TestReport {
 	 * */
 	public double md(List<Double> capital)
 	{
-		List<Double> ratios=new ArrayList<Double>();
-//		System.out.println(capital.size());
+//		List<Double> ratios=new ArrayList<Double>();
+//		for(int i=0;i<capital.size();i++)
+//		{
+//			for(int j=i+1;j<capital.size();j++)
+//			{
+//				ratios.add(capital.get(i)-capital.get(j)/capital.get(i));
+//			}
+//		}
+//		return MMSTool.max(ratios);
+		
+		double ratio=0;
 		for(int i=0;i<capital.size();i++)
 		{
 			for(int j=i+1;j<capital.size();j++)
 			{
-				ratios.add(capital.get(i)-capital.get(j)/capital.get(i));
+				double value=capital.get(i)-capital.get(j)/capital.get(i);
+				if(ratio<value)
+				{
+					ratio=value;
+				}
 			}
 		}
-		return MMSTool.max(ratios);
+		return ratio;
 	}
 	
 	/**

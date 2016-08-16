@@ -266,9 +266,16 @@ public class BackTest {
 							ShareFunction order=(ShareFunction)inOrders.get(j).get(i);
 							if(order.order==1)
 							{
-								cash-=order.share*order.price*(1+inTaxRatio);
-								numlist.set(j,numlist.get(j)+order.share);//加仓
-								inprice+=order.share*order.price;
+								if(cash<=0)
+								{
+									;
+								}
+								else
+								{
+									cash-=order.share*order.price*(1+inTaxRatio);
+									numlist.set(j,numlist.get(j)+order.share);//加仓
+									inprice+=order.share*order.price;
+								}
 							}
 							else if(order.order==-1)
 							{
@@ -301,9 +308,16 @@ public class BackTest {
 						ShareFunction order=(ShareFunction)inOrders.get(b).get(i);
 						if(order.order==1)
 						{
-							bCash-=order.share*order.price*(1+inTaxRatio);
-							numlist.set(b,numlist.get(b)+order.share);//加仓
-							inprice+=order.share*order.price;
+							if(cash<=0)
+							{
+								;
+							}
+							else
+							{
+								bCash-=order.share*order.price*(1+inTaxRatio);
+								numlist.set(b,numlist.get(b)+order.share);//加仓
+								inprice+=order.share*order.price;	
+							}
 						}
 						else if(order.order==-1)
 						{
@@ -331,10 +345,10 @@ public class BackTest {
 		}
 		//生成回测报告
 		TestReport testReport=new TestReport(HQstatisticlist.get(0).hislist.size()/n,capital,bCapital,inPrice,outPrice);
-		System.out.println(inOrders.get(0).size());
-		System.out.println(capital.size());
-		System.out.println(bCapital.size());
-		System.out.println(bCapital.get(0));
+//		System.out.println(inOrders.get(0).size());
+//		System.out.println(capital.size());
+//		System.out.println(bCapital.size());
+//		System.out.println(bCapital.get(0));
 		testReport.run(capital.get(capital.size()-1).value,capital.get(0).value,bCapital.get(bCapital.size()-1).value,bCapital.get(0).value);
 		return testReport;
 	}
