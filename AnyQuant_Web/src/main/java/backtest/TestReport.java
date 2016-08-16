@@ -64,6 +64,7 @@ public class TestReport {
 	public void run(Double pEnd,Double pStart,Double mEnd,Double mStart)
 	{
 		annualizedReturns=DataHelper.controldigit(ar(n,pEnd,pStart));
+		System.out.println(br(n,mEnd,mStart));
 		benchmarkReturns=DataHelper.controldigit(br(n,mEnd,mStart));
 		
 		

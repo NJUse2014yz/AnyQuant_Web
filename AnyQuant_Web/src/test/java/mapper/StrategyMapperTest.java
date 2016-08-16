@@ -45,8 +45,8 @@ public class StrategyMapperTest {
 		String createrName=strategy.createrName;
 		String strategyName=strategy.strategyName;
 		List<ChooseStock> stockList=JsonExchangeTool.getStock(strategy.stockList);
-		List<Function> choose=JsonExchangeTool.getFunction(strategy.choose);
-		List<Function> flag=JsonExchangeTool.getFunction(strategy.flag);		
+		List<Function> choose=JsonExchangeTool.getFunction(strategy.choose).get(0);//?
+		List<List<Function>> flag=JsonExchangeTool.getFunction(strategy.flag);
 		System.out.println(userName);
 		System.out.println(createrName);
 		System.out.println(strategyName);
@@ -72,8 +72,8 @@ public class StrategyMapperTest {
 			String createrName=selfStrategyList.get(i).createrName;
 			String strategyName=selfStrategyList.get(i).strategyName;
 			List<ChooseStock> stockList=JsonExchangeTool.getStock(selfStrategyList.get(i).stockList);
-			List<Function> choose=JsonExchangeTool.getFunction(selfStrategyList.get(i).choose);
-			List<Function> flag=JsonExchangeTool.getFunction(selfStrategyList.get(i).flag);		
+			List<Function> choose=JsonExchangeTool.getFunction(selfStrategyList.get(i).choose).get(0);
+			List<List<Function>> flag=JsonExchangeTool.getFunction(selfStrategyList.get(i).flag);		
 			System.out.println(userName);
 			System.out.println(createrName);
 			System.out.println(strategyName);
@@ -100,8 +100,8 @@ public class StrategyMapperTest {
 			String createrName=saveStrategyList.get(i).createrName;
 			String strategyName=saveStrategyList.get(i).strategyName;
 			List<ChooseStock> stockList=JsonExchangeTool.getStock(saveStrategyList.get(i).stockList);
-			List<Function> choose=JsonExchangeTool.getFunction(saveStrategyList.get(i).choose);
-			List<Function> flag=JsonExchangeTool.getFunction(saveStrategyList.get(i).flag);		
+			List<Function> choose=JsonExchangeTool.getFunction(saveStrategyList.get(i).choose).get(0);
+			List<List<Function>> flag=JsonExchangeTool.getFunction(saveStrategyList.get(i).flag);		
 			System.out.println(userName);
 			System.out.println(createrName);
 			System.out.println(strategyName);

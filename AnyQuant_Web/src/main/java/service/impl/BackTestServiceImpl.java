@@ -14,7 +14,7 @@ public class BackTestServiceImpl implements BackTestService {
 
 	@Override
 	public TestReport backtest(List<ChooseStock> stockList,
-			List<Function> flagList,Function orderType,
+			List<List<Function>> flagList,Function orderType,
 			double cash,Date startdate,Date enddate,int n,
 			String benchmark) throws Exception {
 		BackTest backTest=new BackTest(stockList, flagList, orderType, cash, startdate, enddate, n, benchmark);
@@ -24,7 +24,7 @@ public class BackTestServiceImpl implements BackTestService {
 
 	@Override
 	public TestReport backtest(List<ChooseStock> stockList,
-			List<Function> flagList, Function orderType, int n, String benchmark)
+			List<List<Function>> flagList, Function orderType, int n, String benchmark)
 			throws Exception {
 		Date enddate=new Date(Calendar.getInstance().getTimeInMillis());
 		Date startdate=new Date(enddate.getYear()-1,enddate.getMonth(),enddate.getDate()-1);
@@ -36,7 +36,7 @@ public class BackTestServiceImpl implements BackTestService {
 
 	@Override
 	public TestReport backtest(List<ChooseStock> stockList,
-			List<Function> flagList, Function orderType, String benchmark)
+			List<List<Function>> flagList, Function orderType, String benchmark)
 			throws Exception {
 		Date enddate=new Date(Calendar.getInstance().getTimeInMillis());
 		Date startdate=new Date(enddate.getYear()-1,enddate.getMonth(),enddate.getDate()-1);
@@ -49,7 +49,7 @@ public class BackTestServiceImpl implements BackTestService {
 
 	@Override
 	public TestReport backtest(List<ChooseStock> stockList,
-			List<Function> flagList, Function orderType, int n)
+			List<List<Function>> flagList, Function orderType, int n)
 			throws Exception {
 		Date enddate=new Date(Calendar.getInstance().getTimeInMillis());
 		Date startdate=new Date(enddate.getYear()-1,enddate.getMonth(),enddate.getDate()-1);

@@ -20,7 +20,8 @@ public class BackTestTest {
 		List<ChooseStock> stockList=new ArrayList<ChooseStock>();
 		stockList.add(new ChooseStock("sh600000",0.2));
 		stockList.add(new ChooseStock("sh600004",0.8));
-		List<Function> flagList=new ArrayList<Function>();
+		List<List<Function>> flagList=new ArrayList<List<Function>>();
+		flagList.add(new ArrayList<Function>());
 		FunctionResult resultUpI=new FunctionResult();
 		resultUpI.location.add(ResultType.DOUBLELIST);
 		resultUpI.rD=Math.PI/2;
@@ -45,7 +46,7 @@ public class BackTestTest {
 		}
 		TrendVO vo=new TrendVO(resultUpI, resultDownI, resultUpO, resultDownO,
 				siid, attribute, start, end, standard);
-		flagList.add(new TrendFunction(vo));
+		flagList.get(0).add(new TrendFunction(vo));
 		ShareFunction orderType=new ShareFunction();
 		double cash=100000;
 		Date startdate=new Date(2015-1900,0,1);

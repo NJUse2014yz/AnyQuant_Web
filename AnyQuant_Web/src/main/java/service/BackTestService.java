@@ -19,7 +19,7 @@ public interface BackTestService {
 	 * 基准大盘指数
 	 * */
 	public TestReport backtest(List<ChooseStock> stockList,
-			List<Function> flagList,Function orderType,
+			List<List<Function>> flagList,Function orderType,
 			double cash,Date startdate,Date enddate,int n,
 			String benchmark) throws Exception;
 	
@@ -31,7 +31,7 @@ public interface BackTestService {
 	 * 基准大盘指数
 	 * */
 	public TestReport backtest(List<ChooseStock> stockList,
-			List<Function> flagList,Function orderType,
+			List<List<Function>> flagList,Function orderType,
 			int n,String benchmark) throws Exception;
 	
 	/**部分自定义回测，返回回测报告：
@@ -41,7 +41,7 @@ public interface BackTestService {
 	 * 基准大盘指数
 	 * */
 	public TestReport backtest(List<ChooseStock> stockList,
-			List<Function> flagList,Function orderType,
+			List<List<Function>> flagList,Function orderType,
 			String benchmark) throws Exception;
 	
 	/**部分自定义回测，返回回测报告：
@@ -51,7 +51,7 @@ public interface BackTestService {
 	 * 交易周期
 	 * */
 	public TestReport backtest(List<ChooseStock> stockList,
-			List<Function> flagList,Function orderType,int n) throws Exception;
+			List<List<Function>> flagList,Function orderType,int n) throws Exception;
 	
 	
 }
