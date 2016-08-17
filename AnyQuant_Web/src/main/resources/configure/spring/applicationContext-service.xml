@@ -18,4 +18,5 @@
 	<bean id="StockDataService" class="service.impl.StockDataServiceImpl"/>
 	<bean id="StrategyService" class="service.impl.StrategyServiceImpl"/>
 	<bean id="BackTestService" class="service.impl.BackTestServiceImpl"/>
+	<bean id="RealTestService" class="service.impl.RealTestServiceImpl"/>
 </beans>
