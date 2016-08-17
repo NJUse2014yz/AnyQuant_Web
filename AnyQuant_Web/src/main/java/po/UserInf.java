@@ -5,6 +5,7 @@ public class UserInf {
 	public String password;
 	public int rank;
 	public long score;
+	public String stocks;
 	
 	public UserInf()
 	{
@@ -40,10 +41,16 @@ public class UserInf {
 	public void setScore(long score) {
 		this.score = score;
 	}
-	
+	public String getStocks() {
+		return stocks;
+	}
+	public void setStocks(String stocks) {
+		this.stocks = stocks;
+	}
 	@Override
 	public String toString() {
 		return "UserInf [userName=" + userName + ", password=" + password
-				+ ", rank=" + rank + ", score=" + score + "]";
+				+ ", rank=" + rank + ", score=" + score + ", stocks=" + stocks
+				+ "]";
 	}
 }

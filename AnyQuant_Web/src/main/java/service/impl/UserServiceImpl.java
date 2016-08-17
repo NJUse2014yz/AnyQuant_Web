@@ -1,5 +1,11 @@
 package service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -98,8 +104,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void modifyScore(String Userid, int add_score) throws Exception {
-
-		// TODO Auto-generated method stub
 		UserInf userInf=null;
 		try {
 			userInf = userInfMapper.select(Userid);
@@ -116,6 +120,23 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 	
+	@Override
+	public void addStock(String userName,String siid){
+		UserInf userInf=null;
+		try {
+			userInf=userInfMapper.select(userName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		JSONArray jArray=JSONArray.fromObject(userInf.stocks);
+		jArray.add(siid);
+		userInf.stocks=jArray.toString();
+		try {
+			userInfMapper.modifyStocks(userInf);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public static void main(String[] args) throws Exception {
 		UserServiceImpl user=new UserServiceImpl();
@@ -124,5 +145,20 @@ public class UserServiceImpl implements UserService {
 		System.out.println(user.LoginUser("u7","77777"));
 		}
 
-	
+	@Override
+	public List<String> queryStocks(String userName) {
+		UserInf userInf=null;
+		try {
+			userInf=userInfMapper.select(userName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		List<String> stocks=new ArrayList<String>();
+		JSONArray jArray=JSONArray.fromObject(userInf.stocks);
+		for(int i=0;i<jArray.size();i++)
+		{
+			stocks.add(jArray.getString(i));
+		}
+		return stocks;
+	}
 }

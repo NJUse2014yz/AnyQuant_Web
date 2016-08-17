@@ -5,30 +5,32 @@ import function.FunctionResult;
 import function.ResultType;
 /**指定交易股数百分比订单*/
 public class SharePercentFunction extends Function{
-//	public String function;
 	/**买入1，卖出-1*/
 	public int order;
 	public String siid;
 	public double percent;
+	public double price;
 	
 	public SharePercentFunction(){
 		super();
 		this.function = "SharePercent";
 	}
 	public SharePercentFunction(String function, int order, String siid,
-			double percent) {
+			double percent,double price) {
 		super();
 		this.function = "SharePercent";
 		this.order = order;
 		this.siid = siid;
 		this.percent = percent;
+		this.price=price;
 	}
-	public SharePercentFunction(SharePercentVO vo)
+	public SharePercentFunction(PercentVO vo)
 	{
 		this.function="SharePercent";
 		this.order=vo.order;
 		this.siid=vo.siid;
 		this.percent=vo.percent;
+		this.price=vo.price;
 	}
 	@Override
 	public FunctionResult getResult() {
@@ -58,9 +60,15 @@ public class SharePercentFunction extends Function{
 	public void setPercent(double percent) {
 		this.percent = percent;
 	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
 	@Override
 	public String toString() {
-		return "SharePercentFunction [function=" + function + ", order="
-				+ order + ", siid=" + siid + ", percent=" + percent + "]";
+		return "SharePercentFunction [order=" + order + ", siid=" + siid
+				+ ", percent=" + percent + ", price=" + price + "]";
 	}
 }

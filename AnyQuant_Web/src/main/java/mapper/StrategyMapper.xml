@@ -5,8 +5,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mapper.StrategyMapper">
 	<select id="insert" parameterType="Strategy">
-		insert into Strategy(userName,createrName,strategyName,orderType,stockList,choose,flag)
-		values(#{userName},#{createrName},#{strategyName},#{orderType},#{stockList},#{choose},#{flag})
+		insert into Strategy(userName,createrName,strategyName,orderType,stockList,choose,flagList)
+		values(#{userName},#{createrName},#{strategyName},#{orderType},#{stockList},#{choose},#{flagList})
+	</select>
+	<select id="modifyRealTest" parameterType="StrategySearch">
+		update Strategy
+		set realTest=#{str}
+		where userName=#{userName} and createrName=#{createrName} and strategyName=#{strategyName}
 	</select>
 
 	<select id="selectStrategy" parameterType="StrategySearch" resultType="Strategy">

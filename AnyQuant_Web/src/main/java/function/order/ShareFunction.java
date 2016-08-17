@@ -5,7 +5,6 @@ import function.FunctionResult;
 import function.ResultType;
 /**指定交易股数订单*/
 public class ShareFunction extends Function{
-//	public String function;
 	/**买入1，卖出-1*/
 	public int order;
 	public String siid;
@@ -16,7 +15,7 @@ public class ShareFunction extends Function{
 		super();
 		this.function = "Share";
 	}
-	public ShareFunction(int order, String siid, int share, double price) {
+	public ShareFunction(int order, String siid, int share,double price) {
 		super();
 		this.function = "Share";
 		this.order = order;
@@ -42,12 +41,6 @@ public class ShareFunction extends Function{
 		return result;
 	}
 	
-//	public String getFunction() {
-//		return function;
-//	}
-//	public void setFunction(String function) {
-//		this.function = function;
-//	}
 	public int getOrder() {
 		return order;
 	}

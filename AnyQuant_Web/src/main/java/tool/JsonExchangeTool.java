@@ -1,8 +1,11 @@
 package tool;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import backtest.DateDouble;
+import vo.RealTestVO;
 import function.Function;
 import function.FunctionResult;
 import function.choose.ChooseStock;
@@ -10,7 +13,14 @@ import function.choose.PairFunction;
 import function.choose.PairVO;
 import function.flag.TrendVO;
 import function.flag.UpTrendFunction;
+import function.order.ShareFunction;
+import function.order.SharePercentFunction;
+import function.order.ShareTargetFunction;
+import function.order.ValueFunction;
+import function.order.ValuePercentFunction;
+import function.order.ValueTargetFunction;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 
 public class JsonExchangeTool {
@@ -23,6 +33,7 @@ public class JsonExchangeTool {
 		for(int i=0;i<jArray.size();i++)
 		{
 			jObject=(JSONObject) jArray.get(i);
+//			System.out.println(jObject);
 			String siid=(String)jObject.get("siid");
 			Double percent=(Double)jObject.get("percent");
 			list.add(new ChooseStock(siid,percent));
@@ -121,5 +132,87 @@ public class JsonExchangeTool {
 		}
 		return list;
 	}
-	
+	public static Function getOrder(String json)
+	{
+		JSONObject jObject=JSONObject.fromObject(json);
+		String function=(String)jObject.get("function");
+		switch(function)
+		{
+		case "Share":
+			ShareFunction share=new ShareFunction();
+			share.setFunction(function);
+			share.setOrder((int)jObject.get("order"));
+			share.setShare((int)jObject.get("share"));
+			share.setSiid((String)jObject.get("siid"));
+			return share;
+		case "SharePercent":
+			SharePercentFunction sharePercent=new SharePercentFunction();
+			sharePercent.setFunction(function);
+			sharePercent.setOrder((int)jObject.get("order"));
+			sharePercent.setPercent((int)jObject.get("percent"));
+			sharePercent.setSiid((String)jObject.get("siid"));
+			return sharePercent;
+		case "ShareTarget":
+			ShareTargetFunction shareTarget=new ShareTargetFunction();
+			shareTarget.setFunction(function);
+			shareTarget.setShare((int)jObject.get("share"));
+			shareTarget.setSiid((String)jObject.get("siid"));
+			return shareTarget;
+		case "Value":
+			ValueFunction value=new ValueFunction();
+			value.setFunction(function);
+			value.setOrder((int)jObject.get("order"));
+			value.setValue((int)jObject.get("value"));
+			value.setSiid((String)jObject.get("siid"));
+			return value;
+		case "ValuePercent":
+			ValuePercentFunction valuePercent=new ValuePercentFunction();
+			valuePercent.setFunction(function);
+			valuePercent.setOrder((int)jObject.get("order"));
+			valuePercent.setPercent((int)jObject.get("percent"));
+			valuePercent.setSiid((String)jObject.get("siid"));
+			return valuePercent;
+		case "ValueTarget":
+			ValueTargetFunction valueTarget=new ValueTargetFunction();
+			valueTarget.setFunction(function);
+			valueTarget.setValue((int)jObject.get("value"));
+			valueTarget.setSiid((String)jObject.get("siid"));
+			return valueTarget;
+		}
+		return null;
+	}
+	public static RealTestVO getRealTest(String json)
+	{
+		RealTestVO vo=new RealTestVO();
+		try
+		{
+			JSONObject jObject=JSONObject.fromObject(json);
+			vo.setCash((double)jObject.getDouble("cash"));
+			vo.setN((int)jObject.get("n"));
+//			vo.orderType=getOrder(jObject.get("orderType").toString());
+//			vo.stockList=getStock(jObject.get("stockList").toString());
+			List<DateDouble> capital=new ArrayList<DateDouble>();
+			JSONArray jCapital=(JSONArray)jObject.get("capital");
+			for(int i=0;i<jCapital.size();i++)
+			{
+				JSONObject jDateDouble=(JSONObject) jCapital.get(i);
+				capital.add(new DateDouble((long)jDateDouble.get("date"),(double)jDateDouble.getDouble("value")));
+			}
+			vo.setCapital(capital);
+//			List<List<Function>> flagList=getFunction(jObject.get("flagList").toString());
+//			vo.flagList=flagList;
+			List<Integer> numList=new ArrayList<Integer>();
+			JSONArray jNum=(JSONArray) jObject.get("numList");
+			for(int i=0;i<jNum.size();i++)
+			{
+				numList.add((int)jNum.get(i));
+			}
+			vo.setNumList(numList);
+		} catch(JSONException e)
+		{
+			return new RealTestVO();
+		}
+		return vo;
+	}
+
 }

@@ -10,4 +10,5 @@ public interface StrategyMapper {
 	public Strategy selectStrategy(StrategySearch search) throws Exception;
 	public List<Strategy> selectSelf(StrategySearch search) throws Exception;
 	public List<Strategy> selectSave(StrategySearch search) throws Exception;
+	public void modifyRealTest(StrategySearch search) throws Exception;
 }

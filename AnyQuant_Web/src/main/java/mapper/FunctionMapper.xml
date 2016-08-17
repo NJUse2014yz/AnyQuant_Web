@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.FunctionMapper">
+	<select id="selectFunction" parameterType="String" resultType="FunctionDisRnk">
+		select * from Function where name=#{value}
+	</select>
+	<select id="selectRank" parameterType="int" resultType="FunctionDisRnk">
+		select * from Function where rank=#{value}
+	</select>
+	<select id="selectType" parameterType="String" resultType="FunctionDisRnk">
+		select * from Function where type=#{value}
+	</select>
+	<select id="selectTypeRank" parameterType="FunctionDisRnk" resultType="FunctionDisRnk">
+		select * from Function where rank=#{rank} and type=#{type}
+	</select>
+</mapper>

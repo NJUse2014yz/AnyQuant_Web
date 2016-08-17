@@ -20,4 +20,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="modifyScoreRank" parameterType="UserInf">
 		update UserInf set score=#{score},rank=#{rank} where userName=#{userName}
 	</update>
+	<update id="modifyStocks" parameterType="UserInf">
+		update UserInf set stocks=#{stocks}
+		where userName=#{userName}
+	</update>
 </mapper>

@@ -4,14 +4,13 @@ public class ShareVO {
 	public int order;
 	public String siid;
 	public int share;
-	/**交易价格*/
 	public double price;
-	public ShareVO(int order, String siid, int share, double price) {
+	public ShareVO(int order, String siid, int share,double price) {
 		super();
 		this.order = order;
 		this.siid = siid;
 		this.share = share;
-		this.price = price;
+		this.price=price;
 	}
 	public int getOrder() {
 		return order;

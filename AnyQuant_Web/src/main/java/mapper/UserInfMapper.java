@@ -14,4 +14,6 @@ public interface UserInfMapper {
 	public void modifyPassword(UserInf userInf) throws Exception;
 	/**修改积分和等级，用户名传入userName，新积分传入score，新等级传入rank（及时没有提高等级也要将旧值传入）*/
 	public void modifyScoreRank(UserInf userInf) throws Exception;
+	/**修改关注的股票*/
+	public void modifyStocks(UserInf userInf) throws Exception;
 }

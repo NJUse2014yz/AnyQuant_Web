@@ -5,11 +5,14 @@ public class PercentVO {
 	public int order;
 	public String siid;
 	public double percent;
-	public PercentVO(int order, String siid, double percent) {
+	public double price;
+	
+	public PercentVO(int order, String siid, double percent, double price) {
 		super();
 		this.order = order;
 		this.siid = siid;
 		this.percent = percent;
+		this.price = price;
 	}
 	public int getOrder() {
 		return order;
@@ -29,9 +32,15 @@ public class PercentVO {
 	public void setPercent(double percent) {
 		this.percent = percent;
 	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
 	@Override
 	public String toString() {
-		return "ValuePercentVO [order=" + order + ", siid=" + siid
-				+ ", percent=" + percent + "]";
+		return "PercentVO [order=" + order + ", siid=" + siid + ", percent="
+				+ percent + ", price=" + price + "]";
 	}
 }

@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import mapper.FunctionMapper;
 import mapper.StrategyMapper;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -29,7 +30,10 @@ import function.order.ShareFunction;
 
 public class StrategyServiceTest {
 	public static ApplicationContext applicationContext1 =new ClassPathXmlApplicationContext("classpath:configure/spring/applicationContext-dao.xml");
-	public static StrategyService instance=new StrategyServiceImpl((StrategyMapper) applicationContext1.getBean("strategyMapper"));
+	public static FunctionMapper functionMapper=(FunctionMapper) applicationContext1.getBean("functionMapper");
+	public static StrategyMapper strategyMapper=(StrategyMapper) applicationContext1.getBean("strategyMapper");
+	public static StrategyService instance=new StrategyServiceImpl(strategyMapper,functionMapper);
+	
 	public static void makeStrategy()
 	{
 		String siid="sh600004";
@@ -38,7 +42,7 @@ public class StrategyServiceTest {
 		String userName="u1";
 		String createrName="u1";
 		//strategyName
-		String strategyName="s2";
+		String strategyName="s1";
 		//choose
 		int num=1;
 		PairVO pairVO=new PairVO(siid,num);
@@ -81,37 +85,38 @@ public class StrategyServiceTest {
 		flag.add(new ArrayList<Function>());
 		flag.get(0).add(trend);
 		ShareFunction share=new ShareFunction();
-		StrategyVO strategy=new StrategyVO(userName,createrName,strategyName,share,stockList,choose,flag);
+		StrategyVO strategy=new StrategyVO(userName,createrName,strategyName,share,stockList,choose,flag,null);
 		
 		instance.makeStrategy(strategy);
 	}
 	public static void getStrategy()
 	{
-		Strategy strategy=instance.getSingleStrategy("u1","u1","s2");
+		StrategyVO strategy=instance.getSingleStrategy("u1","u1","s1");
 		String userName=strategy.userName;
 		String createrName=strategy.createrName;
 		String strategyName=strategy.strategyName;
-		List<ChooseStock> stockList=JsonExchangeTool.getStock(strategy.stockList);
-		List<Function> choose=JsonExchangeTool.getFunction(strategy.choose).get(0);
-		List<List<Function>> flag=JsonExchangeTool.getFunction(strategy.flag);
+		List<ChooseStock> stockList=strategy.stockList;
+		List<Function> choose=strategy.choose.get(0);
+		List<List<Function>> flag=strategy.flagList;
 		System.out.println(userName);
 		System.out.println(createrName);
 		System.out.println(strategyName);
 		System.out.println(stockList);
 		System.out.println(choose);
 		System.out.println(flag);
+		System.out.println(strategy.realTest);
 	}
 	public static void getSelfStrategy()
 	{
-		List<Strategy> selfStrategyList=instance.getSelfStrategy("u1");
+		List<StrategyVO> selfStrategyList=instance.getSelfStrategy("u1");
 		for(int i=0;i<selfStrategyList.size();i++)
 		{
 			String userName=selfStrategyList.get(i).userName;
 			String createrName=selfStrategyList.get(i).createrName;
 			String strategyName=selfStrategyList.get(i).strategyName;
-			List<ChooseStock> stockList=JsonExchangeTool.getStock(selfStrategyList.get(i).stockList);
-			List<Function> choose=JsonExchangeTool.getFunction(selfStrategyList.get(i).choose).get(0);
-			List<List<Function>> flag=JsonExchangeTool.getFunction(selfStrategyList.get(i).flag);
+			List<ChooseStock> stockList=selfStrategyList.get(i).stockList;
+			List<Function> choose=selfStrategyList.get(i).choose.get(0);
+			List<List<Function>> flag=selfStrategyList.get(i).flagList;
 			System.out.println(userName);
 			System.out.println(createrName);
 			System.out.println(strategyName);
@@ -122,15 +127,15 @@ public class StrategyServiceTest {
 	}
 	public static void getSaveStrategy()
 	{
-		List<Strategy> saveStrategyList=instance.getSaveStrategy("u2");
+		List<StrategyVO> saveStrategyList=instance.getSaveStrategy("u2");
 		for(int i=0;i<saveStrategyList.size();i++)
 		{
 			String userName=saveStrategyList.get(i).userName;
 			String createrName=saveStrategyList.get(i).createrName;
 			String strategyName=saveStrategyList.get(i).strategyName;
-			List<ChooseStock> stockList=JsonExchangeTool.getStock(saveStrategyList.get(i).stockList);
-			List<Function> choose=JsonExchangeTool.getFunction(saveStrategyList.get(i).choose).get(0);
-			List<List<Function>> flag=JsonExchangeTool.getFunction(saveStrategyList.get(i).flag);
+			List<ChooseStock> stockList=saveStrategyList.get(i).stockList;
+			List<Function> choose=saveStrategyList.get(i).choose.get(0);
+			List<List<Function>> flag=saveStrategyList.get(i).flagList;
 			System.out.println(userName);
 			System.out.println(createrName);
 			System.out.println(strategyName);
@@ -142,7 +147,7 @@ public class StrategyServiceTest {
 	public static void main(String[] args)
 	{
 //		StrategyServiceTest.makeStrategy();
-		StrategyServiceTest.getStrategy();
+//		StrategyServiceTest.getStrategy();
 //		StrategyServiceTest.getSelfStrategy();
 //		StrategyServiceTest.getSaveStrategy();
 	}

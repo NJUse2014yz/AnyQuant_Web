@@ -127,8 +127,8 @@ public class BackTest {
 		}
 		
 		//历史第一日日期资本
-		capital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(0).getDate(),cash));
-		bCapital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(0).getDate(),bCash));
+		capital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(0).getDate().getTime(),cash));
+		bCapital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(0).getDate().getTime(),bCash));
 		
 		//建仓,假设没有税费,从此次开始买入和卖出均用收盘价
 		for(int i=0;i<stockList.size()-1;i++)
@@ -190,7 +190,7 @@ public class BackTest {
 						switch(orderType.function)
 						{
 						case "Share"://股数订单
-							if(result.rD<=upFRI.rD&&result.rD>=downFRI.rD)//暂时只使用一个判定
+							if(result.rD<=upFRI.rD&&result.rD>=downFRI.rD)
 							{
 								flagInI=flagInI&&true;
 							}
@@ -305,7 +305,7 @@ public class BackTest {
 					capitaltoday+=numlist.get(j)*order.price;
 				}
 				
-				capital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(i).getDate(),capitaltoday+cash));
+				capital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(i).getDate().getTime(),capitaltoday+cash));
 				inPrice.add(inprice);
 				outPrice.add(outprice);
 
@@ -354,7 +354,7 @@ public class BackTest {
 					}
 				}
 				bCapitalToday+=numlist.get(b)*order.price;
-				bCapital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(i).getDate(),bCapitalToday+bCash));
+				bCapital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(i).getDate().getTime(),bCapitalToday+bCash));
 			}
 			break;
 		default:

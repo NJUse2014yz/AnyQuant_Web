@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 
 public interface UserService {
 	//查询用户名是否存在
@@ -14,4 +16,8 @@ public interface UserService {
 	public void modifyPassword(String Userid,String OldPassword,String newPassword)throws Exception;
 	//加分
 	public void modifyScore(String Userid,int add_score)throws Exception;
+	//添加关注的股票
+	public void addStock(String userName,String siid);
+	//查询关注的股票
+	public List<String> queryStocks(String userName);
 }

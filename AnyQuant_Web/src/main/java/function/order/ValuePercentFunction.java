@@ -5,22 +5,23 @@ import function.FunctionResult;
 import function.ResultType;
 /**指定交易价值百分比订单*/
 public class ValuePercentFunction extends Function{
-//	public String function;
 	/**买入1，卖出-1*/
 	public int order;
 	public String siid;
 	public double percent;
+	public double price;
 	
 	public ValuePercentFunction(){
 		this.function="ValuePercent";
 	}
 	public ValuePercentFunction(String function, int order, String siid,
-			double percent) {
+			double percent,double price) {
 		super();
 		this.function="ValuePercent";
 		this.order = order;
 		this.siid = siid;
 		this.percent = percent;
+		this.price=price;
 	}
 	public ValuePercentFunction(PercentVO vo)
 	{
@@ -28,6 +29,7 @@ public class ValuePercentFunction extends Function{
 		this.order=vo.order;
 		this.siid=vo.siid;
 		this.percent=vo.percent;
+		this.price=vo.price;
 	}
 	@Override
 	public FunctionResult getResult() {
@@ -38,12 +40,6 @@ public class ValuePercentFunction extends Function{
 		result.rS=siid;
 		return result;
 	}
-//	public String getFunction() {
-//		return function;
-//	}
-//	public void setFunction(String function) {
-//		this.function = function;
-//	}
 	public int getOrder() {
 		return order;
 	}
@@ -62,9 +58,15 @@ public class ValuePercentFunction extends Function{
 	public void setPercent(double percent) {
 		this.percent = percent;
 	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
 	@Override
 	public String toString() {
-		return "ValuePercentFunction [function=" + function + ", order="
-				+ order + ", siid=" + siid + ", percent=" + percent + "]";
+		return "ValuePercentFunction [order=" + order + ", siid=" + siid
+				+ ", percent=" + percent + ", price=" + price + "]";
 	}
 }

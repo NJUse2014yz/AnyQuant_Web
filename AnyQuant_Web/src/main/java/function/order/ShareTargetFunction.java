@@ -5,9 +5,9 @@ import function.FunctionResult;
 import function.ResultType;
 /**指定仓位股数订单*/
 public class ShareTargetFunction extends Function{
-//	public String function;
 	public String siid;
 	public int share;
+	public double price;
 	
 	public ShareTargetFunction(){
 		this.function="ShareTarget";
@@ -17,15 +17,15 @@ public class ShareTargetFunction extends Function{
 		this.function="ShareTarget";
 		this.siid=vo.siid;
 		this.share=vo.share;
+		this.price=vo.price;
 	}
 	
-	public ShareTargetFunction(String function, String siid, int share) {
+	public ShareTargetFunction(String siid, int share, double price) {
 		super();
-		this.function="ShareTarget";
 		this.siid = siid;
 		this.share = share;
+		this.price = price;
 	}
-
 	@Override
 	public FunctionResult getResult() {
 		FunctionResult result=new FunctionResult();
@@ -35,12 +35,7 @@ public class ShareTargetFunction extends Function{
 		result.rS=siid;
 		return result;
 	}
-//	public String getFunction() {
-//		return function;
-//	}
-//	public void setFunction(String function) {
-//		this.function = function;
-//	}
+	
 	public String getSiid() {
 		return siid;
 	}
@@ -53,9 +48,15 @@ public class ShareTargetFunction extends Function{
 	public void setShare(int share) {
 		this.share = share;
 	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
 	@Override
 	public String toString() {
-		return "ShareTargetFunction [function=" + function + ", siid=" + siid
-				+ ", share=" + share + "]";
+		return "ShareTargetFunction [siid=" + siid + ", share=" + share
+				+ ", price=" + price + "]";
 	}
 }

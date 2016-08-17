@@ -46,7 +46,7 @@ public class StrategyMapperTest {
 		String strategyName=strategy.strategyName;
 		List<ChooseStock> stockList=JsonExchangeTool.getStock(strategy.stockList);
 		List<Function> choose=JsonExchangeTool.getFunction(strategy.choose).get(0);//?
-		List<List<Function>> flag=JsonExchangeTool.getFunction(strategy.flag);
+		List<List<Function>> flag=JsonExchangeTool.getFunction(strategy.flagList);
 		System.out.println(userName);
 		System.out.println(createrName);
 		System.out.println(strategyName);
@@ -73,7 +73,7 @@ public class StrategyMapperTest {
 			String strategyName=selfStrategyList.get(i).strategyName;
 			List<ChooseStock> stockList=JsonExchangeTool.getStock(selfStrategyList.get(i).stockList);
 			List<Function> choose=JsonExchangeTool.getFunction(selfStrategyList.get(i).choose).get(0);
-			List<List<Function>> flag=JsonExchangeTool.getFunction(selfStrategyList.get(i).flag);		
+			List<List<Function>> flag=JsonExchangeTool.getFunction(selfStrategyList.get(i).flagList);		
 			System.out.println(userName);
 			System.out.println(createrName);
 			System.out.println(strategyName);
@@ -101,7 +101,7 @@ public class StrategyMapperTest {
 			String strategyName=saveStrategyList.get(i).strategyName;
 			List<ChooseStock> stockList=JsonExchangeTool.getStock(saveStrategyList.get(i).stockList);
 			List<Function> choose=JsonExchangeTool.getFunction(saveStrategyList.get(i).choose).get(0);
-			List<List<Function>> flag=JsonExchangeTool.getFunction(saveStrategyList.get(i).flag);		
+			List<List<Function>> flag=JsonExchangeTool.getFunction(saveStrategyList.get(i).flagList);		
 			System.out.println(userName);
 			System.out.println(createrName);
 			System.out.println(strategyName);

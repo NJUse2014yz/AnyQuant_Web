@@ -3,20 +3,21 @@ package backtest;
 import java.sql.Date;
 
 public class DateDouble {
-	public Date date;
+	public long date;
 	public double value;
 	public DateDouble() {
-		this.date = new Date(115,0,1);
+		this.date = new Date(115,0,1).getTime();
 		this.value = 0;
 	}
-	public DateDouble(Date date, double value) {
+	public DateDouble(long date, double value) {
+		super();
 		this.date = date;
 		this.value = value;
 	}
-	public Date getDate() {
+	public long getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(long date) {
 		this.date = date;
 	}
 	public double getValue() {
@@ -27,6 +28,6 @@ public class DateDouble {
 	}
 	@Override
 	public String toString() {
-		return "DoubleDate [date=" + date + ", value=" + value + "]";
+		return "DateDouble [date=" + date + ", value=" + value + "]";
 	}
 }
