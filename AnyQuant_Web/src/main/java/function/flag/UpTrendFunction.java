@@ -13,16 +13,6 @@ import function.tool.TrendPoint;
 import function.tool.TrendTool;
 /**上趋势判断*/
 public class UpTrendFunction extends Function{
-//	/**方法名*/
-//	public String function;
-	/**方法买入结果的上界*/
-	public FunctionResult resultUpI;
-	/**方法买入结果的下界*/
-	public FunctionResult resultDownI;
-	/**方法卖出结果的上界*/
-	public FunctionResult resultUpO;
-	/**方法卖出结果的下界*/
-	public FunctionResult resultDownO;
 	/**股票代码*/
 	public String siid;
 	/**数据属性，具体见ListTool的switch中*/
@@ -62,36 +52,8 @@ public class UpTrendFunction extends Function{
 		return result;
 	}
 	
-//	public String getFunction() {
-//		return function;
-//	}
-//	public void setFunction(String function) {
-//		this.function = function;
-//	}
-	
 	public String getSiid() {
 		return siid;
-	}
-	public FunctionResult getResultUpI() {
-		return resultUpI;
-	}
-	public void setResultUpI(FunctionResult resultUpI) {
-		this.resultUpI = resultUpI;
-	}
-	public FunctionResult getResultDownI() {
-		return resultDownI;
-	}
-	public void setResultDownI(FunctionResult resultDownI) {
-		this.resultDownI = resultDownI;
-	}
-	public FunctionResult getResultUpO() {
-		return resultUpO;
-	}
-	public void setResultUpO(FunctionResult resultUpO) {
-		this.resultUpO = resultUpO;
-	}
-	public FunctionResult getResultDownO() {
-		return resultDownO;
 	}
 	public void setResultDownO(FunctionResult resultDownO) {
 		this.resultDownO = resultDownO;

@@ -31,6 +31,10 @@ public class StrategyServiceImpl implements StrategyService {
 		this.strategyMapper = strategyMapper;
 		this.functionMapper = functionMapper;
 	}
+	public StrategyServiceImpl(StrategyMapper strategyMapper) {
+		super();
+		this.strategyMapper = strategyMapper;
+	}
 	@Override
 	public void makeStrategy(StrategyVO vo) {
 		Strategy strategy=new Strategy(vo);

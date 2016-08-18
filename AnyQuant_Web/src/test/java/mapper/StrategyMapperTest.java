@@ -10,6 +10,7 @@ import function.choose.ChooseStock;
 import po.Strategy;
 import po.StrategySearch;
 import tool.JsonExchangeTool;
+import vo.Flag;
 
 public class StrategyMapperTest {
 	public static StrategyMapper instance;
@@ -45,14 +46,14 @@ public class StrategyMapperTest {
 		String createrName=strategy.createrName;
 		String strategyName=strategy.strategyName;
 		List<ChooseStock> stockList=JsonExchangeTool.getStock(strategy.stockList);
-		List<Function> choose=JsonExchangeTool.getFunction(strategy.choose).get(0);//?
-		List<List<Function>> flag=JsonExchangeTool.getFunction(strategy.flagList);
+		List<List<Function>> choose=JsonExchangeTool.getFunction(strategy.choose);
+		List<Flag> flags=JsonExchangeTool.getFlag(strategy.flags);
 		System.out.println(userName);
 		System.out.println(createrName);
 		System.out.println(strategyName);
 		System.out.println(stockList);
 		System.out.println(choose);
-		System.out.println(flag);
+		System.out.println(flags);
 	}
 	public static void selectSelfStrategy()
 	{
@@ -72,14 +73,14 @@ public class StrategyMapperTest {
 			String createrName=selfStrategyList.get(i).createrName;
 			String strategyName=selfStrategyList.get(i).strategyName;
 			List<ChooseStock> stockList=JsonExchangeTool.getStock(selfStrategyList.get(i).stockList);
-			List<Function> choose=JsonExchangeTool.getFunction(selfStrategyList.get(i).choose).get(0);
-			List<List<Function>> flag=JsonExchangeTool.getFunction(selfStrategyList.get(i).flagList);		
+			List<List<Function>> choose=JsonExchangeTool.getFunction(selfStrategyList.get(i).choose);
+			List<Flag> flags=JsonExchangeTool.getFlag(selfStrategyList.get(i).flags);		
 			System.out.println(userName);
 			System.out.println(createrName);
 			System.out.println(strategyName);
 			System.out.println(stockList);
 			System.out.println(choose);
-			System.out.println(flag);
+			System.out.println(flags);
 		}
 	}
 	public static void selectSaveStrategy()
@@ -100,8 +101,8 @@ public class StrategyMapperTest {
 			String createrName=saveStrategyList.get(i).createrName;
 			String strategyName=saveStrategyList.get(i).strategyName;
 			List<ChooseStock> stockList=JsonExchangeTool.getStock(saveStrategyList.get(i).stockList);
-			List<Function> choose=JsonExchangeTool.getFunction(saveStrategyList.get(i).choose).get(0);
-			List<List<Function>> flag=JsonExchangeTool.getFunction(saveStrategyList.get(i).flagList);		
+			List<List<Function>> choose=JsonExchangeTool.getFunction(saveStrategyList.get(i).choose);
+			List<Flag> flag=JsonExchangeTool.getFlag(saveStrategyList.get(i).flags);		
 			System.out.println(userName);
 			System.out.println(createrName);
 			System.out.println(strategyName);

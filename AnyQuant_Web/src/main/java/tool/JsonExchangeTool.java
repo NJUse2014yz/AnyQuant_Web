@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import backtest.DateDouble;
+import vo.Flag;
 import vo.RealTestVO;
 import function.Function;
 import function.FunctionResult;
@@ -39,6 +40,17 @@ public class JsonExchangeTool {
 			list.add(new ChooseStock(siid,percent));
 		}
 		return list;
+	}
+	public static List<Flag> getFlag(String json)
+	{
+		List<Flag> flags=new ArrayList<Flag>();
+		JSONArray jArray=JSONArray.fromObject(json);
+		for(int i=0;i<jArray.size();i++)
+		{
+			JSONObject jObject=(JSONObject) jArray.get(i);
+			flags.add(new Flag(getOrder(jObject.get("orderType").toString()),getFunction(jObject.get("flagList").toString())));
+		}
+		return flags;
 	}
 	public static List<List<Function>> getFunction(String json)
 	{

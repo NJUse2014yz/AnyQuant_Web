@@ -15,10 +15,8 @@ public class RealTestVO {
 	public int n;
 	/**股票池*/
 	public List<ChooseStock> stockList;
-	/**交易标志，外并内且*/
-	public List<List<Function>> flagList;
-	/**订单类型*/
-	public Function orderType;
+	/**交易标志和订单类型的列表*/
+	public List<Flag> flags;
 	/**各股持股*/
 	public List<Integer> numlist;
 	/**今日资本*/
@@ -28,21 +26,19 @@ public class RealTestVO {
 		cash=10000;
 		n=1;
 		stockList=new ArrayList<ChooseStock>();
-		flagList=new ArrayList<List<Function>>();
-		orderType=new ShareFunction();
+		flags=new ArrayList<Flag>();
 		numlist=new ArrayList<Integer>();
 		capital=new ArrayList<DateDouble>();
 	}
 	
 	public RealTestVO(double cash, int n, List<ChooseStock> stockList,
-			List<List<Function>> flag, Function order, List<Integer> numList,
+			List<Flag> flags, List<Integer> numList,
 			List<DateDouble> capital) {
 		super();
 		this.cash = cash;
 		this.n = n;
 		this.stockList = stockList;
-		this.flagList = flag;
-		this.orderType = order;
+		this.flags = flags;
 		this.numlist = numList;
 		this.capital = capital;
 	}
@@ -58,24 +54,6 @@ public class RealTestVO {
 	public void setN(int n) {
 		this.n = n;
 	}
-//	public List<ChooseStock> getStockList() {
-//		return stockList;
-//	}
-//	public void setStockList(List<ChooseStock> stockList) {
-//		this.stockList = stockList;
-//	}
-//	public List<List<Function>> getFlag() {
-//		return flagList;
-//	}
-//	public void setFlag(List<List<Function>> flag) {
-//		this.flagList = flag;
-//	}
-//	public Function getOrderType() {
-//		return orderType;
-//	}
-//	public void setOrderType(Function orderType) {
-//		this.orderType = orderType;
-//	}
 	public List<Integer> getNumList() {
 		return numlist;
 	}
@@ -88,10 +66,11 @@ public class RealTestVO {
 	public void setCapital(List<DateDouble> capital) {
 		this.capital = capital;
 	}
+
 	@Override
 	public String toString() {
 		return "RealTestVO [cash=" + cash + ", n=" + n + ", stockList="
-				+ stockList + ", flag=" + flagList + ", orderType=" + orderType
-				+ ", numList=" + numlist + ", capital=" + capital + "]";
+				+ stockList + ", flags=" + flags + ", numlist=" + numlist
+				+ ", capital=" + capital + "]";
 	}
 }

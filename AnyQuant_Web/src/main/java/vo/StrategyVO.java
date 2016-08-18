@@ -14,47 +14,40 @@ public class StrategyVO {
 	public String createrName;
 	/**策略名*/
 	public String strategyName;
-	/**订单类型，可以只传入无参数的对象*/
-	public Function orderType;
 	/**选股列表，percent相加为1，选股可为choose的结果也可以手动加入*/
 	public List<ChooseStock> stockList;
 	/**选股方法列表(内列表各元素（类）'且'关系，外列表各元素（列表）'或'关系)*/
 	public List<List<Function>> choose;
-	/**出入场标志列表(内列表'且'，外列表'或')*/
-	public List<List<Function>> flagList;
+	/**交易标志方法和对应订单类型的列表，优先级高的排在前*/
+	public List<Flag> flags;
+	
 	/**实测结果*/
 	public RealTestVO realTest;
 	
 	public StrategyVO(){}
+
+	public StrategyVO(Strategy strategy)
+	{
+		this.userName = strategy.userName;
+		this.createrName = strategy.createrName;
+		this.strategyName = strategy.strategyName;
+		this.stockList=JsonExchangeTool.getStock(strategy.stockList);
+		this.choose=JsonExchangeTool.getFunction(strategy.choose);
+		this.flags=JsonExchangeTool.getFlag(strategy.flags);
+		this.realTest=JsonExchangeTool.getRealTest(strategy.realTest);
+	}
 	
 	public StrategyVO(String userName, String createrName, String strategyName,
-			Function orderType, List<ChooseStock> stockList,
-			List<List<Function>> choose, List<List<Function>> flagList,
-			RealTestVO realTest) {
+			List<ChooseStock> stockList, List<List<Function>> choose,
+			List<Flag> flags, RealTestVO realTest) {
 		super();
 		this.userName = userName;
 		this.createrName = createrName;
 		this.strategyName = strategyName;
-		this.orderType = orderType;
 		this.stockList = stockList;
 		this.choose = choose;
-		this.flagList = flagList;
+		this.flags = flags;
 		this.realTest = realTest;
-	}
-
-	public StrategyVO(Strategy strategy)
-	{
-		this.userName=strategy.userName;
-		this.createrName=strategy.createrName;
-		this.strategyName=strategy.strategyName;
-		this.orderType=JsonExchangeTool.getOrder(strategy.orderType);
-		this.stockList=JsonExchangeTool.getStock(strategy.stockList);
-		this.choose=JsonExchangeTool.getFunction(strategy.choose);
-		this.flagList=JsonExchangeTool.getFunction(strategy.flagList);
-		this.realTest=JsonExchangeTool.getRealTest(strategy.realTest);
-		this.realTest.flagList=this.flagList;
-		this.realTest.stockList=this.stockList;
-		this.realTest.orderType=this.orderType;
 	}
 
 	public String getUserName() {
@@ -81,14 +74,6 @@ public class StrategyVO {
 		this.strategyName = strategyName;
 	}
 
-	public Function getOrderType() {
-		return orderType;
-	}
-
-	public void setOrderType(Function orderType) {
-		this.orderType = orderType;
-	}
-
 	public List<ChooseStock> getStockList() {
 		return stockList;
 	}
@@ -105,12 +90,12 @@ public class StrategyVO {
 		this.choose = choose;
 	}
 
-	public List<List<Function>> getFlagList() {
-		return flagList;
+	public List<Flag> getFlags() {
+		return flags;
 	}
 
-	public void setFlagList(List<List<Function>> flagList) {
-		this.flagList = flagList;
+	public void setFlags(List<Flag> flags) {
+		this.flags = flags;
 	}
 
 	public RealTestVO getRealTest() {
@@ -125,8 +110,7 @@ public class StrategyVO {
 	public String toString() {
 		return "StrategyVO [userName=" + userName + ", createrName="
 				+ createrName + ", strategyName=" + strategyName
-				+ ", orderType=" + orderType + ", stockList=" + stockList
-				+ ", choose=" + choose + ", flagList=" + flagList
-				+ ", realTest=" + realTest + "]";
+				+ ", stockList=" + stockList + ", choose=" + choose
+				+ ", flags=" + flags + ", realTest=" + realTest + "]";
 	}
 }

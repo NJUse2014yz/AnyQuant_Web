@@ -7,4 +7,6 @@ public interface RealTestService {
 	public void realTestForToday(RealTestVO vo);
 	/**将实测结果存储*/
 	public void saveRealTest(String userName,String createrName,String strategyName,RealTestVO vo);
+	/**初始化实测参数*/
+	public void initRealTest(String userName,String createrName,String strategyName,double cash,int n);
 }

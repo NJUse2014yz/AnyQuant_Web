@@ -17,6 +17,7 @@ import po.StockInf;
 import po.Strategy;
 import service.impl.StrategyServiceImpl;
 import tool.JsonExchangeTool;
+import vo.Flag;
 import vo.StrategyVO;
 import function.Function;
 import function.FunctionResult;
@@ -85,7 +86,9 @@ public class StrategyServiceTest {
 		flag.add(new ArrayList<Function>());
 		flag.get(0).add(trend);
 		ShareFunction share=new ShareFunction();
-		StrategyVO strategy=new StrategyVO(userName,createrName,strategyName,share,stockList,choose,flag,null);
+		List<Flag> flags=new ArrayList<Flag>();
+		flags.add(new Flag(share,flag));
+		StrategyVO strategy=new StrategyVO(userName,createrName,strategyName,stockList,choose,flags,null);
 		
 		instance.makeStrategy(strategy);
 	}
@@ -97,7 +100,7 @@ public class StrategyServiceTest {
 		String strategyName=strategy.strategyName;
 		List<ChooseStock> stockList=strategy.stockList;
 		List<Function> choose=strategy.choose.get(0);
-		List<List<Function>> flag=strategy.flagList;
+		List<Flag> flag=strategy.flags;
 		System.out.println(userName);
 		System.out.println(createrName);
 		System.out.println(strategyName);
@@ -116,7 +119,7 @@ public class StrategyServiceTest {
 			String strategyName=selfStrategyList.get(i).strategyName;
 			List<ChooseStock> stockList=selfStrategyList.get(i).stockList;
 			List<Function> choose=selfStrategyList.get(i).choose.get(0);
-			List<List<Function>> flag=selfStrategyList.get(i).flagList;
+			List<Flag> flag=selfStrategyList.get(i).flags;
 			System.out.println(userName);
 			System.out.println(createrName);
 			System.out.println(strategyName);
@@ -135,7 +138,7 @@ public class StrategyServiceTest {
 			String strategyName=saveStrategyList.get(i).strategyName;
 			List<ChooseStock> stockList=saveStrategyList.get(i).stockList;
 			List<Function> choose=saveStrategyList.get(i).choose.get(0);
-			List<List<Function>> flag=saveStrategyList.get(i).flagList;
+			List<Flag> flag=saveStrategyList.get(i).flags;
 			System.out.println(userName);
 			System.out.println(createrName);
 			System.out.println(strategyName);
@@ -146,7 +149,7 @@ public class StrategyServiceTest {
 	}
 	public static void main(String[] args)
 	{
-//		StrategyServiceTest.makeStrategy();
+		StrategyServiceTest.makeStrategy();
 //		StrategyServiceTest.getStrategy();
 //		StrategyServiceTest.getSelfStrategy();
 //		StrategyServiceTest.getSaveStrategy();
