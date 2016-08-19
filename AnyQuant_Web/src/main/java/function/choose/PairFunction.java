@@ -1,13 +1,13 @@
 package function.choose;
 
+import java.sql.Date;
+
 import tool.ListTool;
 import function.Function;
 import function.FunctionResult;
 import function.ResultType;
 /**配对选股方法*/
 public class PairFunction extends Function{
-//	/**方法名*/
-//	public String function;
 	/**主动配对的股票代码*/
 	public String siid;
 	/**配对股票数（1或2或3）*/
@@ -20,7 +20,7 @@ public class PairFunction extends Function{
 		this.num=vo.num;
 	}
 	@Override
-	public FunctionResult getResult() {
+	public FunctionResult getResult(Date today) {
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.STRINGLIST);
 		result.rLS=new ListTool().getPair(siid, num);

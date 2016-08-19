@@ -89,8 +89,7 @@ public class JsonExchangeTool {
 				FunctionResult downFRI=null;
 				FunctionResult upFRO=null;
 				FunctionResult downFRO=null;
-				long start=0;
-				long end=0;
+				int day=0;
 				double standard=0;
 				String function=(String) jObject.get("function");
 				switch(function)
@@ -130,10 +129,9 @@ public class JsonExchangeTool {
 					downFRO.setrD(downFRJO.getDouble("rD"));
 					siid=(String)jObject.get("siid");
 					attribute=(String)jObject.get("attribute");
-					start=jObject.getLong("start");
-					end=jObject.getLong("end");
+					day=jObject.getInt("day");
 					standard=jObject.getDouble("standard");
-					list.get(i).add(new UpTrendFunction(new TrendVO(upFRI,downFRI,upFRO,downFRI,siid,attribute,start,end,standard)));
+					list.get(i).add(new UpTrendFunction(new TrendVO(upFRI,downFRI,upFRO,downFRI,siid,attribute,day,standard)));
 					break;
 				case "UpTrend":
 				case "DownTrend":

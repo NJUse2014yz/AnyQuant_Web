@@ -1,4 +1,7 @@
 package function;
+
+import java.sql.Date;
+
 /**所有的工具方法的接口*/
 public abstract class Function {
 	public String function;
@@ -10,7 +13,7 @@ public abstract class Function {
 	public FunctionResult resultUpO;
 	/**方法卖出结果的下界*/
 	public FunctionResult resultDownO;
-	public abstract FunctionResult getResult();
+	public abstract FunctionResult getResult(Date date);
 	public String getFunction() {
 		return function;
 	}

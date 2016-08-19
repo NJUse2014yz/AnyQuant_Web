@@ -41,8 +41,7 @@ public class BackTestTest {
 		resultDownO.rD=-Math.PI/2;
 		String siid="sh600000";
 		String attribute="close";
-		long start=new Date(2016-1900,5,1).getTime();
-		long end=new Date(2016-1900,7,1).getTime();
+		int day=30;
 		double standard=1;
 		try {
 			standard = new DataServiceImpl().getHistoryData_new("s","sh600000").getClose();
@@ -50,7 +49,7 @@ public class BackTestTest {
 			e1.printStackTrace();
 		}
 		TrendVO vo=new TrendVO(resultUpI, resultDownI, resultUpO, resultDownO,
-				siid, attribute, start, end, standard);
+				siid, attribute, day,standard);
 		flagList.get(0).add(new TrendFunction(vo));
 		ShareFunction orderType=new ShareFunction();
 		double cash=100000;

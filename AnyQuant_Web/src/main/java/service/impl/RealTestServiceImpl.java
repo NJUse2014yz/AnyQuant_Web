@@ -93,7 +93,7 @@ public class RealTestServiceImpl implements RealTestService {
 					FunctionResult downFRO=function0.getResultDownO();
 					
 					function=flagList.get(j).get(h);
-					result=function.getResult();
+					result=function.getResult(new Date(Calendar.getInstance().getTimeInMillis()));
 				
 					switch(result.location.get(0))
 					{

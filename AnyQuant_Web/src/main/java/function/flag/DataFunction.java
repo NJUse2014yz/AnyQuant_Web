@@ -13,8 +13,7 @@ import function.ResultType;
 public class DataFunction extends Function{
 	public String siid;
 	public String attribute;
-	public long startdate;
-	public long enddate;
+	public int day;
 
 	public DataFunction()
 	{
@@ -25,11 +24,14 @@ public class DataFunction extends Function{
 		this.function="Data";
 		this.siid=vo.siid;
 		this.attribute=vo.attribute;
+		this.day=vo.day;
 	}
 	
 	@Override
-	public FunctionResult getResult() {
-		List<Double> list=new ListTool().getList(siid,attribute,new Date(startdate),new Date(enddate));
+	public FunctionResult getResult(Date today) {
+		Date start=new Date(today.getTime()-day*24*60*60*1000);
+		Date end=today;
+		List<Double> list=new ListTool().getList(siid,attribute,start,end);
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.DOUBLELIST);
 		result.rLD=list;

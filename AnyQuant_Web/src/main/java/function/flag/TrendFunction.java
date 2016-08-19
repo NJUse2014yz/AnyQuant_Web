@@ -17,10 +17,8 @@ public class TrendFunction extends Function{
 	public String siid;
 	/**数据属性，具体见ListTool的switch中*/
 	public String attribute;
-	/**数据开始日期的毫秒数*/
-	public long start;
-	/**数据截止日期的毫秒数*/
-	public long end;
+	/**天数*/
+	public int day;
 	/**数据标准值，一般取该数据最近一段时间取值的平均数*/
 	public double standard;
 	
@@ -29,8 +27,7 @@ public class TrendFunction extends Function{
 		this.function="Trend";
 		this.siid=vo.siid;
 		this.attribute=vo.attribute;
-		this.start=vo.start;
-		this.end=vo.end;
+		this.day=vo.day;
 		this.standard=vo.standard;
 		this.resultUpI=vo.resultUpI;
 		this.resultDownI=vo.resultDownI;
@@ -39,9 +36,11 @@ public class TrendFunction extends Function{
 	}
 
 	@Override
-	public FunctionResult getResult() {
+	public FunctionResult getResult(Date today) {
+		Date start=new Date(today.getTime()-day*24*60*60*1000);
+		Date end=today;
 		List<TrendPoint> trendList=new ArrayList<TrendPoint>();
-		List<Double> list=new ListTool().getList(siid,attribute,new Date(start),new Date(end));
+		List<Double> list=new ListTool().getList(siid,attribute,start,end);
 		for(int i=0;i<list.size();i++)
 		{
 			trendList.add(new TrendPoint(i,list.get(i)));
@@ -69,22 +68,6 @@ public class TrendFunction extends Function{
 		this.attribute = attribute;
 	}
 
-	public long getStart() {
-		return start;
-	}
-
-	public void setStart(long start) {
-		this.start = start;
-	}
-
-	public long getEnd() {
-		return end;
-	}
-
-	public void setEnd(long end) {
-		this.end = end;
-	}
-
 	public double getStandard() {
 		return standard;
 	}
@@ -95,10 +78,8 @@ public class TrendFunction extends Function{
 
 	@Override
 	public String toString() {
-		return "TrendFunction [resultUpI=" + resultUpI + ", resultDownI="
-				+ resultDownI + ", resultUpO=" + resultUpO + ", resultDownO="
-				+ resultDownO + ", siid=" + siid + ", attribute=" + attribute
-				+ ", start=" + start + ", end=" + end + ", standard="
-				+ standard + "]";
+		return "TrendFunction [siid=" + siid + ", attribute=" + attribute
+				+ ", day=" + day + ", standard=" + standard + "]";
 	}
+
 }

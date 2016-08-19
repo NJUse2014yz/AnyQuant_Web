@@ -15,16 +15,14 @@ public class TrendVO {
 	public String siid;
 	/**数据属性，具体见ListTool的switch中*/
 	public String attribute;
-	/**数据开始日期的毫秒数*/
-	public long start;
-	/**数据截止日期的毫秒数*/
-	public long end;
+	/**天数*/
+	public int day;
 	/**数据标准值，一般取该数据最近一段时间取值的平均数*/
 	public double standard;
 	
 	public TrendVO(FunctionResult resultUpI, FunctionResult resultDownI,
 			FunctionResult resultUpO, FunctionResult resultDownO, String siid,
-			String attribute, long start, long end, double standard) {
+			String attribute,int day, double standard) {
 		super();
 		this.resultUpI = resultUpI;
 		this.resultDownI = resultDownI;
@@ -32,8 +30,7 @@ public class TrendVO {
 		this.resultDownO = resultDownO;
 		this.siid = siid;
 		this.attribute = attribute;
-		this.start = start;
-		this.end = end;
+		this.day=day;
 		this.standard = standard;
 	}
 	public FunctionResult getResultUpI() {
@@ -72,17 +69,11 @@ public class TrendVO {
 	public void setAttribute(String attribute) {
 		this.attribute = attribute;
 	}
-	public long getStart() {
-		return start;
+	public int getDay() {
+		return day;
 	}
-	public void setStart(long start) {
-		this.start = start;
-	}
-	public long getEnd() {
-		return end;
-	}
-	public void setEnd(long end) {
-		this.end = end;
+	public void setDay(int day) {
+		this.day = day;
 	}
 	public double getStandard() {
 		return standard;
@@ -95,7 +86,6 @@ public class TrendVO {
 		return "TrendVO [resultUpI=" + resultUpI + ", resultDownI="
 				+ resultDownI + ", resultUpO=" + resultUpO + ", resultDownO="
 				+ resultDownO + ", siid=" + siid + ", attribute=" + attribute
-				+ ", start=" + start + ", end=" + end + ", standard="
-				+ standard + "]";
+				+ ", day=" + day + ", standard=" + standard + "]";
 	}
 }

@@ -67,8 +67,7 @@ public class StrategyServiceTest {
 		//flag1
 		String attribute1="m10";
 		String attribute2="m5";
-		Date start1=new Date(2015-1900,0,1);
-		Date end1=new Date(Calendar.getInstance().getTimeInMillis());
+		int day1=30;
 		Double standard1=0.5;
 		FunctionResult upFRI1=new FunctionResult();
 		upFRI1.location.add(ResultType.DOUBLELIST);
@@ -82,7 +81,7 @@ public class StrategyServiceTest {
 		FunctionResult downFRO1=new FunctionResult();
 		downFRO1.location.add(ResultType.DOUBLELIST);
 		downFRO1.rD=-0.5;
-		TrendVO trendVO=new TrendVO(upFRI1,downFRI1,upFRO1,downFRO1,siid,attribute1,start1.getTime(),end1.getTime(),standard1);
+		TrendVO trendVO=new TrendVO(upFRI1,downFRI1,upFRO1,downFRO1,siid,attribute1,day1,standard1);
 		TrendFunction trend=new TrendFunction(trendVO);
 		//flag2
 		

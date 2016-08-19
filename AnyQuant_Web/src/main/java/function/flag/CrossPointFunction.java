@@ -19,10 +19,8 @@ public class CrossPointFunction extends Function{
 	public String siid2;
 	/**被动数据属性*/
 	public String attribute2;
-	/**数据开始日期的毫秒数*/
-	public long start;
-	/**数据截止日期的毫秒数*/
-	public long end;
+	/**往前推的天数*/
+	public int day;
 	
 	public CrossPointFunction(CrossVO vo)
 	{
@@ -31,17 +29,18 @@ public class CrossPointFunction extends Function{
 		this.attribute1=vo.attribute1;
 		this.siid2=vo.siid2;
 		this.attribute2=vo.attribute2;
-		this.start=vo.start;
-		this.end=vo.end;
+		this.day=vo.day;
 		this.resultUpI=vo.resultUpI;
 		this.resultDownI=vo.resultDownI;
 		this.resultUpO=vo.resultUpO;
 		this.resultUpO=vo.resultDownO;
 	}
 	@Override
-	public FunctionResult getResult() {
-		List<Double> activelist=new ListTool().getList(siid1,attribute1,new Date(start),new Date(end));
-		List<Double> passivelist=new ListTool().getList(siid2,attribute2,new Date(start),new Date(end));
+	public FunctionResult getResult(Date today) {
+		Date start=new Date(today.getTime()-day*24*60*60*1000);
+		Date end=today;
+		List<Double> activelist=new ListTool().getList(siid1,attribute1,start,end);
+		List<Double> passivelist=new ListTool().getList(siid2,attribute2,start,end);
 		CrossResult crossResult=new CrossTool(activelist,passivelist).cross();
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.DOUBLELIST);
@@ -76,24 +75,10 @@ public class CrossPointFunction extends Function{
 	public void setAttribute2(String attribute2) {
 		this.attribute2 = attribute2;
 	}
-	public long getStart() {
-		return start;
-	}
-	public void setStart(long start) {
-		this.start = start;
-	}
-	public long getEnd() {
-		return end;
-	}
-	public void setEnd(long end) {
-		this.end = end;
-	}
 	@Override
 	public String toString() {
-		return "CrossPointFunction [resultUpI=" + resultUpI + ", resultDownI="
-				+ resultDownI + ", resultUpO=" + resultUpO + ", resultDownO="
-				+ resultDownO + ", siid1=" + siid1 + ", attribute1="
+		return "CrossPointFunction [siid1=" + siid1 + ", attribute1="
 				+ attribute1 + ", siid2=" + siid2 + ", attribute2="
-				+ attribute2 + ", start=" + start + ", end=" + end + "]";
+				+ attribute2 + ", day=" + day + "]";
 	}
 }

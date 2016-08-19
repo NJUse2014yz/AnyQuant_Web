@@ -1,5 +1,7 @@
 package function.order;
 
+import java.sql.Date;
+
 import function.Function;
 import function.FunctionResult;
 import function.ResultType;
@@ -27,7 +29,7 @@ public class ValueTargetFunction extends Function{
 		this.price=vo.price;
 	}
 	@Override
-	public FunctionResult getResult() {
+	public FunctionResult getResult(Date today) {
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.STRING);
 		result.location.add(ResultType.DOUBLELIST);

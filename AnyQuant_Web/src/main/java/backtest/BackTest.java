@@ -178,7 +178,7 @@ public class BackTest {
 					for(int h=0;h<flagList.get(j).size();h++)
 					{//内列表
 						function=flagList.get(j).get(h);
-						result=function.getResult();//TODO
+						result=function.getResult(new Date(HQstatisticlist.get(j).hislist.get(m).getDate().getTime()));//TODO
 						
 						FunctionResult upFRI=function.getResultUpI();
 						FunctionResult downFRI=function.getResultDownI();
