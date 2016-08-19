@@ -3,6 +3,7 @@ package service;
 import java.sql.Date;
 import java.util.List;
 
+import vo.Flag;
 import function.Function;
 import function.choose.ChooseStock;
 import backtest.TestReport;
@@ -19,7 +20,7 @@ public interface BackTestService {
 	 * 基准大盘指数
 	 * */
 	public TestReport backtest(List<ChooseStock> stockList,
-			List<List<Function>> flagList,Function orderType,
+			List<Flag> flags,
 			double cash,Date startdate,Date enddate,int n,
 			String benchmark) throws Exception;
 	
@@ -31,7 +32,7 @@ public interface BackTestService {
 	 * 基准大盘指数
 	 * */
 	public TestReport backtest(List<ChooseStock> stockList,
-			List<List<Function>> flagList,Function orderType,
+			List<Flag> flags,
 			int n,String benchmark) throws Exception;
 	
 	/**部分自定义回测，返回回测报告：
@@ -41,7 +42,7 @@ public interface BackTestService {
 	 * 基准大盘指数
 	 * */
 	public TestReport backtest(List<ChooseStock> stockList,
-			List<List<Function>> flagList,Function orderType,
+			List<Flag> flags,
 			String benchmark) throws Exception;
 	
 	/**部分自定义回测，返回回测报告：
@@ -51,7 +52,7 @@ public interface BackTestService {
 	 * 交易周期
 	 * */
 	public TestReport backtest(List<ChooseStock> stockList,
-			List<List<Function>> flagList,Function orderType,int n) throws Exception;
+			List<Flag> flags,int n) throws Exception;
 	
 	
 }

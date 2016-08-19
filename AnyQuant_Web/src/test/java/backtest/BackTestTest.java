@@ -8,6 +8,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import vo.Flag;
 import data.impl.DataServiceImpl;
 import function.Function;
 import function.FunctionResult;
@@ -57,8 +58,10 @@ public class BackTestTest {
 		Date enddate=new Date(2016-1900,0,1);
 		int n=1;
 		String benchmark="sh000001";
+		List<Flag> flags=new ArrayList<Flag>();
+		flags.add(new Flag(orderType,flagList));
 		try {
-			instance=new BackTest(stockList, flagList, orderType,
+			instance=new BackTest(stockList, flags,
 					cash, startdate, enddate, n, benchmark);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -43,15 +43,15 @@ public class StrategyServiceTest {
 		String userName="u1";
 		String createrName="u1";
 		//strategyName
-		String strategyName="s1";
+		String strategyName="s2";
 		//choose
-		int num=1;
-		PairVO pairVO=new PairVO(siid,num);
-		PairFunction pair=new PairFunction(pairVO);
+//		int num=1;
+//		PairVO pairVO=new PairVO(siid,num);
+//		PairFunction pair=new PairFunction(pairVO);
 
 		List<List<Function>> choose=new ArrayList<List<Function>>();
 		choose.add(new ArrayList<Function>());
-		choose.get(0).add(pair);
+//		choose.get(0).add(pair);
 		//chooseStock
 		StockInf stockInf=null;
 		try {
@@ -59,29 +59,33 @@ public class StrategyServiceTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		String partner=stockInf.getPartner1();
+//		String partner=stockInf.getPartner1();
 		List<ChooseStock> stockList=new ArrayList<ChooseStock>();
-		stockList.add(new ChooseStock(siid,0.505));
-		stockList.add(new ChooseStock(partner,0.495));
-		//flag
-		String attribute="close";
-		Date start=new Date(2015-1900,0,1);
-		Date end=new Date(Calendar.getInstance().getTimeInMillis());
-		Double standard=0.5;
-		FunctionResult upFRI=new FunctionResult();
-		upFRI.location.add(ResultType.DOUBLELIST);
-		upFRI.rD=0.5;
-		FunctionResult downFRI=new FunctionResult();
-		downFRI.location.add(ResultType.DOUBLELIST);
-		downFRI.rD=0.2;
-		FunctionResult upFRO=new FunctionResult();
-		upFRO.location.add(ResultType.DOUBLELIST);
-		upFRO.rD=-0.2;
-		FunctionResult downFRO=new FunctionResult();
-		downFRO.location.add(ResultType.DOUBLELIST);
-		downFRO.rD=-0.5;
-		TrendVO trendVO=new TrendVO(upFRI,downFRI,upFRO,downFRO,siid,attribute,start.getTime(),end.getTime(),standard);
+		stockList.add(new ChooseStock(siid,1));
+//		stockList.add(new ChooseStock(siid,0.505));
+//		stockList.add(new ChooseStock(partner,0.495));
+		//flag1
+		String attribute1="m10";
+		String attribute2="m5";
+		Date start1=new Date(2015-1900,0,1);
+		Date end1=new Date(Calendar.getInstance().getTimeInMillis());
+		Double standard1=0.5;
+		FunctionResult upFRI1=new FunctionResult();
+		upFRI1.location.add(ResultType.DOUBLELIST);
+		upFRI1.rD=0.5;
+		FunctionResult downFRI1=new FunctionResult();
+		downFRI1.location.add(ResultType.DOUBLELIST);
+		downFRI1.rD=0.2;
+		FunctionResult upFRO1=new FunctionResult();
+		upFRO1.location.add(ResultType.DOUBLELIST);
+		upFRO1.rD=-0.2;
+		FunctionResult downFRO1=new FunctionResult();
+		downFRO1.location.add(ResultType.DOUBLELIST);
+		downFRO1.rD=-0.5;
+		TrendVO trendVO=new TrendVO(upFRI1,downFRI1,upFRO1,downFRO1,siid,attribute1,start1.getTime(),end1.getTime(),standard1);
 		TrendFunction trend=new TrendFunction(trendVO);
+		//flag2
+		
 		List<List<Function>> flag=new ArrayList<List<Function>>();
 		flag.add(new ArrayList<Function>());
 		flag.get(0).add(trend);

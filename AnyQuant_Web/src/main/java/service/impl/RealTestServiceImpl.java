@@ -179,20 +179,19 @@ public class RealTestServiceImpl implements RealTestService {
 			double capitaltoday=0;//今日股票资本
 			double inprice=0;//今日买入总价
 			double outprice=0;//今日卖出总价
-			for(int k=0;k<vo.flags.size();k++)
-			{//多种订单
-				Function orderType=vo.flags.get(k).orderType;
-				switch(orderType.getFunction())
-				{
-				case "Share":
+			for(int j=0;j<vo.stockList.size();j++)
+			{//每只股票
+				for(int k=0;k<vo.flags.size();k++)
+				{//多种订单
+					Function orderType=vo.flags.get(k).orderType;
+					switch(orderType.getFunction())
+					{
+					case "Share":
 					//产生交易
-					for(int j=0;j<vo.stockList.size()-1;j++)
-					{//每只股票
-						ShareFunction order=(ShareFunction)inOrderList.get(k).get(j).get(i);
+						
 						if(inOrderList.get(k).get(j).get(i)!=null)
 						{
-							if(order.order==1)
-							{
+							ShareFunction order=(ShareFunction)inOrderList.get(k).get(j).get(i);
 								if(vo.cash-order.share*order.price*(1+inTaxRatio)<0)
 								{
 									int share=(int) (vo.cash*(1-inTaxRatio)/order.price);
@@ -206,34 +205,33 @@ public class RealTestServiceImpl implements RealTestService {
 									vo.numlist.set(j,vo.numlist.get(j)+order.share);//加仓
 									inprice+=order.share*order.price;
 								}
-							}
-							else if(order.order==-1)
+						}
+						if(outOrderList.get(k).get(j).get(i)!=null)
+						{
+							ShareFunction order=(ShareFunction)outOrderList.get(k).get(j).get(i);
+							if(order.share>=vo.numlist.get(j))
 							{
-								if(order.share>=vo.numlist.get(j))
-								{
-									vo.cash+=order.share*order.price*(1-outTaxRatio);
-									vo.numlist.set(j,vo.numlist.get(j)-order.share);
-									outprice+=order.share*order.price;
-								}
-								else
-								{
-									vo.cash+=vo.numlist.get(j)*order.price*(1-outTaxRatio);
-									vo.numlist.set(j,0);//减仓
-									outprice+=vo.numlist.get(j)*order.price;
-								}
+								vo.cash+=order.share*order.price*(1-outTaxRatio);
+								vo.numlist.set(j,vo.numlist.get(j)-order.share);
+								outprice+=order.share*order.price;
+							}
+							else
+							{
+								vo.cash+=vo.numlist.get(j)*order.price*(1-outTaxRatio);
+								vo.numlist.set(j,0);//减仓
+								outprice+=vo.numlist.get(j)*order.price;
 							}
 						}
-						capitaltoday+=vo.numlist.get(j)*order.price;
-					}//j 每股
-					break;
-				case "Percent":
-					
-					break;
-				}
-			}//k 多种订单
+						break;
+					case "Percent":
+						
+						break;
+					}
+					capitaltoday+=vo.numlist.get(j)*priceList.get(j);
+				}//k 多种订单
+			}//j 每股
 			vo.capital.add(new DateDouble(Calendar.getInstance().getTimeInMillis(),capitaltoday+vo.cash));
-//		}//i 每天
-		
+//		}//i
 	}
 
 	@Override

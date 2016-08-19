@@ -97,7 +97,7 @@ public class JsonExchangeTool {
 				{
 				case "Pair":
 					siid=(String)jObject.get("siid");
-					num=(int)jObject.get("num");
+					num=jObject.getInt("num");
 					list.get(i).add(new PairFunction(new PairVO(siid,num)));
 					break;
 				case "Trend":
@@ -124,15 +124,15 @@ public class JsonExchangeTool {
 						upLocationAO.add((int)upLocationJAO.get(k));	
 						downLocationAO.add((int)downLocationJAO.get(k));
 					}
-					upFRI.setrD((double)upFRJI.get("rD"));
-					downFRI.setrD((double)downFRJI.getDouble("rD"));
-					upFRO.setrD((double)upFRJO.get("rD"));
-					downFRO.setrD((double)downFRJO.getDouble("rD"));
+					upFRI.setrD(upFRJI.getDouble("rD"));
+					downFRI.setrD(downFRJI.getDouble("rD"));
+					upFRO.setrD(upFRJO.getDouble("rD"));
+					downFRO.setrD(downFRJO.getDouble("rD"));
 					siid=(String)jObject.get("siid");
 					attribute=(String)jObject.get("attribute");
-					start=(long)jObject.get("start");
-					end=(long)jObject.get("end");
-					standard=(double)jObject.get("standard");
+					start=jObject.getLong("start");
+					end=jObject.getLong("end");
+					standard=jObject.getDouble("standard");
 					list.get(i).add(new UpTrendFunction(new TrendVO(upFRI,downFRI,upFRO,downFRI,siid,attribute,start,end,standard)));
 					break;
 				case "UpTrend":
@@ -153,42 +153,42 @@ public class JsonExchangeTool {
 		case "Share":
 			ShareFunction share=new ShareFunction();
 			share.setFunction(function);
-			share.setOrder((int)jObject.get("order"));
-			share.setShare((int)jObject.get("share"));
-			share.setSiid((String)jObject.get("siid"));
+			share.setOrder(jObject.getInt("order"));
+			share.setShare(jObject.getInt("share"));
+			share.setSiid(jObject.getString("siid"));
 			return share;
 		case "SharePercent":
 			SharePercentFunction sharePercent=new SharePercentFunction();
 			sharePercent.setFunction(function);
-			sharePercent.setOrder((int)jObject.get("order"));
-			sharePercent.setPercent((int)jObject.get("percent"));
-			sharePercent.setSiid((String)jObject.get("siid"));
+			sharePercent.setOrder(jObject.getInt("order"));
+			sharePercent.setPercent(jObject.getInt("percent"));
+			sharePercent.setSiid(jObject.getString("siid"));
 			return sharePercent;
 		case "ShareTarget":
 			ShareTargetFunction shareTarget=new ShareTargetFunction();
 			shareTarget.setFunction(function);
-			shareTarget.setShare((int)jObject.get("share"));
-			shareTarget.setSiid((String)jObject.get("siid"));
+			shareTarget.setShare(jObject.getInt("share"));
+			shareTarget.setSiid(jObject.getString("siid"));
 			return shareTarget;
 		case "Value":
 			ValueFunction value=new ValueFunction();
 			value.setFunction(function);
-			value.setOrder((int)jObject.get("order"));
-			value.setValue((int)jObject.get("value"));
-			value.setSiid((String)jObject.get("siid"));
+			value.setOrder(jObject.getInt("order"));
+			value.setValue(jObject.getInt("value"));
+			value.setSiid(jObject.getString("siid"));
 			return value;
 		case "ValuePercent":
 			ValuePercentFunction valuePercent=new ValuePercentFunction();
 			valuePercent.setFunction(function);
-			valuePercent.setOrder((int)jObject.get("order"));
-			valuePercent.setPercent((int)jObject.get("percent"));
-			valuePercent.setSiid((String)jObject.get("siid"));
+			valuePercent.setOrder(jObject.getInt("order"));
+			valuePercent.setPercent(jObject.getInt("percent"));
+			valuePercent.setSiid(jObject.getString("siid"));
 			return valuePercent;
 		case "ValueTarget":
 			ValueTargetFunction valueTarget=new ValueTargetFunction();
 			valueTarget.setFunction(function);
-			valueTarget.setValue((int)jObject.get("value"));
-			valueTarget.setSiid((String)jObject.get("siid"));
+			valueTarget.setValue(jObject.getInt("value"));
+			valueTarget.setSiid(jObject.getString("siid"));
 			return valueTarget;
 		}
 		return null;
@@ -199,8 +199,8 @@ public class JsonExchangeTool {
 		try
 		{
 			JSONObject jObject=JSONObject.fromObject(json);
-			vo.setCash((double)jObject.getDouble("cash"));
-			vo.setN((int)jObject.get("n"));
+			vo.setCash(jObject.getDouble("cash"));
+			vo.setN(jObject.getInt("n"));
 //			vo.orderType=getOrder(jObject.get("orderType").toString());
 //			vo.stockList=getStock(jObject.get("stockList").toString());
 			List<DateDouble> capital=new ArrayList<DateDouble>();
@@ -208,7 +208,7 @@ public class JsonExchangeTool {
 			for(int i=0;i<jCapital.size();i++)
 			{
 				JSONObject jDateDouble=(JSONObject) jCapital.get(i);
-				capital.add(new DateDouble((long)jDateDouble.get("date"),(double)jDateDouble.getDouble("value")));
+				capital.add(new DateDouble(jDateDouble.getLong("date"),jDateDouble.getDouble("value")));
 			}
 			vo.setCapital(capital);
 //			List<List<Function>> flagList=getFunction(jObject.get("flagList").toString());
