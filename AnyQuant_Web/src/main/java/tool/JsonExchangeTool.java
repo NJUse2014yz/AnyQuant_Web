@@ -12,6 +12,11 @@ import function.FunctionResult;
 import function.choose.ChooseStock;
 import function.choose.PairFunction;
 import function.choose.PairVO;
+import function.flag.CrossFunction;
+import function.flag.CrossPointFunction;
+import function.flag.CrossVO;
+import function.flag.DownTrendFunction;
+import function.flag.TrendFunction;
 import function.flag.TrendVO;
 import function.flag.UpTrendFunction;
 import function.order.ShareFunction;
@@ -92,6 +97,129 @@ public class JsonExchangeTool {
 				int day=0;
 				double standard=0;
 				String function=(String) jObject.get("function");
+				upFRJI=(JSONObject)jObject.get("resultUpI");
+				downFRJI=(JSONObject)jObject.get("resultDownI");
+				upFRI=new FunctionResult();
+				downFRI=new FunctionResult();
+				upFRJO=(JSONObject)jObject.get("resultUpO");
+				downFRJO=(JSONObject)jObject.get("resultDownO");
+				upFRO=new FunctionResult();
+				downFRO=new FunctionResult();
+				upLocationJAI=(JSONArray)upFRJI.get("location");
+				downLocationJAI=(JSONArray)downFRJI.get("location");
+				upLocationJAO=(JSONArray)upFRJO.get("location");
+				downLocationJAO=(JSONArray)downFRJO.get("location");
+				upLocationAI=new ArrayList<Integer>();
+				downLocationAI=new ArrayList<Integer>();
+				upLocationAO=new ArrayList<Integer>();
+				downLocationAO=new ArrayList<Integer>();
+				for(int k=0;k<upLocationAI.size();k++)
+				{
+					upLocationAI.add((int)upLocationJAI.get(k));	
+					downLocationAI.add((int)downLocationJAI.get(k));
+					upLocationAO.add((int)upLocationJAO.get(k));	
+					downLocationAO.add((int)downLocationJAO.get(k));
+				}
+				upFRI.setrB(upFRJI.getBoolean("rB"));
+				downFRI.setrB(downFRJI.getBoolean("rB"));
+				upFRO.setrB(upFRJO.getBoolean("rB"));
+				downFRO.setrB(downFRJO.getBoolean("rB"));
+				upFRI.setrI(upFRJI.getInt("rI"));
+				downFRI.setrI(downFRJI.getInt("rI"));
+				upFRO.setrI(upFRJO.getInt("rI"));
+				downFRO.setrI(downFRJO.getInt("rI"));
+				upFRI.setrD(upFRJI.getDouble("rD"));
+				downFRI.setrD(downFRJI.getDouble("rD"));
+				upFRO.setrD(upFRJO.getDouble("rD"));
+				downFRO.setrD(downFRJO.getDouble("rD"));
+				
+				JSONArray jArrayupFRJIrLI=(JSONArray)upFRJI.get("rLI");
+				List<Integer> upFRJIrLI=new ArrayList<Integer>();
+				for(int l=0;l<jArrayupFRJIrLI.size();l++)
+				{
+					upFRJIrLI.add(jArrayupFRJIrLI.getInt(l));
+				}
+				upFRI.setrLI(upFRJIrLI);
+				JSONArray jArraydownFRJIrLI=(JSONArray)downFRJI.get("rLI");
+				List<Integer> downFRJIrLI=new ArrayList<Integer>();
+				for(int l=0;l<jArraydownFRJIrLI.size();l++)
+				{
+					downFRJIrLI.add(jArraydownFRJIrLI.getInt(l));
+				}
+				downFRI.setrLI(downFRJIrLI);
+				JSONArray jArrayupFRJOrLI=(JSONArray)upFRJO.get("rLI");
+				List<Integer> upFRJOrLI=new ArrayList<Integer>();
+				for(int l=0;l<jArrayupFRJOrLI.size();l++)
+				{
+					upFRJOrLI.add(jArrayupFRJOrLI.getInt(l));
+				}
+				upFRO.setrLI(upFRJOrLI);
+				JSONArray jArraydownFRJOrLI=(JSONArray)downFRJO.get("rLI");
+				List<Integer> downFRJOrLI=new ArrayList<Integer>();
+				for(int l=0;l<jArraydownFRJOrLI.size();l++)
+				{
+					downFRJOrLI.add(jArraydownFRJOrLI.getInt(l));
+				}
+				downFRO.setrLI(downFRJOrLI);
+				
+				JSONArray jArrayupFRJIrLD=(JSONArray)upFRJI.get("rLD");
+				List<Double> upFRJIrLD=new ArrayList<Double>();
+				for(int l=0;l<jArrayupFRJIrLD.size();l++)
+				{
+					upFRJIrLD.add(jArrayupFRJIrLD.getDouble(l));
+				}
+				upFRI.setrLD(upFRJIrLD);
+				JSONArray jArraydownFRJIrLD=(JSONArray)downFRJI.get("rLD");
+				List<Double> downFRJIrLD=new ArrayList<Double>();
+				for(int l=0;l<jArraydownFRJIrLD.size();l++)
+				{
+					downFRJIrLD.add(jArraydownFRJIrLD.getDouble(l));
+				}
+				downFRI.setrLD(downFRJIrLD);
+				JSONArray jArrayupFRJOrLD=(JSONArray)upFRJO.get("rLD");
+				List<Double> upFRJOrLD=new ArrayList<Double>();
+				for(int l=0;l<jArrayupFRJOrLD.size();l++)
+				{
+					upFRJOrLD.add(jArrayupFRJOrLD.getDouble(l));
+				}
+				upFRO.setrLD(upFRJOrLD);
+				JSONArray jArraydownFRJOrLD=(JSONArray)downFRJO.get("rLD");
+				List<Double> downFRJOrLD=new ArrayList<Double>();
+				for(int l=0;l<jArraydownFRJOrLD.size();l++)
+				{
+					downFRJOrLD.add(jArraydownFRJOrLD.getDouble(l));
+				}
+				downFRO.setrLD(downFRJOrLD);
+				
+				JSONArray jArrayupFRJIrLS=(JSONArray)upFRJI.get("rLS");
+				List<String> upFRJIrLS=new ArrayList<String>();
+				for(int l=0;l<jArrayupFRJIrLS.size();l++)
+				{
+					upFRJIrLS.add(jArrayupFRJIrLS.getString(l));
+				}
+				upFRI.setrLS(upFRJIrLS);
+				JSONArray jArraydownFRJIrLS=(JSONArray)downFRJI.get("rLS");
+				List<String> downFRJIrLS=new ArrayList<String>();
+				for(int l=0;l<jArraydownFRJIrLS.size();l++)
+				{
+					downFRJIrLS.add(jArraydownFRJIrLS.getString(l));
+				}
+				downFRI.setrLS(downFRJIrLS);
+				JSONArray jArrayupFRJOrLS=(JSONArray)upFRJO.get("rLS");
+				List<String> upFRJOrLS=new ArrayList<String>();
+				for(int l=0;l<jArrayupFRJOrLS.size();l++)
+				{
+					upFRJOrLS.add(jArrayupFRJOrLS.getString(l));
+				}
+				upFRO.setrLS(upFRJOrLS);
+				JSONArray jArraydownFRJOrLS=(JSONArray)downFRJO.get("rLS");
+				List<String> downFRJOrLS=new ArrayList<String>();
+				for(int l=0;l<jArraydownFRJOrLS.size();l++)
+				{
+					downFRJOrLS.add(jArraydownFRJOrLS.getString(l));
+				}
+				downFRO.setrLS(downFRJOrLS);
+				
 				switch(function)
 				{
 				case "Pair":
@@ -99,44 +227,44 @@ public class JsonExchangeTool {
 					num=jObject.getInt("num");
 					list.get(i).add(new PairFunction(new PairVO(siid,num)));
 					break;
+					
 				case "Trend":
-					upFRJI=(JSONObject)jObject.get("resultUpI");
-					downFRJI=(JSONObject)jObject.get("resultDownI");
-					upFRI=new FunctionResult();
-					downFRI=new FunctionResult();
-					upFRJO=(JSONObject)jObject.get("resultUpO");
-					downFRJO=(JSONObject)jObject.get("resultDownO");
-					upFRO=new FunctionResult();
-					downFRO=new FunctionResult();
-					upLocationJAI=(JSONArray)upFRJI.get("location");
-					downLocationJAI=(JSONArray)downFRJI.get("location");
-					upLocationJAO=(JSONArray)upFRJO.get("location");
-					downLocationJAO=(JSONArray)downFRJO.get("location");
-					upLocationAI=new ArrayList<Integer>();
-					downLocationAI=new ArrayList<Integer>();
-					upLocationAO=new ArrayList<Integer>();
-					downLocationAO=new ArrayList<Integer>();
-					for(int k=0;k<upLocationAI.size();k++)
-					{
-						upLocationAI.add((int)upLocationJAI.get(k));	
-						downLocationAI.add((int)downLocationJAI.get(k));
-						upLocationAO.add((int)upLocationJAO.get(k));	
-						downLocationAO.add((int)downLocationJAO.get(k));
-					}
-					upFRI.setrD(upFRJI.getDouble("rD"));
-					downFRI.setrD(downFRJI.getDouble("rD"));
-					upFRO.setrD(upFRJO.getDouble("rD"));
-					downFRO.setrD(downFRJO.getDouble("rD"));
+					siid=(String)jObject.get("siid");
+					attribute=(String)jObject.get("attribute");
+					day=jObject.getInt("day");
+					standard=jObject.getDouble("standard");
+					list.get(i).add(new TrendFunction(new TrendVO(upFRI,downFRI,upFRO,downFRI,siid,attribute,day,standard)));
+					break;
+				case "UpTrend":
 					siid=(String)jObject.get("siid");
 					attribute=(String)jObject.get("attribute");
 					day=jObject.getInt("day");
 					standard=jObject.getDouble("standard");
 					list.get(i).add(new UpTrendFunction(new TrendVO(upFRI,downFRI,upFRO,downFRI,siid,attribute,day,standard)));
 					break;
-				case "UpTrend":
 				case "DownTrend":
+					siid=(String)jObject.get("siid");
+					attribute=(String)jObject.get("attribute");
+					day=jObject.getInt("day");
+					standard=jObject.getDouble("standard");
+					list.get(i).add(new DownTrendFunction(new TrendVO(upFRI,downFRI,upFRO,downFRI,siid,attribute,day,standard)));
+					break;
 				case "Cross":
+					siid1=(String)jObject.get("siid1");
+					attribute1=(String)jObject.get("attribute1");
+					siid2=(String)jObject.get("siid2");
+					attribute2=(String)jObject.get("attribute2");
+					day=jObject.getInt("day");
+					list.get(i).add(new CrossFunction(new CrossVO(upFRI,downFRI,upFRO,downFRI,siid1,attribute1,siid2,attribute2,day)));
+					break;
 				case "CrossPoint":
+					siid1=(String)jObject.get("siid1");
+					attribute1=(String)jObject.get("attribute1");
+					siid2=(String)jObject.get("siid2");
+					attribute2=(String)jObject.get("attribute2");
+					day=jObject.getInt("day");
+					list.get(i).add(new CrossPointFunction(new CrossVO(upFRI,downFRI,upFRO,downFRI,siid1,attribute1,siid2,attribute2,day)));
+					break;
 				}
 			}
 		}

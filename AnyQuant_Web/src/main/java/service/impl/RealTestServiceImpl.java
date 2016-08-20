@@ -32,6 +32,7 @@ public class RealTestServiceImpl implements RealTestService {
 	public HistoryDataMapper hisMapper;
 	@Autowired
 	public StrategyMapper strMapper;
+	public RealTestVO vo;
 	
 	public RealTestServiceImpl(HistoryDataMapper hisMapper,StrategyMapper strMapper)
 	{
@@ -41,6 +42,7 @@ public class RealTestServiceImpl implements RealTestService {
 
 	@Override
 	public void realTestForToday(RealTestVO vo) {//在15:00之后调用
+		this.vo=vo;
 		List<Double> priceList=new ArrayList<Double>();
 		for(int i=0;i<vo.stockList.size();i++)
 		{
@@ -163,7 +165,8 @@ public class RealTestServiceImpl implements RealTestService {
 			{
 				for(int i=0;i<vo.stockList.size();i++)
 				{
-					inOrderList.get(k).get(i).add(setOrder(orderType.function,1,vo.stockList.get(i).siid,1000,priceList.get(i)));//暂用1000
+//					inOrderList.get(k).get(i).add(setOrder(orderType.function,1,vo.stockList.get(i).siid,1000,priceList.get(i)));//暂用1000
+					inOrderList.get(k).get(i).add(setOrder(orderType.function,1,orderType.getResult(null).getrS(),orderType.getResult(null).getrD(),priceList.get(i)));
 				}
 			}
 			else
@@ -177,7 +180,8 @@ public class RealTestServiceImpl implements RealTestService {
 			{
 				for(int i=0;i<vo.stockList.size();i++)
 				{
-					outOrderList.get(k).get(i).add(setOrder(orderType.function,-1,vo.stockList.get(i).siid,1000,priceList.get(i)));
+//					outOrderList.get(k).get(i).add(setOrder(orderType.function,-1,vo.stockList.get(i).siid,1000,priceList.get(i)));
+					outOrderList.get(k).get(i).add(setOrder(orderType.function,-1,orderType.getResult(null).getrS(),orderType.getResult(null).getrD(),priceList.get(i)));
 				}
 			}
 			else
@@ -199,49 +203,49 @@ public class RealTestServiceImpl implements RealTestService {
 				for(int k=0;k<vo.flags.size();k++)
 				{//多种订单
 					Function orderType=vo.flags.get(k).orderType;
-					switch(orderType.getFunction())
-					{
-					case "Order":
-					//产生交易
-						if(inOrderList.get(k).get(j).get(i)!=null)
-						{
-							OrderFunction order=(OrderFunction)inOrderList.get(k).get(j).get(i);
-							if(vo.cash-order.share*order.price*(1+inTaxRatio)<0)
-							{
-								int share=(int) (vo.cash*(1-inTaxRatio)/order.price);
-								vo.cash-=share*order.price*(1+inTaxRatio);
-								vo.numlist.set(j,vo.numlist.get(j)+share);//加仓
-								inprice+=share*order.price;
-//								System.out.println("（买入现金不足）订单交易后 orderType:"+orderType.function+" "+vo.stockList.get(j).getSiid()+" 股数    "+vo.numlist.get(j)+" 此时cash "+vo.cash+"\r\n");/*=====================================*/
-							}
-							else
-							{
-								vo.cash-=order.share*order.price*(1+inTaxRatio);
-								vo.numlist.set(j,vo.numlist.get(j)+order.share);//加仓
-								inprice+=order.share*order.price;
-//								System.out.println("（买入现金足够）订单交易后 orderType:"+orderType.function+" "+vo.stockList.get(j).getSiid()+" 股数    "+vo.numlist.get(j)+" 此时cash "+vo.cash+"\r\n");/*=====================================*/
-							}
-						}
-						if(outOrderList.get(k).get(j).get(i)!=null)
-						{
-							OrderFunction order=(OrderFunction)outOrderList.get(k).get(j).get(i);
-							if(order.share<=vo.numlist.get(j))
-							{
-								vo.cash+=order.share*order.price*(1-outTaxRatio);
-								vo.numlist.set(j,vo.numlist.get(j)-order.share);
-								outprice+=order.share*order.price;
-//								System.out.println("（要卖出股数足够）订单交易后 orderType:"+orderType.function+" "+vo.stockList.get(j).getSiid()+" 股数    "+vo.numlist.get(j)+" 此时cash "+vo.cash+"\r\n");/*=====================================*/
-							}
-							else
-							{
-								vo.cash+=vo.numlist.get(j)*order.price*(1-outTaxRatio);
-								vo.numlist.set(j,0);//减仓
-								outprice+=vo.numlist.get(j)*order.price;
-//								System.out.println("（要卖出股数不够）订单交易后 orderType:"+orderType.function+" "+vo.stockList.get(j).getSiid()+" 股数    "+vo.numlist.get(j)+" 此时cash "+vo.cash+"\r\n");/*=====================================*/
-							}
-						}
-						break;
-					case "Share":
+//					switch(orderType.getFunction())
+//					{
+//					case "Order":
+//					//产生交易
+//						if(inOrderList.get(k).get(j).get(i)!=null)
+//						{
+//							OrderFunction order=(OrderFunction)inOrderList.get(k).get(j).get(i);
+//							if(vo.cash-order.share*order.price*(1+inTaxRatio)<0)
+//							{
+//								int share=(int) (vo.cash*(1-inTaxRatio)/order.price);
+//								vo.cash-=share*order.price*(1+inTaxRatio);
+//								vo.numlist.set(j,vo.numlist.get(j)+share);//加仓
+//								inprice+=share*order.price;
+////								System.out.println("（买入现金不足）订单交易后 orderType:"+orderType.function+" "+vo.stockList.get(j).getSiid()+" 股数    "+vo.numlist.get(j)+" 此时cash "+vo.cash+"\r\n");/*=====================================*/
+//							}
+//							else
+//							{
+//								vo.cash-=order.share*order.price*(1+inTaxRatio);
+//								vo.numlist.set(j,vo.numlist.get(j)+order.share);//加仓
+//								inprice+=order.share*order.price;
+////								System.out.println("（买入现金足够）订单交易后 orderType:"+orderType.function+" "+vo.stockList.get(j).getSiid()+" 股数    "+vo.numlist.get(j)+" 此时cash "+vo.cash+"\r\n");/*=====================================*/
+//							}
+//						}
+//						if(outOrderList.get(k).get(j).get(i)!=null)
+//						{
+//							OrderFunction order=(OrderFunction)outOrderList.get(k).get(j).get(i);
+//							if(order.share<=vo.numlist.get(j))
+//							{
+//								vo.cash+=order.share*order.price*(1-outTaxRatio);
+//								vo.numlist.set(j,vo.numlist.get(j)-order.share);
+//								outprice+=order.share*order.price;
+////								System.out.println("（要卖出股数足够）订单交易后 orderType:"+orderType.function+" "+vo.stockList.get(j).getSiid()+" 股数    "+vo.numlist.get(j)+" 此时cash "+vo.cash+"\r\n");/*=====================================*/
+//							}
+//							else
+//							{
+//								vo.cash+=vo.numlist.get(j)*order.price*(1-outTaxRatio);
+//								vo.numlist.set(j,0);//减仓
+//								outprice+=vo.numlist.get(j)*order.price;
+////								System.out.println("（要卖出股数不够）订单交易后 orderType:"+orderType.function+" "+vo.stockList.get(j).getSiid()+" 股数    "+vo.numlist.get(j)+" 此时cash "+vo.cash+"\r\n");/*=====================================*/
+//							}
+//						}
+//						break;
+//					case "Share":
 						//产生交易
 						if(inOrderList.get(k).get(j).get(i)!=null)
 						{
@@ -276,11 +280,11 @@ public class RealTestServiceImpl implements RealTestService {
 								outprice+=vo.numlist.get(j)*order.price;
 							}
 						}
-						break;
-					case "Percent":
-						
-						break;
-					}
+//						break;
+//					case "Percent":
+//						
+//						break;
+//					}
 				}//k 多种订单
 				capitaltoday+=vo.numlist.get(j)*priceList.get(j);
 			}//j 每股
@@ -327,7 +331,60 @@ public class RealTestServiceImpl implements RealTestService {
 			return new ShareFunction(order,siid,(int)value,price);
 		case "Order":
 			return new OrderFunction(order,siid,(int)value,price);
+		case "SharePercent":
+			int sum=0;
+			for(int i=0;i<vo.numlist.size();i++)
+			{
+				sum+=vo.numlist.get(i);
+			}
+			return new ShareFunction(order,siid,sum*value,price);
+		case "ShareTarget":
+			int shareTargetShare=0;
+			for(int i=0;i<vo.stockList.size();i++)
+			{
+				if(vo.stockList.get(i).siid.equals(siid))
+				{
+					if(vo.numlist.get(i)<value)
+					{
+						order=1;
+						shareTargetShare=(int)value-vo.numlist.get(i);
+					}
+					else
+					{
+						order=-1;
+						shareTargetShare=vo.numlist.get(i)-(int)value;
+					}
+				}
+			}
+			return new ShareFunction(order,siid,shareTargetShare,price);
+		case "Value":
+			return new ShareFunction(order,siid,(int)value/price,price);
+		case "ValuePercent":
+			int shareVP=(int) (vo.capital.get(vo.capital.size()-1).getValue()*value/price);
+			return new ShareFunction(order,siid,shareVP,price);
+		case "ValueTarget":
+			double valueReal=0;
+			for(int i=0;i<vo.numlist.size();i++)
+			{
+				if(vo.stockList.get(i).siid.equals(siid))
+				{
+					valueReal=value-vo.numlist.get(i)*price;
+				}
+			}
+			int shareVT=0;
+			if(valueReal<0)
+			{
+				order=-1;
+				shareVT=(int) (-valueReal/price);
+			}
+			else
+			{
+				order=1;
+				shareVT=(int) (valueReal/price);
+			}
+			return new ShareFunction(order,siid,shareVT,price);
+		default:
+			return null;
 		}
-		return null;
 	}
 }
