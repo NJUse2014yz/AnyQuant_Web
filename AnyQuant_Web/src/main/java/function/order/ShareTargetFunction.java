@@ -8,7 +8,7 @@ import function.ResultType;
 /**指定仓位股数订单*/
 public class ShareTargetFunction extends Function{
 	public String siid;
-	public int share;
+	public double share;
 	public double price;
 	
 	public ShareTargetFunction(){
@@ -31,8 +31,8 @@ public class ShareTargetFunction extends Function{
 	@Override
 	public FunctionResult getResult(Date today) {
 		FunctionResult result=new FunctionResult();
+		result.location.add(ResultType.DOUBLE);
 		result.location.add(ResultType.STRING);
-		result.location.add(ResultType.DOUBLELIST);
 		result.rD=share;
 		result.rS=siid;
 		return result;
@@ -44,10 +44,10 @@ public class ShareTargetFunction extends Function{
 	public void setSiid(String siid) {
 		this.siid = siid;
 	}
-	public int getShare() {
+	public double getShare() {
 		return share;
 	}
-	public void setShare(int share) {
+	public void setShare(double share) {
 		this.share = share;
 	}
 	public double getPrice() {

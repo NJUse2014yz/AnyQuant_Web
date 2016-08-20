@@ -1,4 +1,4 @@
-package service.impl;
+ package service.impl;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -256,7 +256,7 @@ public class RealTestServiceImpl implements RealTestService {
 							else
 							{
 								vo.cash-=order.share*order.price*(1+inTaxRatio);
-								vo.numlist.set(j,vo.numlist.get(j)+order.share);//加仓
+								vo.numlist.set(j,vo.numlist.get(j)+(int)order.share);//加仓
 								inprice+=order.share*order.price;
 							}
 						}
@@ -266,7 +266,7 @@ public class RealTestServiceImpl implements RealTestService {
 							if(order.share<=vo.numlist.get(j))
 							{
 								vo.cash+=order.share*order.price*(1-outTaxRatio);
-								vo.numlist.set(j,vo.numlist.get(j)-order.share);
+								vo.numlist.set(j,vo.numlist.get(j)-(int)order.share);
 								outprice+=order.share*order.price;
 							}
 							else

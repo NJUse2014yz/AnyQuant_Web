@@ -34,8 +34,8 @@ public class ValueFunction extends Function{
 	@Override
 	public FunctionResult getResult(Date today) {
 		FunctionResult result=new FunctionResult();
+		result.location.add(ResultType.DOUBLE);
 		result.location.add(ResultType.STRING);
-		result.location.add(ResultType.DOUBLELIST);
 		result.rD=value;
 		result.rS=siid;
 		return result;

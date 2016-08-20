@@ -9,6 +9,8 @@ import vo.StrategyVO;
 public interface StrategyService {
 	/**定制策略*/
 	public void makeStrategy(StrategyVO vo);
+	/**删除策略*/
+	public void deleteStrategy(String userName,String createrName,String strategyName);
 	/**获取保存的策略,用户名.创建用户名.策略名*/
 	public StrategyVO getSingleStrategy(String userName,String createrName,String strategyName);
 	/**获取自己的策略*/

@@ -46,6 +46,16 @@ public class StrategyServiceImpl implements StrategyService {
 		}
 	}
 	@Override
+	public void deleteStrategy(String userName,String createrName,String strategyName)
+	{
+		StrategySearch search=new StrategySearch(userName,createrName,strategyName);
+		try {
+			strategyMapper.delete(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	@Override
 	public StrategyVO getSingleStrategy(String userName, String createrName,
 			String strategyName) {
 		StrategySearch search=new StrategySearch(userName,createrName,strategyName);

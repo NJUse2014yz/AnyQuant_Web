@@ -10,14 +10,14 @@ public class ShareFunction extends Function{
 	/**买入1，卖出-1*/
 	public int order;
 	public String siid;
-	public int share;
+	public double share;
 	public double price;
 	
 	public ShareFunction(){
 		super();
 		this.function = "Share";
 	}
-	public ShareFunction(int order, String siid, int share,double price) {
+	public ShareFunction(int order, String siid, double share,double price) {
 		super();
 		this.function = "Share";
 		this.order = order;
@@ -36,8 +36,8 @@ public class ShareFunction extends Function{
 	@Override
 	public FunctionResult getResult(Date today) {
 		FunctionResult result=new FunctionResult();
+		result.location.add(ResultType.DOUBLE);
 		result.location.add(ResultType.STRING);
-		result.location.add(ResultType.DOUBLELIST);
 		result.rD=share;
 		result.rS=siid;
 		return result;
@@ -55,10 +55,10 @@ public class ShareFunction extends Function{
 	public void setSiid(String siid) {
 		this.siid = siid;
 	}
-	public int getShare() {
+	public double getShare() {
 		return share;
 	}
-	public void setShare(int share) {
+	public void setShare(double share) {
 		this.share = share;
 	}
 	public double getPrice() {

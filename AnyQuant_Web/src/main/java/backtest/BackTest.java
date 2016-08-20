@@ -220,7 +220,6 @@ public class BackTest {
 						case BOOLEAN://boolean
 							break;
 						case INT://int
-							
 							if(result.rI<=upFRI.rI&&result.rI>=downFRI.rI)
 							{
 //								bw.write("1\r\n");/*======================*/
@@ -282,7 +281,7 @@ public class BackTest {
 //					bw.write("买入\r\n");/*=======================*/
 					for(int i=0;i<stockList.size();i++)
 					{
-						inOrderList.get(k).get(i).add(setOrder(orderType.function,1,stockList.get(i).siid,1000,HQstatisticlist.get(i).hislist.get(m).getClose()));//暂用1000
+						inOrderList.get(k).get(i).add(setOrder(orderType.function,1,stockList.get(i).siid,orderType.getResult(null).rD,HQstatisticlist.get(i).hislist.get(m).getClose()));//这里怎么处理，利用list将所有股票和对应值放进去
 //						inOrderList.get(k).get(i).add(setOrder(orderType.function,1,stockList.get(i).siid,10,10));/*=======================*/
 					}
 				}
@@ -383,7 +382,7 @@ public class BackTest {
 								else
 								{
 									cash-=order.share*order.price*(1+inTaxRatio);
-									numlist.set(j,numlist.get(j)+order.share);//加仓
+									numlist.set(j,numlist.get(j)+(int)order.share);//加仓
 									inprice+=order.share*order.price;
 								}
 						}
@@ -393,7 +392,7 @@ public class BackTest {
 							if(order.share<=numlist.get(j))
 							{
 								cash+=order.share*order.price*(1-outTaxRatio);
-								numlist.set(j,numlist.get(j)-order.share);
+								numlist.set(j,numlist.get(j)-(int)order.share);
 								outprice+=order.share*order.price;
 							}
 							else
@@ -480,7 +479,7 @@ public class BackTest {
 						else
 						{
 							bCash-=order.share*order.price*(1+inTaxRatio);
-							numlist.set(b,numlist.get(b)+order.share);//加仓
+							numlist.set(b,numlist.get(b)+(int)order.share);//加仓
 							bInprice+=order.share*order.price;	
 						}
 					}
@@ -490,7 +489,7 @@ public class BackTest {
 						if(order.share>=numlist.get(b))
 						{
 							bCash+=order.share*order.price*(1-outTaxRatio);
-							numlist.set(b,numlist.get(b)-order.share);
+							numlist.set(b,numlist.get(b)-(int)order.share);
 							bOutprice+=order.share*order.price;
 						}
 						else
