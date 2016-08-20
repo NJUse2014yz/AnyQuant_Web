@@ -76,7 +76,10 @@ public class RealTestServiceTest{
 		System.out.println(vo);
 	}
 	public void saveRealTest() {
-		StrategyVO strategy=new StrategyServiceImpl(strategyMapper,functionMapper).getSingleStrategy("u1","u1","s1");
+		StrategyServiceImpl stImpl=new StrategyServiceImpl();
+		stImpl.strategyMapper=strategyMapper;
+		stImpl.functionMapper=functionMapper;
+		StrategyVO strategy=stImpl.getSingleStrategy("u1","u1","s1");
 		RealTestVO vo=strategy.getRealTest();
 		
 		instance.realTestForToday(vo);

@@ -5,6 +5,9 @@ public class FunctionDisRnk {
 	public String discription;
 	public String type;
 	public int rank;
+	public FunctionDisRnk(){
+		super();
+	}
 	public FunctionDisRnk(String name, String discription, String type, int rank) {
 		super();
 		this.name = name;

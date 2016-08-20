@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.StrategyInfMapper">
+	<select id="selectStrategyInf" parameterType="String" resultType="FunctionDisRnk">
+		select * from StrategyInf where name=#{value}
+	</select>
+	<select id="selectRank" parameterType="int" resultType="FunctionDisRnk">
+		select * from StrategyInf where rank=#{value}
+	</select>
+	<select id="selectType" parameterType="String" resultType="FunctionDisRnk">
+		select * from StrategyInf where type=#{value}
+	</select>
+	<select id="selectTypeRank" parameterType="FunctionDisRnk" resultType="FunctionDisRnk">
+		select * from StrategyInf where rank=#{rank} and type=#{type}
+	</select>
+</mapper>

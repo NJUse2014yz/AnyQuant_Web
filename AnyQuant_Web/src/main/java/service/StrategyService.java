@@ -26,4 +26,22 @@ public interface StrategyService {
 	public List<FunctionDisRnk> getTypeFunction(String type);
 	/**获取某个等级的某个类别的所有方法*/
 	public List<FunctionDisRnk> getTRFunction(FunctionDisRnk fdr);
+	
+	/**获取某个等级的所有策略*/
+	public List<FunctionDisRnk> getRankStrategys(int rank);
+	/**获取某个策略的描述、类别和等级*/
+	public FunctionDisRnk getStrategyDisRnk(String name);
+	/**获取某个类别的所有策略*/
+	public List<FunctionDisRnk> getTypeStrategy(String type);
+	/**获取某个等级的某个类别的所有策略*/
+	public List<FunctionDisRnk> getTRStrategy(FunctionDisRnk fdr);
+	
+	/**获取某个等级的所有指标*/
+	public List<FunctionDisRnk> getRankQuotas(int rank);
+	/**获取某个指标的描述、类别和等级*/
+	public FunctionDisRnk getQuotaDisRnk(String name);
+	/**获取某个类别的所有指标*/
+	public List<FunctionDisRnk> getTypeQuota(String type);
+	/**获取某个等级的某个类别的所有指标*/
+	public List<FunctionDisRnk> getTRQuota(FunctionDisRnk fdr);
 }

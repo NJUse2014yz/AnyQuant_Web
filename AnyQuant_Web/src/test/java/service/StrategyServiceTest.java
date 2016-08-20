@@ -9,6 +9,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import mapper.FunctionMapper;
+import mapper.QuotaInfMapper;
+import mapper.StrategyInfMapper;
 import mapper.StrategyMapper;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -33,7 +35,9 @@ public class StrategyServiceTest {
 	public static ApplicationContext applicationContext1 =new ClassPathXmlApplicationContext("classpath:configure/spring/applicationContext-dao.xml");
 	public static FunctionMapper functionMapper=(FunctionMapper) applicationContext1.getBean("functionMapper");
 	public static StrategyMapper strategyMapper=(StrategyMapper) applicationContext1.getBean("strategyMapper");
-	public static StrategyService instance=new StrategyServiceImpl(strategyMapper,functionMapper);
+	public static StrategyInfMapper strategyInfMapper=(StrategyInfMapper) applicationContext1.getBean("strategyInfMapper");
+	public static QuotaInfMapper quotaInfMapper=(QuotaInfMapper) applicationContext1.getBean("quotaInfMapper");
+	public static StrategyService instance=new StrategyServiceImpl(strategyMapper,functionMapper,strategyInfMapper,quotaInfMapper);
 	
 	public static void makeStrategy()
 	{
@@ -150,11 +154,18 @@ public class StrategyServiceTest {
 			System.out.println(flag);
 		}
 	}
+	public static void getFunction()
+	{
+		System.out.println(instance.getFunctionDisRnk("Trend"));
+		System.out.println(instance.getQuotaDisRnk("m5"));
+		System.out.println(instance.getStrategyDisRnk("五日金叉策略"));
+	}
 	public static void main(String[] args)
 	{
-		StrategyServiceTest.makeStrategy();
+//		StrategyServiceTest.makeStrategy();
 //		StrategyServiceTest.getStrategy();
 //		StrategyServiceTest.getSelfStrategy();
 //		StrategyServiceTest.getSaveStrategy();
+		new StrategyServiceTest().getFunction();
 	}
 }

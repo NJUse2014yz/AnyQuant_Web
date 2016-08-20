@@ -14,6 +14,8 @@ import po.FunctionDisRnk;
 import po.Strategy;
 import po.StrategySearch;
 import mapper.FunctionMapper;
+import mapper.QuotaInfMapper;
+import mapper.StrategyInfMapper;
 import mapper.StrategyMapper;
 import service.StrategyService;
 import tool.JsonExchangeTool;
@@ -24,12 +26,20 @@ public class StrategyServiceImpl implements StrategyService {
 	public StrategyMapper strategyMapper;
 	@Autowired
 	public FunctionMapper functionMapper;
+	@Autowired
+	public StrategyInfMapper strategyInfMapper;
+	@Autowired
+	public QuotaInfMapper quotaInfMapper;
+	
 	
 	public StrategyServiceImpl(){};
-	public StrategyServiceImpl(StrategyMapper strategyMapper,FunctionMapper functionMapper) {
+	public StrategyServiceImpl(StrategyMapper strategyMapper,FunctionMapper functionMapper,
+			StrategyInfMapper strategyInfMapper,QuotaInfMapper quotaInfMapper) {
 		super();
 		this.strategyMapper = strategyMapper;
 		this.functionMapper = functionMapper;
+		this.strategyInfMapper=strategyInfMapper;
+		this.quotaInfMapper=quotaInfMapper;
 	}
 	public StrategyServiceImpl(StrategyMapper strategyMapper) {
 		super();
@@ -137,6 +147,86 @@ public class StrategyServiceImpl implements StrategyService {
 		List<FunctionDisRnk> fdrList=null;
 		try {
 			fdrList=functionMapper.selectTypeRank(fdr);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return fdrList;
+	}
+	@Override
+	public List<FunctionDisRnk> getRankStrategys(int rank) {
+		List<FunctionDisRnk> list=null;
+		try {
+			list=strategyInfMapper.selectRank(rank);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
+	public FunctionDisRnk getStrategyDisRnk(String name) {
+		FunctionDisRnk fdr=null;
+		try {
+			fdr=strategyInfMapper.selectStrategyInf(name);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return fdr;
+	}
+	@Override
+	public List<FunctionDisRnk> getTypeStrategy(String type) {
+		List<FunctionDisRnk> fdrList=null;
+		try {
+			fdrList=strategyInfMapper.selectType(type);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return fdrList;
+	}
+	@Override
+	public List<FunctionDisRnk> getTRStrategy(FunctionDisRnk fdr) {
+		List<FunctionDisRnk> fdrList=null;
+		try {
+			fdrList=strategyInfMapper.selectTypeRank(fdr);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return fdrList;
+	}
+	@Override
+	public List<FunctionDisRnk> getRankQuotas(int rank) {
+		List<FunctionDisRnk> list=null;
+		try {
+			list=quotaInfMapper.selectRank(rank);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
+	public FunctionDisRnk getQuotaDisRnk(String name) {
+		FunctionDisRnk fdr=null;
+		try {
+			fdr=quotaInfMapper.selectQuotaInf(name);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return fdr;
+	}
+	@Override
+	public List<FunctionDisRnk> getTypeQuota(String type) {
+		List<FunctionDisRnk> fdrList=null;
+		try {
+			fdrList=quotaInfMapper.selectType(type);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return fdrList;
+	}
+	@Override
+	public List<FunctionDisRnk> getTRQuota(FunctionDisRnk fdr) {
+		List<FunctionDisRnk> fdrList=null;
+		try {
+			fdrList=quotaInfMapper.selectTypeRank(fdr);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
