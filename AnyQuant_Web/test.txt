@@ -1,3 +1,2971 @@
-TestReport [annualizedReturns=39.0, benchmarkReturns=10.0, alpha=33.92, beta=6.38, sharpeRatio=68.61, volatility=49.92, informationRatio=0.0, maxDrawdown=1.962639877E7, turnoverRate=0.0
-cumlist=[DoubleDate [date=2014-12-31, value=4.2], DoubleDate [date=2014-12-31, value=4.45], DoubleDate [date=2015-01-05, value=3.92], DoubleDate [date=2015-01-06, value=3.04], DoubleDate [date=2015-01-07, value=2.15], DoubleDate [date=2015-01-08, value=-0.67], DoubleDate [date=2015-01-09, value=-1.27], DoubleDate [date=2015-01-12, value=-3.35], DoubleDate [date=2015-01-13, value=-0.15], DoubleDate [date=2015-01-14, value=-3.74], DoubleDate [date=2015-01-15, value=-2.45], DoubleDate [date=2015-01-16, value=0.52], DoubleDate [date=2015-01-19, value=1.23], DoubleDate [date=2015-01-20, value=4.77], DoubleDate [date=2015-01-21, value=7.28], DoubleDate [date=2015-01-22, value=6.83], DoubleDate [date=2015-01-23, value=7.26], DoubleDate [date=2015-01-26, value=4.97], DoubleDate [date=2015-01-27, value=3.15], DoubleDate [date=2015-01-28, value=2.05], DoubleDate [date=2015-01-29, value=1.93], DoubleDate [date=2015-01-30, value=2.02], DoubleDate [date=2015-02-02, value=1.5], DoubleDate [date=2015-02-03, value=0.16], DoubleDate [date=2015-02-04, value=-1.91], DoubleDate [date=2015-02-05, value=1.16], DoubleDate [date=2015-02-06, value=2.17], DoubleDate [date=2015-02-09, value=1.37], DoubleDate [date=2015-02-10, value=1.75], DoubleDate [date=2015-02-11, value=6.06], DoubleDate [date=2015-02-12, value=8.84], DoubleDate [date=2015-02-13, value=6.41], DoubleDate [date=2015-02-16, value=8.76], DoubleDate [date=2015-02-17, value=7.72], DoubleDate [date=2015-02-25, value=7.69], DoubleDate [date=2015-02-26, value=6.13], DoubleDate [date=2015-02-27, value=7.31], DoubleDate [date=2015-03-02, value=7.11], DoubleDate [date=2015-03-03, value=7.2], DoubleDate [date=2015-03-04, value=6.39], DoubleDate [date=2015-03-05, value=8.97], DoubleDate [date=2015-03-06, value=10.25], DoubleDate [date=2015-03-09, value=13.57], DoubleDate [date=2015-03-10, value=16.23], DoubleDate [date=2015-03-11, value=17.3], DoubleDate [date=2015-03-12, value=23.07], DoubleDate [date=2015-03-13, value=22.98], DoubleDate [date=2015-03-16, value=21.34], DoubleDate [date=2015-03-17, value=20.2], DoubleDate [date=2015-03-18, value=22.93], DoubleDate [date=2015-03-19, value=25.92], DoubleDate [date=2015-03-20, value=22.98], DoubleDate [date=2015-03-23, value=21.22], DoubleDate [date=2015-03-24, value=21.11], DoubleDate [date=2015-03-25, value=24.52], DoubleDate [date=2015-03-26, value=23.02], DoubleDate [date=2015-03-27, value=23.93], DoubleDate [date=2015-03-30, value=25.33], DoubleDate [date=2015-03-31, value=29.5], DoubleDate [date=2015-04-01, value=29.34], DoubleDate [date=2015-04-02, value=27.48], DoubleDate [date=2015-04-03, value=24.19], DoubleDate [date=2015-04-07, value=24.64], DoubleDate [date=2015-04-08, value=26.03], DoubleDate [date=2015-04-09, value=28.64], DoubleDate [date=2015-04-10, value=28.91], DoubleDate [date=2015-04-13, value=32.34], DoubleDate [date=2015-04-14, value=33.87], DoubleDate [date=2015-04-15, value=29.78], DoubleDate [date=2015-04-16, value=30.75], DoubleDate [date=2015-04-17, value=33.16], DoubleDate [date=2015-04-20, value=33.67], DoubleDate [date=2015-04-21, value=32.71], DoubleDate [date=2015-04-22, value=34.38], DoubleDate [date=2015-04-23, value=30.93], DoubleDate [date=2015-04-24, value=36.67], DoubleDate [date=2015-04-27, value=35.49], DoubleDate [date=2015-04-28, value=38.15], DoubleDate [date=2015-04-29, value=34.12], DoubleDate [date=2015-04-30, value=32.02], DoubleDate [date=2015-05-04, value=28.94], DoubleDate [date=2015-05-05, value=29.33], DoubleDate [date=2015-05-06, value=31.61], DoubleDate [date=2015-05-07, value=37.29], DoubleDate [date=2015-05-08, value=35.02], DoubleDate [date=2015-05-11, value=32.75], DoubleDate [date=2015-05-12, value=32.8], DoubleDate [date=2015-05-13, value=33.69], DoubleDate [date=2015-05-14, value=36.48], DoubleDate [date=2015-05-15, value=42.64], DoubleDate [date=2015-05-18, value=51.16], DoubleDate [date=2015-05-19, value=50.36], DoubleDate [date=2015-05-20, value=52.42], DoubleDate [date=2015-05-21, value=53.4], DoubleDate [date=2015-05-22, value=53.01], DoubleDate [date=2015-05-25, value=46.18], DoubleDate [date=2015-05-26, value=42.78], DoubleDate [date=2015-05-27, value=47.06], DoubleDate [date=2015-05-28, value=47.96], DoubleDate [date=2015-05-29, value=47.03], DoubleDate [date=2015-06-01, value=48.29], DoubleDate [date=2015-06-02, value=50.09], DoubleDate [date=2015-06-03, value=55.36], DoubleDate [date=2015-06-04, value=59.39], DoubleDate [date=2015-06-05, value=60.64], DoubleDate [date=2015-06-08, value=64.51], DoubleDate [date=2015-06-09, value=65.84], DoubleDate [date=2015-06-10, value=71.27], DoubleDate [date=2015-06-11, value=62.19], DoubleDate [date=2015-06-12, value=59.3], DoubleDate [date=2015-06-15, value=57.12], DoubleDate [date=2015-06-16, value=56.11], DoubleDate [date=2015-06-17, value=56.63], DoubleDate [date=2015-06-18, value=50.22], DoubleDate [date=2015-06-19, value=43.99], DoubleDate [date=2015-06-23, value=43.14], DoubleDate [date=2015-06-24, value=48.94], DoubleDate [date=2015-06-25, value=40.12], DoubleDate [date=2015-06-26, value=37.21], DoubleDate [date=2015-06-29, value=33.26], DoubleDate [date=2015-06-30, value=33.86], DoubleDate [date=2015-07-01, value=29.12], DoubleDate [date=2015-07-02, value=19.12], DoubleDate [date=2015-07-03, value=26.33], DoubleDate [date=2015-07-06, value=34.16], DoubleDate [date=2015-07-07, value=44.09], DoubleDate [date=2015-07-08, value=39.8], DoubleDate [date=2015-07-09, value=32.12], DoubleDate [date=2015-07-10, value=36.62], DoubleDate [date=2015-07-13, value=39.57], DoubleDate [date=2015-07-14, value=39.93], DoubleDate [date=2015-07-15, value=42.35], DoubleDate [date=2015-07-16, value=41.44], DoubleDate [date=2015-07-17, value=43.88], DoubleDate [date=2015-07-20, value=42.15], DoubleDate [date=2015-07-21, value=34.15], DoubleDate [date=2015-07-22, value=36.45], DoubleDate [date=2015-07-23, value=38.21], DoubleDate [date=2015-07-24, value=34.78], DoubleDate [date=2015-07-27, value=37.75], DoubleDate [date=2015-07-28, value=42.75], DoubleDate [date=2015-07-29, value=44.84], DoubleDate [date=2015-07-30, value=42.33], DoubleDate [date=2015-07-31, value=45.58], DoubleDate [date=2015-08-03, value=45.79], DoubleDate [date=2015-08-04, value=48.64], DoubleDate [date=2015-08-05, value=47.37], DoubleDate [date=2015-08-06, value=45.62], DoubleDate [date=2015-08-07, value=50.09], DoubleDate [date=2015-08-10, value=50.28], DoubleDate [date=2015-08-11, value=52.71], DoubleDate [date=2015-08-12, value=44.13], DoubleDate [date=2015-08-13, value=44.77], DoubleDate [date=2015-08-14, value=37.81], DoubleDate [date=2015-08-17, value=32.71], DoubleDate [date=2015-08-18, value=23.54], DoubleDate [date=2015-08-19, value=24.09], DoubleDate [date=2015-08-20, value=26.0], DoubleDate [date=2015-08-21, value=32.29], DoubleDate [date=2015-08-24, value=35.69], DoubleDate [date=2015-08-25, value=33.26], DoubleDate [date=2015-08-26, value=27.86], DoubleDate [date=2015-08-27, value=33.06], DoubleDate [date=2015-08-28, value=29.69], DoubleDate [date=2015-08-31, value=35.74], DoubleDate [date=2015-09-01, value=36.48], DoubleDate [date=2015-09-02, value=35.13], DoubleDate [date=2015-09-07, value=39.24], DoubleDate [date=2015-09-08, value=32.7], DoubleDate [date=2015-09-09, value=32.51], DoubleDate [date=2015-09-10, value=37.71], DoubleDate [date=2015-09-11, value=33.55], DoubleDate [date=2015-09-14, value=34.95], DoubleDate [date=2015-09-15, value=36.77], DoubleDate [date=2015-09-16, value=37.86], DoubleDate [date=2015-09-17, value=35.0], DoubleDate [date=2015-09-18, value=38.07], DoubleDate [date=2015-09-21, value=37.62], DoubleDate [date=2015-09-22, value=37.98], DoubleDate [date=2015-09-23, value=36.42], DoubleDate [date=2015-09-24, value=36.41], DoubleDate [date=2015-09-25, value=38.96], DoubleDate [date=2015-09-28, value=38.72], DoubleDate [date=2015-09-29, value=39.16], DoubleDate [date=2015-09-30, value=41.89], DoubleDate [date=2015-10-08, value=40.36], DoubleDate [date=2015-10-09, value=41.78], DoubleDate [date=2015-10-12, value=45.75], DoubleDate [date=2015-10-13, value=45.58], DoubleDate [date=2015-10-14, value=46.62], DoubleDate [date=2015-10-15, value=43.46], DoubleDate [date=2015-10-16, value=44.76], DoubleDate [date=2015-10-19, value=44.07], DoubleDate [date=2015-10-20, value=44.09], DoubleDate [date=2015-10-21, value=44.52], DoubleDate [date=2015-10-22, value=45.57], DoubleDate [date=2015-10-23, value=46.61], DoubleDate [date=2015-10-26, value=46.55], DoubleDate [date=2015-10-27, value=48.81], DoubleDate [date=2015-10-28, value=47.63], DoubleDate [date=2015-10-29, value=49.9], DoubleDate [date=2015-10-30, value=50.38], DoubleDate [date=2015-11-02, value=52.97], DoubleDate [date=2015-11-03, value=52.85], DoubleDate [date=2015-11-04, value=47.75], DoubleDate [date=2015-11-05, value=49.49], DoubleDate [date=2015-11-06, value=48.23], DoubleDate [date=2015-11-09, value=49.23], DoubleDate [date=2015-11-10, value=48.46], DoubleDate [date=2015-11-11, value=47.57], DoubleDate [date=2015-11-12, value=46.92], DoubleDate [date=2015-11-13, value=47.11], DoubleDate [date=2015-11-16, value=46.48], DoubleDate [date=2015-11-17, value=46.88], DoubleDate [date=2015-11-18, value=47.03], DoubleDate [date=2015-11-19, value=46.35], DoubleDate [date=2015-11-20, value=45.45], DoubleDate [date=2015-11-23, value=42.14], DoubleDate [date=2015-11-24, value=42.32], DoubleDate [date=2015-11-25, value=43.23], DoubleDate [date=2015-11-26, value=45.97], DoubleDate [date=2015-11-27, value=46.3], DoubleDate [date=2015-11-30, value=46.37], DoubleDate [date=2015-12-01, value=47.37], DoubleDate [date=2015-12-02, value=45.03], DoubleDate [date=2015-12-03, value=44.94], DoubleDate [date=2015-12-04, value=45.63], DoubleDate [date=2015-12-07, value=45.13], DoubleDate [date=2015-12-08, value=45.16], DoubleDate [date=2015-12-09, value=45.09], DoubleDate [date=2015-12-10, value=45.81], DoubleDate [date=2015-12-11, value=47.09], DoubleDate [date=2015-12-14, value=47.63], DoubleDate [date=2015-12-15, value=49.82], DoubleDate [date=2015-12-16, value=48.31], DoubleDate [date=2015-12-17, value=46.76], DoubleDate [date=2015-12-18, value=46.56], DoubleDate [date=2015-12-21, value=46.78], DoubleDate [date=2015-12-22, value=44.46], DoubleDate [date=2015-12-23, value=45.95], DoubleDate [date=2015-12-24, value=45.56], DoubleDate [date=2015-12-25, value=44.32]]
-bCumlist=[DoubleDate [date=2014-12-31, value=3.48], DoubleDate [date=2014-12-31, value=3.5], DoubleDate [date=2015-01-05, value=4.15], DoubleDate [date=2015-01-06, value=1.84], DoubleDate [date=2015-01-07, value=1.6], DoubleDate [date=2015-01-08, value=-0.06], DoubleDate [date=2015-01-09, value=0.12], DoubleDate [date=2015-01-12, value=-0.26], DoubleDate [date=2015-01-13, value=3.17], DoubleDate [date=2015-01-14, value=4.33], DoubleDate [date=2015-01-15, value=-3.15], DoubleDate [date=2015-01-16, value=-1.39], DoubleDate [date=2015-01-19, value=3.21], DoubleDate [date=2015-01-20, value=3.79], DoubleDate [date=2015-01-21, value=4.04], DoubleDate [date=2015-01-22, value=4.95], DoubleDate [date=2015-01-23, value=4.08], DoubleDate [date=2015-01-26, value=2.71], DoubleDate [date=2015-01-27, value=1.43], DoubleDate [date=2015-01-28, value=-0.11], DoubleDate [date=2015-01-29, value=-2.59], DoubleDate [date=2015-01-30, value=-0.22], DoubleDate [date=2015-02-02, value=-1.15], DoubleDate [date=2015-02-03, value=-2.3], DoubleDate [date=2015-02-04, value=-4.17], DoubleDate [date=2015-02-05, value=-3.57], DoubleDate [date=2015-02-06, value=-2.11], DoubleDate [date=2015-02-09, value=-1.61], DoubleDate [date=2015-02-10, value=-1.13], DoubleDate [date=2015-02-11, value=-0.2], DoubleDate [date=2015-02-12, value=0.36], DoubleDate [date=2015-02-13, value=1.1], DoubleDate [date=2015-02-16, value=0.56], DoubleDate [date=2015-02-17, value=2.65], DoubleDate [date=2015-02-25, value=3.0], DoubleDate [date=2015-02-26, value=3.76], DoubleDate [date=2015-02-27, value=1.63], DoubleDate [date=2015-03-02, value=2.12], DoubleDate [date=2015-03-03, value=1.2], DoubleDate [date=2015-03-04, value=0.98], DoubleDate [date=2015-03-05, value=2.82], DoubleDate [date=2015-03-06, value=2.33], DoubleDate [date=2015-03-09, value=2.48], DoubleDate [date=2015-03-10, value=4.2], DoubleDate [date=2015-03-11, value=4.89], DoubleDate [date=2015-03-12, value=7.09], DoubleDate [date=2015-03-13, value=8.59], DoubleDate [date=2015-03-16, value=10.66], DoubleDate [date=2015-03-17, value=10.8], DoubleDate [date=2015-03-18, value=11.75], DoubleDate [date=2015-03-19, value=13.64], DoubleDate [date=2015-03-20, value=13.74], DoubleDate [date=2015-03-23, value=12.93], DoubleDate [date=2015-03-24, value=13.5], DoubleDate [date=2015-03-25, value=13.74], DoubleDate [date=2015-03-26, value=16.26], DoubleDate [date=2015-03-27, value=15.26], DoubleDate [date=2015-03-30, value=16.88], DoubleDate [date=2015-03-31, value=17.28], DoubleDate [date=2015-04-01, value=18.25], DoubleDate [date=2015-04-02, value=20.71], DoubleDate [date=2015-04-03, value=21.54], DoubleDate [date=2015-04-07, value=20.62], DoubleDate [date=2015-04-08, value=22.52], DoubleDate [date=2015-04-09, value=24.63], DoubleDate [date=2015-04-10, value=24.96], DoubleDate [date=2015-04-13, value=23.75], DoubleDate [date=2015-04-14, value=26.39], DoubleDate [date=2015-04-15, value=28.55], DoubleDate [date=2015-04-16, value=26.94], DoubleDate [date=2015-04-17, value=28.72], DoubleDate [date=2015-04-20, value=31.11], DoubleDate [date=2015-04-21, value=31.46], DoubleDate [date=2015-04-22, value=31.0], DoubleDate [date=2015-04-23, value=33.98], DoubleDate [date=2015-04-24, value=32.87], DoubleDate [date=2015-04-27, value=32.88], DoubleDate [date=2015-04-28, value=32.12], DoubleDate [date=2015-04-29, value=32.97], DoubleDate [date=2015-04-30, value=29.0], DoubleDate [date=2015-05-04, value=27.42], DoubleDate [date=2015-05-05, value=24.72], DoubleDate [date=2015-05-06, value=26.94], DoubleDate [date=2015-05-07, value=29.91], DoubleDate [date=2015-05-08, value=31.43], DoubleDate [date=2015-05-11, value=30.87], DoubleDate [date=2015-05-12, value=30.93], DoubleDate [date=2015-05-13, value=29.37], DoubleDate [date=2015-05-14, value=28.8], DoubleDate [date=2015-05-15, value=31.86], DoubleDate [date=2015-05-18, value=32.49], DoubleDate [date=2015-05-19, value=34.32], DoubleDate [date=2015-05-20, value=37.09], DoubleDate [date=2015-05-21, value=40.38], DoubleDate [date=2015-05-22, value=42.35], DoubleDate [date=2015-05-25, value=42.97], DoubleDate [date=2015-05-26, value=36.59], DoubleDate [date=2015-05-27, value=36.41], DoubleDate [date=2015-05-28, value=41.02], DoubleDate [date=2015-05-29, value=42.68], DoubleDate [date=2015-06-01, value=42.67], DoubleDate [date=2015-06-02, value=43.41], DoubleDate [date=2015-06-03, value=44.91], DoubleDate [date=2015-06-04, value=47.04], DoubleDate [date=2015-06-05, value=46.69], DoubleDate [date=2015-06-08, value=46.54], DoubleDate [date=2015-06-09, value=46.84], DoubleDate [date=2015-06-10, value=47.7], DoubleDate [date=2015-06-11, value=45.74], DoubleDate [date=2015-06-12, value=42.33], DoubleDate [date=2015-06-15, value=43.95], DoubleDate [date=2015-06-16, value=40.35], DoubleDate [date=2015-06-17, value=34.06], DoubleDate [date=2015-06-18, value=36.2], DoubleDate [date=2015-06-19, value=38.64], DoubleDate [date=2015-06-23, value=35.24], DoubleDate [date=2015-06-24, value=28.01], DoubleDate [date=2015-06-25, value=24.75], DoubleDate [date=2015-06-26, value=30.15], DoubleDate [date=2015-06-29, value=25.04], DoubleDate [date=2015-06-30, value=21.65], DoubleDate [date=2015-07-01, value=16.01], DoubleDate [date=2015-07-02, value=18.37], DoubleDate [date=2015-07-03, value=17.11], DoubleDate [date=2015-07-06, value=11.36], DoubleDate [date=2015-07-07, value=16.96], DoubleDate [date=2015-07-08, value=21.39], DoubleDate [date=2015-07-09, value=23.72], DoubleDate [date=2015-07-10, value=22.59], DoubleDate [date=2015-07-13, value=19.64], DoubleDate [date=2015-07-14, value=20.08], DoubleDate [date=2015-07-15, value=23.5], DoubleDate [date=2015-07-16, value=24.36], DoubleDate [date=2015-07-17, value=24.99], DoubleDate [date=2015-07-20, value=25.19], DoubleDate [date=2015-07-21, value=27.56], DoubleDate [date=2015-07-22, value=26.31], DoubleDate [date=2015-07-23, value=18.02], DoubleDate [date=2015-07-24, value=16.39], DoubleDate [date=2015-07-27, value=19.74], DoubleDate [date=2015-07-28, value=17.6], DoubleDate [date=2015-07-29, value=16.49], DoubleDate [date=2015-07-30, value=15.41], DoubleDate [date=2015-07-31, value=19.0], DoubleDate [date=2015-08-03, value=17.39], DoubleDate [date=2015-08-04, value=16.52], DoubleDate [date=2015-08-05, value=18.72], DoubleDate [date=2015-08-06, value=23.51], DoubleDate [date=2015-08-07, value=23.5], DoubleDate [date=2015-08-10, value=22.47], DoubleDate [date=2015-08-11, value=24.18], DoubleDate [date=2015-08-12, value=24.44], DoubleDate [date=2015-08-13, value=25.14], DoubleDate [date=2015-08-14, value=19.14], DoubleDate [date=2015-08-17, value=20.34], DoubleDate [date=2015-08-18, value=17.0], DoubleDate [date=2015-08-19, value=12.84], DoubleDate [date=2015-08-20, value=4.58], DoubleDate [date=2015-08-21, value=-2.82], DoubleDate [date=2015-08-24, value=-4.05], DoubleDate [date=2015-08-25, value=1.12], DoubleDate [date=2015-08-26, value=5.79], DoubleDate [date=2015-08-27, value=5.0], DoubleDate [date=2015-08-28, value=3.81], DoubleDate [date=2015-08-31, value=3.61], DoubleDate [date=2015-09-01, value=1.16], DoubleDate [date=2015-09-02, value=4.0], DoubleDate [date=2015-09-07, value=6.22], DoubleDate [date=2015-09-08, value=4.86], DoubleDate [date=2015-09-09, value=4.94], DoubleDate [date=2015-09-10, value=2.35], DoubleDate [date=2015-09-11, value=-1.07], DoubleDate [date=2015-09-14, value=3.67], DoubleDate [date=2015-09-15, value=1.64], DoubleDate [date=2015-09-16, value=2.01], DoubleDate [date=2015-09-17, value=3.84], DoubleDate [date=2015-09-18, value=4.74], DoubleDate [date=2015-09-21, value=2.61], DoubleDate [date=2015-09-22, value=3.45], DoubleDate [date=2015-09-23, value=1.89], DoubleDate [date=2015-09-24, value=2.16], DoubleDate [date=2015-09-25, value=0.2], DoubleDate [date=2015-09-28, value=0.67], DoubleDate [date=2015-09-29, value=3.54], DoubleDate [date=2015-09-30, value=4.77], DoubleDate [date=2015-10-08, value=7.95], DoubleDate [date=2015-10-09, value=8.12], DoubleDate [date=2015-10-12, value=7.21], DoubleDate [date=2015-10-13, value=9.46], DoubleDate [date=2015-10-14, value=11.01], DoubleDate [date=2015-10-15, value=10.88], DoubleDate [date=2015-10-16, value=11.99], DoubleDate [date=2015-10-19, value=9.02], DoubleDate [date=2015-10-20, value=10.42], DoubleDate [date=2015-10-21, value=11.68], DoubleDate [date=2015-10-22, value=12.17], DoubleDate [date=2015-10-23, value=12.3], DoubleDate [date=2015-10-26, value=10.63], DoubleDate [date=2015-10-27, value=10.98], DoubleDate [date=2015-10-28, value=10.84], DoubleDate [date=2015-10-29, value=9.19], DoubleDate [date=2015-10-30, value=8.95], DoubleDate [date=2015-11-02, value=13.13], DoubleDate [date=2015-11-03, value=14.91], DoubleDate [date=2015-11-04, value=16.76], DoubleDate [date=2015-11-05, value=18.31], DoubleDate [date=2015-11-06, value=18.13], DoubleDate [date=2015-11-09, value=18.4], DoubleDate [date=2015-11-10, value=17.93], DoubleDate [date=2015-11-11, value=16.54], DoubleDate [date=2015-11-12, value=17.25], DoubleDate [date=2015-11-13, value=17.19], DoubleDate [date=2015-11-16, value=16.21], DoubleDate [date=2015-11-17, value=17.53], DoubleDate [date=2015-11-18, value=17.9], DoubleDate [date=2015-11-19, value=17.35], DoubleDate [date=2015-11-20, value=17.51], DoubleDate [date=2015-11-23, value=18.37], DoubleDate [date=2015-11-24, value=18.04], DoubleDate [date=2015-11-25, value=12.7], DoubleDate [date=2015-11-26, value=12.96], DoubleDate [date=2015-11-27, value=13.27], DoubleDate [date=2015-11-30, value=15.53], DoubleDate [date=2015-12-01, value=16.85], DoubleDate [date=2015-12-02, value=15.23], DoubleDate [date=2015-12-03, value=15.56], DoubleDate [date=2015-12-04, value=13.72], DoubleDate [date=2015-12-07, value=13.78], DoubleDate [date=2015-12-08, value=13.31], DoubleDate [date=2015-12-09, value=12.72], DoubleDate [date=2015-12-10, value=15.16], DoubleDate [date=2015-12-11, value=14.87], DoubleDate [date=2015-12-14, value=15.03], DoubleDate [date=2015-12-15, value=16.8], DoubleDate [date=2015-12-16, value=16.77], DoubleDate [date=2015-12-17, value=18.5], DoubleDate [date=2015-12-18, value=18.75], DoubleDate [date=2015-12-21, value=18.33], DoubleDate [date=2015-12-22, value=17.7], DoubleDate [date=2015-12-23, value=18.11], DoubleDate [date=2015-12-24, value=15.59], DoubleDate [date=2015-12-25, value=16.41]]]
+TestReport [annualizedReturns=-0.0, benchmarkReturns=-1.0, alpha=-4.75, beta=0.01, sharpeRatio=-299929.14, volatility=0.0, informationRatio=0.0, maxDrawdown=9999900.07, turnoverRate=22.01
+cumlist=[DateDouble [date=1419984000000, value=-0.0], DateDouble [date=1420416000000, value=-0.0], DateDouble [date=1420502400000, value=-0.0], DateDouble [date=1420588800000, value=-0.0], DateDouble [date=1420675200000, value=-0.0], DateDouble [date=1420761600000, value=-0.0], DateDouble [date=1421020800000, value=-0.0], DateDouble [date=1421107200000, value=-0.0], DateDouble [date=1421193600000, value=-0.0], DateDouble [date=1421280000000, value=-0.0], DateDouble [date=1421366400000, value=-0.0], DateDouble [date=1421625600000, value=-0.0], DateDouble [date=1421712000000, value=-0.0], DateDouble [date=1421798400000, value=-0.0], DateDouble [date=1421884800000, value=-0.0], DateDouble [date=1421971200000, value=-0.0], DateDouble [date=1422230400000, value=-0.0], DateDouble [date=1422316800000, value=-0.01], DateDouble [date=1422403200000, value=-0.01], DateDouble [date=1422489600000, value=-0.01], DateDouble [date=1422576000000, value=-0.01], DateDouble [date=1422835200000, value=-0.01], DateDouble [date=1422921600000, value=-0.01], DateDouble [date=1423008000000, value=-0.01], DateDouble [date=1423094400000, value=-0.01], DateDouble [date=1423180800000, value=-0.01], DateDouble [date=1423440000000, value=-0.01], DateDouble [date=1423526400000, value=-0.01], DateDouble [date=1423612800000, value=-0.01], DateDouble [date=1423699200000, value=-0.01], DateDouble [date=1423785600000, value=-0.01], DateDouble [date=1424044800000, value=-0.01], DateDouble [date=1424131200000, value=-0.01], DateDouble [date=1424822400000, value=-0.01], DateDouble [date=1424908800000, value=-0.01], DateDouble [date=1424995200000, value=-0.01], DateDouble [date=1425254400000, value=-0.01], DateDouble [date=1425340800000, value=-0.01], DateDouble [date=1425427200000, value=-0.01], DateDouble [date=1425513600000, value=-0.01], DateDouble [date=1425600000000, value=-0.01], DateDouble [date=1425859200000, value=-0.01], DateDouble [date=1425945600000, value=-0.01], DateDouble [date=1426032000000, value=-0.01], DateDouble [date=1426118400000, value=-0.01], DateDouble [date=1426204800000, value=-0.01], DateDouble [date=1426464000000, value=-0.01], DateDouble [date=1426550400000, value=-0.01], DateDouble [date=1426636800000, value=-0.01], DateDouble [date=1426723200000, value=-0.01], DateDouble [date=1426809600000, value=-0.02], DateDouble [date=1427068800000, value=-0.02], DateDouble [date=1427155200000, value=-0.02], DateDouble [date=1427241600000, value=-0.02], DateDouble [date=1427328000000, value=-0.02], DateDouble [date=1427414400000, value=-0.02], DateDouble [date=1427673600000, value=-0.02], DateDouble [date=1427760000000, value=-0.02], DateDouble [date=1427846400000, value=-0.02], DateDouble [date=1427932800000, value=-0.02], DateDouble [date=1428019200000, value=-0.02], DateDouble [date=1428364800000, value=-0.02], DateDouble [date=1428451200000, value=-0.02], DateDouble [date=1428537600000, value=-0.02], DateDouble [date=1428624000000, value=-0.02], DateDouble [date=1428883200000, value=-0.02], DateDouble [date=1428969600000, value=-0.02], DateDouble [date=1429056000000, value=-0.02], DateDouble [date=1429142400000, value=-0.02], DateDouble [date=1429228800000, value=-0.02], DateDouble [date=1429488000000, value=-0.02], DateDouble [date=1429574400000, value=-0.02], DateDouble [date=1429660800000, value=-0.02], DateDouble [date=1429747200000, value=-0.02], DateDouble [date=1429833600000, value=-0.02], DateDouble [date=1430092800000, value=-0.02], DateDouble [date=1430179200000, value=-0.02], DateDouble [date=1430265600000, value=-0.02], DateDouble [date=1430352000000, value=-0.02], DateDouble [date=1430697600000, value=-0.02], DateDouble [date=1430784000000, value=-0.02], DateDouble [date=1430870400000, value=-0.02], DateDouble [date=1430956800000, value=-0.02], DateDouble [date=1431043200000, value=-0.02], DateDouble [date=1431302400000, value=-0.02], DateDouble [date=1431388800000, value=-0.03], DateDouble [date=1431475200000, value=-0.03], DateDouble [date=1431561600000, value=-0.03], DateDouble [date=1431648000000, value=-0.03], DateDouble [date=1431907200000, value=-0.03], DateDouble [date=1431993600000, value=-0.03], DateDouble [date=1432080000000, value=-0.03], DateDouble [date=1432166400000, value=-0.03], DateDouble [date=1432252800000, value=-0.03], DateDouble [date=1432512000000, value=-0.03], DateDouble [date=1432598400000, value=-0.03], DateDouble [date=1432684800000, value=-0.03], DateDouble [date=1432771200000, value=-0.03], DateDouble [date=1432857600000, value=-0.03], DateDouble [date=1433116800000, value=-0.03], DateDouble [date=1433203200000, value=-0.03], DateDouble [date=1433289600000, value=-0.03], DateDouble [date=1433376000000, value=-0.03], DateDouble [date=1433462400000, value=-0.03], DateDouble [date=1434499200000, value=-0.03], DateDouble [date=1434585600000, value=-0.03], DateDouble [date=1434672000000, value=-0.03], DateDouble [date=1435017600000, value=-0.03], DateDouble [date=1435104000000, value=-0.03], DateDouble [date=1435190400000, value=-0.03], DateDouble [date=1435276800000, value=-0.03], DateDouble [date=1435536000000, value=-0.03], DateDouble [date=1435622400000, value=-0.03], DateDouble [date=1435708800000, value=-0.03], DateDouble [date=1435795200000, value=-0.03], DateDouble [date=1435881600000, value=-0.03], DateDouble [date=1436140800000, value=-0.03], DateDouble [date=1436227200000, value=-0.03], DateDouble [date=1436313600000, value=-0.03], DateDouble [date=1436400000000, value=-0.03], DateDouble [date=1436486400000, value=-0.03], DateDouble [date=1436745600000, value=-0.04], DateDouble [date=1436832000000, value=-0.04], DateDouble [date=1436918400000, value=-0.04], DateDouble [date=1437004800000, value=-0.04], DateDouble [date=1437091200000, value=-0.04], DateDouble [date=1437350400000, value=-0.04], DateDouble [date=1437436800000, value=-0.04], DateDouble [date=1437523200000, value=-0.04], DateDouble [date=1437609600000, value=-0.04], DateDouble [date=1437696000000, value=-0.04], DateDouble [date=1437955200000, value=-0.04], DateDouble [date=1438041600000, value=-0.04], DateDouble [date=1438128000000, value=-0.04], DateDouble [date=1438214400000, value=-0.04], DateDouble [date=1438300800000, value=-0.04], DateDouble [date=1438560000000, value=-0.04], DateDouble [date=1438646400000, value=-0.04], DateDouble [date=1438732800000, value=-0.04], DateDouble [date=1438819200000, value=-0.04], DateDouble [date=1438905600000, value=-0.04], DateDouble [date=1439164800000, value=-0.04], DateDouble [date=1439251200000, value=-0.04], DateDouble [date=1439337600000, value=-0.04], DateDouble [date=1439424000000, value=-0.04], DateDouble [date=1439510400000, value=-0.04], DateDouble [date=1439769600000, value=-0.04], DateDouble [date=1439856000000, value=-0.04], DateDouble [date=1439942400000, value=-0.04], DateDouble [date=1440028800000, value=-0.04], DateDouble [date=1440115200000, value=-0.04], DateDouble [date=1440374400000, value=-0.04], DateDouble [date=1440460800000, value=-0.04], DateDouble [date=1440547200000, value=-0.04], DateDouble [date=1440633600000, value=-0.04], DateDouble [date=1440720000000, value=-0.05], DateDouble [date=1440979200000, value=-0.05], DateDouble [date=1441065600000, value=-0.05], DateDouble [date=1441152000000, value=-0.05], DateDouble [date=1441584000000, value=-0.05], DateDouble [date=1441670400000, value=-0.05], DateDouble [date=1441756800000, value=-0.05], DateDouble [date=1441843200000, value=-0.05], DateDouble [date=1441929600000, value=-0.05], DateDouble [date=1442188800000, value=-0.05], DateDouble [date=1442275200000, value=-0.05], DateDouble [date=1442361600000, value=-0.05], DateDouble [date=1442448000000, value=-0.05], DateDouble [date=1442534400000, value=-0.05], DateDouble [date=1442793600000, value=-0.05], DateDouble [date=1442880000000, value=-0.05], DateDouble [date=1442966400000, value=-0.05], DateDouble [date=1443052800000, value=-0.05], DateDouble [date=1443139200000, value=-0.05], DateDouble [date=1443398400000, value=-0.05], DateDouble [date=1443484800000, value=-0.05], DateDouble [date=1443571200000, value=-0.05], DateDouble [date=1444262400000, value=-0.05], DateDouble [date=1444348800000, value=-0.05], DateDouble [date=1444608000000, value=-0.05], DateDouble [date=1444694400000, value=-0.05], DateDouble [date=1444780800000, value=-0.05], DateDouble [date=1445817600000, value=-0.05], DateDouble [date=1445904000000, value=-0.05], DateDouble [date=1445990400000, value=-0.05], DateDouble [date=1446076800000, value=-0.05], DateDouble [date=1446163200000, value=-0.05], DateDouble [date=1446422400000, value=-0.05], DateDouble [date=1446508800000, value=-0.06], DateDouble [date=1446595200000, value=-0.06], DateDouble [date=1446681600000, value=-0.06], DateDouble [date=1446768000000, value=-0.06], DateDouble [date=1447027200000, value=-0.06], DateDouble [date=1447113600000, value=-0.06], DateDouble [date=1447200000000, value=-0.06], DateDouble [date=1447286400000, value=-0.06], DateDouble [date=1447372800000, value=-0.06], DateDouble [date=1447632000000, value=-0.06], DateDouble [date=1447718400000, value=-0.06], DateDouble [date=1447804800000, value=-0.06], DateDouble [date=1447891200000, value=-0.06], DateDouble [date=1447977600000, value=-0.06], DateDouble [date=1448236800000, value=-0.06], DateDouble [date=1448323200000, value=-0.06], DateDouble [date=1448409600000, value=-0.06], DateDouble [date=1448496000000, value=-0.06], DateDouble [date=1448582400000, value=-0.06], DateDouble [date=1448841600000, value=-0.06], DateDouble [date=1448928000000, value=-0.06], DateDouble [date=1449014400000, value=-0.06], DateDouble [date=1449100800000, value=-0.06], DateDouble [date=1449187200000, value=-0.06], DateDouble [date=1449446400000, value=-0.06], DateDouble [date=1449532800000, value=-0.06], DateDouble [date=1449619200000, value=-0.06], DateDouble [date=1449705600000, value=-0.06], DateDouble [date=1449792000000, value=-0.06], DateDouble [date=1450051200000, value=-0.06], DateDouble [date=1450137600000, value=-0.06], DateDouble [date=1450224000000, value=-0.06], DateDouble [date=1450310400000, value=-0.07], DateDouble [date=1450396800000, value=-0.07], DateDouble [date=1450656000000, value=-0.07], DateDouble [date=1450742400000, value=-0.07], DateDouble [date=1450828800000, value=-0.07], DateDouble [date=1450915200000, value=-0.07], DateDouble [date=1451001600000, value=-0.07], DateDouble [date=1451260800000, value=-0.07], DateDouble [date=1451347200000, value=-0.07], DateDouble [date=1451433600000, value=-0.07]]
+bCumlist=[DateDouble [date=1419984000000, value=3.1], DateDouble [date=1420416000000, value=3.18], DateDouble [date=1420502400000, value=3.08], DateDouble [date=1420588800000, value=0.08], DateDouble [date=1420675200000, value=0.14], DateDouble [date=1420761600000, value=0.19], DateDouble [date=1421020800000, value=0.24], DateDouble [date=1421107200000, value=0.3], DateDouble [date=1421193600000, value=0.39], DateDouble [date=1421280000000, value=0.47], DateDouble [date=1421366400000, value=0.42], DateDouble [date=1421625600000, value=0.08], DateDouble [date=1421712000000, value=0.02], DateDouble [date=1421798400000, value=-0.03], DateDouble [date=1421884800000, value=-0.09], DateDouble [date=1421971200000, value=-0.14], DateDouble [date=1422230400000, value=-0.17], DateDouble [date=1422316800000, value=-0.11], DateDouble [date=1422403200000, value=-0.14], DateDouble [date=1422489600000, value=-0.1], DateDouble [date=1422576000000, value=-0.04], DateDouble [date=1422835200000, value=-0.1], DateDouble [date=1422921600000, value=-0.13], DateDouble [date=1423008000000, value=-0.09], DateDouble [date=1423094400000, value=-0.13], DateDouble [date=1423180800000, value=-0.09], DateDouble [date=1423440000000, value=-0.14], DateDouble [date=1423526400000, value=-0.19], DateDouble [date=1423612800000, value=-0.14], DateDouble [date=1423699200000, value=-0.1], DateDouble [date=1423785600000, value=-0.14], DateDouble [date=1424044800000, value=-0.19], DateDouble [date=1424131200000, value=-0.22], DateDouble [date=1424822400000, value=-0.2], DateDouble [date=1424908800000, value=-0.24], DateDouble [date=1424995200000, value=-0.19], DateDouble [date=1425254400000, value=-0.12], DateDouble [date=1425340800000, value=-0.16], DateDouble [date=1425427200000, value=-0.1], DateDouble [date=1425513600000, value=-0.14], DateDouble [date=1425600000000, value=-0.24], DateDouble [date=1425859200000, value=-0.25], DateDouble [date=1425945600000, value=-0.31], DateDouble [date=1426032000000, value=-0.33], DateDouble [date=1426118400000, value=-0.3], DateDouble [date=1426204800000, value=-0.25], DateDouble [date=1426464000000, value=-0.31], DateDouble [date=1426550400000, value=-0.28], DateDouble [date=1426636800000, value=-0.21], DateDouble [date=1426723200000, value=-0.27], DateDouble [date=1426809600000, value=-0.34], DateDouble [date=1427068800000, value=-0.27], DateDouble [date=1427155200000, value=-0.19], DateDouble [date=1427241600000, value=-0.14], DateDouble [date=1427328000000, value=-0.09], DateDouble [date=1427414400000, value=-0.05], DateDouble [date=1427673600000, value=0.02], DateDouble [date=1427760000000, value=-0.04], DateDouble [date=1427846400000, value=0.01], DateDouble [date=1427932800000, value=0.07], DateDouble [date=1428019200000, value=0.01], DateDouble [date=1428364800000, value=0.07], DateDouble [date=1428451200000, value=0.14], DateDouble [date=1428537600000, value=0.07], DateDouble [date=1428624000000, value=-0.01], DateDouble [date=1428883200000, value=0.07], DateDouble [date=1428969600000, value=0.15], DateDouble [date=1429056000000, value=0.07], DateDouble [date=1429142400000, value=0.16], DateDouble [date=1429228800000, value=0.07], DateDouble [date=1429488000000, value=0.15], DateDouble [date=1429574400000, value=0.07], DateDouble [date=1429660800000, value=-0.01], DateDouble [date=1429747200000, value=0.07], DateDouble [date=1429833600000, value=-0.01], DateDouble [date=1430092800000, value=-0.09], DateDouble [date=1430179200000, value=-0.01], DateDouble [date=1430265600000, value=0.07], DateDouble [date=1430352000000, value=-0.01], DateDouble [date=1430697600000, value=-0.07], DateDouble [date=1430784000000, value=-0.14], DateDouble [date=1430870400000, value=-0.07], DateDouble [date=1430956800000, value=0.0], DateDouble [date=1431043200000, value=0.07], DateDouble [date=1431302400000, value=0.14], DateDouble [date=1431388800000, value=0.07], DateDouble [date=1431475200000, value=0.0], DateDouble [date=1431561600000, value=0.07], DateDouble [date=1431648000000, value=0.13], DateDouble [date=1431907200000, value=0.21], DateDouble [date=1431993600000, value=0.28], DateDouble [date=1432080000000, value=0.36], DateDouble [date=1432166400000, value=0.46], DateDouble [date=1432252800000, value=0.07], DateDouble [date=1432512000000, value=0.15], DateDouble [date=1432598400000, value=0.23], DateDouble [date=1432684800000, value=0.28], DateDouble [date=1432771200000, value=0.07], DateDouble [date=1432857600000, value=0.15], DateDouble [date=1433116800000, value=0.23], DateDouble [date=1433203200000, value=0.31], DateDouble [date=1433289600000, value=0.07], DateDouble [date=1433376000000, value=-0.02], DateDouble [date=1433462400000, value=0.07], DateDouble [date=1434499200000, value=-0.01], DateDouble [date=1434585600000, value=-0.07], DateDouble [date=1434672000000, value=-0.14], DateDouble [date=1435017600000, value=-0.08], DateDouble [date=1435104000000, value=0.0], DateDouble [date=1435190400000, value=-0.05], DateDouble [date=1435276800000, value=-0.11], DateDouble [date=1435536000000, value=-0.07], DateDouble [date=1435622400000, value=-0.12], DateDouble [date=1435708800000, value=-0.19], DateDouble [date=1435795200000, value=-0.11], DateDouble [date=1435881600000, value=-0.08], DateDouble [date=1436140800000, value=-0.01], DateDouble [date=1436227200000, value=0.07], DateDouble [date=1436313600000, value=-0.0], DateDouble [date=1436400000000, value=-0.08], DateDouble [date=1436486400000, value=-0.0], DateDouble [date=1436745600000, value=0.07], DateDouble [date=1436832000000, value=0.14], DateDouble [date=1436918400000, value=0.21], DateDouble [date=1437004800000, value=0.07], DateDouble [date=1437091200000, value=0.13], DateDouble [date=1437350400000, value=0.19], DateDouble [date=1437436800000, value=0.25], DateDouble [date=1437523200000, value=0.32], DateDouble [date=1437609600000, value=0.07], DateDouble [date=1437696000000, value=0.11], DateDouble [date=1437955200000, value=0.06], DateDouble [date=1438041600000, value=0.01], DateDouble [date=1438128000000, value=0.06], DateDouble [date=1438214400000, value=0.01], DateDouble [date=1438300800000, value=0.06], DateDouble [date=1438560000000, value=0.12], DateDouble [date=1438646400000, value=0.06], DateDouble [date=1438732800000, value=0.12], DateDouble [date=1438819200000, value=0.17], DateDouble [date=1438905600000, value=0.24], DateDouble [date=1439164800000, value=0.06], DateDouble [date=1439251200000, value=0.01], DateDouble [date=1439337600000, value=-0.05], DateDouble [date=1439424000000, value=-0.1], DateDouble [date=1439510400000, value=-0.04], DateDouble [date=1439769600000, value=-0.08], DateDouble [date=1439856000000, value=-0.14], DateDouble [date=1439942400000, value=-0.08], DateDouble [date=1440028800000, value=-0.11], DateDouble [date=1440115200000, value=-0.02], DateDouble [date=1440374400000, value=-0.03], DateDouble [date=1440460800000, value=-0.09], DateDouble [date=1440547200000, value=-0.18], DateDouble [date=1440633600000, value=-0.15], DateDouble [date=1440720000000, value=-0.24], DateDouble [date=1440979200000, value=-0.31], DateDouble [date=1441065600000, value=-0.23], DateDouble [date=1441152000000, value=-0.25], DateDouble [date=1441584000000, value=-0.35], DateDouble [date=1441670400000, value=-0.3], DateDouble [date=1441756800000, value=-0.26], DateDouble [date=1441843200000, value=-0.33], DateDouble [date=1441929600000, value=-0.42], DateDouble [date=1442188800000, value=-0.32], DateDouble [date=1442275200000, value=-0.38], DateDouble [date=1442361600000, value=-0.3], DateDouble [date=1442448000000, value=-0.24], DateDouble [date=1442534400000, value=-0.19], DateDouble [date=1442793600000, value=-0.14], DateDouble [date=1442880000000, value=-0.09], DateDouble [date=1442966400000, value=-0.05], DateDouble [date=1443052800000, value=0.0], DateDouble [date=1443139200000, value=0.06], DateDouble [date=1443398400000, value=0.12], DateDouble [date=1443484800000, value=0.19], DateDouble [date=1443571200000, value=0.23], DateDouble [date=1444262400000, value=0.06], DateDouble [date=1444348800000, value=-0.0], DateDouble [date=1444608000000, value=0.06], DateDouble [date=1444694400000, value=-0.0], DateDouble [date=1444780800000, value=-0.07], DateDouble [date=1445817600000, value=-0.13], DateDouble [date=1445904000000, value=-0.2], DateDouble [date=1445990400000, value=-0.27], DateDouble [date=1446076800000, value=-0.33], DateDouble [date=1446163200000, value=-0.39], DateDouble [date=1446422400000, value=-0.46], DateDouble [date=1446508800000, value=-0.56], DateDouble [date=1446595200000, value=-0.72], DateDouble [date=1446681600000, value=-0.66], DateDouble [date=1446768000000, value=-0.6], DateDouble [date=1447027200000, value=-0.7], DateDouble [date=1447113600000, value=-0.56], DateDouble [date=1447200000000, value=-0.46], DateDouble [date=1447286400000, value=-0.55], DateDouble [date=1447372800000, value=-0.61], DateDouble [date=1447632000000, value=-0.54], DateDouble [date=1447718400000, value=-0.61], DateDouble [date=1447804800000, value=-0.74], DateDouble [date=1447891200000, value=-0.88], DateDouble [date=1447977600000, value=-1.04], DateDouble [date=1448236800000, value=-0.95], DateDouble [date=1448323200000, value=-0.92], DateDouble [date=1448409600000, value=-0.79], DateDouble [date=1448496000000, value=-0.8], DateDouble [date=1448582400000, value=-0.9], DateDouble [date=1448841600000, value=-0.99], DateDouble [date=1448928000000, value=-1.23], DateDouble [date=1449014400000, value=-1.06], DateDouble [date=1449100800000, value=-1.08], DateDouble [date=1449187200000, value=-1.09], DateDouble [date=1449446400000, value=-1.06], DateDouble [date=1449532800000, value=-1.06], DateDouble [date=1449619200000, value=-1.16], DateDouble [date=1449705600000, value=-1.16], DateDouble [date=1449792000000, value=-1.05], DateDouble [date=1450051200000, value=-1.12], DateDouble [date=1450137600000, value=-1.02], DateDouble [date=1450224000000, value=-0.97], DateDouble [date=1450310400000, value=-1.1], DateDouble [date=1450396800000, value=-1.05], DateDouble [date=1450656000000, value=-1.11], DateDouble [date=1450742400000, value=-1.02], DateDouble [date=1450828800000, value=-0.95], DateDouble [date=1450915200000, value=-1.07], DateDouble [date=1451001600000, value=-1.09], DateDouble [date=1451260800000, value=-1.18], DateDouble [date=1451347200000, value=-1.07], DateDouble [date=1451433600000, value=-1.11]]]pFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 89590.59999999989 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    510 此时cash 89690.39999999989
+卖之前cash 89690.39999999989 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    510 此时cash 89790.1999999999
+资本情况:
+capital DateDouble [date=1424822400000, value=99990.1999999999] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 89790.1999999999 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    520 此时cash 89690.09999999989
+买之前cash 89690.09999999989 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    520 此时cash 89589.99999999988
+资本情况:
+capital DateDouble [date=1424908800000, value=99989.99999999988] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 89589.99999999988 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    510 此时cash 89689.79999999989
+卖之前cash 89689.79999999989 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    510 此时cash 89789.59999999989
+资本情况:
+capital DateDouble [date=1424995200000, value=99989.59999999989] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 89789.59999999989 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    520 此时cash 89689.49999999988
+买之前cash 89689.49999999988 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    520 此时cash 89589.39999999988
+资本情况:
+capital DateDouble [date=1425254400000, value=99989.39999999988] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 89589.39999999988 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    530 此时cash 89489.29999999987
+买之前cash 89489.29999999987 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    530 此时cash 89389.19999999987
+资本情况:
+capital DateDouble [date=1425340800000, value=99989.19999999987] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 89389.19999999987 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    520 此时cash 89488.99999999987
+卖之前cash 89488.99999999987 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    520 此时cash 89588.79999999987
+资本情况:
+capital DateDouble [date=1425427200000, value=99988.79999999987] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 89588.79999999987 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    530 此时cash 89488.69999999987
+买之前cash 89488.69999999987 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    530 此时cash 89388.59999999986
+资本情况:
+capital DateDouble [date=1425513600000, value=99988.59999999986] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 89388.59999999986 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    520 此时cash 89488.39999999986
+卖之前cash 89488.39999999986 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    520 此时cash 89588.19999999987
+资本情况:
+capital DateDouble [date=1425600000000, value=99988.19999999987] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 89588.19999999987 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    510 此时cash 89687.99999999987
+卖之前cash 89687.99999999987 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    510 此时cash 89787.79999999987
+资本情况:
+capital DateDouble [date=1425859200000, value=99987.79999999987] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 89787.79999999987 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    500 此时cash 89887.59999999987
+卖之前cash 89887.59999999987 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    500 此时cash 89987.39999999988
+资本情况:
+capital DateDouble [date=1425945600000, value=99987.39999999988] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 89987.39999999988 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    490 此时cash 90087.19999999988
+卖之前cash 90087.19999999988 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    490 此时cash 90186.99999999988
+资本情况:
+capital DateDouble [date=1426032000000, value=99986.99999999988] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 90186.99999999988 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    500 此时cash 90086.89999999988
+买之前cash 90086.89999999988 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    500 此时cash 89986.79999999987
+资本情况:
+capital DateDouble [date=1426118400000, value=99986.79999999987] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 89986.79999999987 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    510 此时cash 89886.69999999987
+买之前cash 89886.69999999987 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    510 此时cash 89786.59999999986
+资本情况:
+capital DateDouble [date=1426204800000, value=99986.59999999986] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 89786.59999999986 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    520 此时cash 89686.49999999985
+买之前cash 89686.49999999985 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    520 此时cash 89586.39999999985
+资本情况:
+capital DateDouble [date=1426464000000, value=99986.39999999985] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 89586.39999999985 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    510 此时cash 89686.19999999985
+卖之前cash 89686.19999999985 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    510 此时cash 89785.99999999985
+资本情况:
+capital DateDouble [date=1426550400000, value=99985.99999999985] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 89785.99999999985 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    520 此时cash 89685.89999999985
+买之前cash 89685.89999999985 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    520 此时cash 89585.79999999984
+资本情况:
+capital DateDouble [date=1426636800000, value=99985.79999999984] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 89585.79999999984 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    530 此时cash 89485.69999999984
+买之前cash 89485.69999999984 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    530 此时cash 89385.59999999983
+资本情况:
+capital DateDouble [date=1426723200000, value=99985.59999999983] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 89385.59999999983 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    520 此时cash 89485.39999999983
+卖之前cash 89485.39999999983 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    520 此时cash 89585.19999999984
+资本情况:
+capital DateDouble [date=1426809600000, value=99985.19999999984] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 89585.19999999984 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    510 此时cash 89684.99999999984
+卖之前cash 89684.99999999984 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    510 此时cash 89784.79999999984
+资本情况:
+capital DateDouble [date=1427068800000, value=99984.79999999984] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 89784.79999999984 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    520 此时cash 89684.69999999984
+买之前cash 89684.69999999984 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    520 此时cash 89584.59999999983
+资本情况:
+capital DateDouble [date=1427155200000, value=99984.59999999983] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 89584.59999999983 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    530 此时cash 89484.49999999983
+买之前cash 89484.49999999983 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    530 此时cash 89384.39999999982
+资本情况:
+capital DateDouble [date=1427241600000, value=99984.39999999982] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 89384.39999999982 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    540 此时cash 89284.29999999981
+买之前cash 89284.29999999981 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    540 此时cash 89184.19999999981
+资本情况:
+capital DateDouble [date=1427328000000, value=99984.19999999981] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 89184.19999999981 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    550 此时cash 89084.0999999998
+买之前cash 89084.0999999998 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    550 此时cash 88983.9999999998
+资本情况:
+capital DateDouble [date=1427414400000, value=99983.9999999998] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88983.9999999998 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    560 此时cash 88883.89999999979
+买之前cash 88883.89999999979 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    560 此时cash 88783.79999999978
+资本情况:
+capital DateDouble [date=1427673600000, value=99983.79999999978] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88783.79999999978 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    570 此时cash 88683.69999999978
+买之前cash 88683.69999999978 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    570 此时cash 88583.59999999977
+资本情况:
+capital DateDouble [date=1427760000000, value=99983.59999999977] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 88583.59999999977 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    560 此时cash 88683.39999999978
+卖之前cash 88683.39999999978 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    560 此时cash 88783.19999999978
+资本情况:
+capital DateDouble [date=1427846400000, value=99983.19999999978] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88783.19999999978 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    570 此时cash 88683.09999999977
+买之前cash 88683.09999999977 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    570 此时cash 88582.99999999977
+资本情况:
+capital DateDouble [date=1427932800000, value=99982.99999999977] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88582.99999999977 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    580 此时cash 88482.89999999976
+买之前cash 88482.89999999976 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    580 此时cash 88382.79999999976
+资本情况:
+capital DateDouble [date=1428019200000, value=99982.79999999976] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 88382.79999999976 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    570 此时cash 88482.59999999976
+卖之前cash 88482.59999999976 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    570 此时cash 88582.39999999976
+资本情况:
+capital DateDouble [date=1428364800000, value=99982.39999999976] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88582.39999999976 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    580 此时cash 88482.29999999976
+买之前cash 88482.29999999976 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    580 此时cash 88382.19999999975
+资本情况:
+capital DateDouble [date=1428451200000, value=99982.19999999975] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88382.19999999975 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    590 此时cash 88282.09999999974
+买之前cash 88282.09999999974 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    590 此时cash 88181.99999999974
+资本情况:
+capital DateDouble [date=1428537600000, value=99981.99999999974] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 88181.99999999974 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    580 此时cash 88281.79999999974
+卖之前cash 88281.79999999974 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    580 此时cash 88381.59999999974
+资本情况:
+capital DateDouble [date=1428624000000, value=99981.59999999974] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 88381.59999999974 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    570 此时cash 88481.39999999975
+卖之前cash 88481.39999999975 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    570 此时cash 88581.19999999975
+资本情况:
+capital DateDouble [date=1428883200000, value=99981.19999999975] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88581.19999999975 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    580 此时cash 88481.09999999974
+买之前cash 88481.09999999974 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    580 此时cash 88380.99999999974
+资本情况:
+capital DateDouble [date=1428969600000, value=99980.99999999974] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88380.99999999974 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    590 此时cash 88280.89999999973
+买之前cash 88280.89999999973 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    590 此时cash 88180.79999999973
+资本情况:
+capital DateDouble [date=1429056000000, value=99980.79999999973] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 88180.79999999973 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    580 此时cash 88280.59999999973
+卖之前cash 88280.59999999973 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    580 此时cash 88380.39999999973
+资本情况:
+capital DateDouble [date=1429142400000, value=99980.39999999973] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88380.39999999973 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    590 此时cash 88280.29999999973
+买之前cash 88280.29999999973 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    590 此时cash 88180.19999999972
+资本情况:
+capital DateDouble [date=1429228800000, value=99980.19999999972] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 88180.19999999972 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    580 此时cash 88279.99999999972
+卖之前cash 88279.99999999972 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    580 此时cash 88379.79999999973
+资本情况:
+capital DateDouble [date=1429488000000, value=99979.79999999973] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88379.79999999973 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    590 此时cash 88279.69999999972
+买之前cash 88279.69999999972 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    590 此时cash 88179.59999999971
+资本情况:
+capital DateDouble [date=1429574400000, value=99979.59999999971] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 88179.59999999971 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    580 此时cash 88279.39999999972
+卖之前cash 88279.39999999972 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    580 此时cash 88379.19999999972
+资本情况:
+capital DateDouble [date=1429660800000, value=99979.19999999972] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 88379.19999999972 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    570 此时cash 88478.99999999972
+卖之前cash 88478.99999999972 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    570 此时cash 88578.79999999973
+资本情况:
+capital DateDouble [date=1429747200000, value=99978.79999999973] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88578.79999999973 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    580 此时cash 88478.69999999972
+买之前cash 88478.69999999972 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    580 此时cash 88378.59999999971
+资本情况:
+capital DateDouble [date=1429833600000, value=99978.59999999971] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 88378.59999999971 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    570 此时cash 88478.39999999972
+卖之前cash 88478.39999999972 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    570 此时cash 88578.19999999972
+资本情况:
+capital DateDouble [date=1430092800000, value=99978.19999999972] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 88578.19999999972 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    560 此时cash 88677.99999999972
+卖之前cash 88677.99999999972 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    560 此时cash 88777.79999999973
+资本情况:
+capital DateDouble [date=1430179200000, value=99977.79999999973] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88777.79999999973 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    570 此时cash 88677.69999999972
+买之前cash 88677.69999999972 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    570 此时cash 88577.59999999971
+资本情况:
+capital DateDouble [date=1430265600000, value=99977.59999999971] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88577.59999999971 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    580 此时cash 88477.49999999971
+买之前cash 88477.49999999971 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    580 此时cash 88377.3999999997
+资本情况:
+capital DateDouble [date=1430352000000, value=99977.3999999997] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 88377.3999999997 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    570 此时cash 88477.1999999997
+卖之前cash 88477.1999999997 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    570 此时cash 88576.99999999971
+资本情况:
+capital DateDouble [date=1430697600000, value=99976.99999999971] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 88576.99999999971 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    560 此时cash 88676.79999999971
+卖之前cash 88676.79999999971 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    560 此时cash 88776.59999999971
+资本情况:
+capital DateDouble [date=1430784000000, value=99976.59999999971] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 88776.59999999971 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    550 此时cash 88876.39999999972
+卖之前cash 88876.39999999972 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    550 此时cash 88976.19999999972
+资本情况:
+capital DateDouble [date=1430870400000, value=99976.19999999972] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88976.19999999972 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    560 此时cash 88876.09999999971
+买之前cash 88876.09999999971 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    560 此时cash 88775.99999999971
+资本情况:
+capital DateDouble [date=1430956800000, value=99975.99999999971] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88775.99999999971 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    570 此时cash 88675.8999999997
+买之前cash 88675.8999999997 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    570 此时cash 88575.7999999997
+资本情况:
+capital DateDouble [date=1431043200000, value=99975.7999999997] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88575.7999999997 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    580 此时cash 88475.69999999969
+买之前cash 88475.69999999969 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    580 此时cash 88375.59999999969
+资本情况:
+capital DateDouble [date=1431302400000, value=99975.59999999969] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88375.59999999969 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    590 此时cash 88275.49999999968
+买之前cash 88275.49999999968 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    590 此时cash 88175.39999999967
+资本情况:
+capital DateDouble [date=1431388800000, value=99975.39999999967] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 88175.39999999967 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    580 此时cash 88275.19999999968
+卖之前cash 88275.19999999968 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    580 此时cash 88374.99999999968
+资本情况:
+capital DateDouble [date=1431475200000, value=99974.99999999968] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 88374.99999999968 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    570 此时cash 88474.79999999968
+卖之前cash 88474.79999999968 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    570 此时cash 88574.59999999969
+资本情况:
+capital DateDouble [date=1431561600000, value=99974.59999999969] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88574.59999999969 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    580 此时cash 88474.49999999968
+买之前cash 88474.49999999968 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    580 此时cash 88374.39999999967
+资本情况:
+capital DateDouble [date=1431648000000, value=99974.39999999967] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88374.39999999967 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    590 此时cash 88274.29999999967
+买之前cash 88274.29999999967 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    590 此时cash 88174.19999999966
+资本情况:
+capital DateDouble [date=1431907200000, value=99974.19999999966] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 88174.19999999966 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    600 此时cash 88074.09999999966
+买之前cash 88074.09999999966 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    600 此时cash 87973.99999999965
+资本情况:
+capital DateDouble [date=1431993600000, value=99973.99999999965] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87973.99999999965 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    610 此时cash 87873.89999999964
+买之前cash 87873.89999999964 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    610 此时cash 87773.79999999964
+资本情况:
+capital DateDouble [date=1432080000000, value=99973.79999999964] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87773.79999999964 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    620 此时cash 87673.69999999963
+买之前cash 87673.69999999963 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    620 此时cash 87573.59999999963
+资本情况:
+capital DateDouble [date=1432166400000, value=99973.59999999963] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87573.59999999963 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    630 此时cash 87473.49999999962
+买之前cash 87473.49999999962 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    630 此时cash 87373.39999999962
+资本情况:
+capital DateDouble [date=1432252800000, value=99973.39999999962] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87373.39999999962 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    620 此时cash 87473.19999999962
+卖之前cash 87473.19999999962 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    620 此时cash 87572.99999999962
+资本情况:
+capital DateDouble [date=1432512000000, value=99972.99999999962] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87572.99999999962 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    630 此时cash 87472.89999999962
+买之前cash 87472.89999999962 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    630 此时cash 87372.79999999961
+资本情况:
+capital DateDouble [date=1432598400000, value=99972.79999999961] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87372.79999999961 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    640 此时cash 87272.6999999996
+买之前cash 87272.6999999996 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    640 此时cash 87172.5999999996
+资本情况:
+capital DateDouble [date=1432684800000, value=99972.5999999996] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87172.5999999996 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    650 此时cash 87072.49999999959
+买之前cash 87072.49999999959 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    650 此时cash 86972.39999999959
+资本情况:
+capital DateDouble [date=1432771200000, value=99972.39999999959] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86972.39999999959 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    640 此时cash 87072.19999999959
+卖之前cash 87072.19999999959 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    640 此时cash 87171.99999999959
+资本情况:
+capital DateDouble [date=1432857600000, value=99971.99999999959] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87171.99999999959 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    650 此时cash 87071.89999999959
+买之前cash 87071.89999999959 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    650 此时cash 86971.79999999958
+资本情况:
+capital DateDouble [date=1433116800000, value=99971.79999999958] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86971.79999999958 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    660 此时cash 86871.69999999958
+买之前cash 86871.69999999958 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    660 此时cash 86771.59999999957
+资本情况:
+capital DateDouble [date=1433203200000, value=99971.59999999957] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86771.59999999957 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    670 此时cash 86671.49999999956
+买之前cash 86671.49999999956 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    670 此时cash 86571.39999999956
+资本情况:
+capital DateDouble [date=1433289600000, value=99971.39999999956] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86571.39999999956 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    660 此时cash 86671.19999999956
+卖之前cash 86671.19999999956 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    660 此时cash 86770.99999999956
+资本情况:
+capital DateDouble [date=1433376000000, value=99970.99999999956] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86770.99999999956 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    650 此时cash 86870.79999999957
+卖之前cash 86870.79999999957 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    650 此时cash 86970.59999999957
+资本情况:
+capital DateDouble [date=1433462400000, value=99970.59999999957] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86970.59999999957 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    660 此时cash 86870.49999999956
+买之前cash 86870.49999999956 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    660 此时cash 86770.39999999956
+资本情况:
+capital DateDouble [date=1434499200000, value=99970.39999999956] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86770.39999999956 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    650 此时cash 86870.19999999956
+卖之前cash 86870.19999999956 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    650 此时cash 86969.99999999956
+资本情况:
+capital DateDouble [date=1434585600000, value=99969.99999999956] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86969.99999999956 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    640 此时cash 87069.79999999957
+卖之前cash 87069.79999999957 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    640 此时cash 87169.59999999957
+资本情况:
+capital DateDouble [date=1434672000000, value=99969.59999999957] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87169.59999999957 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    630 此时cash 87269.39999999957
+卖之前cash 87269.39999999957 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    630 此时cash 87369.19999999958
+资本情况:
+capital DateDouble [date=1435017600000, value=99969.19999999958] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87369.19999999958 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    640 此时cash 87269.09999999957
+买之前cash 87269.09999999957 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    640 此时cash 87168.99999999956
+资本情况:
+capital DateDouble [date=1435104000000, value=99968.99999999956] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87168.99999999956 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    650 此时cash 87068.89999999956
+买之前cash 87068.89999999956 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    650 此时cash 86968.79999999955
+资本情况:
+capital DateDouble [date=1435190400000, value=99968.79999999955] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86968.79999999955 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    640 此时cash 87068.59999999955
+卖之前cash 87068.59999999955 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    640 此时cash 87168.39999999956
+资本情况:
+capital DateDouble [date=1435276800000, value=99968.39999999956] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87168.39999999956 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    630 此时cash 87268.19999999956
+卖之前cash 87268.19999999956 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    630 此时cash 87367.99999999956
+资本情况:
+capital DateDouble [date=1435536000000, value=99967.99999999956] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87367.99999999956 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    640 此时cash 87267.89999999956
+买之前cash 87267.89999999956 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    640 此时cash 87167.79999999955
+资本情况:
+capital DateDouble [date=1435622400000, value=99967.79999999955] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87167.79999999955 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    630 此时cash 87267.59999999955
+卖之前cash 87267.59999999955 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    630 此时cash 87367.39999999956
+资本情况:
+capital DateDouble [date=1435708800000, value=99967.39999999956] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87367.39999999956 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    620 此时cash 87467.19999999956
+卖之前cash 87467.19999999956 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    620 此时cash 87566.99999999956
+资本情况:
+capital DateDouble [date=1435795200000, value=99966.99999999956] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87566.99999999956 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    630 此时cash 87466.89999999956
+买之前cash 87466.89999999956 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    630 此时cash 87366.79999999955
+资本情况:
+capital DateDouble [date=1435881600000, value=99966.79999999955] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87366.79999999955 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    640 此时cash 87266.69999999955
+买之前cash 87266.69999999955 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    640 此时cash 87166.59999999954
+资本情况:
+capital DateDouble [date=1436140800000, value=99966.59999999954] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87166.59999999954 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    650 此时cash 87066.49999999953
+买之前cash 87066.49999999953 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    650 此时cash 86966.39999999953
+资本情况:
+capital DateDouble [date=1436227200000, value=99966.39999999953] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86966.39999999953 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    660 此时cash 86866.29999999952
+买之前cash 86866.29999999952 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    660 此时cash 86766.19999999952
+资本情况:
+capital DateDouble [date=1436313600000, value=99966.19999999952] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86766.19999999952 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    650 此时cash 86865.99999999952
+卖之前cash 86865.99999999952 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    650 此时cash 86965.79999999952
+资本情况:
+capital DateDouble [date=1436400000000, value=99965.79999999952] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86965.79999999952 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    640 此时cash 87065.59999999953
+卖之前cash 87065.59999999953 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    640 此时cash 87165.39999999953
+资本情况:
+capital DateDouble [date=1436486400000, value=99965.39999999953] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87165.39999999953 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    650 此时cash 87065.29999999952
+买之前cash 87065.29999999952 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    650 此时cash 86965.19999999952
+资本情况:
+capital DateDouble [date=1436745600000, value=99965.19999999952] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86965.19999999952 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    660 此时cash 86865.09999999951
+买之前cash 86865.09999999951 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    660 此时cash 86764.9999999995
+资本情况:
+capital DateDouble [date=1436832000000, value=99964.9999999995] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86764.9999999995 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    670 此时cash 86664.8999999995
+买之前cash 86664.8999999995 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    670 此时cash 86564.7999999995
+资本情况:
+capital DateDouble [date=1436918400000, value=99964.7999999995] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86564.7999999995 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    680 此时cash 86464.69999999949
+买之前cash 86464.69999999949 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    680 此时cash 86364.59999999948
+资本情况:
+capital DateDouble [date=1437004800000, value=99964.59999999948] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86364.59999999948 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    670 此时cash 86464.39999999948
+卖之前cash 86464.39999999948 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    670 此时cash 86564.19999999949
+资本情况:
+capital DateDouble [date=1437091200000, value=99964.19999999949] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86564.19999999949 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    680 此时cash 86464.09999999948
+买之前cash 86464.09999999948 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    680 此时cash 86363.99999999948
+资本情况:
+capital DateDouble [date=1437350400000, value=99963.99999999948] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86363.99999999948 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    690 此时cash 86263.89999999947
+买之前cash 86263.89999999947 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    690 此时cash 86163.79999999946
+资本情况:
+capital DateDouble [date=1437436800000, value=99963.79999999946] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86163.79999999946 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    700 此时cash 86063.69999999946
+买之前cash 86063.69999999946 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    700 此时cash 85963.59999999945
+资本情况:
+capital DateDouble [date=1437523200000, value=99963.59999999945] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 85963.59999999945 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    710 此时cash 85863.49999999945
+买之前cash 85863.49999999945 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    710 此时cash 85763.39999999944
+资本情况:
+capital DateDouble [date=1437609600000, value=99963.39999999944] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85763.39999999944 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    700 此时cash 85863.19999999944
+卖之前cash 85863.19999999944 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    700 此时cash 85962.99999999945
+资本情况:
+capital DateDouble [date=1437696000000, value=99962.99999999945] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 85962.99999999945 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    710 此时cash 85862.89999999944
+买之前cash 85862.89999999944 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    710 此时cash 85762.79999999944
+资本情况:
+capital DateDouble [date=1437955200000, value=99962.79999999944] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85762.79999999944 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    700 此时cash 85862.59999999944
+卖之前cash 85862.59999999944 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    700 此时cash 85962.39999999944
+资本情况:
+capital DateDouble [date=1438041600000, value=99962.39999999944] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85962.39999999944 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    690 此时cash 86062.19999999944
+卖之前cash 86062.19999999944 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    690 此时cash 86161.99999999945
+资本情况:
+capital DateDouble [date=1438128000000, value=99961.99999999945] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86161.99999999945 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    700 此时cash 86061.89999999944
+买之前cash 86061.89999999944 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    700 此时cash 85961.79999999944
+资本情况:
+capital DateDouble [date=1438214400000, value=99961.79999999944] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85961.79999999944 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    690 此时cash 86061.59999999944
+卖之前cash 86061.59999999944 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    690 此时cash 86161.39999999944
+资本情况:
+capital DateDouble [date=1438300800000, value=99961.39999999944] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86161.39999999944 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    700 此时cash 86061.29999999944
+买之前cash 86061.29999999944 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    700 此时cash 85961.19999999943
+资本情况:
+capital DateDouble [date=1438560000000, value=99961.19999999943] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 85961.19999999943 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    710 此时cash 85861.09999999942
+买之前cash 85861.09999999942 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    710 此时cash 85760.99999999942
+资本情况:
+capital DateDouble [date=1438646400000, value=99960.99999999942] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85760.99999999942 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    700 此时cash 85860.79999999942
+卖之前cash 85860.79999999942 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    700 此时cash 85960.59999999942
+资本情况:
+capital DateDouble [date=1438732800000, value=99960.59999999942] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 85960.59999999942 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    710 此时cash 85860.49999999942
+买之前cash 85860.49999999942 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    710 此时cash 85760.39999999941
+资本情况:
+capital DateDouble [date=1438819200000, value=99960.39999999941] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 85760.39999999941 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    720 此时cash 85660.2999999994
+买之前cash 85660.2999999994 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    720 此时cash 85560.1999999994
+资本情况:
+capital DateDouble [date=1438905600000, value=99960.1999999994] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 85560.1999999994 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    730 此时cash 85460.0999999994
+买之前cash 85460.0999999994 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    730 此时cash 85359.99999999939
+资本情况:
+capital DateDouble [date=1439164800000, value=99959.99999999939] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85359.99999999939 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    720 此时cash 85459.79999999939
+卖之前cash 85459.79999999939 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    720 此时cash 85559.5999999994
+资本情况:
+capital DateDouble [date=1439251200000, value=99959.5999999994] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85559.5999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    710 此时cash 85659.3999999994
+卖之前cash 85659.3999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    710 此时cash 85759.1999999994
+资本情况:
+capital DateDouble [date=1439337600000, value=99959.1999999994] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85759.1999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    700 此时cash 85858.9999999994
+卖之前cash 85858.9999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    700 此时cash 85958.7999999994
+资本情况:
+capital DateDouble [date=1439424000000, value=99958.7999999994] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85958.7999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    690 此时cash 86058.59999999941
+卖之前cash 86058.59999999941 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    690 此时cash 86158.39999999941
+资本情况:
+capital DateDouble [date=1439510400000, value=99958.39999999941] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86158.39999999941 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    700 此时cash 86058.2999999994
+买之前cash 86058.2999999994 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    700 此时cash 85958.1999999994
+资本情况:
+capital DateDouble [date=1439769600000, value=99958.1999999994] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85958.1999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    690 此时cash 86057.9999999994
+卖之前cash 86057.9999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    690 此时cash 86157.7999999994
+资本情况:
+capital DateDouble [date=1439856000000, value=99957.7999999994] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86157.7999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    680 此时cash 86257.59999999941
+卖之前cash 86257.59999999941 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    680 此时cash 86357.39999999941
+资本情况:
+capital DateDouble [date=1439942400000, value=99957.39999999941] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86357.39999999941 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    690 此时cash 86257.2999999994
+买之前cash 86257.2999999994 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    690 此时cash 86157.1999999994
+资本情况:
+capital DateDouble [date=1440028800000, value=99957.1999999994] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86157.1999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    680 此时cash 86256.9999999994
+卖之前cash 86256.9999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    680 此时cash 86356.7999999994
+资本情况:
+capital DateDouble [date=1440115200000, value=99956.7999999994] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86356.7999999994 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    690 此时cash 86256.6999999994
+买之前cash 86256.6999999994 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    690 此时cash 86156.5999999994
+资本情况:
+capital DateDouble [date=1440374400000, value=99956.5999999994] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86156.5999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    680 此时cash 86256.3999999994
+卖之前cash 86256.3999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    680 此时cash 86356.1999999994
+资本情况:
+capital DateDouble [date=1440460800000, value=99956.1999999994] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86356.1999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    670 此时cash 86455.9999999994
+卖之前cash 86455.9999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    670 此时cash 86555.7999999994
+资本情况:
+capital DateDouble [date=1440547200000, value=99955.7999999994] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86555.7999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    660 此时cash 86655.59999999941
+卖之前cash 86655.59999999941 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    660 此时cash 86755.39999999941
+资本情况:
+capital DateDouble [date=1440633600000, value=99955.39999999941] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86755.39999999941 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    670 此时cash 86655.2999999994
+买之前cash 86655.2999999994 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    670 此时cash 86555.1999999994
+资本情况:
+capital DateDouble [date=1440720000000, value=99955.1999999994] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86555.1999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    660 此时cash 86654.9999999994
+卖之前cash 86654.9999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    660 此时cash 86754.7999999994
+资本情况:
+capital DateDouble [date=1440979200000, value=99954.7999999994] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86754.7999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    650 此时cash 86854.59999999941
+卖之前cash 86854.59999999941 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    650 此时cash 86954.39999999941
+资本情况:
+capital DateDouble [date=1441065600000, value=99954.39999999941] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86954.39999999941 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    660 此时cash 86854.2999999994
+买之前cash 86854.2999999994 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    660 此时cash 86754.1999999994
+资本情况:
+capital DateDouble [date=1441152000000, value=99954.1999999994] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86754.1999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    650 此时cash 86853.9999999994
+卖之前cash 86853.9999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    650 此时cash 86953.7999999994
+资本情况:
+capital DateDouble [date=1441584000000, value=99953.7999999994] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86953.7999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    640 此时cash 87053.59999999941
+卖之前cash 87053.59999999941 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    640 此时cash 87153.39999999941
+资本情况:
+capital DateDouble [date=1441670400000, value=99953.39999999941] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87153.39999999941 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    650 此时cash 87053.2999999994
+买之前cash 87053.2999999994 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    650 此时cash 86953.1999999994
+资本情况:
+capital DateDouble [date=1441756800000, value=99953.1999999994] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86953.1999999994 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    660 此时cash 86853.0999999994
+买之前cash 86853.0999999994 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    660 此时cash 86752.99999999939
+资本情况:
+capital DateDouble [date=1441843200000, value=99952.99999999939] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86752.99999999939 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    650 此时cash 86852.79999999939
+卖之前cash 86852.79999999939 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    650 此时cash 86952.5999999994
+资本情况:
+capital DateDouble [date=1441929600000, value=99952.5999999994] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86952.5999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    640 此时cash 87052.3999999994
+卖之前cash 87052.3999999994 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    640 此时cash 87152.1999999994
+资本情况:
+capital DateDouble [date=1442188800000, value=99952.1999999994] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87152.1999999994 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    650 此时cash 87052.0999999994
+买之前cash 87052.0999999994 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    650 此时cash 86951.99999999939
+资本情况:
+capital DateDouble [date=1442275200000, value=99951.99999999939] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86951.99999999939 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    640 此时cash 87051.79999999939
+卖之前cash 87051.79999999939 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    640 此时cash 87151.5999999994
+资本情况:
+capital DateDouble [date=1442361600000, value=99951.5999999994] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87151.5999999994 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    650 此时cash 87051.49999999939
+买之前cash 87051.49999999939 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    650 此时cash 86951.39999999938
+资本情况:
+capital DateDouble [date=1442448000000, value=99951.39999999938] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86951.39999999938 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    660 此时cash 86851.29999999938
+买之前cash 86851.29999999938 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    660 此时cash 86751.19999999937
+资本情况:
+capital DateDouble [date=1442534400000, value=99951.19999999937] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86751.19999999937 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    670 此时cash 86651.09999999937
+买之前cash 86651.09999999937 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    670 此时cash 86550.99999999936
+资本情况:
+capital DateDouble [date=1442793600000, value=99950.99999999936] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86550.99999999936 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    680 此时cash 86450.89999999935
+买之前cash 86450.89999999935 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    680 此时cash 86350.79999999935
+资本情况:
+capital DateDouble [date=1442880000000, value=99950.79999999935] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86350.79999999935 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    690 此时cash 86250.69999999934
+买之前cash 86250.69999999934 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    690 此时cash 86150.59999999934
+资本情况:
+capital DateDouble [date=1442966400000, value=99950.59999999934] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86150.59999999934 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    700 此时cash 86050.49999999933
+买之前cash 86050.49999999933 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    700 此时cash 85950.39999999932
+资本情况:
+capital DateDouble [date=1443052800000, value=99950.39999999932] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 85950.39999999932 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    710 此时cash 85850.29999999932
+买之前cash 85850.29999999932 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    710 此时cash 85750.19999999931
+资本情况:
+capital DateDouble [date=1443139200000, value=99950.19999999931] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 85750.19999999931 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    720 此时cash 85650.09999999931
+买之前cash 85650.09999999931 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    720 此时cash 85549.9999999993
+资本情况:
+capital DateDouble [date=1443398400000, value=99949.9999999993] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 85549.9999999993 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    730 此时cash 85449.8999999993
+买之前cash 85449.8999999993 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    730 此时cash 85349.79999999929
+资本情况:
+capital DateDouble [date=1443484800000, value=99949.79999999929] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 85349.79999999929 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    740 此时cash 85249.69999999928
+买之前cash 85249.69999999928 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    740 此时cash 85149.59999999928
+资本情况:
+capital DateDouble [date=1443571200000, value=99949.59999999928] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 85149.59999999928 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    750 此时cash 85049.49999999927
+买之前cash 85049.49999999927 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    750 此时cash 84949.39999999927
+资本情况:
+capital DateDouble [date=1444262400000, value=99949.39999999927] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 84949.39999999927 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    740 此时cash 85049.19999999927
+卖之前cash 85049.19999999927 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    740 此时cash 85148.99999999927
+资本情况:
+capital DateDouble [date=1444348800000, value=99948.99999999927] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85148.99999999927 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    730 此时cash 85248.79999999928
+卖之前cash 85248.79999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    730 此时cash 85348.59999999928
+资本情况:
+capital DateDouble [date=1444608000000, value=99948.59999999928] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 85348.59999999928 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    740 此时cash 85248.49999999927
+买之前cash 85248.49999999927 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    740 此时cash 85148.39999999927
+资本情况:
+capital DateDouble [date=1444694400000, value=99948.39999999927] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85148.39999999927 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    730 此时cash 85248.19999999927
+卖之前cash 85248.19999999927 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    730 此时cash 85347.99999999927
+资本情况:
+capital DateDouble [date=1444780800000, value=99947.99999999927] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85347.99999999927 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    720 此时cash 85447.79999999928
+卖之前cash 85447.79999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    720 此时cash 85547.59999999928
+资本情况:
+capital DateDouble [date=1445817600000, value=99947.59999999928] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85547.59999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    710 此时cash 85647.39999999928
+卖之前cash 85647.39999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    710 此时cash 85747.19999999928
+资本情况:
+capital DateDouble [date=1445904000000, value=99947.19999999928] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85747.19999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    700 此时cash 85846.99999999929
+卖之前cash 85846.99999999929 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    700 此时cash 85946.79999999929
+资本情况:
+capital DateDouble [date=1445990400000, value=99946.79999999929] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 85946.79999999929 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    690 此时cash 86046.5999999993
+卖之前cash 86046.5999999993 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    690 此时cash 86146.3999999993
+资本情况:
+capital DateDouble [date=1446076800000, value=99946.3999999993] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86146.3999999993 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    680 此时cash 86246.1999999993
+卖之前cash 86246.1999999993 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    680 此时cash 86345.9999999993
+资本情况:
+capital DateDouble [date=1446163200000, value=99945.9999999993] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86345.9999999993 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    670 此时cash 86445.7999999993
+卖之前cash 86445.7999999993 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    670 此时cash 86545.59999999931
+资本情况:
+capital DateDouble [date=1446422400000, value=99945.59999999931] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86545.59999999931 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    660 此时cash 86645.39999999931
+卖之前cash 86645.39999999931 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    660 此时cash 86745.19999999931
+资本情况:
+capital DateDouble [date=1446508800000, value=99945.19999999931] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86745.19999999931 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    650 此时cash 86844.99999999932
+卖之前cash 86844.99999999932 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    650 此时cash 86944.79999999932
+资本情况:
+capital DateDouble [date=1446595200000, value=99944.79999999932] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86944.79999999932 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    640 此时cash 87044.59999999932
+卖之前cash 87044.59999999932 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    640 此时cash 87144.39999999932
+资本情况:
+capital DateDouble [date=1446681600000, value=99944.39999999932] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87144.39999999932 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    650 此时cash 87044.29999999932
+买之前cash 87044.29999999932 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    650 此时cash 86944.19999999931
+资本情况:
+capital DateDouble [date=1446768000000, value=99944.19999999931] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86944.19999999931 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    660 此时cash 86844.09999999931
+买之前cash 86844.09999999931 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    660 此时cash 86743.9999999993
+资本情况:
+capital DateDouble [date=1447027200000, value=99943.9999999993] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86743.9999999993 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    650 此时cash 86843.7999999993
+卖之前cash 86843.7999999993 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    650 此时cash 86943.59999999931
+资本情况:
+capital DateDouble [date=1447113600000, value=99943.59999999931] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86943.59999999931 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    660 此时cash 86843.4999999993
+买之前cash 86843.4999999993 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    660 此时cash 86743.3999999993
+资本情况:
+capital DateDouble [date=1447200000000, value=99943.3999999993] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86743.3999999993 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    670 此时cash 86643.29999999929
+买之前cash 86643.29999999929 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    670 此时cash 86543.19999999928
+资本情况:
+capital DateDouble [date=1447286400000, value=99943.19999999928] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86543.19999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    660 此时cash 86642.99999999929
+卖之前cash 86642.99999999929 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    660 此时cash 86742.79999999929
+资本情况:
+capital DateDouble [date=1447372800000, value=99942.79999999929] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86742.79999999929 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    650 此时cash 86842.5999999993
+卖之前cash 86842.5999999993 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    650 此时cash 86942.3999999993
+资本情况:
+capital DateDouble [date=1447632000000, value=99942.3999999993] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 86942.3999999993 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    660 此时cash 86842.29999999929
+买之前cash 86842.29999999929 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    660 此时cash 86742.19999999928
+资本情况:
+capital DateDouble [date=1447718400000, value=99942.19999999928] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86742.19999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    650 此时cash 86841.99999999929
+卖之前cash 86841.99999999929 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    650 此时cash 86941.79999999929
+资本情况:
+capital DateDouble [date=1447804800000, value=99941.79999999929] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86941.79999999929 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    640 此时cash 87041.5999999993
+卖之前cash 87041.5999999993 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    640 此时cash 87141.3999999993
+资本情况:
+capital DateDouble [date=1447891200000, value=99941.3999999993] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87141.3999999993 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    630 此时cash 87241.1999999993
+卖之前cash 87241.1999999993 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    630 此时cash 87340.9999999993
+资本情况:
+capital DateDouble [date=1447977600000, value=99940.9999999993] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87340.9999999993 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    620 此时cash 87440.7999999993
+卖之前cash 87440.7999999993 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    620 此时cash 87540.59999999931
+资本情况:
+capital DateDouble [date=1448236800000, value=99940.59999999931] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87540.59999999931 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    630 此时cash 87440.4999999993
+买之前cash 87440.4999999993 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    630 此时cash 87340.3999999993
+资本情况:
+capital DateDouble [date=1448323200000, value=99940.3999999993] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87340.3999999993 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    640 此时cash 87240.29999999929
+买之前cash 87240.29999999929 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    640 此时cash 87140.19999999928
+资本情况:
+capital DateDouble [date=1448409600000, value=99940.19999999928] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87140.19999999928 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    650 此时cash 87040.09999999928
+买之前cash 87040.09999999928 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    650 此时cash 86939.99999999927
+资本情况:
+capital DateDouble [date=1448496000000, value=99939.99999999927] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 86939.99999999927 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    640 此时cash 87039.79999999928
+卖之前cash 87039.79999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    640 此时cash 87139.59999999928
+资本情况:
+capital DateDouble [date=1448582400000, value=99939.59999999928] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87139.59999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    630 此时cash 87239.39999999928
+卖之前cash 87239.39999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    630 此时cash 87339.19999999928
+资本情况:
+capital DateDouble [date=1448841600000, value=99939.19999999928] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87339.19999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    620 此时cash 87438.99999999929
+卖之前cash 87438.99999999929 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    620 此时cash 87538.79999999929
+资本情况:
+capital DateDouble [date=1448928000000, value=99938.79999999929] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87538.79999999929 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    610 此时cash 87638.5999999993
+卖之前cash 87638.5999999993 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    610 此时cash 87738.3999999993
+资本情况:
+capital DateDouble [date=1449014400000, value=99938.3999999993] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87738.3999999993 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    620 此时cash 87638.29999999929
+买之前cash 87638.29999999929 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    620 此时cash 87538.19999999928
+资本情况:
+capital DateDouble [date=1449100800000, value=99938.19999999928] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87538.19999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    610 此时cash 87637.99999999929
+卖之前cash 87637.99999999929 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    610 此时cash 87737.79999999929
+资本情况:
+capital DateDouble [date=1449187200000, value=99937.79999999929] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87737.79999999929 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    620 此时cash 87637.69999999928
+买之前cash 87637.69999999928 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    620 此时cash 87537.59999999928
+资本情况:
+capital DateDouble [date=1449446400000, value=99937.59999999928] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87537.59999999928 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    630 此时cash 87437.49999999927
+买之前cash 87437.49999999927 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    630 此时cash 87337.39999999927
+资本情况:
+capital DateDouble [date=1449532800000, value=99937.39999999927] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87337.39999999927 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    620 此时cash 87437.19999999927
+卖之前cash 87437.19999999927 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    620 此时cash 87536.99999999927
+资本情况:
+capital DateDouble [date=1449619200000, value=99936.99999999927] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87536.99999999927 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    610 此时cash 87636.79999999928
+卖之前cash 87636.79999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    610 此时cash 87736.59999999928
+资本情况:
+capital DateDouble [date=1449705600000, value=99936.59999999928] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87736.59999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    600 此时cash 87836.39999999928
+卖之前cash 87836.39999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    600 此时cash 87936.19999999928
+资本情况:
+capital DateDouble [date=1449792000000, value=99936.19999999928] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87936.19999999928 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    610 此时cash 87836.09999999928
+买之前cash 87836.09999999928 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    610 此时cash 87735.99999999927
+资本情况:
+capital DateDouble [date=1450051200000, value=99935.99999999927] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87735.99999999927 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    600 此时cash 87835.79999999928
+卖之前cash 87835.79999999928 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    600 此时cash 87935.59999999928
+资本情况:
+capital DateDouble [date=1450137600000, value=99935.59999999928] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87935.59999999928 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    610 此时cash 87835.49999999927
+买之前cash 87835.49999999927 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    610 此时cash 87735.39999999927
+资本情况:
+capital DateDouble [date=1450224000000, value=99935.39999999927] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87735.39999999927 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    620 此时cash 87635.29999999926
+买之前cash 87635.29999999926 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    620 此时cash 87535.19999999925
+资本情况:
+capital DateDouble [date=1450310400000, value=99935.19999999925] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87535.19999999925 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    610 此时cash 87634.99999999926
+卖之前cash 87634.99999999926 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    610 此时cash 87734.79999999926
+资本情况:
+capital DateDouble [date=1450396800000, value=99934.79999999926] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87734.79999999926 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    620 此时cash 87634.69999999925
+买之前cash 87634.69999999925 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    620 此时cash 87534.59999999925
+资本情况:
+capital DateDouble [date=1450656000000, value=99934.59999999925] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87534.59999999925 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    610 此时cash 87634.39999999925
+卖之前cash 87634.39999999925 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    610 此时cash 87734.19999999925
+资本情况:
+capital DateDouble [date=1450742400000, value=99934.19999999925] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87734.19999999925 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    620 此时cash 87634.09999999925
+买之前cash 87634.09999999925 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    620 此时cash 87533.99999999924
+资本情况:
+capital DateDouble [date=1450828800000, value=99933.99999999924] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87533.99999999924 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    630 此时cash 87433.89999999924
+买之前cash 87433.89999999924 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    630 此时cash 87333.79999999923
+资本情况:
+capital DateDouble [date=1450915200000, value=99933.79999999923] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87333.79999999923 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    620 此时cash 87433.59999999923
+卖之前cash 87433.59999999923 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    620 此时cash 87533.39999999924
+资本情况:
+capital DateDouble [date=1451001600000, value=99933.39999999924] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87533.39999999924 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    610 此时cash 87633.19999999924
+卖之前cash 87633.19999999924 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    610 此时cash 87732.99999999924
+资本情况:
+capital DateDouble [date=1451260800000, value=99932.99999999924] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87732.99999999924 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    600 此时cash 87832.79999999925
+卖之前cash 87832.79999999925 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    600 此时cash 87932.59999999925
+资本情况:
+capital DateDouble [date=1451347200000, value=99932.59999999925] inPrice:0.0 outPrice:200.0
+
+交易标志Test 结果为   1
+upFRI1 downFRI1 upFRO0 downFRO0
+1
+4
+内部买入标志 true 内部卖出标志 false
+外部买入标志 true 外部卖出标志 false
+买入
+不卖
+买之前cash 87932.59999999925 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test1 股数    610 此时cash 87832.49999999924
+买之前cash 87832.49999999924 股数 10 价格 10.0 费率 0.002
+（买入现金足够）订单交易后 orderType:Order test2 股数    610 此时cash 87732.39999999924
+资本情况:
+capital DateDouble [date=1451433600000, value=99932.39999999924] inPrice:200.0 outPrice:0.0
+
+交易标志Test 结果为   0
+upFRI1 downFRI1 upFRO0 downFRO0
+2
+3
+内部买入标志 false 内部卖出标志 true
+外部买入标志 false 外部卖出标志 true
+不买
+卖出
+卖之前cash 87732.39999999924 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test1 股数    600 此时cash 87832.19999999924
+卖之前cash 87832.19999999924 股数 10 价格 10.0 费率 0.002
+（要卖出股数足够）订单交易后 orderType:Order test2 股数    600 此时cash 87931.99999999924
+资本情况:
+capital DateDouble [date=1451520000000, value=99931.99999999924] inPrice:0.0 outPrice:200.0
+

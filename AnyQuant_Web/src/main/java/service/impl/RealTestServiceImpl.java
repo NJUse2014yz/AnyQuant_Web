@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import backtest.DateDouble;
 import function.Function;
 import function.FunctionResult;
+import function.OrderFunction;
 import function.choose.ChooseStock;
 import function.flag.TrendFunction;
 import function.order.ShareFunction;
@@ -39,26 +40,27 @@ public class RealTestServiceImpl implements RealTestService {
 	}
 
 	@Override
-	public void realTestForToday(RealTestVO vo) {
+	public void realTestForToday(RealTestVO vo) {//在15:00之后调用
 		List<Double> priceList=new ArrayList<Double>();
 		for(int i=0;i<vo.stockList.size();i++)
 		{
 			double close=0;
 			try {
-				close=hisMapper.selectHistoryData_new_single(vo.stockList.get(i).siid).getClose();
+//				close=hisMapper.selectHistoryData_new_single(vo.stockList.get(i).siid).getClose();//买进价格为今日收盘价/*=====================*/
+				close=10;/*=============================*/
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
 			try {
+//				System.out.println(close);
 				priceList.add(close);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-//			System.out.println(close);
+			
 		}
 	
-		boolean flagOutI=true;
-		boolean flagOutO=true;
+		
 		/**列表最外层为不同订单，中层为不同股票，里层为不同天*/
 		List<List<List<Function>>> inOrderList=new ArrayList<List<List<Function>>>();
 		/**列表最外层为不同订单，中层为不同股票，里层为不同天*/
@@ -74,6 +76,8 @@ public class RealTestServiceImpl implements RealTestService {
 			}	
 		}
 		
+		boolean flagOutI=false;
+		boolean flagOutO=false;
 		for(int k=0;k<vo.flags.size();k++)
 		{//多个订单类型
 			List<List<Function>> flagList=vo.flags.get(k).flagList;
@@ -86,45 +90,56 @@ public class RealTestServiceImpl implements RealTestService {
 				FunctionResult result=null;
 				for(int h=0;h<flagList.get(j).size();h++)
 				{//内列表
-					Function function0=flagList.get(j).get(h);
-					FunctionResult upFRI=function0.getResultUpI();
-					FunctionResult downFRI=function0.getResultDownI();
-					FunctionResult upFRO=function0.getResultUpO();
-					FunctionResult downFRO=function0.getResultDownO();
-					
 					function=flagList.get(j).get(h);
-					result=function.getResult(new Date(Calendar.getInstance().getTimeInMillis()));
+					
+					FunctionResult upFRI=function.getResultUpI();
+					FunctionResult downFRI=function.getResultDownI();
+					FunctionResult upFRO=function.getResultUpO();
+					FunctionResult downFRO=function.getResultDownO();
+					
+					result=function.getResult(new Date(Calendar.getInstance().getTimeInMillis()-24*60*60*1000));//预测使用前一天及之前的数据
 				
+//					System.out.println("result "+result.rI);/*======================*/
+					
 					switch(result.location.get(0))
 					{
 					case BOOLEAN://boolean
 						break;
 					case INT://int
+						if(result.rI<=upFRI.rI&&result.rI>=downFRI.rI)
+						{
+							flagInI=flagInI&&true;
+						}
+						else
+						{
+							flagInI=flagInI&&false;
+						}
+						if(result.rI<=upFRO.rI&&result.rI>=downFRO.rI)
+						{
+							flagInO=flagInO&&true;
+						}
+						else
+						{
+							flagInO=flagInO&&false;
+						}
 						break;
 					case DOUBLE://double
 						//触发订单
-						switch(orderType.function)
+						if(result.rD<=upFRI.rD&&result.rD>=downFRI.rD)
 						{
-						case "Share"://股数订单
-							if(result.rD<=upFRI.rD&&result.rD>=downFRI.rD)
-							{
-								flagInI=flagInI&&true;
-							}
-							else
-							{
-								flagInI=flagInI&&false;
-							}
-							if(result.rD<=upFRO.rD&&result.rD>=downFRO.rD)
-							{
-								flagInO=flagInO&&true;
-							}
-							else
-							{
-								flagInO=flagInO&&false;
-							}
-							break;
-						case "Value":
-							break;
+							flagInI=flagInI&&true;
+						}
+						else
+						{
+							flagInI=flagInI&&false;
+						}
+						if(result.rD<=upFRO.rD&&result.rD>=downFRO.rD)
+						{
+							flagInO=flagInO&&true;
+						}
+						else
+						{
+							flagInO=flagInO&&false;
 						}
 						break;
 					case STRING://String
@@ -148,7 +163,7 @@ public class RealTestServiceImpl implements RealTestService {
 			{
 				for(int i=0;i<vo.stockList.size();i++)
 				{
-					inOrderList.get(k).get(i).add(new ShareFunction(1,vo.stockList.get(i).siid,1000,priceList.get(i)));//暂用1000
+					inOrderList.get(k).get(i).add(setOrder(orderType.function,1,vo.stockList.get(i).siid,1000,priceList.get(i)));//暂用1000
 				}
 			}
 			else
@@ -162,7 +177,7 @@ public class RealTestServiceImpl implements RealTestService {
 			{
 				for(int i=0;i<vo.stockList.size();i++)
 				{
-					outOrderList.get(k).get(i).add(new ShareFunction(-1,vo.stockList.get(i).siid,1000,priceList.get(i)));
+					outOrderList.get(k).get(i).add(setOrder(orderType.function,-1,vo.stockList.get(i).siid,1000,priceList.get(i)));
 				}
 			}
 			else
@@ -186,30 +201,69 @@ public class RealTestServiceImpl implements RealTestService {
 					Function orderType=vo.flags.get(k).orderType;
 					switch(orderType.getFunction())
 					{
-					case "Share":
+					case "Order":
 					//产生交易
-						
+						if(inOrderList.get(k).get(j).get(i)!=null)
+						{
+							OrderFunction order=(OrderFunction)inOrderList.get(k).get(j).get(i);
+							if(vo.cash-order.share*order.price*(1+inTaxRatio)<0)
+							{
+								int share=(int) (vo.cash*(1-inTaxRatio)/order.price);
+								vo.cash-=share*order.price*(1+inTaxRatio);
+								vo.numlist.set(j,vo.numlist.get(j)+share);//加仓
+								inprice+=share*order.price;
+//								System.out.println("（买入现金不足）订单交易后 orderType:"+orderType.function+" "+vo.stockList.get(j).getSiid()+" 股数    "+vo.numlist.get(j)+" 此时cash "+vo.cash+"\r\n");/*=====================================*/
+							}
+							else
+							{
+								vo.cash-=order.share*order.price*(1+inTaxRatio);
+								vo.numlist.set(j,vo.numlist.get(j)+order.share);//加仓
+								inprice+=order.share*order.price;
+//								System.out.println("（买入现金足够）订单交易后 orderType:"+orderType.function+" "+vo.stockList.get(j).getSiid()+" 股数    "+vo.numlist.get(j)+" 此时cash "+vo.cash+"\r\n");/*=====================================*/
+							}
+						}
+						if(outOrderList.get(k).get(j).get(i)!=null)
+						{
+							OrderFunction order=(OrderFunction)outOrderList.get(k).get(j).get(i);
+							if(order.share<=vo.numlist.get(j))
+							{
+								vo.cash+=order.share*order.price*(1-outTaxRatio);
+								vo.numlist.set(j,vo.numlist.get(j)-order.share);
+								outprice+=order.share*order.price;
+//								System.out.println("（要卖出股数足够）订单交易后 orderType:"+orderType.function+" "+vo.stockList.get(j).getSiid()+" 股数    "+vo.numlist.get(j)+" 此时cash "+vo.cash+"\r\n");/*=====================================*/
+							}
+							else
+							{
+								vo.cash+=vo.numlist.get(j)*order.price*(1-outTaxRatio);
+								vo.numlist.set(j,0);//减仓
+								outprice+=vo.numlist.get(j)*order.price;
+//								System.out.println("（要卖出股数不够）订单交易后 orderType:"+orderType.function+" "+vo.stockList.get(j).getSiid()+" 股数    "+vo.numlist.get(j)+" 此时cash "+vo.cash+"\r\n");/*=====================================*/
+							}
+						}
+						break;
+					case "Share":
+						//产生交易
 						if(inOrderList.get(k).get(j).get(i)!=null)
 						{
 							ShareFunction order=(ShareFunction)inOrderList.get(k).get(j).get(i);
-								if(vo.cash-order.share*order.price*(1+inTaxRatio)<0)
-								{
-									int share=(int) (vo.cash*(1-inTaxRatio)/order.price);
-									vo.cash-=share*order.price*(1+inTaxRatio);
-									vo.numlist.set(j,vo.numlist.get(j)+share);//加仓
-									inprice+=share*order.price;
-								}
-								else
-								{
-									vo.cash-=order.share*order.price*(1+inTaxRatio);
-									vo.numlist.set(j,vo.numlist.get(j)+order.share);//加仓
-									inprice+=order.share*order.price;
-								}
+							if(vo.cash-order.share*order.price*(1+inTaxRatio)<0)
+							{
+								int share=(int) (vo.cash*(1-inTaxRatio)/order.price);
+								vo.cash-=share*order.price*(1+inTaxRatio);
+								vo.numlist.set(j,vo.numlist.get(j)+share);//加仓
+								inprice+=share*order.price;
+							}
+							else
+							{
+								vo.cash-=order.share*order.price*(1+inTaxRatio);
+								vo.numlist.set(j,vo.numlist.get(j)+order.share);//加仓
+								inprice+=order.share*order.price;
+							}
 						}
 						if(outOrderList.get(k).get(j).get(i)!=null)
 						{
 							ShareFunction order=(ShareFunction)outOrderList.get(k).get(j).get(i);
-							if(order.share>=vo.numlist.get(j))
+							if(order.share<=vo.numlist.get(j))
 							{
 								vo.cash+=order.share*order.price*(1-outTaxRatio);
 								vo.numlist.set(j,vo.numlist.get(j)-order.share);
@@ -227,10 +281,11 @@ public class RealTestServiceImpl implements RealTestService {
 						
 						break;
 					}
-					capitaltoday+=vo.numlist.get(j)*priceList.get(j);
 				}//k 多种订单
+				capitaltoday+=vo.numlist.get(j)*priceList.get(j);
 			}//j 每股
 			vo.capital.add(new DateDouble(Calendar.getInstance().getTimeInMillis(),capitaltoday+vo.cash));
+//			System.out.println(vo.capital);/*======================*/
 //		}//i
 	}
 
@@ -264,5 +319,15 @@ public class RealTestServiceImpl implements RealTestService {
 			e.printStackTrace();
 		}
 	}
-	
+	public Function setOrder(String type,int order,String siid,double value,double price)
+	{
+		switch(type)
+		{
+		case "Share":
+			return new ShareFunction(order,siid,(int)value,price);
+		case "Order":
+			return new OrderFunction(order,siid,(int)value,price);
+		}
+		return null;
+	}
 }

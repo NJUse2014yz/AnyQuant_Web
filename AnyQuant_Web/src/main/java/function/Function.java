@@ -13,6 +13,7 @@ public abstract class Function {
 	public FunctionResult resultUpO;
 	/**方法卖出结果的下界*/
 	public FunctionResult resultDownO;
+	
 	public abstract FunctionResult getResult(Date date);
 	public String getFunction() {
 		return function;
@@ -44,5 +45,4 @@ public abstract class Function {
 	public void setResultDownO(FunctionResult resultDownO) {
 		this.resultDownO = resultDownO;
 	}
-	
 }
