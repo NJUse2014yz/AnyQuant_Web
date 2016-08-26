@@ -22,7 +22,7 @@ public interface BackTestService {
 	public TestReport backtest(List<ChooseStock> stockList,
 			List<Flag> flags,
 			double cash,Date startdate,Date enddate,int n,
-			String benchmark) throws Exception;
+			String benchmark,Flag bFlag,List<List<Function>> risk) throws Exception;
 	
 	/**部分自定义回测，返回回测报告：
 	 * 股票和对应占比（0~1之间的一个数，且和为1）的列表
@@ -33,7 +33,7 @@ public interface BackTestService {
 	 * */
 	public TestReport backtest(List<ChooseStock> stockList,
 			List<Flag> flags,
-			int n,String benchmark) throws Exception;
+			int n,String benchmark,Flag bFlag,List<List<Function>> risk) throws Exception;
 	
 	/**部分自定义回测，返回回测报告：
 	 * 股票和对应占比（0~1之间的一个数，且和为1）的列表
@@ -43,7 +43,7 @@ public interface BackTestService {
 	 * */
 	public TestReport backtest(List<ChooseStock> stockList,
 			List<Flag> flags,
-			String benchmark) throws Exception;
+			String benchmark,Flag bFlag,List<List<Function>> risk) throws Exception;
 	
 	/**部分自定义回测，返回回测报告：
 	 * 股票和对应占比（0~1之间的一个数，且和为1）的列表
@@ -52,7 +52,7 @@ public interface BackTestService {
 	 * 交易周期
 	 * */
 	public TestReport backtest(List<ChooseStock> stockList,
-			List<Flag> flags,int n) throws Exception;
+			List<Flag> flags,int n,Flag bFlag,List<List<Function>> risk) throws Exception;
 	
 	
 }

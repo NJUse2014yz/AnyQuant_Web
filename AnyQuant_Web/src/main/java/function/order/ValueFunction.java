@@ -9,7 +9,7 @@ import function.ResultType;
 public class ValueFunction extends Function{
 	/**买入1，卖出-1*/
 	public int order;
-	public String siid;
+//	public String siid;
 	public double value;
 	public double price;
 	

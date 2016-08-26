@@ -15,44 +15,44 @@ public class BackTestServiceImpl implements BackTestService {
 
 	@Override
 	public TestReport backtest(List<ChooseStock> stockList, List<Flag> flags,
-			double cash, Date startdate, Date enddate, int n, String benchmark)
+			double cash, Date startdate, Date enddate, int n, String benchmark,Flag bFlag,List<List<Function>> risk)
 			throws Exception {
-		BackTest backTest=new BackTest(stockList, flags, cash, startdate, enddate, n, benchmark);
+		BackTest backTest=new BackTest(stockList, flags, cash, startdate, enddate, n, benchmark,bFlag,risk);
 		TestReport report=backTest.test();
 		return report;
 	}
 
 	@Override
 	public TestReport backtest(List<ChooseStock> stockList, List<Flag> flags,
-			int n, String benchmark) throws Exception {
+			int n, String benchmark,Flag bFlag,List<List<Function>> risk) throws Exception {
 		Date enddate=new Date(Calendar.getInstance().getTimeInMillis());
 		Date startdate=new Date(enddate.getYear()-1,enddate.getMonth(),enddate.getDate()-1);
 		double cash=100000;
-		BackTest backTest=new BackTest(stockList, flags, cash, startdate, enddate, n, benchmark);
+		BackTest backTest=new BackTest(stockList, flags, cash, startdate, enddate, n, benchmark,bFlag,risk);
 		TestReport report=backTest.test();
 		return report;
 	}
 
 	@Override
 	public TestReport backtest(List<ChooseStock> stockList, List<Flag> flags,
-			String benchmark) throws Exception {
+			String benchmark,Flag bFlag,List<List<Function>> risk) throws Exception {
 		Date enddate=new Date(Calendar.getInstance().getTimeInMillis());
 		Date startdate=new Date(enddate.getYear()-1,enddate.getMonth(),enddate.getDate()-1);
 		double cash=100000;
 		int n=1;
-		BackTest backTest=new BackTest(stockList, flags, cash, startdate, enddate, n, benchmark);
+		BackTest backTest=new BackTest(stockList, flags, cash, startdate, enddate, n, benchmark,bFlag,risk);
 		TestReport report=backTest.test();
 		return report;
 	}
 
 	@Override
 	public TestReport backtest(List<ChooseStock> stockList, List<Flag> flags,
-			int n) throws Exception {
+			int n,Flag bFlag,List<List<Function>> risk) throws Exception {
 		Date enddate=new Date(Calendar.getInstance().getTimeInMillis());
 		Date startdate=new Date(enddate.getYear()-1,enddate.getMonth(),enddate.getDate()-1);
 		double cash=100000;
 		String benchmark="sh000300";
-		BackTest backTest=new BackTest(stockList, flags, cash, startdate, enddate, n, benchmark);
+		BackTest backTest=new BackTest(stockList, flags, cash, startdate, enddate, n, benchmark,bFlag,risk);
 		TestReport report=backTest.test();
 		return report;
 	}

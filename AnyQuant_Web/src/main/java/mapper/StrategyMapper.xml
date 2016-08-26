@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mapper.StrategyMapper">
 	<select id="insert" parameterType="Strategy">
-		insert into Strategy(userName,createrName,strategyName,stockList,choose,flags)
-		values(#{userName},#{createrName},#{strategyName},#{stockList},#{choose},#{flags})
+		insert into Strategy(userName,createrName,strategyName,stockList,choose,risk,flags)
+		values(#{userName},#{createrName},#{strategyName},#{stockList},#{choose},#{risk},#{flags})
 	</select>
 	<select id="delete" parameterType="StrategySearch">
 		delete from Strategy

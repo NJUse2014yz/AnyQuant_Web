@@ -14,6 +14,8 @@ public interface ConceptInfMapper {
 	public List<String> selectConceptInfCname_all() throws Exception;
 	/**查找所有股票代码*/
 	public List<String> selectConceptInfSid_all() throws Exception;
+	/**查找某概念的所有股票代码*/
+	public List<String> selectSid_concept(String concrpt) throws Exception;
 	
 	/**查找某概念的信息-conceptInfPack.cname*/
 	public List<ConceptInf> selectConceptInf_cname(ConceptInfPack conceptInfPack) throws Exception;

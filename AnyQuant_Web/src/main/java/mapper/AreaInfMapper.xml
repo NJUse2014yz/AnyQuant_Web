@@ -15,6 +15,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select distinct sid from AreaInf
 	</select>
 	
+	<select id="selectSid_area" parameterType="String" resultType="String">
+		select distinct sid from AreaInf
+		where area=#{value}
+	</select>
+	
 	<select id="selectAreaInf_area" parameterType="AreaInfPack" resultType="AreaInf">
 		select * from AreaInf
 		where area=#{area}

@@ -19,6 +19,8 @@ import function.choose.ChooseStock;
 import function.flag.TrendFunction;
 import function.flag.TrendVO;
 import function.order.ShareFunction;
+import function.risk.StandardPercentFunction;
+import function.risk.StandardPercentVO;
 
 public class BackTestTest {
 	public BackTest instance;
@@ -50,17 +52,34 @@ public class BackTestTest {
 		flagList.get(0).add(testF);
 		
 		OrderFunction orderType=new OrderFunction();
-		
+		orderType.siid="test1";
+		orderType.share=10;
 		double cash=100000;
 		Date startdate=new Date(2015-1900,0,1);
 		Date enddate=new Date(2016-1900,0,1);
 		int n=1;
 		String benchmark="testB";
+		
 		List<Flag> flags=new ArrayList<Flag>();
 		flags.add(new Flag(orderType,flagList));
+		
+		OrderFunction bOrderType=new OrderFunction();
+		bOrderType.siid="testB";
+		bOrderType.share=10;
+		Flag bFlag=new Flag(bOrderType,flagList);
+		
+		StandardPercentVO spfvo=new StandardPercentVO();
+		spfvo.attribute="close";
+		spfvo.standard="m20";
+		spfvo.percent=0.8;
+		spfvo.sign=-1;
+		StandardPercentFunction spf=new StandardPercentFunction(spfvo);
+		List<List<Function>> risk=new ArrayList<List<Function>>();
+		risk.get(0).add(spf);
+		
 		try {
 			instance=new BackTest(stockList, flags,
-					cash, startdate, enddate, n, benchmark);
+					cash, startdate, enddate, n, benchmark,bFlag,risk);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -70,33 +89,34 @@ public class BackTestTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println(report);
 		return report;
 	}
 	public static void main(String[] args)
 	{
-		File file=new File("test.txt");
-		FileWriter fw=null;
-		try {
-			fw = new FileWriter(file);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		BufferedWriter bw=new BufferedWriter(fw);
-		try {
-			bw.write(new BackTestTest().test().toString());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
-			bw.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
-			fw.close();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-//		new BackTestTest().test();
+//		File file=new File("test.txt");
+//		FileWriter fw=null;
+//		try {
+//			fw = new FileWriter(file);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		BufferedWriter bw=new BufferedWriter(fw);
+//		try {
+//			bw.write(new BackTestTest().test().toString());
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		try {
+//			bw.close();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		try {
+//			fw.close();
+//		} catch (IOException e1) {
+//			e1.printStackTrace();
+//		}
+		new BackTestTest().test();
 	}
 }

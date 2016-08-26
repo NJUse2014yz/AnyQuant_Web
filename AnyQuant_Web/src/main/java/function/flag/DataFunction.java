@@ -11,7 +11,7 @@ import function.FunctionResult;
 import function.ResultType;
 
 public class DataFunction extends Function{
-	public String siid;
+//	public String siid;
 	public String attribute;
 	public int day;
 

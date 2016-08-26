@@ -7,7 +7,7 @@ import function.FunctionResult;
 import function.ResultType;
 /**指定持仓价值订单*/
 public class ValueTargetFunction extends Function{
-	public String siid;
+//	public String siid;
 	public double value;
 	public double price;
 	

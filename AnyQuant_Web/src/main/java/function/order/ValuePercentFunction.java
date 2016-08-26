@@ -9,7 +9,7 @@ import function.ResultType;
 public class ValuePercentFunction extends Function{
 	/**买入1，卖出-1*/
 	public int order;
-	public String siid;
+//	public String siid;
 	public double percent;
 	public double price;
 	

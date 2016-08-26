@@ -18,8 +18,11 @@ public class StrategyVO {
 	public List<ChooseStock> stockList;
 	/**选股方法列表(内列表各元素（类）'且'关系，外列表各元素（列表）'或'关系)*/
 	public List<List<Function>> choose;
+	/**风险控制*/
+	public List<List<Function>> risk;
 	/**交易标志方法和对应订单类型的列表，优先级高的排在前*/
 	public List<Flag> flags;
+	
 	
 	/**实测结果*/
 	public RealTestVO realTest;
@@ -33,19 +36,23 @@ public class StrategyVO {
 		this.strategyName = strategy.strategyName;
 		this.stockList=JsonExchangeTool.getStock(strategy.stockList);
 		this.choose=JsonExchangeTool.getFunction(strategy.choose);
+		this.risk=JsonExchangeTool.getFunction(strategy.risk);
 		this.flags=JsonExchangeTool.getFlag(strategy.flags);
 		this.realTest=JsonExchangeTool.getRealTest(strategy.realTest);
+		this.realTest.flags=this.flags;
+		this.realTest.risk=this.risk;
 	}
 	
 	public StrategyVO(String userName, String createrName, String strategyName,
 			List<ChooseStock> stockList, List<List<Function>> choose,
-			List<Flag> flags, RealTestVO realTest) {
+			List<List<Function>> risk,List<Flag> flags, RealTestVO realTest) {
 		super();
 		this.userName = userName;
 		this.createrName = createrName;
 		this.strategyName = strategyName;
 		this.stockList = stockList;
 		this.choose = choose;
+		this.risk=risk;
 		this.flags = flags;
 		this.realTest = realTest;
 	}
@@ -90,6 +97,14 @@ public class StrategyVO {
 		this.choose = choose;
 	}
 
+	public List<List<Function>> getRisk() {
+		return risk;
+	}
+
+	public void setRisk(List<List<Function>> risk) {
+		this.risk = risk;
+	}
+
 	public List<Flag> getFlags() {
 		return flags;
 	}
@@ -110,7 +125,8 @@ public class StrategyVO {
 	public String toString() {
 		return "StrategyVO [userName=" + userName + ", createrName="
 				+ createrName + ", strategyName=" + strategyName
-				+ ", stockList=" + stockList + ", choose=" + choose
-				+ ", flags=" + flags + ", realTest=" + realTest + "]";
+				+ ", stockList=" + stockList + ", choose=" + choose + ", risk="
+				+ risk + ", flags=" + flags + ", realTest=" + realTest + "]";
 	}
+
 }

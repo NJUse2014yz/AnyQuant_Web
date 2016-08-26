@@ -7,7 +7,7 @@ import function.FunctionResult;
 import function.ResultType;
 /**指定仓位股数订单*/
 public class ShareTargetFunction extends Function{
-	public String siid;
+//	public String siid;
 	public double share;
 	public double price;
 	

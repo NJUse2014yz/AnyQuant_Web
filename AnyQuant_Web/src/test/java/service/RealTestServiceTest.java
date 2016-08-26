@@ -16,6 +16,8 @@ import function.OrderFunction;
 import function.ResultType;
 import function.TestFunction;
 import function.choose.ChooseStock;
+import function.risk.StandardPercentFunction;
+import function.risk.StandardPercentVO;
 import service.impl.RealTestServiceImpl;
 import service.impl.StrategyServiceImpl;
 import vo.Flag;
@@ -38,8 +40,8 @@ public class RealTestServiceTest{
 		RealTestVO vo=new RealTestVO();
 		vo.cash=100000;
 		vo.n=1;
-		vo.stockList.add(new ChooseStock("test1",0.2));
-		vo.stockList.add(new ChooseStock("test2",0.8));
+		vo.stockList.add(new ChooseStock("sh600004",0.2));
+		vo.stockList.add(new ChooseStock("sh600008",0.8));
 		List<List<Function>> flagList=new ArrayList<List<Function>>();
 		flagList.add(new ArrayList<Function>());
 		FunctionResult resultUpI=new FunctionResult();
@@ -63,7 +65,14 @@ public class RealTestServiceTest{
 		flagList.get(0).add(testF);
 		
 		OrderFunction orderType=new OrderFunction();
+		orderType.siid="sh600004";
 		vo.flags.add(new Flag(orderType,flagList));
+		StandardPercentVO spfvo=new StandardPercentVO();
+		spfvo.attribute="close";
+		spfvo.sign=-1;
+		spfvo.percent=0.8;
+		spfvo.standard="m20";
+		vo.risk.get(0).add(new StandardPercentFunction(spfvo));
 		vo.numlist.add(0);
 		vo.numlist.add(0);
 		instance.realTestForToday(vo);

@@ -4,6 +4,7 @@ import java.sql.Date;
 
 /**所有的工具方法的接口*/
 public abstract class Function {
+	public String siid;
 	public String function;
 	/**方法买入结果的上界*/
 	public FunctionResult resultUpI;

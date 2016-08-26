@@ -14,7 +14,7 @@ import tool.ListTool;
 /**趋势判断*/
 public class TrendFunction extends Function{
 	/**股票代码*/
-	public String siid;
+//	public String siid;
 	/**数据属性，具体见ListTool的switch中*/
 	public String attribute;
 	/**天数*/
@@ -74,6 +74,14 @@ public class TrendFunction extends Function{
 
 	public void setStandard(double standard) {
 		this.standard = standard;
+	}
+
+	public int getDay() {
+		return day;
+	}
+
+	public void setDay(int day) {
+		this.day = day;
 	}
 
 	@Override

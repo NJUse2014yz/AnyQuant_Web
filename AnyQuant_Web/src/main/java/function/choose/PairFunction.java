@@ -9,7 +9,7 @@ import function.ResultType;
 /**配对选股方法*/
 public class PairFunction extends Function{
 	/**主动配对的股票代码*/
-	public String siid;
+//	public String siid;
 	/**配对股票数（1或2或3）*/
 	public int num;
 	
@@ -27,12 +27,6 @@ public class PairFunction extends Function{
 		return result;
 	}
 	
-//	public String getFunction() {
-//		return function;
-//	}
-//	public void setFunction(String function) {
-//		this.function = function;
-//	}
 	public String getSiid() {
 		return siid;
 	}

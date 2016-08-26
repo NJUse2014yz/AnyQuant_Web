@@ -15,6 +15,8 @@ public class RealTestVO {
 	public int n;
 	/**股票池*/
 	public List<ChooseStock> stockList;
+	/**风险控制*/
+	public List<List<Function>> risk;
 	/**交易标志和订单类型的列表*/
 	public List<Flag> flags;
 	/**各股持股*/
@@ -26,6 +28,8 @@ public class RealTestVO {
 		cash=10000;
 		n=1;
 		stockList=new ArrayList<ChooseStock>();
+		risk=new ArrayList<List<Function>>();
+		risk.add(new ArrayList<Function>());
 		flags=new ArrayList<Flag>();
 		numlist=new ArrayList<Integer>();
 		capital=new ArrayList<DateDouble>();
@@ -33,7 +37,7 @@ public class RealTestVO {
 	
 	public RealTestVO(double cash, int n, List<ChooseStock> stockList,
 			List<Flag> flags, List<Integer> numList,
-			List<DateDouble> capital) {
+			List<DateDouble> capital,List<List<Function>> risk) {
 		super();
 		this.cash = cash;
 		this.n = n;
@@ -41,6 +45,7 @@ public class RealTestVO {
 		this.flags = flags;
 		this.numlist = numList;
 		this.capital = capital;
+		this.risk=risk;
 	}
 	public double getCash() {
 		return cash;
@@ -70,7 +75,7 @@ public class RealTestVO {
 	@Override
 	public String toString() {
 		return "RealTestVO [cash=" + cash + ", n=" + n + ", stockList="
-				+ stockList + ", flags=" + flags + ", numlist=" + numlist
-				+ ", capital=" + capital + "]";
+				+ stockList + ", risk=" + risk + ", flags=" + flags
+				+ ", numlist=" + numlist + ", capital=" + capital + "]";
 	}
 }

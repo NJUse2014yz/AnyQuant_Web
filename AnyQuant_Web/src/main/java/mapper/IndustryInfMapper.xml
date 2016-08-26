@@ -13,6 +13,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectIndustryInfSid_all" resultType="String">
 		select distinct sid from IndustryInf
 	</select>
+	<select id="selectSid_industry" parameterType="String" resultType="String">
+		select distinct sid from IndustryInf
+		where cname=#{value}
+	</select>
 	
 	<select id="selectIndustryInf_cname" parameterType="IndustryInfPack" resultType="IndustryInf">
 		select * from IndustryInf

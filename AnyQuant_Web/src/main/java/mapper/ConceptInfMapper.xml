@@ -13,7 +13,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectConceptInfSid_all" resultType="String">
 		select distinct sid from ConceptInf
 	</select>
-	
+	<select id="selectSid_concept" parameterType="String" resultType="String">
+		select distinct sid from ConceptInf
+		where cname=#{value}
+	</select>
 	<select id="selectConceptInf_cname" parameterType="ConceptInfPack" resultType="ConceptInf">
 		select * from ConceptInf
 		where cname=#{cname}

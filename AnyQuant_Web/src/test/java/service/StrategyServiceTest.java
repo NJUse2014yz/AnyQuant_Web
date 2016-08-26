@@ -30,6 +30,8 @@ import function.choose.PairVO;
 import function.flag.TrendFunction;
 import function.flag.TrendVO;
 import function.order.ShareFunction;
+import function.risk.StandardPercentFunction;
+import function.risk.StandardPercentVO;
 
 public class StrategyServiceTest {
 	public static ApplicationContext applicationContext1 =new ClassPathXmlApplicationContext("classpath:configure/spring/applicationContext-dao.xml");
@@ -47,7 +49,7 @@ public class StrategyServiceTest {
 		String userName="u1";
 		String createrName="u1";
 		//strategyName
-		String strategyName="s2";
+		String strategyName="s1";
 		//choose
 //		int num=1;
 //		PairVO pairVO=new PairVO(siid,num);
@@ -68,6 +70,32 @@ public class StrategyServiceTest {
 		stockList.add(new ChooseStock(siid,1));
 //		stockList.add(new ChooseStock(siid,0.505));
 //		stockList.add(new ChooseStock(partner,0.495));
+		//risk
+		StandardPercentVO spvo=new StandardPercentVO();
+		spvo.setAttribute("close");
+		spvo.setStandard("m20");
+		spvo.setPercent(0.8);
+		spvo.setSign(-1);
+		Function StandardPercentFunction=new StandardPercentFunction(spvo);
+		FunctionResult upFRI=new FunctionResult();
+		upFRI.location.add(ResultType.BOOLEAN);
+		upFRI.rB=true;
+		FunctionResult downFRI=new FunctionResult();
+		downFRI.location.add(ResultType.BOOLEAN);
+		downFRI.rB=true;
+		FunctionResult upFRO=new FunctionResult();
+		upFRO.location.add(ResultType.BOOLEAN);
+		upFRO.rB=true;
+		FunctionResult downFRO=new FunctionResult();
+		downFRO.location.add(ResultType.BOOLEAN);
+		downFRO.rB=true;
+		StandardPercentFunction.setResultDownI(downFRI);
+		StandardPercentFunction.setResultDownO(downFRO);
+		StandardPercentFunction.setResultUpI(upFRI);
+		StandardPercentFunction.setResultUpO(upFRO);
+		List<List<Function>> risk=new ArrayList<List<Function>>();
+		risk.add(new ArrayList<Function>());
+		risk.get(0).add(StandardPercentFunction);
 		//flag1
 		String attribute1="m10";
 		String attribute2="m5";
@@ -95,7 +123,7 @@ public class StrategyServiceTest {
 		ShareFunction share=new ShareFunction();
 		List<Flag> flags=new ArrayList<Flag>();
 		flags.add(new Flag(share,flag));
-		StrategyVO strategy=new StrategyVO(userName,createrName,strategyName,stockList,choose,flags,null);
+		StrategyVO strategy=new StrategyVO(userName,createrName,strategyName,stockList,choose,risk,flags,null);
 		
 		instance.makeStrategy(strategy);
 	}
@@ -107,12 +135,14 @@ public class StrategyServiceTest {
 		String strategyName=strategy.strategyName;
 		List<ChooseStock> stockList=strategy.stockList;
 		List<Function> choose=strategy.choose.get(0);
+		List<List<Function>> risk=strategy.risk;
 		List<Flag> flag=strategy.flags;
 		System.out.println(userName);
 		System.out.println(createrName);
 		System.out.println(strategyName);
 		System.out.println(stockList);
 		System.out.println(choose);
+		System.out.println(risk);
 		System.out.println(flag);
 		System.out.println(strategy.realTest);
 	}
@@ -163,9 +193,9 @@ public class StrategyServiceTest {
 	public static void main(String[] args)
 	{
 //		StrategyServiceTest.makeStrategy();
-//		StrategyServiceTest.getStrategy();
+		StrategyServiceTest.getStrategy();
 //		StrategyServiceTest.getSelfStrategy();
 //		StrategyServiceTest.getSaveStrategy();
-		new StrategyServiceTest().getFunction();
+//		new StrategyServiceTest().getFunction();
 	}
 }

@@ -9,7 +9,13 @@ import vo.Flag;
 import vo.RealTestVO;
 import function.Function;
 import function.FunctionResult;
+import function.choose.AreaFunction;
+import function.choose.AreaVO;
 import function.choose.ChooseStock;
+import function.choose.ConceptFunction;
+import function.choose.ConceptVO;
+import function.choose.IndustryFunction;
+import function.choose.IndustryVO;
 import function.choose.PairFunction;
 import function.choose.PairVO;
 import function.flag.CrossFunction;
@@ -25,6 +31,8 @@ import function.order.ShareTargetFunction;
 import function.order.ValueFunction;
 import function.order.ValuePercentFunction;
 import function.order.ValueTargetFunction;
+import function.risk.StandardPercentFunction;
+import function.risk.StandardPercentVO;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
@@ -40,8 +48,8 @@ public class JsonExchangeTool {
 		{
 			jObject=(JSONObject) jArray.get(i);
 //			System.out.println(jObject);
-			String siid=(String)jObject.get("siid");
-			Double percent=(Double)jObject.get("percent");
+			String siid=jObject.getString("siid");
+			Double percent=jObject.getDouble("percent");
 			list.add(new ChooseStock(siid,percent));
 		}
 		return list;
@@ -95,7 +103,13 @@ public class JsonExchangeTool {
 				FunctionResult upFRO=null;
 				FunctionResult downFRO=null;
 				int day=0;
+				int sign=0;
 				double standard=0;
+				double percent=0;
+				String standardAttr=null;
+				String area=null;
+				String concept=null;
+				String industry=null;
 				String function=(String) jObject.get("function");
 				upFRJI=(JSONObject)jObject.get("resultUpI");
 				downFRJI=(JSONObject)jObject.get("resultDownI");
@@ -227,7 +241,28 @@ public class JsonExchangeTool {
 					num=jObject.getInt("num");
 					list.get(i).add(new PairFunction(new PairVO(siid,num)));
 					break;
-					
+				case "Area":
+					area=jObject.getString("area");
+					list.get(i).add(new AreaFunction(new AreaVO(area)));
+					break;
+				case "Concept":
+					concept=jObject.getString("concept");
+					list.get(i).add(new ConceptFunction(new ConceptVO(concept)));
+					break;
+				case "Industry":
+					industry=jObject.getString("industry");
+					list.get(i).add(new IndustryFunction(new IndustryVO(industry)));
+					break;
+				
+				case "StandardPercent":
+					sign=jObject.getInt("sign");
+					siid=jObject.getString("siid");
+					attribute=jObject.getString("attribute");
+					standardAttr=jObject.getString("standard");
+					percent=jObject.getDouble("percent");
+					list.get(i).add(new StandardPercentFunction(new StandardPercentVO(sign,siid,attribute,standardAttr,percent)));
+					break;
+				
 				case "Trend":
 					siid=(String)jObject.get("siid");
 					attribute=(String)jObject.get("attribute");
