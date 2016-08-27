@@ -98,7 +98,7 @@ public class RealTestServiceTest{
 	{
 		RealTestServiceTest test=new RealTestServiceTest();
 //		test.initRealTest();
-//		test.saveRealTest();
-		test.realTestForToday();
+		test.saveRealTest();
+//		test.realTestForToday();
 	}
 }

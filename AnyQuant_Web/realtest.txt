@@ -1,0 +1,13 @@
+flags [
+Flag [
+orderType=ShareFunction [order=0, siid=sh600004, share=10.0, price=0.0], 
+flagList=[[TrendFunction [siid=sh600004, attribute=m10, day=30, standard=0.5]]]
+]
+]
+
+今日价格： [13.47]
+买入sh600004 10.0股;价格13.47
+卖出sh600004 10.0股;价格13.47
+今日资本: DateDouble [date=1472259039830, value=49999.1939]
+各股持股[0]
+

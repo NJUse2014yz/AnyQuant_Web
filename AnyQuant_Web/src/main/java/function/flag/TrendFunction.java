@@ -41,6 +41,9 @@ public class TrendFunction extends Function{
 		Date end=today;
 		List<TrendPoint> trendList=new ArrayList<TrendPoint>();
 		List<Double> list=new ListTool().getList(siid,attribute,start,end);
+		
+		System.out.println(list);
+		
 		for(int i=0;i<list.size();i++)
 		{
 			trendList.add(new TrendPoint(i,list.get(i)));

@@ -121,6 +121,8 @@ public class StrategyServiceTest {
 		flag.add(new ArrayList<Function>());
 		flag.get(0).add(trend);
 		ShareFunction share=new ShareFunction();
+		share.siid="sh600004";
+		share.share=10;
 		List<Flag> flags=new ArrayList<Flag>();
 		flags.add(new Flag(share,flag));
 		StrategyVO strategy=new StrategyVO(userName,createrName,strategyName,stockList,choose,risk,flags,null);
@@ -190,10 +192,16 @@ public class StrategyServiceTest {
 		System.out.println(instance.getQuotaDisRnk("m5"));
 		System.out.println(instance.getStrategyDisRnk("五日金叉策略"));
 	}
+	public static void deleteStrategy()
+	{
+		instance.deleteStrategy("u1","u1","s1");
+	}
 	public static void main(String[] args)
 	{
-//		StrategyServiceTest.makeStrategy();
-		StrategyServiceTest.getStrategy();
+		StrategyServiceTest.deleteStrategy();
+		StrategyServiceTest.makeStrategy();
+		
+//		StrategyServiceTest.getStrategy();
 //		StrategyServiceTest.getSelfStrategy();
 //		StrategyServiceTest.getSaveStrategy();
 //		new StrategyServiceTest().getFunction();

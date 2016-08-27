@@ -66,227 +66,227 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by id
 	</select>
 	
-	<select id="selectM5" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectM5" parameterType="DatePack" resultType="Double">
 		select m5 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectM10" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectM10" parameterType="DatePack" resultType="Double">
 		select m10 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectM20" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectM20" parameterType="DatePack" resultType="Double">
 		select m20 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectM30" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectM30" parameterType="DatePack" resultType="Double">
 		select m30 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectBias5" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectBias5" parameterType="DatePack" resultType="Double">
 		select bias5 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectBias10" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectBias10" parameterType="DatePack" resultType="Double">
 		select bias10 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectBias20" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectBias20" parameterType="DatePack" resultType="Double">
 		select bias20 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectBoll1" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectBoll1" parameterType="DatePack" resultType="Double">
 		select boll1 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectBoll2" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectBoll2" parameterType="DatePack" resultType="Double">
 		select boll2 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectBoll3" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectBoll3" parameterType="DatePack" resultType="Double">
 		select boll3 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectRsi" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectRsi" parameterType="DatePack" resultType="Double">
 		select rsi from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectRsi5" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectRsi5" parameterType="DatePack" resultType="Double">
 		select rsi5 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectRsi10" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectRsi10" parameterType="DatePack" resultType="Double">
 		select rsi10 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectRsi20" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectRsi20" parameterType="DatePack" resultType="Double">
 		select rsi20 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectVr" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectVr" parameterType="DatePack" resultType="Double">
 		select vr from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectRsv" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectRsv" parameterType="DatePack" resultType="Double">
 		select rsv from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectK" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectK" parameterType="DatePack" resultType="Double">
 		select k from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectD" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectD" parameterType="DatePack" resultType="Double">
 		select d from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectJ" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectJ" parameterType="DatePack" resultType="Double">
 		select  from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectEma12" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectEma12" parameterType="DatePack" resultType="Double">
 		select ema12 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectEma26" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectEma26" parameterType="DatePack" resultType="Double">
 		select ema26 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectEma50" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectEma50" parameterType="DatePack" resultType="Double">
 		select ema50 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectEma5" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectEma5" parameterType="DatePack" resultType="Double">
 		select ma5 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectEma35" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectEma35" parameterType="DatePack" resultType="Double">
 		select ema35 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectEma10" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectEma10" parameterType="DatePack" resultType="Double">
 		select ma10 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectEma60" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectEma60" parameterType="DatePack" resultType="Double">
 		select ema60 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectDiff" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectDiff" parameterType="DatePack" resultType="Double">
 		select diff from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectDea" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectDea" parameterType="DatePack" resultType="Double">
 		select dea from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectMacd" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectMacd" parameterType="DatePack" resultType="Double">
 		select macd from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectDmh" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectDmh" parameterType="DatePack" resultType="Double">
 		select dmh from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectDml" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectDml" parameterType="DatePack" resultType="Double">
 		select dml from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectTr" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectTr" parameterType="DatePack" resultType="Double">
 		select tr from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectDmh12" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectDmh12" parameterType="DatePack" resultType="Double">
 		select dmh12 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectDml12" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectDml12" parameterType="DatePack" resultType="Double">
 		select dml12 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectTr12" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectTr12" parameterType="DatePack" resultType="Double">
 		select tr12 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectDih" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectDih" parameterType="DatePack" resultType="Double">
 		select dih from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectDil" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectDil" parameterType="DatePack" resultType="Double">
 		select dil from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectDih12" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectDih12" parameterType="DatePack" resultType="Double">
 		select dih12 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectDil12" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectDil12" parameterType="DatePack" resultType="Double">
 		select dil12 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectDx" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectDx" parameterType="DatePack" resultType="Double">
 		select dx from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectAdx" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectAdx" parameterType="DatePack" resultType="Double">
 		select adx from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectAdxr" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectAdxr" parameterType="DatePack" resultType="Double">
 		select adxr from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectObv" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectObv" parameterType="DatePack" resultType="Double">
 		select obv from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectRoc12" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectRoc12" parameterType="DatePack" resultType="Double">
 		select roc12 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id
 	</select>
-	<select id="selectRoc25" parameterType="DatePack" resultType="QuotaData">
+	<select id="selectRoc25" parameterType="DatePack" resultType="Double">
 		select roc25 from QuotaData_${siid}
 		where date between #{date1} and #{date2}
 		order by id

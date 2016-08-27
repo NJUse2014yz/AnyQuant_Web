@@ -39,6 +39,7 @@ public class StrategyVO {
 		this.risk=JsonExchangeTool.getFunction(strategy.risk);
 		this.flags=JsonExchangeTool.getFlag(strategy.flags);
 		this.realTest=JsonExchangeTool.getRealTest(strategy.realTest);
+		this.realTest.stockList=this.stockList;
 		this.realTest.flags=this.flags;
 		this.realTest.risk=this.risk;
 	}

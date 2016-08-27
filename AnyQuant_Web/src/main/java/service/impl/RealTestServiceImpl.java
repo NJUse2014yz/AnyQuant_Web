@@ -1,5 +1,9 @@
  package service.impl;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -43,26 +47,46 @@ public class RealTestServiceImpl implements RealTestService {
 
 	@Override
 	public void realTestForToday(RealTestVO vo) {//在15:00之后调用 TODO 开发通知功能
+		File file=new File("realtest.txt");
+		FileWriter fw=null;
+		try {
+			fw = new FileWriter(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		BufferedWriter bw=new BufferedWriter(fw);
+		try {
+			bw.write("flags "+vo.flags+"\r\n\r\n");
+		} catch (IOException e2) {
+			e2.printStackTrace();
+		}
+	/***********************************************/
 		this.vo=vo;
 		List<Double> priceList=new ArrayList<Double>();
 		for(int i=0;i<vo.stockList.size();i++)
 		{
 			double close=0;
 			try {
-				close=hisMapper.selectHistoryData_new_single(vo.stockList.get(i).siid).getClose();//买进价格为今日收盘价/*=====================*/
+				close=hisMapper.selectHistoryData_new_single(vo.stockList.get(i).siid).getOpen();//买进价格为今日开盘价/*=====================*/
 //				close=10;/*=============================*/
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
 			try {
-//				System.out.println(close);
 				priceList.add(close);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
 		}
-	
+		
+		/*===========================*/
+		try {
+			bw.write("今日价格： "+priceList+"\n");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		/*===========================*/
+		
 		//一天的不同订单
 		List<Function> inOrder=new ArrayList<Function>();
 		//一天的不同订单
@@ -169,22 +193,46 @@ public class RealTestServiceImpl implements RealTestService {
 		
 			if(flagOutI)
 			{
-//				bw.write("买入\r\n");/*=======================*/
 				inOrder.add(setOrder(orderType.function,1,orderType.getResult(null).rS,orderType.getResult(null).rD,priceList.get(getNum(orderType.getResult(null).rS))));
+//				/*=======================*/
+//				try {
+//					bw.write("买入\r\n");
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//				/*=======================*/
 			}
 			else
 			{
-//				bw.write("不买\r\n");/*=======================*/
+//				/*=======================*/
+//				try {
+//					bw.write("不买\r\n");
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//				/*=======================*/
 				inOrder.add(null);
 			}
 			if(flagOutO)
 			{
-//				bw.write("卖出\r\n");/*=======================*/
+//				/*=======================*/
+//				try {
+//					bw.write("卖出\r\n");
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//				/*=======================*/
 				outOrder.add(setOrder(orderType.function,-1,orderType.getResult(null).rS,orderType.getResult(null).rD,priceList.get(getNum(orderType.getResult(null).rS))));
 			}
 			else
 			{
-//				bw.write("不卖\r\n");/*=======================*/
+//				/*=======================*/
+//				try {
+//					bw.write("不卖\r\n");
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//				/*=======================*/
 				outOrder.add(null);
 			}
 		}
@@ -197,33 +245,63 @@ public class RealTestServiceImpl implements RealTestService {
 			if(inOrder.get(k)!=null)
 			{
 				ShareFunction order=(ShareFunction)inOrder.get(k);
-				int j=getNum(order.getResult(null).rS);
+				String target=order.getResult(null).rS;
+				int j=getNum(target);
 				if(vo.cash-order.share*order.price*(1+inTaxRatio)<0)
 				{
 					int share=(int) (vo.cash*(1-inTaxRatio)/order.price);
 					vo.cash-=share*order.price*(1+inTaxRatio);
 					vo.numlist.set(j,vo.numlist.get(j)+share);//加仓
 					inprice+=share*order.price;
+					/*=========================*/
+					try {
+						bw.write("买入"+target+" "+share+"股;价格"+order.price+"\n");
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					/*=========================*/
 				}
 				else
 				{
 					vo.cash-=order.share*order.price*(1+inTaxRatio);
 					vo.numlist.set(j,vo.numlist.get(j)+(int)order.share);//加仓
 					inprice+=order.share*order.price;
+					/*=========================*/
+					try {
+						bw.write("买入"+target+" "+order.share+"股;价格"+order.price+"\n");
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					/*=========================*/
 				}
 			}
 			if(outOrder.get(k)!=null)
 			{
-				ShareFunction order=(ShareFunction)outOrder.get(k);								
-				int j=getNum(order.getResult(null).rS);
+				ShareFunction order=(ShareFunction)outOrder.get(k);
+				String target=order.getResult(null).rS;
+				int j=getNum(target);
 				if(order.share<=vo.numlist.get(j))
 				{
 					vo.cash+=order.share*order.price*(1-outTaxRatio);
 					vo.numlist.set(j,vo.numlist.get(j)-(int)order.share);
 					outprice+=order.share*order.price;
+					/*=========================*/
+					try {
+						bw.write("卖出"+target+" "+order.share+"股;价格"+order.price+"\n");
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					/*=========================*/
 				}
 				else
 				{
+					/*=========================*/
+					try {
+						bw.write("卖出"+target+" "+vo.numlist.get(i)+"股;价格"+order.price+"\n");
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					/*=========================*/
 					vo.cash+=vo.numlist.get(j)*order.price*(1-outTaxRatio);
 					vo.numlist.set(j,0);//减仓
 					outprice+=vo.numlist.get(j)*order.price;
@@ -247,6 +325,13 @@ public class RealTestServiceImpl implements RealTestService {
 				if(avoidRiskOut)
 				{
 					double price=priceList.get(j);
+					/*==========================*/
+					try {
+						bw.write("风险控制： 清空股票"+vo.stockList.get(j).siid+" "+vo.numlist.get(j)+"股;价格"+price+"\n");
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					/*==========================*/
 					vo.cash+=vo.numlist.get(j)*price*(1-outTaxRatio);
 					vo.numlist.set(j,0);//减仓
 					outprice+=vo.numlist.get(j)*price;
@@ -255,6 +340,35 @@ public class RealTestServiceImpl implements RealTestService {
 			
 		}
 		vo.capital.add(new DateDouble(Calendar.getInstance().getTimeInMillis(),capitaltoday+vo.cash));
+		
+		/*==========================*/
+		try {
+			bw.write("今日资本: "+vo.capital.get(vo.capital.size()-1)+"\n");
+		} catch (IOException e3) {
+			e3.printStackTrace();
+		}
+		try {
+			bw.write("各股持股"+vo.numlist+"\n\n");
+		} catch (IOException e2) {
+			e2.printStackTrace();
+		}
+		/*==========================*/
+		
+		/*==========================*/
+		try {
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			fw.close();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		/*==========================*/
+		System.out.println(vo.stockList);
+		System.out.println(vo.flags);
+		System.out.println(vo.risk);
 //		System.out.println(vo.capital);/*======================*/
 	}
 
@@ -291,14 +405,16 @@ public class RealTestServiceImpl implements RealTestService {
 	
 	public int getNum(String siid)
 	{
-		int num=0;
+		System.out.println(siid);
 		for(int i=0;i<vo.stockList.size();i++)
 		{
 			if(vo.stockList.get(i).siid.equals(siid))
 			{
+				System.out.println(i);
 				return i;
 			}
 		}
+		System.out.println(-1);
 		return -1;
 	}
 	

@@ -28,7 +28,7 @@ public class Flag {
 	}
 	@Override
 	public String toString() {
-		return "Flag [orderType=" + orderType + ", flagList=" + flagList
-				+ "]";
+		return "\nFlag [orderType=" + orderType + ",\nflagList=" + flagList
+				+ "\n]\n";
 	}
 }

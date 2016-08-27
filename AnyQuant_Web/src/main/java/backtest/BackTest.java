@@ -108,16 +108,16 @@ public class BackTest {
 	
 	public TestReport test() throws Exception
 	{
-//		File file=new File("test.txt");
-//		FileWriter fw=null;
-//		try {
-//			fw = new FileWriter(file);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		BufferedWriter bw=new BufferedWriter(fw);
-//		bw.write("flags "+flags+"\r\n\r\n");
-//	/***********************************************/
+		File file=new File("test.txt");
+		FileWriter fw=null;
+		try {
+			fw = new FileWriter(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		BufferedWriter bw=new BufferedWriter(fw);
+		bw.write("flags "+flags+"\r\n\r\n");
+	/***********************************************/
 		
 		//交易订单类型
 		int b=stockList.size()-1;
@@ -157,20 +157,20 @@ public class BackTest {
 		capital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(0).getDate().getTime(),cash));
 		bCapital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(0).getDate().getTime(),bCash));
 
-		//建仓,假设没有税费,从此次开始买入和卖出均用收盘价 TODO
+		//建仓,假设没有税费,从此次开始买入和卖出均用开盘价 TODO
 		for(int i=0;i<stockList.size()-1;i++)
 		{
-			numlist.add((int)(cash*stockList.get(i).percent/HQstatisticlist.get(i).hislist.get(0).getClose()));/*==========\\\\===========*/
+			numlist.add((int)(cash*stockList.get(i).percent/HQstatisticlist.get(i).hislist.get(0).getOpen()));/*==========\\\\===========*/
 //			numlist.add(500);/*==========\\\\===========*/
 		}
 		for(int i=0;i<stockList.size()-1;i++)
 		{
-			cash-=numlist.get(i)*HQstatisticlist.get(i).hislist.get(0).getClose();/*==========\\\\===========*/
+			cash-=numlist.get(i)*HQstatisticlist.get(i).hislist.get(0).getOpen();/*==========\\\\===========*/
 //			cash-=numlist.get(i)*10;/*==========\\\\===========*/
 		}
 		//---------------基准
-		int bNum=(int)(bCash/HQstatisticlist.get(b).hislist.get(0).getClose());/*==========\\\\===========*/
-		bCash-=bNum*HQstatisticlist.get(b).hislist.get(0).getClose();/*==========\\\\===========*/
+		int bNum=(int)(bCash/HQstatisticlist.get(b).hislist.get(0).getOpen());/*==========\\\\===========*/
+		bCash-=bNum*HQstatisticlist.get(b).hislist.get(0).getOpen();/*==========\\\\===========*/
 		numlist.add(bNum);/*==========\\\\===========*/
 //		int bNum=500;/*==========\\\\===========*/
 //		bCash-=bNum*10;/*==========\\\\===========*/
@@ -182,9 +182,9 @@ public class BackTest {
 		List<Double> inPrice=new ArrayList<Double>();
 		List<Double> outPrice=new ArrayList<Double>();
 		
-//		/*=================*/
-//		bw.write("初始情况"+numlist+" "+cash+"\n\n");
-//		/*=================*/
+		/*=================*/
+		bw.write("初始情况"+numlist+" "+cash+"\n\n");
+		/*=================*/
 		
 		//下订单
 		List<Double> lenList=new ArrayList<Double>();
@@ -194,7 +194,7 @@ public class BackTest {
 		}
 		int length=(int) MMSTool.min_double(lenList);
 		int counter=0;
-		for(int m=n-1+1;m<length;m=m+n)//n=10默认每五天
+		for(int m=n-1+1;m<length;m=m+n)//n=1默认每天
 		{//每个交易日
 			counter++;
 			inOrder.clear();
@@ -305,10 +305,11 @@ public class BackTest {
 //					bw.write("外部买入标志 "+flagOutI+" 外部卖出标志 "+flagOutO+"\r\n");/*=======================*/
 				}
 
+				FunctionResult result=orderType.getResult(null);
 				if(flagOutI)
 				{
 //					bw.write("买入"+orderType.getResult(null).rS+"\r\n");/*=======================*/
-					inOrder.add(setOrder(orderType.function,1,orderType.getResult(null).rS,orderType.getResult(null).rD,HQstatisticlist.get(getNum(orderType.getResult(null).rS)).hislist.get(m).getClose()));
+					inOrder.add(setOrder(orderType.function,1,orderType.siid,result.rD,HQstatisticlist.get(getNum(orderType.siid)).hislist.get(m).getOpen()));
 					
 				}
 				else
@@ -319,7 +320,7 @@ public class BackTest {
 				if(flagOutO)
 				{
 //					bw.write("卖出"+orderType.getResult(null).rS+"\r\n");/*=======================*/
-					outOrder.add(setOrder(orderType.function,-1,orderType.getResult(null).rS,orderType.getResult(null).rD,HQstatisticlist.get(getNum(orderType.getResult(null).rS)).hislist.get(m).getClose()));
+					outOrder.add(setOrder(orderType.function,-1,orderType.siid,result.rD,HQstatisticlist.get(getNum(orderType.siid)).hislist.get(m).getOpen()));
 				}
 				else
 				{
@@ -329,8 +330,8 @@ public class BackTest {
 			}
 			
 //			/*======================*/
-//			bw.write("今日买入订单"+inOrder+"\n");
-//			bw.write("今日卖出订单"+outOrder+"\n");
+			bw.write("今日买入订单"+inOrder+"\n");
+			bw.write("今日卖出订单"+outOrder+"\n");
 //			/*======================*/
 			
 			
@@ -343,11 +344,11 @@ public class BackTest {
 				if(inOrder.get(k)!=null)
 				{
 					ShareFunction order=(ShareFunction)inOrder.get(k);
-					int j=getNum(order.getResult(null).rS);
+					int j=getNum(order.siid);
 					if(cash-order.share*order.price*(1+inTaxRatio)<0)
 					{
 						int share=(int) (cash*(1-inTaxRatio)/order.price);
-//						bw.write("买入"+order.getResult(null).rS+"股数： "+share+"\n");/*==========================*/
+						bw.write("买入"+order.siid+";股数： "+share+";价格: "+order.price+"\n");/*==========================*/
 						cash-=share*order.price*(1+inTaxRatio);
 						numlist.set(j,numlist.get(j)+share);//加仓
 						inprice+=share*order.price;
@@ -355,26 +356,26 @@ public class BackTest {
 					else
 					{
 						cash-=order.share*order.price*(1+inTaxRatio);
-//						bw.write("买入"+order.getResult(null).rS+"股数： "+order.share+"\n");/*==========================*/
+						bw.write("买入"+order.siid+"股数： "+order.share+";价格: "+order.price+"\n");/*==========================*/
 						numlist.set(j,numlist.get(j)+(int)order.share);//加仓
 						inprice+=order.share*order.price;
 					}
 				}
 				if(outOrder.get(k)!=null)
 				{
-					ShareFunction order=(ShareFunction)outOrder.get(k);								
-					int j=getNum(order.getResult(null).rS);
+					ShareFunction order=(ShareFunction)outOrder.get(k);
+					int j=getNum(order.siid);
 					if(order.share<=numlist.get(j))
 					{
 						cash+=order.share*order.price*(1-outTaxRatio);
-//						bw.write("卖出"+order.getResult(null).rS+"股数： "+order.share+"\n");/*==========================*/
+						bw.write("卖出"+order.siid+"股数： "+order.share+";价格: "+order.price+"\n");/*==========================*/
 						numlist.set(j,numlist.get(j)-(int)order.share);
 						outprice+=order.share*order.price;
 					}
 					else
 					{
 						cash+=numlist.get(j)*order.price*(1-outTaxRatio);
-//						bw.write("卖出"+order.getResult(null).rS+"股数： "+numlist.get(j)+"\n");/*==========================*/
+						bw.write("卖出"+order.siid+"股数： "+numlist.get(j)+";价格: "+order.price+"\n");/*==========================*/
 						numlist.set(j,0);//减仓
 						outprice+=numlist.get(j)*order.price;
 					}
@@ -462,18 +463,18 @@ public class BackTest {
 			bCapital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(m).getDate().getTime(),bCapitalToday+bCash));
 		}
 		
-//		/*==========================*/
-//		try {
-//			bw.close();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		try {
-//			fw.close();
-//		} catch (IOException e1) {
-//			e1.printStackTrace();
-//		}
-//		/*==========================*/
+		/*==========================*/
+		try {
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			fw.close();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		/*==========================*/
 		
 		//生成回测报告
 		TestReport testReport=new TestReport(HQstatisticlist.get(0).hislist.size()/n,capital,bCapital,inPrice,outPrice);

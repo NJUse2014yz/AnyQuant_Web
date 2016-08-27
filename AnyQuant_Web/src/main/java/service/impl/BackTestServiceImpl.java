@@ -49,9 +49,9 @@ public class BackTestServiceImpl implements BackTestService {
 	public TestReport backtest(List<ChooseStock> stockList, List<Flag> flags,
 			int n,Flag bFlag,List<List<Function>> risk) throws Exception {
 		Date enddate=new Date(Calendar.getInstance().getTimeInMillis());
-		Date startdate=new Date(enddate.getYear()-1,enddate.getMonth(),enddate.getDate()-1);
+		Date startdate=new Date(enddate.getYear(),enddate.getMonth()-5,enddate.getDate()-1);
 		double cash=100000;
-		String benchmark="sh000300";
+		String benchmark="sh000001";
 		BackTest backTest=new BackTest(stockList, flags, cash, startdate, enddate, n, benchmark,bFlag,risk);
 		TestReport report=backTest.test();
 		return report;
