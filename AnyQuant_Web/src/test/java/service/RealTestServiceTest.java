@@ -91,13 +91,13 @@ public class RealTestServiceTest{
 		StrategyVO strategy=stImpl.getSingleStrategy("u1","u1","s1");
 		RealTestVO vo=strategy.getRealTest();
 		
-		instance.realTestForToday(vo);
+		System.out.println(instance.realTestForToday(vo));
 		instance.saveRealTest(strategy.userName, strategy.createrName, strategy.strategyName, vo);
 	}
 	public static void main(String[] args)
 	{
 		RealTestServiceTest test=new RealTestServiceTest();
-//		test.initRealTest();
+		test.initRealTest();
 		test.saveRealTest();
 //		test.realTestForToday();
 	}

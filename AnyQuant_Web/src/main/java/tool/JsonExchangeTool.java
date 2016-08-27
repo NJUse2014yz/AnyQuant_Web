@@ -381,6 +381,13 @@ public class JsonExchangeTool {
 				numList.add((int)jNum.get(i));
 			}
 			vo.setNumList(numList);
+			JSONArray jHistory=(JSONArray) jObject.get("history");
+			List<String> history=new ArrayList<String>();
+			for(int i=0;i<jHistory.size();i++)
+			{
+				history.add(jHistory.getString(i));
+			}
+			vo.setHistory(history);
 		} catch(JSONException e)
 		{
 			return new RealTestVO();

@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.sf.json.JSONObject;
 
@@ -25,6 +27,7 @@ import mapper.StrategyMapper;
 import po.Strategy;
 import po.StrategySearch;
 import service.RealTestService;
+import tool.DateExchangeTool;
 import vo.RealTestVO;
 import vo.StrategyVO;
 
@@ -46,21 +49,23 @@ public class RealTestServiceImpl implements RealTestService {
 	}
 
 	@Override
-	public void realTestForToday(RealTestVO vo) {//在15:00之后调用 TODO 开发通知功能
-		File file=new File("realtest.txt");
-		FileWriter fw=null;
-		try {
-			fw = new FileWriter(file);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		BufferedWriter bw=new BufferedWriter(fw);
-		try {
-			bw.write("flags "+vo.flags+"\r\n\r\n");
-		} catch (IOException e2) {
-			e2.printStackTrace();
-		}
-	/***********************************************/
+	public String realTestForToday(RealTestVO vo) {//在15:00之后调用 TODO 开发通知功能
+		
+		String history=DateExchangeTool.dateToString1(new Date(Calendar.getInstance().getTimeInMillis()))+"\n";
+//		File file=new File("realtest.txt");
+//		FileWriter fw=null;
+//		try {
+//			fw = new FileWriter(file);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		BufferedWriter bw=new BufferedWriter(fw);
+//		try {
+//			bw.write("flags "+vo.flags+"\r\n\r\n");
+//		} catch (IOException e2) {
+//			e2.printStackTrace();
+//		}
+		/***********************************************/
 		this.vo=vo;
 		List<Double> priceList=new ArrayList<Double>();
 		for(int i=0;i<vo.stockList.size();i++)
@@ -68,7 +73,6 @@ public class RealTestServiceImpl implements RealTestService {
 			double close=0;
 			try {
 				close=hisMapper.selectHistoryData_new_single(vo.stockList.get(i).siid).getOpen();//买进价格为今日开盘价/*=====================*/
-//				close=10;/*=============================*/
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
@@ -79,13 +83,13 @@ public class RealTestServiceImpl implements RealTestService {
 			}
 		}
 		
-		/*===========================*/
-		try {
-			bw.write("今日价格： "+priceList+"\n");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		/*===========================*/
+//		/*===========================*/
+//		try {
+//			bw.write("今日价格： "+priceList+"\n");
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		/*===========================*/
 		
 		//一天的不同订单
 		List<Function> inOrder=new ArrayList<Function>();
@@ -254,11 +258,12 @@ public class RealTestServiceImpl implements RealTestService {
 					vo.numlist.set(j,vo.numlist.get(j)+share);//加仓
 					inprice+=share*order.price;
 					/*=========================*/
-					try {
-						bw.write("买入"+target+" "+share+"股;价格"+order.price+"\n");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+					history+="买入"+target+" "+share+"股;价格"+order.price+"\n";
+//					try {
+//						bw.write("买入"+target+" "+share+"股;价格"+order.price+"\n");
+//					} catch (IOException e) {
+//						e.printStackTrace();
+//					}
 					/*=========================*/
 				}
 				else
@@ -267,11 +272,12 @@ public class RealTestServiceImpl implements RealTestService {
 					vo.numlist.set(j,vo.numlist.get(j)+(int)order.share);//加仓
 					inprice+=order.share*order.price;
 					/*=========================*/
-					try {
-						bw.write("买入"+target+" "+order.share+"股;价格"+order.price+"\n");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+					history+="买入"+target+" "+order.share+"股;价格"+order.price+"\n";
+//					try {
+//						bw.write("买入"+target+" "+order.share+"股;价格"+order.price+"\n");
+//					} catch (IOException e) {
+//						e.printStackTrace();
+//					}
 					/*=========================*/
 				}
 			}
@@ -286,21 +292,23 @@ public class RealTestServiceImpl implements RealTestService {
 					vo.numlist.set(j,vo.numlist.get(j)-(int)order.share);
 					outprice+=order.share*order.price;
 					/*=========================*/
-					try {
-						bw.write("卖出"+target+" "+order.share+"股;价格"+order.price+"\n");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+//					try {
+						history+="卖出"+target+" "+order.share+"股;价格"+order.price+"\n";
+//						bw.write("卖出"+target+" "+order.share+"股;价格"+order.price+"\n");
+//					} catch (IOException e) {
+//						e.printStackTrace();
+//					}
 					/*=========================*/
 				}
 				else
 				{
 					/*=========================*/
-					try {
-						bw.write("卖出"+target+" "+vo.numlist.get(i)+"股;价格"+order.price+"\n");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+//					try {
+						history+="卖出"+target+" "+vo.numlist.get(i)+"股;价格"+order.price+"\n";
+//						bw.write("卖出"+target+" "+vo.numlist.get(i)+"股;价格"+order.price+"\n");
+//					} catch (IOException e) {
+//						e.printStackTrace();
+//					}
 					/*=========================*/
 					vo.cash+=vo.numlist.get(j)*order.price*(1-outTaxRatio);
 					vo.numlist.set(j,0);//减仓
@@ -326,11 +334,12 @@ public class RealTestServiceImpl implements RealTestService {
 				{
 					double price=priceList.get(j);
 					/*==========================*/
-					try {
-						bw.write("风险控制： 清空股票"+vo.stockList.get(j).siid+" "+vo.numlist.get(j)+"股;价格"+price+"\n");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+//					try {
+						history+="风险控制： 清空股票"+vo.stockList.get(j).siid+" "+vo.numlist.get(j)+"股;价格"+price+"\n";
+//						bw.write("风险控制： 清空股票"+vo.stockList.get(j).siid+" "+vo.numlist.get(j)+"股;价格"+price+"\n");
+//					} catch (IOException e) {
+//						e.printStackTrace();
+//					}
 					/*==========================*/
 					vo.cash+=vo.numlist.get(j)*price*(1-outTaxRatio);
 					vo.numlist.set(j,0);//减仓
@@ -342,34 +351,39 @@ public class RealTestServiceImpl implements RealTestService {
 		vo.capital.add(new DateDouble(Calendar.getInstance().getTimeInMillis(),capitaltoday+vo.cash));
 		
 		/*==========================*/
-		try {
-			bw.write("今日资本: "+vo.capital.get(vo.capital.size()-1)+"\n");
-		} catch (IOException e3) {
-			e3.printStackTrace();
-		}
-		try {
-			bw.write("各股持股"+vo.numlist+"\n\n");
-		} catch (IOException e2) {
-			e2.printStackTrace();
-		}
+//		try {
+			history+="今日资本: "+vo.capital.get(vo.capital.size()-1).value+"\n";
+//			bw.write("今日资本: "+vo.capital.get(vo.capital.size()-1)+"\n");
+//		} catch (IOException e3) {
+//			e3.printStackTrace();
+//		}
+//		try {
+			history+="各股持股"+vo.numlist+"\n";
+//			bw.write("各股持股"+vo.numlist+"\n\n");
+//		} catch (IOException e2) {
+//			e2.printStackTrace();
+//		}
 		/*==========================*/
 		
 		/*==========================*/
-		try {
-			bw.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
-			fw.close();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
+//		try {
+//			bw.close();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		try {
+//			fw.close();
+//		} catch (IOException e1) {
+//			e1.printStackTrace();
+//		}
 		/*==========================*/
-		System.out.println(vo.stockList);
-		System.out.println(vo.flags);
-		System.out.println(vo.risk);
+//		System.out.println(vo.stockList);
+//		System.out.println(vo.flags);
+//		System.out.println(vo.risk);
 //		System.out.println(vo.capital);/*======================*/
+		
+		vo.history.add(history);
+		return history;
 	}
 
 	@Override
@@ -482,4 +496,32 @@ public class RealTestServiceImpl implements RealTestService {
 			return null;
 		}
 	}
+
+	@Override
+	public List<String> queryHistory(String userName, String createrName,
+			String strategyName) {
+		StrategySearch search=new StrategySearch(userName,createrName,strategyName);
+		StrategyVO strategy=null;
+		try {
+			strategy=new StrategyServiceImpl(strMapper).getSingleStrategy(userName, createrName, strategyName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return strategy.getRealTest().history;
+	}
+	
+	
+	public static void main(String[] args)
+	{
+		HashMap map=new HashMap();
+		Calendar cal=Calendar.getInstance();
+		String history="hhh";
+		
+		map.put(new Date(cal.get(Calendar.YEAR)-1900,cal.get(Calendar.MONTH),cal.get(Calendar.DATE)).getTime(),"1");
+		map.put(new Date(cal.get(Calendar.YEAR)-1900,cal.get(Calendar.MONTH),cal.get(Calendar.DATE)+1).getTime(),"2");
+		map.put(new Date(cal.get(Calendar.YEAR)-1900,cal.get(Calendar.MONTH),cal.get(Calendar.DATE)+2).getTime(),"3");
+	}
+
+	
 }

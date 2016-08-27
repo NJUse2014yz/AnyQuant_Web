@@ -23,6 +23,8 @@ public class RealTestVO {
 	public List<Integer> numlist;
 	/**今日资本*/
 	public List<DateDouble> capital;
+	/**历史记录*/
+	public List<String> history;
 	
 	public RealTestVO(){
 		cash=10000;
@@ -33,11 +35,12 @@ public class RealTestVO {
 		flags=new ArrayList<Flag>();
 		numlist=new ArrayList<Integer>();
 		capital=new ArrayList<DateDouble>();
+		history=new ArrayList<String>();
 	}
 	
 	public RealTestVO(double cash, int n, List<ChooseStock> stockList,
 			List<Flag> flags, List<Integer> numList,
-			List<DateDouble> capital,List<List<Function>> risk) {
+			List<DateDouble> capital,List<List<Function>> risk,List<String> history) {
 		super();
 		this.cash = cash;
 		this.n = n;
@@ -46,6 +49,7 @@ public class RealTestVO {
 		this.numlist = numList;
 		this.capital = capital;
 		this.risk=risk;
+		this.history=history;
 	}
 	public double getCash() {
 		return cash;
@@ -71,11 +75,18 @@ public class RealTestVO {
 	public void setCapital(List<DateDouble> capital) {
 		this.capital = capital;
 	}
+	public List<String> getHistory() {
+		return history;
+	}
+	public void setHistory(List<String> history) {
+		this.history = history;
+	}
 
 	@Override
 	public String toString() {
 		return "RealTestVO [cash=" + cash + ", n=" + n + ", stockList="
 				+ stockList + ", risk=" + risk + ", flags=" + flags
-				+ ", numlist=" + numlist + ", capital=" + capital + "]";
+				+ ", numlist=" + numlist + ", capital=" + capital
+				+ ", history=" + history + "]";
 	}
 }
