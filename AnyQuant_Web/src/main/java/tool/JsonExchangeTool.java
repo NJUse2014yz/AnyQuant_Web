@@ -16,6 +16,7 @@ import function.choose.ConceptFunction;
 import function.choose.ConceptVO;
 import function.choose.IndustryFunction;
 import function.choose.IndustryVO;
+import function.choose.IntersectionFunction;
 import function.choose.PairFunction;
 import function.choose.PairVO;
 import function.flag.CrossFunction;
@@ -253,7 +254,10 @@ public class JsonExchangeTool {
 					industry=jObject.getString("industry");
 					list.get(i).add(new IndustryFunction(new IndustryVO(industry)));
 					break;
-				
+				case "Intersection":
+					list.get(i).add(new IntersectionFunction());
+					break;
+					
 				case "StandardPercent":
 					sign=jObject.getInt("sign");
 					siid=jObject.getString("siid");
