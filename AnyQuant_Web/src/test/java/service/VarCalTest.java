@@ -52,12 +52,20 @@ public class VarCalTest {
 		}
 	}
 	
+	public static void monte_test(){
+		try {
+			VaRcalHelper.getMonte("sh600008", 100, 100, 20, 0.95);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static void main(String[] args) {
 		VarCalTest.mult_cal_test();
 		VarCalTest.mult_his_test();
 		VarCalTest.single_cal_test();
 		VarCalTest.single_his_lambda_test();
 		VarCalTest.single_his_test();
+		VarCalTest.monte_test();
 	}
-
 }
