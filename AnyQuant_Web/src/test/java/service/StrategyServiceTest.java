@@ -22,6 +22,7 @@ import service.impl.BackTestServiceImpl;
 import service.impl.StrategyServiceImpl;
 import tool.JsonExchangeTool;
 import vo.Flag;
+import vo.RealTestVO;
 import vo.StrategyVO;
 import function.Function;
 import function.FunctionResult;
@@ -48,10 +49,10 @@ public class StrategyServiceTest {
 		String siid="sh600004";
 		
 		//userName
-		String userName="u1";
-		String createrName="u1";
+		String userName="u3";
+		String createrName="u3";
 		//strategyName
-		String strategyName="s1";
+		String strategyName="s3";
 		//choose
 //		int num=1;
 //		PairVO pairVO=new PairVO(siid,num);
@@ -171,21 +172,29 @@ public class StrategyServiceTest {
 	}
 	public static void getSaveStrategy()
 	{
-		List<StrategyVO> saveStrategyList=instance.getSaveStrategy("u2");
+		List<StrategyVO> saveStrategyList=instance.getSaveStrategy("u1");
 		for(int i=0;i<saveStrategyList.size();i++)
 		{
 			String userName=saveStrategyList.get(i).userName;
 			String createrName=saveStrategyList.get(i).createrName;
 			String strategyName=saveStrategyList.get(i).strategyName;
 			List<ChooseStock> stockList=saveStrategyList.get(i).stockList;
-			List<Function> choose=saveStrategyList.get(i).choose.get(0);
+			List<List<Function>> choose=saveStrategyList.get(i).choose;
 			List<Flag> flag=saveStrategyList.get(i).flags;
+			List<List<Function>> risk=saveStrategyList.get(i).risk;
+			TestReport report=saveStrategyList.get(i).report;
+			RealTestVO realTest=saveStrategyList.get(i).realTest;
+			double score=saveStrategyList.get(i).score;
 			System.out.println(userName);
 			System.out.println(createrName);
 			System.out.println(strategyName);
 			System.out.println(stockList);
 			System.out.println(choose);
 			System.out.println(flag);
+			System.out.println(risk);
+			System.out.println(report);
+			System.out.println(realTest);
+			System.out.println(score);
 		}
 	}
 	public static void getFunction()
@@ -211,14 +220,19 @@ public class StrategyServiceTest {
 		backTest.saveBackTest("u1", "u1", "s1", report);
 		System.out.println(report);
 	}
+	public static void saveStrategy()
+	{
+		instance.saveStrategy("u1","u3","s3");
+	}
 	public static void main(String[] args)
 	{
 //		StrategyServiceTest.deleteStrategy();
 //		StrategyServiceTest.makeStrategy();
+		StrategyServiceTest.getSaveStrategy();
 //		new RealTestServiceTest().initRealTest();
 //		new RealTestServiceTest().saveRealTest();
-		StrategyServiceTest.saveReport();
-		System.out.println(new StrategyServiceImpl(strategyMapper).getScore("u1","u1","s1"));
+//		StrategyServiceTest.saveReport();
+//		System.out.println(new StrategyServiceImpl(strategyMapper).getScore("u1","u1","s1"));
 		
 //		StrategyServiceTest.getStrategy();
 //		StrategyServiceTest.getSelfStrategy();

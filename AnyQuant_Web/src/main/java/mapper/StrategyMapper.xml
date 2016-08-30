@@ -46,7 +46,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectSave" parameterType="StrategySearch" resultType="Strategy">
 		select * from Strategy 
 		where userName=createrName
-		and (createrName,strategyName) in {select createrName,strategyName from Strategy where userName=#{userName} and userName!=createrName}
+		and createrName in (select createrName from Strategy where userName=#{userName} and userName!=createrName)
+		and strategyName in (select strategyName from Strategy where userName=#{userName} and userName!=createrName)
 	</select>
 	<select id="selectScore" parameterType="StrategySearch" resultType="double">
 		select score from Strategy 
