@@ -26,7 +26,7 @@ public interface StrategyService {
 	public double getScore(String userName,String createrName,String strategyName);
 	/**获取所有策略积分*/
 	public double getScoreSum(String userName);
-	/**设置某个策略公开性*/
+	/**设置某个策略公开性,1为公开*/
 	public void setPrivacy(String userName,String createrName,String strategyName,int privacy);
 	/**获取某个策略公开性*/
 	public int getPrivacy(String userName,String createrName,String strategyName);
