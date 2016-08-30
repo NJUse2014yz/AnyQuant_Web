@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import backtest.TestReport;
 import mapper.FunctionMapper;
 import mapper.QuotaInfMapper;
 import mapper.StrategyInfMapper;
@@ -17,6 +18,7 @@ import net.sf.json.JSONObject;
 import data.impl.DataServiceImpl;
 import po.StockInf;
 import po.Strategy;
+import service.impl.BackTestServiceImpl;
 import service.impl.StrategyServiceImpl;
 import tool.JsonExchangeTool;
 import vo.Flag;
@@ -125,7 +127,7 @@ public class StrategyServiceTest {
 		share.share=10;
 		List<Flag> flags=new ArrayList<Flag>();
 		flags.add(new Flag(share,flag));
-		StrategyVO strategy=new StrategyVO(userName,createrName,strategyName,stockList,choose,risk,flags,null);
+		StrategyVO strategy=new StrategyVO(userName,createrName,strategyName,stockList,choose,risk,flags,null,null,0);
 		
 		instance.makeStrategy(strategy);
 	}
@@ -196,10 +198,27 @@ public class StrategyServiceTest {
 	{
 		instance.deleteStrategy("u1","u1","s1");
 	}
+	public static void saveReport()
+	{
+		BackTestService backTest=new BackTestServiceImpl(strategyMapper);
+		StrategyVO vo=new StrategyServiceImpl(strategyMapper).getSingleStrategy("u1","u1", "s1");
+		TestReport report=null;
+		try {
+			report = backTest.backtest(vo.stockList, vo.flags, 1, vo.flags.get(0), vo.risk);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		backTest.saveBackTest("u1", "u1", "s1", report);
+		System.out.println(report);
+	}
 	public static void main(String[] args)
 	{
-		StrategyServiceTest.deleteStrategy();
-		StrategyServiceTest.makeStrategy();
+//		StrategyServiceTest.deleteStrategy();
+//		StrategyServiceTest.makeStrategy();
+//		new RealTestServiceTest().initRealTest();
+//		new RealTestServiceTest().saveRealTest();
+		StrategyServiceTest.saveReport();
+		System.out.println(new StrategyServiceImpl(strategyMapper).getScore("u1","u1","s1"));
 		
 //		StrategyServiceTest.getStrategy();
 //		StrategyServiceTest.getSelfStrategy();

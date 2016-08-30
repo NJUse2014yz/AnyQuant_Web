@@ -42,6 +42,7 @@ public class RealTestServiceImpl implements RealTestService {
 	
 	public RealTestVO vo;
 	
+	public RealTestServiceImpl(){}
 	public RealTestServiceImpl(HistoryDataMapper hisMapper,StrategyMapper strMapper)
 	{
 		this.hisMapper=hisMapper;
@@ -49,7 +50,7 @@ public class RealTestServiceImpl implements RealTestService {
 	}
 
 	@Override
-	public String realTestForToday(RealTestVO vo) {//在15:00之后调用 TODO 开发通知功能
+	public String realTestForToday(RealTestVO vo) {//在15:00之后调用 TODO 开发通知功能、交易周期
 		
 		String history=DateExchangeTool.dateToString1(new Date(Calendar.getInstance().getTimeInMillis()))+"\n";
 //		File file=new File("realtest.txt");

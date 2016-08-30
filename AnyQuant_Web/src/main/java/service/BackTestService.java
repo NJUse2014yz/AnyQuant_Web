@@ -54,5 +54,7 @@ public interface BackTestService {
 	public TestReport backtest(List<ChooseStock> stockList,
 			List<Flag> flags,int n,Flag bFlag,List<List<Function>> risk) throws Exception;
 	
+	/**将回测结果保存*/
+	public void saveBackTest(String userName,String createrName,String strategyName,TestReport report);	
 	
 }

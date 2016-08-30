@@ -44,6 +44,7 @@ import vo.StockTopInf;
 public class StockDataServiceImpl implements StockDataService {
 	private DataService dataService=new DataServiceImpl();
 	private QuotaService quotaService=new QuotaServiceImpl();
+	
 	@Override
 	public List<StockListInf> showListStock(int n) throws Exception {
 		// TODO Auto-generated method stub

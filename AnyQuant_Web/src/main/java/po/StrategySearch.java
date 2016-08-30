@@ -5,18 +5,32 @@ public class StrategySearch {
 	public String createrName;
 	public String strategyName;
 	public String str;
+	public int i;
+	public double d;
 	public StrategySearch()
 	{
 		
 	}
+	
 	public StrategySearch(String userName, String createrName,
 			String strategyName) {
 		super();
 		this.userName = userName;
 		this.createrName = createrName;
 		this.strategyName = strategyName;
-		this.str=null;
 	}
+	
+	public StrategySearch(String userName, String createrName,
+			String strategyName, String str, int i, double d) {
+		super();
+		this.userName = userName;
+		this.createrName = createrName;
+		this.strategyName = strategyName;
+		this.str = str;
+		this.i = i;
+		this.d = d;
+	}
+
 	public StrategySearch(String userName, String createrName,
 			String strategyName,String str) {
 		super();
@@ -24,6 +38,17 @@ public class StrategySearch {
 		this.createrName = createrName;
 		this.strategyName = strategyName;
 		this.str=str;
+	}
+	
+	
+	public StrategySearch(String userName, String createrName,
+			String strategyName, String str, double d) {
+		super();
+		this.userName = userName;
+		this.createrName = createrName;
+		this.strategyName = strategyName;
+		this.str = str;
+		this.d = d;
 	}
 	public String getUserName() {
 		return userName;
@@ -49,10 +74,23 @@ public class StrategySearch {
 	public void setStr(String str) {
 		this.str = str;
 	}
+	public double getD() {
+		return d;
+	}
+	public void setD(double d) {
+		this.d = d;
+	}
+	public int getI() {
+		return i;
+	}
+	public void setI(int i) {
+		this.i = i;
+	}
+
 	@Override
 	public String toString() {
 		return "StrategySearch [userName=" + userName + ", createrName="
 				+ createrName + ", strategyName=" + strategyName + ", str="
-				+ str + "]";
+				+ str + ", i=" + i + ", d=" + d + "]";
 	}
 }

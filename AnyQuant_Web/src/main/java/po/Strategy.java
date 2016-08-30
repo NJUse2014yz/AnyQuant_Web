@@ -2,6 +2,7 @@ package po;
 
 import java.util.List;
 
+import backtest.TestReport;
 import function.Function;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -24,7 +25,11 @@ public class Strategy {
 	public String flags;
 	/**实测结果*/
 	public String realTest;
-
+	/**回测报告*/
+	public String report;
+	/**积分*/
+	public double score;
+	
 	public Strategy(){}
 
 	public Strategy(StrategyVO vo)
@@ -37,19 +42,24 @@ public class Strategy {
 		this.risk=JSONArray.fromObject(vo.getRisk()).toString();
 		this.flags=JSONArray.fromObject(vo.getFlags()).toString();
 		this.realTest=JSONObject.fromObject(vo.getRealTest()).toString();
+		this.report=JSONObject.fromObject(vo.report).toString();
+		this.score=vo.score;
 	}
 
 	public Strategy(String userName, String createrName, String strategyName,
-			String stockList, String choose,String risk, String flags, String realTest) {
+			String stockList, String choose, String risk, String flags,
+			String realTest, String report, double score) {
 		super();
 		this.userName = userName;
 		this.createrName = createrName;
 		this.strategyName = strategyName;
 		this.stockList = stockList;
 		this.choose = choose;
-		this.risk=risk;
+		this.risk = risk;
 		this.flags = flags;
 		this.realTest = realTest;
+		this.report = report;
+		this.score = score;
 	}
 
 	public String getUserName() {
@@ -116,12 +126,28 @@ public class Strategy {
 		this.realTest = realTest;
 	}
 
+	public String getReport() {
+		return report;
+	}
+
+	public void setReport(String report) {
+		this.report = report;
+	}
+
+	public double getScore() {
+		return score;
+	}
+
+	public void setScore(double score) {
+		this.score = score;
+	}
+
 	@Override
 	public String toString() {
 		return "Strategy [userName=" + userName + ", createrName="
 				+ createrName + ", strategyName=" + strategyName
 				+ ", stockList=" + stockList + ", choose=" + choose + ", risk="
-				+ risk + ", flags=" + flags + ", realTest=" + realTest + "]";
+				+ risk + ", flags=" + flags + ", realTest=" + realTest
+				+ ", report=" + report + ", score=" + score + "]";
 	}
-
 }

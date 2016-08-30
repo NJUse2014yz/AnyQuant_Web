@@ -16,9 +16,12 @@ import po.StockInf;
 import mapper.AreaInfMapper;
 import mapper.ConceptInfMapper;
 import mapper.HistoryDataMapper;
+import mapper.IndiceInfMapper;
 import mapper.IndustryInfMapper;
 import mapper.QuotaDataMapper;
 import mapper.StockInfMapper;
+import mapper.StrategyMapper;
+import mapper.UserInfMapper;
 
 public class ListTool {
 	public static ApplicationContext applicationContext=new ClassPathXmlApplicationContext("classpath:configure/spring/applicationContext-dao.xml");
@@ -27,6 +30,10 @@ public class ListTool {
 	public static AreaInfMapper areaInfMapper=(AreaInfMapper) applicationContext.getBean("areaInfMapper");
 	public static ConceptInfMapper conceptInfMapper=(ConceptInfMapper) applicationContext.getBean("conceptInfMapper");
 	public static IndustryInfMapper industryInfMapper=(IndustryInfMapper) applicationContext.getBean("industryInfMapper");
+	public static StockInfMapper stockInfMapper=(StockInfMapper)applicationContext.getBean("stockInfMapper");
+	public static IndiceInfMapper indiceInfMapper=(IndiceInfMapper)applicationContext.getBean("indiceInfMapper");
+	public static StrategyMapper strategyMapper=(StrategyMapper)applicationContext.getBean("strategyMapper");
+	public static UserInfMapper userInfMapper=(UserInfMapper)applicationContext.getBean("userInfMapper");
 	
 	public List<Double> getList(String siid,String attribute,Date start,Date end)
 	{

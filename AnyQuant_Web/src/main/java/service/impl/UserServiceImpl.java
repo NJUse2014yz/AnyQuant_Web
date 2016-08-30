@@ -14,8 +14,11 @@ import ServiceTool.UserRankHelper;
 import bl.RankHelper;
 import mapper.UserInfMapper;
 import po.ModifyPack;
+import po.StrategySearch;
 import po.UserInf;
 import service.UserService;
+import tool.ListTool;
+import vo.UserInfVO;
 
 public class UserServiceImpl implements UserService {
 	@Autowired
@@ -23,8 +26,8 @@ public class UserServiceImpl implements UserService {
 	
 	
 	public UserServiceImpl() {
-		ApplicationContext applicationContext1 =new ClassPathXmlApplicationContext("classpath:configure/spring/applicationContext-dao.xml");
-		userInfMapper=(UserInfMapper) applicationContext1.getBean("userInfMapper");
+//		ApplicationContext applicationContext1 =new ClassPathXmlApplicationContext("classpath:configure/spring/applicationContext-dao.xml");
+//		userInfMapper=(UserInfMapper) applicationContext1.getBean("userInfMapper");
 	}
 
 	@Override
@@ -74,7 +77,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void modifyUserId(String OldUserid, String newUserid) throws Exception {
-		// TODO Auto-generated method stub
 		// 假设界面已经判断newUserid非空
 		ModifyPack modifyPack = new ModifyPack();
 		modifyPack.setStr_key(OldUserid);
@@ -83,7 +85,6 @@ public class UserServiceImpl implements UserService {
 	}
 	@Override
 	public void modifyPassword(String Userid, String OldPassword, String NewPassword) throws Exception {
-		// TODO Auto-generated method stub
 		String old_Pass = OldPassword.trim();
 		String new_Pass = NewPassword.trim();
 
@@ -160,5 +161,56 @@ public class UserServiceImpl implements UserService {
 			stocks.add(jArray.getString(i));
 		}
 		return stocks;
+	}
+
+	@Override
+	public int changeLevel(String userName) {
+		StrategySearch search=new StrategySearch();
+		search.setUserName(userName);
+		double score=0;
+		try {
+			score=ListTool.strategyMapper.selectScore(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		int rank=0;
+		//升级
+		if(score>=200&&score<800)
+		{
+			rank=1;
+		}
+		else if(score>=800&&score<2000)
+		{
+			rank=2;
+		}
+		else if(score>=2000&&score<4000)
+		{
+			rank=3;
+		}
+		else
+		{
+			rank=4;
+		}
+		UserInf userInf=new UserInf();
+		userInf.setUserName(userName);
+		userInf.setRank(rank);
+		try {
+			ListTool.userInfMapper.modifyScoreRank(userInf);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rank;
+	}
+
+	@Override
+	public UserInfVO queryUser(String userName) {
+		UserInf userInf=null;
+		try {
+			userInf=userInfMapper.select(userName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		UserInfVO vo=new UserInfVO(userInf);
+		return vo;
 	}
 }

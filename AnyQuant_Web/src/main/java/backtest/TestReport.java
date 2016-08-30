@@ -48,6 +48,7 @@ public class TestReport {
 	/**基准累计收益率*/
 	public List<DateDouble> bCumlist;
 	
+	public TestReport(){}
 	public TestReport(int n,List<DateDouble> capital,List<DateDouble> bCapital,List<Double> inPrice,List<Double> outPrice) {
 		super();
 		this.n = n;
@@ -60,7 +61,32 @@ public class TestReport {
 		this.bCumlist=new ArrayList<DateDouble>();
 //		run(capital.get(capital.size()-1),capital.get(0),bCapital.get(bCapital.size()-1),bCapital.get(0));
 	}
-	
+	public TestReport(int n, double risklessReturns, List<DateDouble> capital,
+			List<DateDouble> bCapital, List<Double> inPrice,
+			List<Double> outPrice, double annualizedReturns,
+			double benchmarkReturns, double alpha, double beta,
+			double sharpeRatio, double volatility, double informationRatio,
+			double maxDrawdown, double turnoverRate, List<DateDouble> cumlist,
+			List<DateDouble> bCumlist) {
+		super();
+		this.n = n;
+		this.risklessReturns = risklessReturns;
+		this.capital = capital;
+		this.bCapital = bCapital;
+		this.inPrice = inPrice;
+		this.outPrice = outPrice;
+		this.annualizedReturns = annualizedReturns;
+		this.benchmarkReturns = benchmarkReturns;
+		this.alpha = alpha;
+		this.beta = beta;
+		this.sharpeRatio = sharpeRatio;
+		this.volatility = volatility;
+		this.informationRatio = informationRatio;
+		this.maxDrawdown = maxDrawdown;
+		this.turnoverRate = turnoverRate;
+		this.cumlist = cumlist;
+		this.bCumlist = bCumlist;
+	}
 	public void run(Double pEnd,Double pStart,Double mEnd,Double mStart)
 	{
 		annualizedReturns=DataHelper.controldigit(ar(n,pEnd,pStart));
@@ -274,6 +300,82 @@ public class TestReport {
 				+ "\nbCumlist=" + bCumlist 
 				+ "]";
 	}
-	
-
+	public int getN() {
+		return n;
+	}
+	public void setN(int n) {
+		this.n = n;
+	}
+	public double getRisklessReturns() {
+		return risklessReturns;
+	}
+	public void setRisklessReturns(double risklessReturns) {
+		this.risklessReturns = risklessReturns;
+	}
+	public double getAnnualizedReturns() {
+		return annualizedReturns;
+	}
+	public void setAnnualizedReturns(double annualizedReturns) {
+		this.annualizedReturns = annualizedReturns;
+	}
+	public double getBenchmarkReturns() {
+		return benchmarkReturns;
+	}
+	public void setBenchmarkReturns(double benchmarkReturns) {
+		this.benchmarkReturns = benchmarkReturns;
+	}
+	public double getAlpha() {
+		return alpha;
+	}
+	public void setAlpha(double alpha) {
+		this.alpha = alpha;
+	}
+	public double getBeta() {
+		return beta;
+	}
+	public void setBeta(double beta) {
+		this.beta = beta;
+	}
+	public double getSharpeRatio() {
+		return sharpeRatio;
+	}
+	public void setSharpeRatio(double sharpeRatio) {
+		this.sharpeRatio = sharpeRatio;
+	}
+	public double getVolatility() {
+		return volatility;
+	}
+	public void setVolatility(double volatility) {
+		this.volatility = volatility;
+	}
+	public double getInformationRatio() {
+		return informationRatio;
+	}
+	public void setInformationRatio(double informationRatio) {
+		this.informationRatio = informationRatio;
+	}
+	public double getMaxDrawdown() {
+		return maxDrawdown;
+	}
+	public void setMaxDrawdown(double maxDrawdown) {
+		this.maxDrawdown = maxDrawdown;
+	}
+	public double getTurnoverRate() {
+		return turnoverRate;
+	}
+	public void setTurnoverRate(double turnoverRate) {
+		this.turnoverRate = turnoverRate;
+	}
+	public List<DateDouble> getCumlist() {
+		return cumlist;
+	}
+	public void setCumlist(List<DateDouble> cumlist) {
+		this.cumlist = cumlist;
+	}
+	public List<DateDouble> getbCumlist() {
+		return bCumlist;
+	}
+	public void setbCumlist(List<DateDouble> bCumlist) {
+		this.bCumlist = bCumlist;
+	}
 }

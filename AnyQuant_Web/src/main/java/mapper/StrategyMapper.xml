@@ -12,20 +12,54 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from Strategy
 		where userName=#{userName} and createrName=#{createrName} and strategyName=#{strategyName}
 	</select>
-	
-	<select id="modifyRealTest" parameterType="StrategySearch">
+	<insert id="save" parameterType="StrategySearch">
+		insert Strategy(userName,createrName,strategyName)
+		values(#{userName},#{createrName},#{strategyName})
+	</insert>
+	<update id="modifyRealTest" parameterType="StrategySearch">
 		update Strategy
 		set realTest=#{str}
 		where userName=#{userName} and createrName=#{createrName} and strategyName=#{strategyName}
+	</update>
+	<update id="modifyReport" parameterType="StrategySearch">
+		update Strategy
+		set report=#{str},score=#{d}
+		where userName=#{userName} and createrName=#{createrName} and strategyName=#{strategyName}
+	</update>
+	<update id="modifyPrivacy" parameterType="StrategySearch">
+		update Strategy
+		set privacy=#{i}
+		where createrName=#{createrName} and strategyName=#{strategyName}
+	</update>
+	<select id="selectPrivacy" parameterType="StrategySearch" resultType="int">
+		select privacy from Strategy
+		where userName=#{userName} and createrName=#{createrName} and strategyName=#{strategyName}
 	</select>
-
 	<select id="selectStrategy" parameterType="StrategySearch" resultType="Strategy">
-		select * from Strategy where userName=#{userName} and createrName=#{createrName} and strategyName=#{strategyName}
+		select * from Strategy 
+		where userName=#{userName} and createrName=#{createrName} and strategyName=#{strategyName}
 	</select>
 	<select id="selectSelf" parameterType="StrategySearch" resultType="Strategy">
-		select * from Strategy where userName=#{userName} and createrName=#{userName}
+		select * from Strategy 
+		where userName=#{userName} and createrName=#{userName}
 	</select>
 	<select id="selectSave" parameterType="StrategySearch" resultType="Strategy">
-		select * from Strategy where userName=#{userName} and createrName!=userName
+		select * from Strategy 
+		where userName=createrName
+		and (createrName,strategyName) in {select createrName,strategyName from Strategy where userName=#{userName} and userName!=createrName}
 	</select>
+	<select id="selectScore" parameterType="StrategySearch" resultType="double">
+		select score from Strategy 
+		where userName=#{userName} and createrName=#{userName} and strategyName=#{strategyName}
+	</select>
+	<select id="selectScoreSum" parameterType="StrategySearch" resultType="double">
+		select sum(score) from Strategy 
+		where userName=#{userName} and createrName!=userName
+	</select>
+	
+	<update id="modifyStrategy" parameterType="strategy">
+		update Strategy
+		set strategyName=#{strategyName},stockList=#{stockList},choose=#{choose},risk=#{risk},flags=#{flags}
+		where userName=#{userName} and createrName=#{createrName} and strategyName=#{strategyName}
+	</update>
 </mapper>

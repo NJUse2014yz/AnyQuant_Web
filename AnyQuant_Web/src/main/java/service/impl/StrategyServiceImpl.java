@@ -8,6 +8,7 @@ import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import backtest.TestReport;
 import function.Function;
 import function.choose.ChooseStock;
 import po.FunctionDisRnk;
@@ -56,6 +57,16 @@ public class StrategyServiceImpl implements StrategyService {
 		}
 	}
 	@Override
+	public void editStrategy(StrategyVO vo) {
+		Strategy strategy=new Strategy(vo);
+		
+		try {
+			strategyMapper.modifyStrategy(strategy);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	@Override
 	public void deleteStrategy(String userName,String createrName,String strategyName)
 	{
 		StrategySearch search=new StrategySearch(userName,createrName,strategyName);
@@ -64,6 +75,16 @@ public class StrategyServiceImpl implements StrategyService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	@Override
+	public void saveStrategy(String userName, String createrName,
+			String strategyName) {
+		StrategySearch search=new StrategySearch(userName, createrName, strategyName);
+		try {
+			strategyMapper.save(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
 	}
 	@Override
 	public StrategyVO getSingleStrategy(String userName, String createrName,
@@ -232,5 +253,63 @@ public class StrategyServiceImpl implements StrategyService {
 		}
 		return fdrList;
 	}
-
+	@Override
+	public TestReport getReport(String userName, String createrName,
+			String strategyName) {
+		StrategySearch search=new StrategySearch(userName,createrName,strategyName);
+		Strategy strategy=null;
+		try {
+			strategy=strategyMapper.selectStrategy(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return JsonExchangeTool.getReport(strategy.report);
+	}
+	@Override
+	public double getScore(String userName, String createrName,
+			String strategyName) {
+		StrategySearch search=new StrategySearch(userName,createrName,strategyName);
+		double value=0;
+		try {
+			value=strategyMapper.selectScore(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return value;
+	}
+	@Override
+	public double getScoreSum(String userName) {
+		StrategySearch search=new StrategySearch();
+		search.setUserName(userName);
+		double value=0;
+		try {
+			value=strategyMapper.selectScoreSum(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return value;
+	}
+	@Override
+	public int getPrivacy(String userName, String createrName,
+			String strategyName) {
+		StrategySearch search=new StrategySearch(userName, createrName, strategyName);
+		int privacy=0;
+		try {
+			privacy=strategyMapper.selectPrivacy(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return privacy;
+	}
+	@Override
+	public void setPrivacy(String userName, String createrName,
+			String strategyName, int privacy) {
+		StrategySearch search=new StrategySearch(userName, createrName, strategyName);
+		search.setI(privacy);
+		try {
+			strategyMapper.modifyPrivacy(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

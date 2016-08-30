@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import backtest.TestReport;
 import po.FunctionDisRnk;
 import po.Strategy;
 import vo.StrategyVO;
@@ -11,12 +12,26 @@ public interface StrategyService {
 	public void makeStrategy(StrategyVO vo);
 	/**删除策略*/
 	public void deleteStrategy(String userName,String createrName,String strategyName);
+	/**收藏策略*/
+	public void saveStrategy(String userName,String createrName,String strategyName);
 	/**获取保存的策略,用户名.创建用户名.策略名*/
 	public StrategyVO getSingleStrategy(String userName,String createrName,String strategyName);
 	/**获取自己的策略*/
 	public List<StrategyVO> getSelfStrategy(String userName);
 	/**获取收藏的策略*/
 	public List<StrategyVO> getSaveStrategy(String userName);
+	/**获取策略回测报告*/
+	public TestReport getReport(String userName,String createrName,String strategyName);
+	/**获取单个策略积分*/
+	public double getScore(String userName,String createrName,String strategyName);
+	/**获取所有策略积分*/
+	public double getScoreSum(String userName);
+	/**设置某个策略公开性*/
+	public void setPrivacy(String userName,String createrName,String strategyName,int privacy);
+	/**获取某个策略公开性*/
+	public int getPrivacy(String userName,String createrName,String strategyName);
+	/**编辑策略*/
+	public void editStrategy(StrategyVO vo);
 	
 	/**获取某个等级的所有方法*/
 	public List<FunctionDisRnk> getRankFunctions(int rank);

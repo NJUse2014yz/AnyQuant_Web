@@ -44,7 +44,7 @@ public class CrossFunction extends Function {
 		List<Double> passivelist=new ListTool().getList(siid2,attribute2,start,end);
 		CrossResult crossResult=new CrossTool(activelist,passivelist).cross();
 		FunctionResult result=new FunctionResult();
-		result.location.add(ResultType.DOUBLELIST);
+		result.location.add(ResultType.INT);
 		result.rI=crossResult.cross;
 		return result;
 	}

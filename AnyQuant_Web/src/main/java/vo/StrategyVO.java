@@ -2,6 +2,7 @@ package vo;
 
 import java.util.List;
 
+import backtest.TestReport;
 import po.Strategy;
 import tool.JsonExchangeTool;
 import function.Function;
@@ -21,11 +22,13 @@ public class StrategyVO {
 	/**风险控制*/
 	public List<List<Function>> risk;
 	/**交易标志方法和对应订单类型的列表，优先级高的排在前*/
-	public List<Flag> flags;
-	
-	
+	public List<Flag> flags;	
 	/**实测结果*/
 	public RealTestVO realTest;
+	/**回测报告*/
+	public TestReport report;
+	/**积分*/
+	public double score;
 	
 	public StrategyVO(){}
 
@@ -42,20 +45,31 @@ public class StrategyVO {
 		this.realTest.stockList=this.stockList;
 		this.realTest.flags=this.flags;
 		this.realTest.risk=this.risk;
+		this.score=strategy.score;
+		try
+		{
+			this.report=JsonExchangeTool.getReport(strategy.report);
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 	
 	public StrategyVO(String userName, String createrName, String strategyName,
 			List<ChooseStock> stockList, List<List<Function>> choose,
-			List<List<Function>> risk,List<Flag> flags, RealTestVO realTest) {
+			List<List<Function>> risk, List<Flag> flags, RealTestVO realTest,
+			TestReport report, double score) {
 		super();
 		this.userName = userName;
 		this.createrName = createrName;
 		this.strategyName = strategyName;
 		this.stockList = stockList;
 		this.choose = choose;
-		this.risk=risk;
+		this.risk = risk;
 		this.flags = flags;
 		this.realTest = realTest;
+		this.report = report;
+		this.score = score;
 	}
 
 	public String getUserName() {
@@ -122,12 +136,28 @@ public class StrategyVO {
 		this.realTest = realTest;
 	}
 
+	public TestReport getReport() {
+		return report;
+	}
+
+	public void setReport(TestReport report) {
+		this.report = report;
+	}
+
+	public double getScore() {
+		return score;
+	}
+
+	public void setScore(double score) {
+		this.score = score;
+	}
+
 	@Override
 	public String toString() {
 		return "StrategyVO [userName=" + userName + ", createrName="
 				+ createrName + ", strategyName=" + strategyName
 				+ ", stockList=" + stockList + ", choose=" + choose + ", risk="
-				+ risk + ", flags=" + flags + ", realTest=" + realTest + "]";
+				+ risk + ", flags=" + flags + ", realTest=" + realTest
+				+ ", report=" + report + ", score=" + score + "]";
 	}
-
 }

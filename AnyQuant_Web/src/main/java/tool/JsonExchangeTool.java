@@ -1,16 +1,18 @@
 package tool;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 import backtest.DateDouble;
+import backtest.TestReport;
 import vo.Flag;
 import vo.RealTestVO;
 import function.Function;
 import function.FunctionResult;
 import function.choose.AreaFunction;
 import function.choose.AreaVO;
+import function.choose.AttributeFunction;
+import function.choose.AttributeVO;
 import function.choose.ChooseStock;
 import function.choose.ConceptFunction;
 import function.choose.ConceptVO;
@@ -52,6 +54,16 @@ public class JsonExchangeTool {
 			String siid=jObject.getString("siid");
 			Double percent=jObject.getDouble("percent");
 			list.add(new ChooseStock(siid,percent));
+		}
+		return list;
+	}
+	public static List<String> getSaveStocks(String json)
+	{
+		List<String> list=new ArrayList<String>();
+		JSONArray jArray=JSONArray.fromObject(json);
+		for(int i=0;i<jArray.size();i++)
+		{
+			list.add(jArray.getString(i));
 		}
 		return list;
 	}
@@ -107,6 +119,8 @@ public class JsonExchangeTool {
 				int sign=0;
 				double standard=0;
 				double percent=0;
+				double up=0;
+				double down=0;
 				String standardAttr=null;
 				String area=null;
 				String concept=null;
@@ -257,7 +271,12 @@ public class JsonExchangeTool {
 				case "Intersection":
 					list.get(i).add(new IntersectionFunction());
 					break;
-					
+				case "Attribute":
+					up=jObject.getDouble("up");
+					down=jObject.getDouble("down");
+					attribute=jObject.getString("attribute");
+					list.get(i).add(new AttributeFunction(new AttributeVO(up,down,attribute)));
+				
 				case "StandardPercent":
 					sign=jObject.getInt("sign");
 					siid=jObject.getString("siid");
@@ -398,5 +417,60 @@ public class JsonExchangeTool {
 		}
 		return vo;
 	}
-
+	public static TestReport getReport(String report) {
+		JSONObject jObject=JSONObject.fromObject(report);
+		int n=jObject.getInt("n");
+		double risklessReturns=jObject.getDouble("risklessReturns");
+		double annualizedReturns=jObject.getDouble("annualizedReturns");
+		double benchmarkReturns=jObject.getDouble("benchmarkReturns");
+		double alpha=jObject.getDouble("alpha");
+		double beta=jObject.getDouble("beta");
+		double sharpeRatio=jObject.getDouble("sharpeRatio");
+		double volatility=jObject.getDouble("volatility");
+		double informationRatio=jObject.getDouble("informationRatio");
+		double maxDrawdown=jObject.getDouble("maxDrawdown");
+		double turnoverRate=jObject.getDouble("turnoverRate");
+		List<DateDouble> cumlist=new ArrayList<DateDouble>();
+		List<DateDouble> bCumlist=new ArrayList<DateDouble>();
+		List<DateDouble> capital=new ArrayList<DateDouble>();
+		List<DateDouble> bCapital=new ArrayList<DateDouble>();
+		List<Double> inPrice=new ArrayList<Double>();
+		List<Double> outPrice=new ArrayList<Double>();
+		JSONArray jCumlist=jObject.getJSONArray("cumlist");
+		JSONArray jBCumlist=jObject.getJSONArray("bCumlist");
+		JSONArray jCapital=jObject.getJSONArray("capital");
+		JSONArray jBCapital=jObject.getJSONArray("bCapital");
+		JSONArray jInPrice=jObject.getJSONArray("inPrice");
+		JSONArray jOutPrice=jObject.getJSONArray("outPrice");
+		for(int i=0;i<jCumlist.size();i++)
+		{
+			JSONObject jobject=jCumlist.getJSONObject(i);
+			cumlist.add(new DateDouble(jobject.getLong("date"),jobject.getDouble("value")));
+		}
+		for(int i=0;i<jBCumlist.size();i++)
+		{
+			JSONObject jobject=jBCumlist.getJSONObject(i);
+			bCumlist.add(new DateDouble(jobject.getLong("date"),jobject.getDouble("value")));
+		}
+		for(int i=0;i<jCapital.size();i++)
+		{
+			JSONObject jobject=jCapital.getJSONObject(i);
+			capital.add(new DateDouble(jobject.getLong("date"),jobject.getDouble("value")));
+		}
+		for(int i=0;i<jBCapital.size();i++)
+		{
+			JSONObject jobject=jBCapital.getJSONObject(i);
+			bCapital.add(new DateDouble(jobject.getLong("date"),jobject.getDouble("value")));
+		}
+		for(int i=0;i<jInPrice.size();i++)
+		{
+			inPrice.add(jInPrice.getDouble(i));
+		}
+		for(int i=0;i<jOutPrice.size();i++)
+		{
+			outPrice.add(jOutPrice.getDouble(i));
+		}
+		TestReport testReport=new TestReport(n, risklessReturns, capital, bCapital, inPrice, outPrice, annualizedReturns, benchmarkReturns, alpha, beta, sharpeRatio, volatility, informationRatio, maxDrawdown, turnoverRate, cumlist, bCumlist);
+		return testReport;
+	}
 }
