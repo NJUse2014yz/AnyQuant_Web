@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mapper.MonthQDataMapper">
 	<select id="countMonthQData_b_date" parameterType="DatePack" resultType="int">
-		select count(*) from anyquant.MonthQdata_${siid}
+		select count(*) from MonthQdata_${siid}
 		where date &gt;= #{date1} and date &lt;= #{date2}
 	</select>
 	<select id="selectMonthQData_num_date" parameterType="DatePack" resultType="QuotaData">
@@ -14,10 +14,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ema12,ema26,ema50,ema5,ema35,ema10,ema60,
 			diff,dea,macd,
 			dmh,dml,tr,dmh12,dml12,tr12,dih,dil,dih12,dil12,dx,adx,adxr,
-			obv,roc12,roc25 from anyquant.MonthQdata_${siid}
+			obv,roc12,roc25 from MonthQdata_${siid}
 		<where> 
 			(
-				select max(monthid) from anyquant.MonthQdata_${siid}
+				select max(monthid) from MonthQdata_${siid}
 				where date &lt;= #{date1}
 			) between monthid and monthid+#{num}-1
 		</where>
@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ema12,ema26,ema50,ema5,ema35,ema10,ema60,
 			diff,dea,macd,
 			dmh,dml,tr,dmh12,dml12,tr12,dih,dil,dih12,dil12,dx,adx,adxr,
-			obv,roc12,roc25 from anyquant.MonthQdata_${siid}
+			obv,roc12,roc25 from MonthQdata_${siid}
 		where date=#{date1}
 	</select>
 	<select id="selectMonthQData_ge_date" parameterType="DatePack" resultType="QuotaData">
@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ema12,ema26,ema50,ema5,ema35,ema10,ema60,
 			diff,dea,macd,
 			dmh,dml,tr,dmh12,dml12,tr12,dih,dil,dih12,dil12,dx,adx,adxr,
-			obv,roc12,roc25 from anyquant.MonthQdata_${siid}
+			obv,roc12,roc25 from MonthQdata_${siid}
 		where date &gt;= #{date1}
 		order by monthid
 	</select>
@@ -48,7 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ema12,ema26,ema50,ema5,ema35,ema10,ema60,
 			diff,dea,macd,
 			dmh,dml,tr,dmh12,dml12,tr12,dih,dil,dih12,dil12,dx,adx,adxr,
-			obv,roc12,roc25 from anyquant.MonthQdata_${siid}
+			obv,roc12,roc25 from MonthQdata_${siid}
 		where date &lt;= #{date1}
 		order by monthid
 	</select>
@@ -58,7 +58,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ema12,ema26,ema50,ema5,ema35,ema10,ema60,
 			diff,dea,macd,
 			dmh,dml,tr,dmh12,dml12,tr12,dih,dil,dih12,dil12,dx,adx,adxr,
-			obv,roc12,roc25 from anyquant.MonthQdata_${siid}
+			obv,roc12,roc25 from MonthQdata_${siid}
 		where date &gt; #{date1}
 		order by monthid
 	</select>
@@ -68,7 +68,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ema12,ema26,ema50,ema5,ema35,ema10,ema60,
 			diff,dea,macd,
 			dmh,dml,tr,dmh12,dml12,tr12,dih,dil,dih12,dil12,dx,adx,adxr,
-			obv,roc12,roc25 from anyquant.MonthQdata_${siid}
+			obv,roc12,roc25 from MonthQdata_${siid}
 		where date &lt; #{date1}
 		order by monthid
 	</select>
@@ -78,7 +78,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ema12,ema26,ema50,ema5,ema35,ema10,ema60,
 			diff,dea,macd,
 			dmh,dml,tr,dmh12,dml12,tr12,dih,dil,dih12,dil12,dx,adx,adxr,
-			obv,roc12,roc25 from anyquant.MonthQdata_${siid}
+			obv,roc12,roc25 from MonthQdata_${siid}
 		where date &gt;= #{date1} and date &lt;= #{date2}
 		order by monthid
 	</select>
@@ -89,7 +89,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ema12,ema26,ema50,ema5,ema35,ema10,ema60,
 			diff,dea,macd,
 			dmh,dml,tr,dmh12,dml12,tr12,dih,dil,dih12,dil12,dx,adx,adxr,
-			obv,roc12,roc25 from anyquant.MonthQdata_${siid}
+			obv,roc12,roc25 from MonthQdata_${siid}
 		where monthid between #{id1}-#{num}+1 and #{id1} 
 		order by monthid
 	</select>
@@ -99,7 +99,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ema12,ema26,ema50,ema5,ema35,ema10,ema60,
 			diff,dea,macd,
 			dmh,dml,tr,dmh12,dml12,tr12,dih,dil,dih12,dil12,dx,adx,adxr,
-			obv,roc12,roc25 from anyquant.MonthQdata_${siid}
+			obv,roc12,roc25 from MonthQdata_${siid}
 		where monthid = #{id1}
 	</select>
 	<select id="selectMonthQData_le_monthid" parameterType="DatePack" resultType="QuotaData">
@@ -108,7 +108,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ema12,ema26,ema50,ema5,ema35,ema10,ema60,
 			diff,dea,macd,
 			dmh,dml,tr,dmh12,dml12,tr12,dih,dil,dih12,dil12,dx,adx,adxr,
-			obv,roc12,roc25 from anyquant.MonthQdata_${siid}
+			obv,roc12,roc25 from MonthQdata_${siid}
 		where monthid &lt;= #{id1}
 		order by monthid
 	</select>
@@ -118,8 +118,234 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ema12,ema26,ema50,ema5,ema35,ema10,ema60,
 			diff,dea,macd,
 			dmh,dml,tr,dmh12,dml12,tr12,dih,dil,dih12,dil12,dx,adx,adxr,
-			obv,roc12,roc25 from anyquant.MonthQdata_${siid}
+			obv,roc12,roc25 from MonthQdata_${siid}
 		where monthid between #{id1} and #{id2}
 		order by monthid
+	</select>
+	
+	<select id="selectM5" parameterType="DatePack" resultType="Double">
+		select m5 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectM10" parameterType="DatePack" resultType="Double">
+		select m10 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectM20" parameterType="DatePack" resultType="Double">
+		select m20 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectM30" parameterType="DatePack" resultType="Double">
+		select m30 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectBias5" parameterType="DatePack" resultType="Double">
+		select bias5 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectBias10" parameterType="DatePack" resultType="Double">
+		select bias10 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectBias20" parameterType="DatePack" resultType="Double">
+		select bias20 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectBoll1" parameterType="DatePack" resultType="Double">
+		select boll1 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectBoll2" parameterType="DatePack" resultType="Double">
+		select boll2 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectBoll3" parameterType="DatePack" resultType="Double">
+		select boll3 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectRsi" parameterType="DatePack" resultType="Double">
+		select rsi from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectRsi5" parameterType="DatePack" resultType="Double">
+		select rsi5 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectRsi10" parameterType="DatePack" resultType="Double">
+		select rsi10 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectRsi20" parameterType="DatePack" resultType="Double">
+		select rsi20 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectVr" parameterType="DatePack" resultType="Double">
+		select vr from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectRsv" parameterType="DatePack" resultType="Double">
+		select rsv from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectK" parameterType="DatePack" resultType="Double">
+		select k from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectD" parameterType="DatePack" resultType="Double">
+		select d from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectJ" parameterType="DatePack" resultType="Double">
+		select  from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectEma12" parameterType="DatePack" resultType="Double">
+		select ema12 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectEma26" parameterType="DatePack" resultType="Double">
+		select ema26 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectEma50" parameterType="DatePack" resultType="Double">
+		select ema50 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectEma5" parameterType="DatePack" resultType="Double">
+		select ma5 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectEma35" parameterType="DatePack" resultType="Double">
+		select ema35 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectEma10" parameterType="DatePack" resultType="Double">
+		select ma10 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectEma60" parameterType="DatePack" resultType="Double">
+		select ema60 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDiff" parameterType="DatePack" resultType="Double">
+		select diff from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDea" parameterType="DatePack" resultType="Double">
+		select dea from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectMacd" parameterType="DatePack" resultType="Double">
+		select macd from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDmh" parameterType="DatePack" resultType="Double">
+		select dmh from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDml" parameterType="DatePack" resultType="Double">
+		select dml from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectTr" parameterType="DatePack" resultType="Double">
+		select tr from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDmh12" parameterType="DatePack" resultType="Double">
+		select dmh12 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDml12" parameterType="DatePack" resultType="Double">
+		select dml12 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectTr12" parameterType="DatePack" resultType="Double">
+		select tr12 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDih" parameterType="DatePack" resultType="Double">
+		select dih from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDil" parameterType="DatePack" resultType="Double">
+		select dil from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDih12" parameterType="DatePack" resultType="Double">
+		select dih12 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDil12" parameterType="DatePack" resultType="Double">
+		select dil12 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectDx" parameterType="DatePack" resultType="Double">
+		select dx from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectAdx" parameterType="DatePack" resultType="Double">
+		select adx from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectAdxr" parameterType="DatePack" resultType="Double">
+		select adxr from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectObv" parameterType="DatePack" resultType="Double">
+		select obv from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectRoc12" parameterType="DatePack" resultType="Double">
+		select roc12 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
+	</select>
+	<select id="selectRoc25" parameterType="DatePack" resultType="Double">
+		select roc25 from MonthQData_${siid}
+		where date between #{date1} and #{date2}
+		order by id
 	</select>
 </mapper>

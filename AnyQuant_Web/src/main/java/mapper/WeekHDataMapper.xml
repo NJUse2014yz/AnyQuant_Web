@@ -5,24 +5,71 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mapper.WeekHDataMapper">
 	<select id="selectWeekHData_e_weekid" parameterType="DatePack" resultType="HistoryData">
-		select * from anyquant.weekhdata_${siid}
+		select * from WeekHData_${siid}
 		where weekid=#{id1}
 	</select>
 	<select id="selectWeekHData_le_weekid" parameterType="DatePack" resultType="HistoryData">
-		select * from anyquant.weekhdata_${siid}
+		select * from WeekHData_${siid}
 		where weekid &lt;= #{id1}
 		order by weekid
 	</select>
 	<select id="selectWeekHData_num_weekid" parameterType="DatePack" resultType="HistoryData">
-		select * from anyquant.weekhdata_${siid}
+		select * from WeekHData_${siid}
 		where weekid between #{id1}-#{num}+1 and #{id1}
 		order by weekid
 	</select>
 	
 	<select id="selectWeekHData_b_date" parameterType="DatePack" resultType="HistoryData">
-		select * from anyquant.weekhdata_${siid}
+		select * from WeekHData_${siid}
 		where date between #{date1} and #{date2}
 		order by weekid
 	</select>
+	
+		<select id="selectOpen_b_date" parameterType="DatePack" resultType="Double">
+		select open from WeekHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectClose_b_date" parameterType="DatePack" resultType="Double">
+		select close from WeekHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectIncrease_b_date" parameterType="DatePack" resultType="Double">
+		select increase from WeekHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectIncrPer_b_date" parameterType="DatePack" resultType="Double">
+		select incrPer from WeekHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectLow_b_date" parameterType="DatePack" resultType="Double">
+		select low from WeekHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectHigh_b_date" parameterType="DatePack" resultType="Double">
+		select high from WeekHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectVolume_b_date" parameterType="DatePack" resultType="Double">
+		select volume from WeekHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectAmount_b_date" parameterType="DatePack" resultType="Double">
+		select amount from WeekHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectTurnover_b_date" parameterType="DatePack" resultType="Double">
+		select turnover from WeekHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	
 	
 </mapper>

@@ -5,25 +5,72 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mapper.MonthHDataMapper">
 	<select id="selectMonthHData_e_monthid" parameterType="DatePack" resultType="HistoryData">
-		select * from anyquant.monthhdata_${siid}
+		select * from MonthHData__${siid}
 		where monthid=#{id1}
 		order by monthid
 	</select>
 	<select id="selectMonthHData_le_monthid" parameterType="DatePack" resultType="HistoryData">
-		select * from anyquant.monthhdata_${siid}
+		select * from MonthHData__${siid}
 		where monthid &lt;= #{id1}
 		order by monthid
 	</select>
 	<select id="selectMonthHData_num_monthid" parameterType="DatePack" resultType="HistoryData">
-		select * from anyquant.monthhdata_${siid}
+		select * from MonthHData__${siid}
 		where monthid between #{id1}-#{num}+1 and #{id1}
 		order by monthid
 	</select>
 	
 	<select id="selectMonthHData_b_date" parameterType="DatePack" resultType="HistoryData">
-		select * from anyquant.monthhdata_${siid}
+		select * from MonthHData_${siid}
 		where date between #{date1} and #{date2}
 		order by monthid
 	</select>
+	
+	<select id="selectOpen_b_date" parameterType="DatePack" resultType="Double">
+		select open from MonthHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectClose_b_date" parameterType="DatePack" resultType="Double">
+		select close from MonthHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectIncrease_b_date" parameterType="DatePack" resultType="Double">
+		select increase from MonthHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectIncrPer_b_date" parameterType="DatePack" resultType="Double">
+		select incrPer from MonthHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectLow_b_date" parameterType="DatePack" resultType="Double">
+		select low from MonthHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectHigh_b_date" parameterType="DatePack" resultType="Double">
+		select high from MonthHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectVolume_b_date" parameterType="DatePack" resultType="Double">
+		select volume from MonthHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectAmount_b_date" parameterType="DatePack" resultType="Double">
+		select amount from MonthHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	<select id="selectTurnover_b_date" parameterType="DatePack" resultType="Double">
+		select turnover from MonthHData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
+	
 	
 </mapper>
