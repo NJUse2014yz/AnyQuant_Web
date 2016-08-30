@@ -48,6 +48,10 @@ public class RealTestServiceImpl implements RealTestService {
 		this.hisMapper=hisMapper;
 		this.strMapper=strMapper;
 	}
+	
+	public RealTestServiceImpl(){
+		
+	}
 
 	@Override
 	public String realTestForToday(RealTestVO vo) {//在15:00之后调用 TODO 开发通知功能、交易周期

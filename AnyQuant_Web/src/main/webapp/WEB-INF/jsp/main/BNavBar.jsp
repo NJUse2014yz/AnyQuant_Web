@@ -18,7 +18,7 @@
 		</div>
 		<div class="contain">
 			<ul class="menu">
-				<li id="home"><a href="/index.action">首页</a></li>
+				<li id="home"><a href="/AnyQuant_Web/">首页</a></li>
 				<li class="active"><a href="#s2">学习分区</a>
 					<ul class="submenu">
 						<li><a href="#">指标介绍</a></li>
