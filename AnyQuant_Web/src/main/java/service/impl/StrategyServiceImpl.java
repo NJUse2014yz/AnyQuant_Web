@@ -1,6 +1,8 @@
 package service.impl;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import net.sf.json.JSONArray;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import backtest.TestReport;
 import function.Function;
 import function.choose.ChooseStock;
+import function.choose.IntersectionFunction;
 import po.FunctionDisRnk;
 import po.Strategy;
 import po.StrategySearch;
@@ -45,6 +48,45 @@ public class StrategyServiceImpl implements StrategyService {
 	public StrategyServiceImpl(StrategyMapper strategyMapper) {
 		super();
 		this.strategyMapper = strategyMapper;
+	}
+	@Override
+	public List<String> chooseStock(List<List<Function>> choose,Calendar today) {
+		List<String> result=new ArrayList<String>();
+		for(int i=0;i<choose.size();i++)
+		{
+			List<String> temp=new ArrayList<String>();
+			for(int j=0;j<choose.get(i).size();j++)
+			{
+				List<String> inList=choose.get(i).get(j).getResult(new Date(0)).rLS;
+				if(j==0)
+				{
+					temp=inList;
+				}
+				else
+				{
+					int k=0;
+					while(k<temp.size())
+					{
+						if(!inList.contains((temp.get(k))))
+						{
+							temp.remove(k);
+						}
+						else
+						{
+							k++;
+						}
+					}
+				}
+			}
+			for(int k=0;k<temp.size();k++)
+			{
+				if(!result.contains((temp.get(k))))
+				{
+					result.add(temp.get(k));
+				}
+			}
+		}
+		return result;
 	}
 	@Override
 	public void makeStrategy(StrategyVO vo) {

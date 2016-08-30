@@ -1,13 +1,17 @@
 package service;
 
+import java.util.Calendar;
 import java.util.List;
 
+import function.Function;
 import backtest.TestReport;
 import po.FunctionDisRnk;
 import po.Strategy;
 import vo.StrategyVO;
 
 public interface StrategyService {
+	/**由选股方法得到股票*/
+	public List<String> chooseStock(List<List<Function>> choose,Calendar today);
 	/**定制策略*/
 	public void makeStrategy(StrategyVO vo);
 	/**删除策略*/

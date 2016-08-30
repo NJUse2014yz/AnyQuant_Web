@@ -29,6 +29,8 @@ public class StrategyVO {
 	public TestReport report;
 	/**积分*/
 	public double score;
+	/**公开性*/
+	public int privacy;
 	
 	public StrategyVO(){}
 
@@ -46,6 +48,7 @@ public class StrategyVO {
 		this.realTest.flags=this.flags;
 		this.realTest.risk=this.risk;
 		this.score=strategy.score;
+		this.privacy=strategy.privacy;
 		try
 		{
 			this.report=JsonExchangeTool.getReport(strategy.report);
@@ -53,6 +56,36 @@ public class StrategyVO {
 		{
 			e.printStackTrace();
 		}
+	}
+	/**指定策略时最常用的构造方法*/
+	public StrategyVO(String userName, String createrName, String strategyName,
+			List<ChooseStock> stockList, List<List<Function>> choose,
+			List<List<Function>> risk, List<Flag> flags) {
+		super();
+		this.userName = userName;
+		this.createrName = createrName;
+		this.strategyName = strategyName;
+		this.stockList = stockList;
+		this.choose = choose;
+		this.risk = risk;
+		this.flags = flags;
+	}
+	public StrategyVO(String userName, String createrName, String strategyName,
+			List<ChooseStock> stockList, List<List<Function>> choose,
+			List<List<Function>> risk, List<Flag> flags, RealTestVO realTest,
+			TestReport report, double score, int privacy) {
+		super();
+		this.userName = userName;
+		this.createrName = createrName;
+		this.strategyName = strategyName;
+		this.stockList = stockList;
+		this.choose = choose;
+		this.risk = risk;
+		this.flags = flags;
+		this.realTest = realTest;
+		this.report = report;
+		this.score = score;
+		this.privacy = privacy;
 	}
 	
 	public StrategyVO(String userName, String createrName, String strategyName,
@@ -152,12 +185,21 @@ public class StrategyVO {
 		this.score = score;
 	}
 
+	public int getPrivacy() {
+		return privacy;
+	}
+
+	public void setPrivacy(int privacy) {
+		this.privacy = privacy;
+	}
+
 	@Override
 	public String toString() {
 		return "StrategyVO [userName=" + userName + ", createrName="
 				+ createrName + ", strategyName=" + strategyName
 				+ ", stockList=" + stockList + ", choose=" + choose + ", risk="
 				+ risk + ", flags=" + flags + ", realTest=" + realTest
-				+ ", report=" + report + ", score=" + score + "]";
+				+ ", report=" + report + ", score=" + score + ", privacy="
+				+ privacy + "]";
 	}
 }

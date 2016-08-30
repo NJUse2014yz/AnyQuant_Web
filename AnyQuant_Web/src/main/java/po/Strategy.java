@@ -29,6 +29,8 @@ public class Strategy {
 	public String report;
 	/**积分*/
 	public double score;
+	/**公开性*/
+	public int privacy;
 	
 	public Strategy(){}
 
@@ -44,11 +46,12 @@ public class Strategy {
 		this.realTest=JSONObject.fromObject(vo.getRealTest()).toString();
 		this.report=JSONObject.fromObject(vo.report).toString();
 		this.score=vo.score;
+		this.privacy=vo.privacy;
 	}
 
 	public Strategy(String userName, String createrName, String strategyName,
 			String stockList, String choose, String risk, String flags,
-			String realTest, String report, double score) {
+			String realTest, String report, double score, int privacy) {
 		super();
 		this.userName = userName;
 		this.createrName = createrName;
@@ -60,6 +63,7 @@ public class Strategy {
 		this.realTest = realTest;
 		this.report = report;
 		this.score = score;
+		this.privacy = privacy;
 	}
 
 	public String getUserName() {
@@ -142,12 +146,22 @@ public class Strategy {
 		this.score = score;
 	}
 
+	public int getPrivacy() {
+		return privacy;
+	}
+
+	public void setPrivacy(int privacy) {
+		this.privacy = privacy;
+	}
+
 	@Override
 	public String toString() {
 		return "Strategy [userName=" + userName + ", createrName="
 				+ createrName + ", strategyName=" + strategyName
 				+ ", stockList=" + stockList + ", choose=" + choose + ", risk="
 				+ risk + ", flags=" + flags + ", realTest=" + realTest
-				+ ", report=" + report + ", score=" + score + "]";
+				+ ", report=" + report + ", score=" + score + ", privacy="
+				+ privacy + "]";
 	}
+	
 }

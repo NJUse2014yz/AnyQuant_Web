@@ -27,7 +27,11 @@ import vo.StrategyVO;
 import function.Function;
 import function.FunctionResult;
 import function.ResultType;
+import function.choose.AreaFunction;
+import function.choose.AreaVO;
 import function.choose.ChooseStock;
+import function.choose.IndustryFunction;
+import function.choose.IndustryVO;
 import function.choose.PairFunction;
 import function.choose.PairVO;
 import function.flag.TrendFunction;
@@ -44,6 +48,22 @@ public class StrategyServiceTest {
 	public static QuotaInfMapper quotaInfMapper=(QuotaInfMapper) applicationContext1.getBean("quotaInfMapper");
 	public static StrategyService instance=new StrategyServiceImpl(strategyMapper,functionMapper,strategyInfMapper,quotaInfMapper);
 	
+	public static void chooseStock()
+	{
+		List<List<Function>> choose=new ArrayList<List<Function>>();
+		choose.add(new ArrayList<Function>());
+		choose.add(new ArrayList<Function>());
+		
+		AreaVO areaVO1=new AreaVO("江苏");
+		choose.get(0).add(new AreaFunction(areaVO1));
+		IndustryVO industryVO=new IndustryVO("商业百货");
+		choose.get(0).add(new IndustryFunction(industryVO));
+		
+		AreaVO areaVO2=new AreaVO("上海");
+		choose.get(1).add(new AreaFunction(areaVO2));
+//		System.out.println("choose "+choose);
+		System.out.println(instance.chooseStock(choose, Calendar.getInstance()));
+	}
 	public static void makeStrategy()
 	{
 		String siid="sh600004";
@@ -128,7 +148,7 @@ public class StrategyServiceTest {
 		share.share=10;
 		List<Flag> flags=new ArrayList<Flag>();
 		flags.add(new Flag(share,flag));
-		StrategyVO strategy=new StrategyVO(userName,createrName,strategyName,stockList,choose,risk,flags,null,null,0);
+		StrategyVO strategy=new StrategyVO(userName,createrName,strategyName,stockList,choose,risk,flags);
 		
 		instance.makeStrategy(strategy);
 	}
@@ -228,7 +248,8 @@ public class StrategyServiceTest {
 	{
 //		StrategyServiceTest.deleteStrategy();
 //		StrategyServiceTest.makeStrategy();
-		StrategyServiceTest.getSaveStrategy();
+//		StrategyServiceTest.getSaveStrategy();
+		StrategyServiceTest.chooseStock();
 //		new RealTestServiceTest().initRealTest();
 //		new RealTestServiceTest().saveRealTest();
 //		StrategyServiceTest.saveReport();
@@ -238,5 +259,7 @@ public class StrategyServiceTest {
 //		StrategyServiceTest.getSelfStrategy();
 //		StrategyServiceTest.getSaveStrategy();
 //		new StrategyServiceTest().getFunction();
+		
 	}
+	
 }
