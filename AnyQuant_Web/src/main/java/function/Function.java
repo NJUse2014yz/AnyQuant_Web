@@ -15,7 +15,7 @@ public abstract class Function {
 	/**方法卖出结果的下界*/
 	public FunctionResult resultDownO;
 	
-	public abstract FunctionResult getResult(Date date);
+	public abstract FunctionResult getResult(Date date) throws Exception;
 	public String getFunction() {
 		return function;
 	}
