@@ -1,0 +1,39 @@
+.corner{
+	border-top-right-radius:7px; 
+	border-top-left-radius:7px; 
+	border-bottom-left-radius:7px;
+	border-bottom-right-radius:7px;
+	background-color: white;
+	border:1px solid RGB(208,208,208);
+	box-shadow: 0px 5px 5px RGB(241,241,241), 0px -5px 5px RGB(241,241,241), 
+	5px 0px 5px RGB(241,241,241), -5px 0px 5px RGB(241,241,241);
+}
+
+.mainContainer{
+	position:relative;
+	top:100px;
+	left:110px;
+}
+
+.box{
+	position:relative;
+	height:130px;
+	width:240px;
+	margin-left:20px;
+	margin-right:20px;
+	margin-bottom:60px;
+	float:left;
+	text-align:center
+}
+
+a{
+	font-size:50px;
+	position:relative;
+	top:20%;
+	color:black
+}
+
+a:hover{
+	color:red;
+}
+

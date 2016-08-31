@@ -21,10 +21,9 @@
 				<li id="home"><a href="/AnyQuant_Web/">首页</a></li>
 				<li class="active"><a href="#s2">学习分区</a>
 					<ul class="submenu">
-						<li><a href="#">指标介绍</a></li>
-						<li><a href="#">工具介绍</a></li>
-						<li><a href="#">策略学习</a></li>
-						<li><a href="#">讨论区</a></li>
+						<li><a href="/AnyQuant_Web/quotaIntroduction.action">指标介绍</a></li>
+						<li><a href="/AnyQuant_Web/functionIntroduction.action">工具介绍</a></li>
+						<li><a href="/AnyQuant_Web/strategyIntroduction.action">策略学习</a></li>
 					</ul>
 				</li>
 				<li><a href="#">实践分区</a>

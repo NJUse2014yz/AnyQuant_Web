@@ -33,7 +33,6 @@ public abstract class Function {
 	public Function resultDownOF=null;
 	
 	public abstract FunctionResult getResult(Date date);
-
 	public String getFunction() {
 		return function;
 	}
