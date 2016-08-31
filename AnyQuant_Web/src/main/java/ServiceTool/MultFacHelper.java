@@ -10,6 +10,7 @@ import data.QuotaService;
 import data.impl.DataServiceImpl;
 import data.impl.QuotaServiceImpl;
 import po.HistoryData;
+import po.MultFactData;
 import po.QuotaData;
 import po.StockInf;
 import tool.DateExchangeTool;
@@ -20,7 +21,8 @@ public class MultFacHelper {
 	private static QuotaService quotaService = new QuotaServiceImpl();
 
 	// 平均换手率，平均成交量,成交量变异率（20）vr，最旧的动向指标dmh,dml,tr
-	public static ArrayList<String> getAttriTop(String Attribute, int days, int sumsto) throws Exception {
+	public static MultFactData getAttriTop(String Attribute, int days, int sumsto) throws Exception {
+		MultFactData multfactdata;
 		ArrayList<String> result = new ArrayList<String>();
 		List<StockInf> stolist = dataService.getStockList();
 		ArrayList<MultFacInf> templist=new ArrayList<MultFacInf>();
@@ -108,7 +110,7 @@ public class MultFacHelper {
 		int teams=templist.size()/sumsto;
 		if(teams<=0){
 			System.out.println("the value of sumsto is unreasonable");
-			throw new Exception();
+			return new MultFactData();
 		}
 		
 		double[] testResult=new double[teams];
@@ -133,7 +135,9 @@ public class MultFacHelper {
 //			System.out.println(i+"  "+templist.get(max*sumsto+i).stockId);
 //		}
 		
-		return result;
+		multfactdata=new MultFactData(Attribute,result,testResult[max]/10,days,sumsto);
+		
+		return multfactdata;
 	}
 	
 	public static void sort(ArrayList<MultFacInf> list){
@@ -149,11 +153,9 @@ public class MultFacHelper {
 //		return list;
 	}
 	
-	
-
-	public static double ListBackTest(ArrayList<String> result, int days) {
-		return 0.0;
-	}
+//	public static double ListBackTest(ArrayList<String> result, int days) {
+//		return 0.0;
+//	}
 
 	public static void main(String[] args) throws Exception {
 		MultFacHelper.getAttriTop("turnover",30,10);
