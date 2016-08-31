@@ -1,5 +1,6 @@
 package mapper;
 
+import java.sql.Date;
 import java.util.List;
 
 import po.DatePack;
@@ -14,6 +15,8 @@ public interface WeekHDataMapper {
 	/**查找周历史基本数据-<=weekid*/
 	public List<HistoryData> selectWeekHData_le_weekid(DatePack datePack) throws Exception;
 	
+	/**查找日期*/
+	public List<Date> selectDate_b_date(DatePack datePack) throws Exception;
 	/**查找open*/
 	public List<Double> selectOpen_b_date(DatePack datePack) throws Exception;
 	/**查找close*/

@@ -43,6 +43,25 @@ public class ListTool {
 	public static StrategyMapper strategyMapper=(StrategyMapper)applicationContext.getBean("strategyMapper");
 	public static UserInfMapper userInfMapper=(UserInfMapper)applicationContext.getBean("userInfMapper");
 	
+	public List<Long> getDate(String siid,Date start,Date end)
+	{
+		List<Date> dates=null;
+		DatePack datePack=new DatePack();
+		datePack.setSiid(siid);
+		datePack.setDate1(start);
+		datePack.setDate2(end);
+		try {
+			dates=historyDataMapper.selectDate_b_date(datePack);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		List<Long> dateL=new ArrayList<Long>();
+		for(int i=0;i<dates.size();i++)
+		{
+			dateL.add(((java.util.Date)dates.get(i)).getTime());
+		}
+		return dateL;
+	}
 	public List<Double> getList(String siid,String attribute,Date start,Date end)
 	{
 		List<Double> list=null;

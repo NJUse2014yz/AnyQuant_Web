@@ -12,10 +12,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import function.Function;
 import function.FunctionResult;
-import function.OrderFunction;
 import function.ResultType;
-import function.TestFunction;
 import function.choose.ChooseStock;
+import function.flag.TrendFunction;
+import function.order.ShareFunction;
 import function.risk.StandardPercentFunction;
 import function.risk.StandardPercentVO;
 import service.impl.RealTestServiceImpl;
@@ -35,6 +35,7 @@ public class RealTestServiceTest{
 	{
 		instance.initRealTest("u1","u1","s1",50000,1);
 	}
+	//暂时不能用
 	public void realTestForToday()
 	{
 		RealTestVO vo=new RealTestVO();
@@ -45,26 +46,26 @@ public class RealTestServiceTest{
 		List<List<Function>> flagList=new ArrayList<List<Function>>();
 		flagList.add(new ArrayList<Function>());
 		FunctionResult resultUpI=new FunctionResult();
-		resultUpI.location.add(ResultType.INT);
+		resultUpI.location.add(ResultType.INT.getCode());
 		resultUpI.rI=1;
 		FunctionResult resultDownI=new FunctionResult();
-		resultDownI.location.add(ResultType.INT);
+		resultDownI.location.add(ResultType.INT.getCode());
 		resultDownI.rI=1;
 		FunctionResult resultUpO=new FunctionResult();
-		resultUpO.location.add(ResultType.INT);
+		resultUpO.location.add(ResultType.INT.getCode());
 		resultUpO.rI=0;
 		FunctionResult resultDownO=new FunctionResult();
-		resultDownO.location.add(ResultType.INT);
+		resultDownO.location.add(ResultType.INT.getCode());
 		resultDownO.rI=0;
 		
-		TestFunction testF=new TestFunction();
+		TrendFunction testF=new TrendFunction();
 		testF.setResultUpI(resultUpI);
 		testF.setResultUpO(resultUpO);
 		testF.setResultDownI(resultDownI);
 		testF.setResultDownO(resultDownO);
 		flagList.get(0).add(testF);
 		
-		OrderFunction orderType=new OrderFunction();
+		ShareFunction orderType=new ShareFunction();
 		orderType.siid="sh600004";
 		vo.flags.add(new Flag(orderType,flagList));
 		StandardPercentVO spfvo=new StandardPercentVO();

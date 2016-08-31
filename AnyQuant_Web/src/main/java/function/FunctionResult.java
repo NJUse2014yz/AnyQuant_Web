@@ -5,36 +5,25 @@ import java.util.List;
 
 /**工具方法的通用返回结果*/
 public class FunctionResult {
-	public List<ResultType> location=new ArrayList<ResultType>();
+	public List<Integer> location=new ArrayList<Integer>();
 	public boolean rB=false;
 	public int rI=0;
 	public double rD=0;
 	public String rS=null;
+	public long rL=0;
 	public List<Integer> rLI=null;
 	public List<Double> rLD=null;
 	public List<String> rLS=null;
+	public List<Long> rLL=null;
 	
 	public FunctionResult()
 	{
 		
 	}
-	public FunctionResult(List<ResultType> location, boolean rB, int rI,
-			double rD, String rS, List<Integer> rLI, List<Double> rLD,
-			List<String> rLS) {
-		super();
-		this.location = location;
-		this.rB = rB;
-		this.rI = rI;
-		this.rD = rD;
-		this.rS = rS;
-		this.rLI = rLI;
-		this.rLD = rLD;
-		this.rLS = rLS;
-	}
-	public List<ResultType> getLocation() {
+	public List<Integer> getLocation() {
 		return location;
 	}
-	public void setLocation(List<ResultType> location) {
+	public void setLocation(List<Integer> location) {
 		this.location = location;
 	}
 	public boolean isrB() {
@@ -79,10 +68,22 @@ public class FunctionResult {
 	public void setrLS(List<String> rLS) {
 		this.rLS = rLS;
 	}
+	public long getrL() {
+		return rL;
+	}
+	public void setrL(long rL) {
+		this.rL = rL;
+	}
+	public List<Long> getrLL() {
+		return rLL;
+	}
+	public void setrLL(List<Long> rLL) {
+		this.rLL = rLL;
+	}
 	@Override
 	public String toString() {
 		return "FunctionResult [location=" + location + ", rB=" + rB + ", rI="
-				+ rI + ", rD=" + rD + ", rS=" + rS + ", rLI=" + rLI + ", rLD="
-				+ rLD + ", rLS=" + rLS + "]";
+				+ rI + ", rD=" + rD + ", rS=" + rS + ", rL=" + rL + ", rLI="
+				+ rLI + ", rLD=" + rLD + ", rLS=" + rLS + ", rLL=" + rLL + "]";
 	}
 }

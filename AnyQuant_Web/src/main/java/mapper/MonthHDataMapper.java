@@ -1,5 +1,6 @@
 package mapper;
 
+import java.sql.Date;
 import java.util.List;
 
 import po.DatePack;
@@ -14,6 +15,8 @@ public interface MonthHDataMapper {
 	/**查找月历史基本数据-<=monthid*/
 	public List<HistoryData> selectMonthHData_le_monthid(DatePack datePack) throws Exception;
 
+	/**查找日期*/
+	public List<Date> selectDate_b_date(DatePack datePack) throws Exception;
 	/**查找open*/
 	public List<Double> selectOpen_b_date(DatePack datePack) throws Exception;
 	/**查找close*/

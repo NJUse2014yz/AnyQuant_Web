@@ -1,9 +1,13 @@
-package function.order;
+package function.flag;
 
 import function.Function;
 import function.FunctionResult;
 
-public class ValueVO {
+public class MaxMinVO {
+	/**涉及的股票代码*/
+	public String siid;
+	public Function siidF;
+	
 	/**方法买入结果的上界*/
 	public FunctionResult resultUpI;
 	/**得到买入结果上界的方法*/
@@ -24,141 +28,182 @@ public class ValueVO {
 	/**得到买入结果上界的方法*/
 	public Function resultDownOF;
 	
-	/**买入1，卖出-1*/
-	public int order;
+	/**数据属性名*/
+	public String attribute;
+	public Function attributeF;
 	
-	public String siid;
-	public Function siidF;
+	/**要求极大值还是极小值*/
+	public int mm;//极大值为1，极小值为0
+	public Function mmF;
 	
-	public double value;
-	public Function valueF;
+	/**需要几个值*/
+	public int num;//几个
+	public Function numF;
 	
-	public double price;
-	public Function priceF;
-	
-	public ValueVO(){}
-	public ValueVO(FunctionResult resultUpI, Function resultUpIF,
-			FunctionResult resultDownI, Function resultDownIF,
-			FunctionResult resultUpO, Function resultUpOF,
-			FunctionResult resultDownO, Function resultDownOF, int order,
-			String siid, Function siidF, double value, Function valueF,
-			double price, Function priceF) {
+	public MaxMinVO(){}
+
+	public MaxMinVO(String siid, Function siidF, FunctionResult resultUpI,
+			Function resultUpIF, FunctionResult resultDownI,
+			Function resultDownIF, FunctionResult resultUpO,
+			Function resultUpOF, FunctionResult resultDownO,
+			Function resultDownOF, String attribute, Function attributeF,
+			int mm, Function mmF, int num, Function numF) {
 		super();
-		this.resultUpI = resultUpI;
-		this.resultUpIF = resultUpIF;
-		this.resultDownI = resultDownI;
-		this.resultDownIF = resultDownIF;
-		this.resultUpO = resultUpO;
-		this.resultUpOF = resultUpOF;
-		this.resultDownO = resultDownO;
-		this.resultDownOF = resultDownOF;
-		this.order = order;
 		this.siid = siid;
 		this.siidF = siidF;
-		this.value = value;
-		this.valueF = valueF;
-		this.price = price;
-		this.priceF = priceF;
-	}
-	public FunctionResult getResultUpI() {
-		return resultUpI;
-	}
-	public void setResultUpI(FunctionResult resultUpI) {
 		this.resultUpI = resultUpI;
-	}
-	public Function getResultUpIF() {
-		return resultUpIF;
-	}
-	public void setResultUpIF(Function resultUpIF) {
 		this.resultUpIF = resultUpIF;
-	}
-	public FunctionResult getResultDownI() {
-		return resultDownI;
-	}
-	public void setResultDownI(FunctionResult resultDownI) {
 		this.resultDownI = resultDownI;
-	}
-	public Function getResultDownIF() {
-		return resultDownIF;
-	}
-	public void setResultDownIF(Function resultDownIF) {
 		this.resultDownIF = resultDownIF;
-	}
-	public FunctionResult getResultUpO() {
-		return resultUpO;
-	}
-	public void setResultUpO(FunctionResult resultUpO) {
 		this.resultUpO = resultUpO;
-	}
-	public Function getResultUpOF() {
-		return resultUpOF;
-	}
-	public void setResultUpOF(Function resultUpOF) {
 		this.resultUpOF = resultUpOF;
-	}
-	public FunctionResult getResultDownO() {
-		return resultDownO;
-	}
-	public void setResultDownO(FunctionResult resultDownO) {
 		this.resultDownO = resultDownO;
-	}
-	public Function getResultDownOF() {
-		return resultDownOF;
-	}
-	public void setResultDownOF(Function resultDownOF) {
 		this.resultDownOF = resultDownOF;
+		this.attribute = attribute;
+		this.attributeF = attributeF;
+		this.mm = mm;
+		this.mmF = mmF;
+		this.num = num;
+		this.numF = numF;
 	}
-	public int getOrder() {
-		return order;
-	}
-	public void setOrder(int order) {
-		this.order = order;
-	}
+
 	public String getSiid() {
 		return siid;
 	}
+
 	public void setSiid(String siid) {
 		this.siid = siid;
 	}
+
 	public Function getSiidF() {
 		return siidF;
 	}
+
 	public void setSiidF(Function siidF) {
 		this.siidF = siidF;
 	}
-	public double getValue() {
-		return value;
+
+	public FunctionResult getResultUpI() {
+		return resultUpI;
 	}
-	public void setValue(double value) {
-		this.value = value;
+
+	public void setResultUpI(FunctionResult resultUpI) {
+		this.resultUpI = resultUpI;
 	}
-	public Function getValueF() {
-		return valueF;
+
+	public Function getResultUpIF() {
+		return resultUpIF;
 	}
-	public void setValueF(Function valueF) {
-		this.valueF = valueF;
+
+	public void setResultUpIF(Function resultUpIF) {
+		this.resultUpIF = resultUpIF;
 	}
-	public double getPrice() {
-		return price;
+
+	public FunctionResult getResultDownI() {
+		return resultDownI;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+
+	public void setResultDownI(FunctionResult resultDownI) {
+		this.resultDownI = resultDownI;
 	}
-	public Function getPriceF() {
-		return priceF;
+
+	public Function getResultDownIF() {
+		return resultDownIF;
 	}
-	public void setPriceF(Function priceF) {
-		this.priceF = priceF;
+
+	public void setResultDownIF(Function resultDownIF) {
+		this.resultDownIF = resultDownIF;
 	}
+
+	public FunctionResult getResultUpO() {
+		return resultUpO;
+	}
+
+	public void setResultUpO(FunctionResult resultUpO) {
+		this.resultUpO = resultUpO;
+	}
+
+	public Function getResultUpOF() {
+		return resultUpOF;
+	}
+
+	public void setResultUpOF(Function resultUpOF) {
+		this.resultUpOF = resultUpOF;
+	}
+
+	public FunctionResult getResultDownO() {
+		return resultDownO;
+	}
+
+	public void setResultDownO(FunctionResult resultDownO) {
+		this.resultDownO = resultDownO;
+	}
+
+	public Function getResultDownOF() {
+		return resultDownOF;
+	}
+
+	public void setResultDownOF(Function resultDownOF) {
+		this.resultDownOF = resultDownOF;
+	}
+
+	public String getAttribute() {
+		return attribute;
+	}
+
+	public void setAttribute(String attribute) {
+		this.attribute = attribute;
+	}
+
+	public Function getAttributeF() {
+		return attributeF;
+	}
+
+	public void setAttributeF(Function attributeF) {
+		this.attributeF = attributeF;
+	}
+
+	public int getMm() {
+		return mm;
+	}
+
+	public void setMm(int mm) {
+		this.mm = mm;
+	}
+
+	public Function getMmF() {
+		return mmF;
+	}
+
+	public void setMmF(Function mmF) {
+		this.mmF = mmF;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public Function getNumF() {
+		return numF;
+	}
+
+	public void setNumF(Function numF) {
+		this.numF = numF;
+	}
+
 	@Override
 	public String toString() {
-		return "ValueVO [resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF
-				+ ", resultDownI=" + resultDownI + ", resultDownIF="
-				+ resultDownIF + ", resultUpO=" + resultUpO + ", resultUpOF="
-				+ resultUpOF + ", resultDownO=" + resultDownO
-				+ ", resultDownOF=" + resultDownOF + ", order=" + order
-				+ ", siid=" + siid + ", siidF=" + siidF + ", value=" + value
-				+ ", valueF=" + valueF + ", price=" + price + ", priceF="
-				+ priceF + "]";
+		return "MaxMinVO [siid=" + siid + ", siidF=" + siidF + ", resultUpI="
+				+ resultUpI + ", resultUpIF=" + resultUpIF + ", resultDownI="
+				+ resultDownI + ", resultDownIF=" + resultDownIF
+				+ ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF
+				+ ", resultDownO=" + resultDownO + ", resultDownOF="
+				+ resultDownOF + ", attribute=" + attribute + ", attributeF="
+				+ attributeF + ", mm=" + mm + ", mmF=" + mmF + ", num=" + num
+				+ ", numF=" + numF + "]";
 	}
 }

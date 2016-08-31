@@ -40,8 +40,8 @@ public class StrategyVO {
 		this.createrName = strategy.createrName;
 		this.strategyName = strategy.strategyName;
 		this.stockList=JsonExchangeTool.getStock(strategy.stockList);
-		this.choose=JsonExchangeTool.getFunction(strategy.choose);
-		this.risk=JsonExchangeTool.getFunction(strategy.risk);
+		this.choose=JsonExchangeTool.getFunctionList(strategy.choose);
+		this.risk=JsonExchangeTool.getFunctionList(strategy.risk);
 		this.flags=JsonExchangeTool.getFlag(strategy.flags);
 		this.realTest=JsonExchangeTool.getRealTest(strategy.realTest);
 		this.realTest.stockList=this.stockList;

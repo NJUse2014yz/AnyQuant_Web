@@ -40,6 +40,8 @@ public interface HistoryDataMapper {
 	/**查找历史基本数据-(包括)边界*/
 	public List<HistoryData> selectHistoryData_b_date(DatePack datePack) throws Exception;
 	
+	/**查找日期*/
+	public List<Date> selectDate_b_date(DatePack datePack) throws Exception;
 	/**查找open*/
 	public List<Double> selectOpen_b_date(DatePack datePack) throws Exception;
 	/**查找close*/

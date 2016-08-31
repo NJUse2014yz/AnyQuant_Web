@@ -101,16 +101,16 @@ public class StrategyServiceTest {
 		spvo.setSign(-1);
 		Function StandardPercentFunction=new StandardPercentFunction(spvo);
 		FunctionResult upFRI=new FunctionResult();
-		upFRI.location.add(ResultType.BOOLEAN);
+		upFRI.location.add(ResultType.BOOLEAN.getCode());
 		upFRI.rB=true;
 		FunctionResult downFRI=new FunctionResult();
-		downFRI.location.add(ResultType.BOOLEAN);
+		downFRI.location.add(ResultType.BOOLEAN.getCode());
 		downFRI.rB=true;
 		FunctionResult upFRO=new FunctionResult();
-		upFRO.location.add(ResultType.BOOLEAN);
+		upFRO.location.add(ResultType.BOOLEAN.getCode());
 		upFRO.rB=true;
 		FunctionResult downFRO=new FunctionResult();
-		downFRO.location.add(ResultType.BOOLEAN);
+		downFRO.location.add(ResultType.BOOLEAN.getCode());
 		downFRO.rB=true;
 		StandardPercentFunction.setResultDownI(downFRI);
 		StandardPercentFunction.setResultDownO(downFRO);
@@ -125,18 +125,18 @@ public class StrategyServiceTest {
 		int day1=30;
 		Double standard1=0.5;
 		FunctionResult upFRI1=new FunctionResult();
-		upFRI1.location.add(ResultType.DOUBLELIST);
+		upFRI1.location.add(ResultType.DOUBLELIST.getCode());
 		upFRI1.rD=0.5;
 		FunctionResult downFRI1=new FunctionResult();
-		downFRI1.location.add(ResultType.DOUBLELIST);
+		downFRI1.location.add(ResultType.DOUBLELIST.getCode());
 		downFRI1.rD=0.2;
 		FunctionResult upFRO1=new FunctionResult();
-		upFRO1.location.add(ResultType.DOUBLELIST);
+		upFRO1.location.add(ResultType.DOUBLELIST.getCode());
 		upFRO1.rD=-0.2;
 		FunctionResult downFRO1=new FunctionResult();
-		downFRO1.location.add(ResultType.DOUBLELIST);
+		downFRO1.location.add(ResultType.DOUBLELIST.getCode());
 		downFRO1.rD=-0.5;
-		TrendVO trendVO=new TrendVO(upFRI1,downFRI1,upFRO1,downFRO1,siid,attribute1,day1,standard1);
+		TrendVO trendVO=new TrendVO(upFRI1,null,downFRI1,null,upFRO1,null,downFRO1,null,siid,null,attribute1,null,day1,null,standard1,null);
 		TrendFunction trend=new TrendFunction(trendVO);
 		//flag2
 		
@@ -249,7 +249,8 @@ public class StrategyServiceTest {
 //		StrategyServiceTest.deleteStrategy();
 //		StrategyServiceTest.makeStrategy();
 //		StrategyServiceTest.getSaveStrategy();
-		StrategyServiceTest.chooseStock();
+//		StrategyServiceTest.chooseStock();
+		StrategyServiceTest.getStrategy();
 //		new RealTestServiceTest().initRealTest();
 //		new RealTestServiceTest().saveRealTest();
 //		StrategyServiceTest.saveReport();

@@ -19,6 +19,7 @@ import function.choose.ConceptVO;
 import function.choose.IndustryFunction;
 import function.choose.IndustryVO;
 import function.choose.IntersectionFunction;
+import function.choose.IntersectionVO;
 import function.choose.PairFunction;
 import function.choose.PairVO;
 import function.flag.CrossFunction;
@@ -74,11 +75,283 @@ public class JsonExchangeTool {
 		for(int i=0;i<jArray.size();i++)
 		{
 			JSONObject jObject=(JSONObject) jArray.get(i);
-			flags.add(new Flag(getOrder(jObject.get("orderType").toString()),getFunction(jObject.get("flagList").toString())));
+			flags.add(new Flag(getOrder(jObject.get("orderType").toString()),getFunctionList(jObject.get("flagList").toString())));
 		}
 		return flags;
 	}
-	public static List<List<Function>> getFunction(String json)
+	public static FunctionResult getResult(String json)
+	{
+		FunctionResult result=new FunctionResult();
+		JSONObject jObject=JSONObject.fromObject(json);
+//		JSONArray jArray=jObject.getJSONArray("location");
+//		for(int i=0;i<jArray.size();i++)
+//		{
+//			result.location.add(jArray.getInt(i));
+//		}
+		result.location=jObject.getJSONArray("location");
+		result.rB=jObject.getBoolean("rB");
+		result.rI=jObject.getInt("rI");
+		result.rD=jObject.getDouble("rD");
+		result.rS=jObject.getString("rS");
+		result.rL=jObject.getLong("rL");
+		result.rLI=jObject.getJSONArray("rLI");
+		result.rLD=jObject.getJSONArray("rLD");
+		result.rLS=jObject.getJSONArray("rLS");
+		result.rLL=jObject.getJSONArray("rLL");
+		return result;
+	}
+	public static Function getFunction(String json)
+	{
+		JSONObject jObject=JSONObject.fromObject(json);
+		
+		String function=jObject.getString("function");
+		String siid=null;
+		JSONObject siidFJ=null;
+		JSONObject resultUpIJ=null;
+		JSONObject resultUpIFJ=null;
+		JSONObject resultDownIJ=null;
+		JSONObject resultDownIFJ=null;
+		JSONObject resultUpOJ=null;
+		JSONObject resultUpOFJ=null;
+		JSONObject resultDownOJ=null;
+		JSONObject resultDownOFJ=null;
+		
+		Function siidF=null;
+		FunctionResult resultUpI=null;
+		Function resultUpIF=null;
+		FunctionResult resultDownI=null;
+		Function resultDownIF=null;
+		FunctionResult resultUpO=null;
+		Function resultUpOF=null;
+		FunctionResult resultDownO=null;
+		Function resultDownOF=null;
+		
+		List<Integer> upLocationAI=null;
+		List<Integer> downLocationAI=null;
+		List<Integer> upLocationAO=null;
+		List<Integer> downLocationAO=null;
+		
+		try{
+			resultUpOJ=jObject.getJSONObject("resultUpO");
+			resultDownOJ=jObject.getJSONObject("resultDownO");
+			resultUpO=getResult(resultUpOJ.toString());
+			resultDownO=getResult(resultDownOJ.toString());
+			
+		} catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		try{
+			resultUpIJ=jObject.getJSONObject("resultUpI");
+			resultDownIJ=jObject.getJSONObject("resultDownI");
+			resultUpI=getResult(resultUpIJ.toString());
+			resultDownI=getResult(resultDownIJ.toString());
+		} catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		String attribute=null;
+		String siid1=null;
+		String siid2=null;
+		String attribute1=null;
+		String attribute2=null;
+		int num=0;
+		int day=0;
+		String area=null;
+		String concept=null;
+		String industry=null;
+		double up=0;
+		double down=0;
+		List<String> stockList1=null;
+		List<String> stockList2=null;
+		int sign=0;
+		String standardAttr=null;
+		double percent=0;
+		double standard=0;
+		
+		JSONArray stockList1J=null;
+		JSONArray stockList2J=null;
+		
+		Function attributeF=null;
+		Function siid1F=null;
+		Function siid2F=null;
+		Function attribute1F=null;
+		Function attribute2F=null;
+		Function numF=null;
+		Function dayF=null;
+		Function areaF=null;
+		Function conceptF=null;
+		Function industryF=null;
+		Function upF=null;
+		Function downF=null;
+		Function stockList1F=null;
+		Function stockList2F=null;
+		Function signF=null;
+		Function standardF=null;
+		Function percentF=null;
+		
+		JSONObject attributeFJ=null;
+		JSONObject siid1FJ=null;
+		JSONObject siid2FJ=null;
+		JSONObject attribute1FJ=null;
+		JSONObject attribute2FJ=null;
+		JSONObject numFJ=null;
+		JSONObject dayFJ=null;
+		JSONObject areaFJ=null;
+		JSONObject conceptFJ=null;
+		JSONObject industryFJ=null;
+		JSONObject upFJ=null;
+		JSONObject downFJ=null;
+		JSONObject stockList1FJ=null;
+		JSONObject stockList2FJ=null;
+		JSONObject signFJ=null;
+		JSONObject standardFJ=null;
+		JSONObject percentFJ=null;
+		
+		switch(function)
+		{
+		case "Pair":
+			siid=(String)jObject.get("siid");
+			siidFJ=jObject.getJSONObject("siidF");
+			siidF=getFunction(siidFJ.toString());
+			num=jObject.getInt("num");
+			numFJ=jObject.getJSONObject("numF");
+			numF=getFunction(numFJ.toString());
+			return new PairFunction(new PairVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid, siidF, num, numF));
+		case "Area":
+			area=jObject.getString("area");
+			areaFJ=jObject.getJSONObject("areaF");
+			areaF=getFunction(areaFJ.toString());
+			return new AreaFunction(new AreaVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, area, areaF));
+		case "Concept":
+			concept=jObject.getString("concept");
+			conceptFJ=jObject.getJSONObject("conceptF");
+			conceptF=getFunction(conceptFJ.toString());
+			return new ConceptFunction(new ConceptVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, concept, conceptF));
+		case "Industry":
+			industry=jObject.getString("industry");
+			industryFJ=jObject.getJSONObject("industryFJ");
+			industryF=getFunction(industryFJ.toString());
+			return new IndustryFunction(new IndustryVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, industry, industryF));
+		case "Intersection":
+			stockList1=jObject.getJSONArray("stockList1");
+			stockList1FJ=jObject.getJSONObject("stockList1F");
+			stockList1F=getFunction(stockList1FJ.toString());
+			stockList2=jObject.getJSONArray("stockList2");
+			stockList2FJ=jObject.getJSONObject("stockList2F");
+			stockList2F=getFunction(stockList2FJ.toString());
+			return new IntersectionFunction(new IntersectionVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, stockList1J, stockList1F, stockList2J, stockList2F));
+		case "Attribute":
+			up=jObject.getDouble("up");
+			upFJ=jObject.getJSONObject("upF");
+			upF=getFunction(upFJ.toString());
+			down=jObject.getDouble("down");
+			downFJ=jObject.getJSONObject("downF");
+			downF=getFunction(upFJ.toString());
+			attribute=jObject.getString("attribute");
+			attributeFJ=jObject.getJSONObject("attributeF");
+			attributeF=getFunction(attributeFJ.toString());
+			return new AttributeFunction(new AttributeVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, up, upF, down, downF, attribute2, attributeF));
+		case "StandardPercent":
+			sign=jObject.getInt("sign");
+			signFJ=jObject.getJSONObject("signF");
+			signF=getFunction(signFJ.toString());
+			siid=jObject.getString("siid");
+			siidFJ=jObject.getJSONObject("siidF");
+			siidF=getFunction(siidFJ.toString());
+			attribute=jObject.getString("attribute");
+			attributeFJ=jObject.getJSONObject("attributeF");
+			attributeF=getFunction(attributeFJ.toString());
+			standardAttr=jObject.getString("standard");
+			standardFJ=jObject.getJSONObject("standardF");
+			standardF=getFunction(standardFJ.toString());
+			percent=jObject.getDouble("percent");
+			percentFJ=jObject.getJSONObject("percentF");
+			percentF=getFunction(percentFJ.toString());
+			return new StandardPercentFunction(new StandardPercentVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, sign, signF, siid2, siidF, attribute2, attributeF, standardAttr, standardF, percent, percentF));
+		case "Trend":
+			siid=(String)jObject.get("siid");
+			siidFJ=jObject.getJSONObject("siidF");
+			siidF=getFunction(siidFJ.toString());
+			attribute=(String)jObject.get("attribute");
+			attributeFJ=jObject.getJSONObject("attributeF");
+			attributeF=getFunction(attributeFJ.toString());
+			day=jObject.getInt("day");
+			dayFJ=jObject.getJSONObject("dayF");
+			dayF=getFunction(dayFJ.toString());
+			standard=jObject.getDouble("standard");
+			standardFJ=jObject.getJSONObject("standardF");
+			standardF=getFunction(standardFJ.toString());
+			return new TrendFunction(new TrendVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid2, siidF, attribute2, attributeF, day, dayF, standard, standardF));
+		case "UpTrend":
+			siid=(String)jObject.get("siid");
+			siidFJ=jObject.getJSONObject("siidF");
+			siidF=getFunction(siidFJ.toString());
+			attribute=(String)jObject.get("attribute");
+			attributeFJ=jObject.getJSONObject("attributeF");
+			attributeF=getFunction(attributeFJ.toString());
+			day=jObject.getInt("day");
+			dayFJ=jObject.getJSONObject("dayF");
+			dayF=getFunction(dayFJ.toString());
+			standard=jObject.getDouble("standard");
+			standardFJ=jObject.getJSONObject("standardF");
+			standardF=getFunction(standardFJ.toString());
+			return new UpTrendFunction(new TrendVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid2, siidF, attribute2, attributeF, day, dayF, standard, standardF));
+		case "DownTrend":
+			siid=(String)jObject.get("siid");
+			siidFJ=jObject.getJSONObject("siidF");
+			siidF=getFunction(siidFJ.toString());
+			attribute=(String)jObject.get("attribute");
+			attributeFJ=jObject.getJSONObject("attributeF");
+			attributeF=getFunction(attributeFJ.toString());
+			day=jObject.getInt("day");
+			dayFJ=jObject.getJSONObject("dayF");
+			dayF=getFunction(dayFJ.toString());
+			standard=jObject.getDouble("standard");
+			standardFJ=jObject.getJSONObject("standardF");
+			standardF=getFunction(standardFJ.toString());
+			return new DownTrendFunction(new TrendVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid2, siidF, attribute2, attributeF, day, dayF, standard, standardF));
+		case "Cross":
+			siid1=(String)jObject.get("siid1");
+			siid1FJ=jObject.getJSONObject("siid1F");
+			siid1F=getFunction(siid1FJ.toString());
+			siid2=(String)jObject.get("siid2");
+			siid2FJ=jObject.getJSONObject("siid2F");
+			siid2F=getFunction(siid2FJ.toString());
+			attribute1=(String)jObject.get("attribute1");
+			attribute1FJ=jObject.getJSONObject("attribute1F");
+			attribute1F=getFunction(attribute1FJ.toString());
+			attribute2=(String)jObject.get("attribute2");
+			attribute2FJ=jObject.getJSONObject("attribute2F");
+			attribute2F=getFunction(attribute2FJ.toString());
+			day=jObject.getInt("day");
+			dayFJ=jObject.getJSONObject("dayF");
+			dayF=getFunction(dayFJ.toString());
+			return new CrossFunction(new CrossVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid1, siid1F, attribute1, attribute1F, siid2, siid2F, attribute2, attribute2F, day, dayF));
+		case "CrossPoint":
+			siid1=(String)jObject.get("siid1");
+			siid1FJ=jObject.getJSONObject("siid1F");
+			siid1F=getFunction(siid1FJ.toString());
+			siid2=(String)jObject.get("siid2");
+			siid2FJ=jObject.getJSONObject("siid2F");
+			siid2F=getFunction(siid2FJ.toString());
+			attribute1=(String)jObject.get("attribute1");
+			attribute1FJ=jObject.getJSONObject("attribute1F");
+			attribute1F=getFunction(attribute1FJ.toString());
+			attribute2=(String)jObject.get("attribute2");
+			attribute2FJ=jObject.getJSONObject("attribute2F");
+			attribute2F=getFunction(attribute2FJ.toString());
+			day=jObject.getInt("day");
+			dayFJ=jObject.getJSONObject("dayF");
+			dayF=getFunction(dayFJ.toString());
+			return new CrossPointFunction(new CrossVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid1, siid1F, attribute1, attribute1F, siid2, siid2F, attribute2, attribute2F, day, dayF));
+		default:
+			return null;
+		}
+	}
+	public static List<List<Function>> getFunctionList(String json)
 	{
 		List<List<Function>> list=new ArrayList<List<Function>>();
 		JSONArray jArrayOut=null;
@@ -91,239 +364,7 @@ public class JsonExchangeTool {
 			jArrayIn=(JSONArray) jArrayOut.get(j);
 			for(int i=0;i<jArrayIn.size();i++)
 			{
-				JSONObject jObject=(JSONObject) jArrayIn.get(i);
-				String siid=null;
-				String siid1=null;
-				String siid2=null;
-				String attribute=null;
-				String attribute1=null;
-				String attribute2=null;
-				int num=0;
-				JSONObject upFRJI=null;
-				JSONObject downFRJI=null;
-				JSONObject upFRJO=null;
-				JSONObject downFRJO=null;
-				JSONArray upLocationJAI=null;
-				JSONArray downLocationJAI=null;
-				JSONArray upLocationJAO=null;
-				JSONArray downLocationJAO=null;
-				List<Integer> upLocationAI=null;
-				List<Integer> downLocationAI=null;
-				List<Integer> upLocationAO=null;
-				List<Integer> downLocationAO=null;
-				FunctionResult upFRI=null;
-				FunctionResult downFRI=null;
-				FunctionResult upFRO=null;
-				FunctionResult downFRO=null;
-				int day=0;
-				int sign=0;
-				double standard=0;
-				double percent=0;
-				double up=0;
-				double down=0;
-				String standardAttr=null;
-				String area=null;
-				String concept=null;
-				String industry=null;
-				String function=(String) jObject.get("function");
-				upFRJI=(JSONObject)jObject.get("resultUpI");
-				downFRJI=(JSONObject)jObject.get("resultDownI");
-				upFRI=new FunctionResult();
-				downFRI=new FunctionResult();
-				upFRJO=(JSONObject)jObject.get("resultUpO");
-				downFRJO=(JSONObject)jObject.get("resultDownO");
-				upFRO=new FunctionResult();
-				downFRO=new FunctionResult();
-				upLocationJAI=(JSONArray)upFRJI.get("location");
-				downLocationJAI=(JSONArray)downFRJI.get("location");
-				upLocationJAO=(JSONArray)upFRJO.get("location");
-				downLocationJAO=(JSONArray)downFRJO.get("location");
-				upLocationAI=new ArrayList<Integer>();
-				downLocationAI=new ArrayList<Integer>();
-				upLocationAO=new ArrayList<Integer>();
-				downLocationAO=new ArrayList<Integer>();
-				for(int k=0;k<upLocationAI.size();k++)
-				{
-					upLocationAI.add((int)upLocationJAI.get(k));	
-					downLocationAI.add((int)downLocationJAI.get(k));
-					upLocationAO.add((int)upLocationJAO.get(k));	
-					downLocationAO.add((int)downLocationJAO.get(k));
-				}
-				upFRI.setrB(upFRJI.getBoolean("rB"));
-				downFRI.setrB(downFRJI.getBoolean("rB"));
-				upFRO.setrB(upFRJO.getBoolean("rB"));
-				downFRO.setrB(downFRJO.getBoolean("rB"));
-				upFRI.setrI(upFRJI.getInt("rI"));
-				downFRI.setrI(downFRJI.getInt("rI"));
-				upFRO.setrI(upFRJO.getInt("rI"));
-				downFRO.setrI(downFRJO.getInt("rI"));
-				upFRI.setrD(upFRJI.getDouble("rD"));
-				downFRI.setrD(downFRJI.getDouble("rD"));
-				upFRO.setrD(upFRJO.getDouble("rD"));
-				downFRO.setrD(downFRJO.getDouble("rD"));
-				
-				JSONArray jArrayupFRJIrLI=(JSONArray)upFRJI.get("rLI");
-				List<Integer> upFRJIrLI=new ArrayList<Integer>();
-				for(int l=0;l<jArrayupFRJIrLI.size();l++)
-				{
-					upFRJIrLI.add(jArrayupFRJIrLI.getInt(l));
-				}
-				upFRI.setrLI(upFRJIrLI);
-				JSONArray jArraydownFRJIrLI=(JSONArray)downFRJI.get("rLI");
-				List<Integer> downFRJIrLI=new ArrayList<Integer>();
-				for(int l=0;l<jArraydownFRJIrLI.size();l++)
-				{
-					downFRJIrLI.add(jArraydownFRJIrLI.getInt(l));
-				}
-				downFRI.setrLI(downFRJIrLI);
-				JSONArray jArrayupFRJOrLI=(JSONArray)upFRJO.get("rLI");
-				List<Integer> upFRJOrLI=new ArrayList<Integer>();
-				for(int l=0;l<jArrayupFRJOrLI.size();l++)
-				{
-					upFRJOrLI.add(jArrayupFRJOrLI.getInt(l));
-				}
-				upFRO.setrLI(upFRJOrLI);
-				JSONArray jArraydownFRJOrLI=(JSONArray)downFRJO.get("rLI");
-				List<Integer> downFRJOrLI=new ArrayList<Integer>();
-				for(int l=0;l<jArraydownFRJOrLI.size();l++)
-				{
-					downFRJOrLI.add(jArraydownFRJOrLI.getInt(l));
-				}
-				downFRO.setrLI(downFRJOrLI);
-				
-				JSONArray jArrayupFRJIrLD=(JSONArray)upFRJI.get("rLD");
-				List<Double> upFRJIrLD=new ArrayList<Double>();
-				for(int l=0;l<jArrayupFRJIrLD.size();l++)
-				{
-					upFRJIrLD.add(jArrayupFRJIrLD.getDouble(l));
-				}
-				upFRI.setrLD(upFRJIrLD);
-				JSONArray jArraydownFRJIrLD=(JSONArray)downFRJI.get("rLD");
-				List<Double> downFRJIrLD=new ArrayList<Double>();
-				for(int l=0;l<jArraydownFRJIrLD.size();l++)
-				{
-					downFRJIrLD.add(jArraydownFRJIrLD.getDouble(l));
-				}
-				downFRI.setrLD(downFRJIrLD);
-				JSONArray jArrayupFRJOrLD=(JSONArray)upFRJO.get("rLD");
-				List<Double> upFRJOrLD=new ArrayList<Double>();
-				for(int l=0;l<jArrayupFRJOrLD.size();l++)
-				{
-					upFRJOrLD.add(jArrayupFRJOrLD.getDouble(l));
-				}
-				upFRO.setrLD(upFRJOrLD);
-				JSONArray jArraydownFRJOrLD=(JSONArray)downFRJO.get("rLD");
-				List<Double> downFRJOrLD=new ArrayList<Double>();
-				for(int l=0;l<jArraydownFRJOrLD.size();l++)
-				{
-					downFRJOrLD.add(jArraydownFRJOrLD.getDouble(l));
-				}
-				downFRO.setrLD(downFRJOrLD);
-				
-				JSONArray jArrayupFRJIrLS=(JSONArray)upFRJI.get("rLS");
-				List<String> upFRJIrLS=new ArrayList<String>();
-				for(int l=0;l<jArrayupFRJIrLS.size();l++)
-				{
-					upFRJIrLS.add(jArrayupFRJIrLS.getString(l));
-				}
-				upFRI.setrLS(upFRJIrLS);
-				JSONArray jArraydownFRJIrLS=(JSONArray)downFRJI.get("rLS");
-				List<String> downFRJIrLS=new ArrayList<String>();
-				for(int l=0;l<jArraydownFRJIrLS.size();l++)
-				{
-					downFRJIrLS.add(jArraydownFRJIrLS.getString(l));
-				}
-				downFRI.setrLS(downFRJIrLS);
-				JSONArray jArrayupFRJOrLS=(JSONArray)upFRJO.get("rLS");
-				List<String> upFRJOrLS=new ArrayList<String>();
-				for(int l=0;l<jArrayupFRJOrLS.size();l++)
-				{
-					upFRJOrLS.add(jArrayupFRJOrLS.getString(l));
-				}
-				upFRO.setrLS(upFRJOrLS);
-				JSONArray jArraydownFRJOrLS=(JSONArray)downFRJO.get("rLS");
-				List<String> downFRJOrLS=new ArrayList<String>();
-				for(int l=0;l<jArraydownFRJOrLS.size();l++)
-				{
-					downFRJOrLS.add(jArraydownFRJOrLS.getString(l));
-				}
-				downFRO.setrLS(downFRJOrLS);
-				
-				switch(function)
-				{
-				case "Pair":
-					siid=(String)jObject.get("siid");
-					num=jObject.getInt("num");
-					list.get(i).add(new PairFunction(new PairVO(siid,num)));
-					break;
-				case "Area":
-					area=jObject.getString("area");
-					list.get(i).add(new AreaFunction(new AreaVO(area)));
-					break;
-				case "Concept":
-					concept=jObject.getString("concept");
-					list.get(i).add(new ConceptFunction(new ConceptVO(concept)));
-					break;
-				case "Industry":
-					industry=jObject.getString("industry");
-					list.get(i).add(new IndustryFunction(new IndustryVO(industry)));
-					break;
-				case "Intersection":
-					list.get(i).add(new IntersectionFunction());
-					break;
-				case "Attribute":
-					up=jObject.getDouble("up");
-					down=jObject.getDouble("down");
-					attribute=jObject.getString("attribute");
-					list.get(i).add(new AttributeFunction(new AttributeVO(up,down,attribute)));
-				
-				case "StandardPercent":
-					sign=jObject.getInt("sign");
-					siid=jObject.getString("siid");
-					attribute=jObject.getString("attribute");
-					standardAttr=jObject.getString("standard");
-					percent=jObject.getDouble("percent");
-					list.get(i).add(new StandardPercentFunction(new StandardPercentVO(sign,siid,attribute,standardAttr,percent)));
-					break;
-				
-				case "Trend":
-					siid=(String)jObject.get("siid");
-					attribute=(String)jObject.get("attribute");
-					day=jObject.getInt("day");
-					standard=jObject.getDouble("standard");
-					list.get(i).add(new TrendFunction(new TrendVO(upFRI,downFRI,upFRO,downFRI,siid,attribute,day,standard)));
-					break;
-				case "UpTrend":
-					siid=(String)jObject.get("siid");
-					attribute=(String)jObject.get("attribute");
-					day=jObject.getInt("day");
-					standard=jObject.getDouble("standard");
-					list.get(i).add(new UpTrendFunction(new TrendVO(upFRI,downFRI,upFRO,downFRI,siid,attribute,day,standard)));
-					break;
-				case "DownTrend":
-					siid=(String)jObject.get("siid");
-					attribute=(String)jObject.get("attribute");
-					day=jObject.getInt("day");
-					standard=jObject.getDouble("standard");
-					list.get(i).add(new DownTrendFunction(new TrendVO(upFRI,downFRI,upFRO,downFRI,siid,attribute,day,standard)));
-					break;
-				case "Cross":
-					siid1=(String)jObject.get("siid1");
-					attribute1=(String)jObject.get("attribute1");
-					siid2=(String)jObject.get("siid2");
-					attribute2=(String)jObject.get("attribute2");
-					day=jObject.getInt("day");
-					list.get(i).add(new CrossFunction(new CrossVO(upFRI,downFRI,upFRO,downFRI,siid1,attribute1,siid2,attribute2,day)));
-					break;
-				case "CrossPoint":
-					siid1=(String)jObject.get("siid1");
-					attribute1=(String)jObject.get("attribute1");
-					siid2=(String)jObject.get("siid2");
-					attribute2=(String)jObject.get("attribute2");
-					day=jObject.getInt("day");
-					list.get(i).add(new CrossPointFunction(new CrossVO(upFRI,downFRI,upFRO,downFRI,siid1,attribute1,siid2,attribute2,day)));
-					break;
-				}
+				list.get(i).add(getFunction(jArrayIn.getString(i)));
 			}
 		}
 		return list;

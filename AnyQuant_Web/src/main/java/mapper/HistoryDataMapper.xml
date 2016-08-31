@@ -69,6 +69,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by id
 	</select>
 	
+	<select id="selectDate_b_date" parameterType="DatePack" resultType="Date">
+		select date from HistoryData_${siid}
+		where date &gt;= #{date1} and date &lt;= #{date2}
+		order by id
+	</select>
 	<select id="selectOpen_b_date" parameterType="DatePack" resultType="Double">
 		select open from HistoryData_${siid}
 		where date &gt;= #{date1} and date &lt;= #{date2}

@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import backtest.DateDouble;
 import function.Function;
 import function.FunctionResult;
-import function.OrderFunction;
+import function.ResultType;
 import function.choose.ChooseStock;
 import function.flag.TrendFunction;
 import function.order.ShareFunction;
@@ -122,7 +122,7 @@ public class RealTestServiceImpl implements RealTestService {
 				
 //					System.out.println("result "+result.rI);/*======================*/
 					
-					switch(result.location.get(0))
+					switch(ResultType.getEnum(result.location.get(0)))
 					{
 					case BOOLEAN://boolean
 						if(result.rB==upFRI.rB&&result.rB==downFRI.rB)
@@ -438,16 +438,16 @@ public class RealTestServiceImpl implements RealTestService {
 		switch(type)
 		{
 		case "Share":
-			return new ShareFunction(order,siid,(int)value,price);
+			return new ShareFunction(order,siid,null,(int)value,null,price,null);
 		case "Order":
-			return new ShareFunction(order,siid,(int)value,price);
+			return new ShareFunction(order,siid,null,(int)value,null,price,null);
 		case "SharePercent":
 			int sum=0;
 			for(int i=0;i<vo.numlist.size();i++)
 			{
 				sum+=vo.numlist.get(i);
 			}
-			return new ShareFunction(order,siid,sum*value,price);
+			return new ShareFunction(order,siid,null,(int)sum*value,null,price,null);
 		case "ShareTarget":
 			int shareTargetShare=0;
 			for(int i=0;i<vo.stockList.size();i++)
@@ -466,12 +466,12 @@ public class RealTestServiceImpl implements RealTestService {
 					}
 				}
 			}
-			return new ShareFunction(order,siid,shareTargetShare,price);
+			return new ShareFunction(order,siid,null,(int)shareTargetShare,null,price,null);
 		case "Value":
-			return new ShareFunction(order,siid,(int)value/price,price);
+			return new ShareFunction(order,siid,null,(int)value/price,null,price,null);
 		case "ValuePercent":
 			int shareVP=(int) (vo.capital.get(vo.capital.size()-1).getValue()*value/price);
-			return new ShareFunction(order,siid,shareVP,price);
+			return new ShareFunction(order,siid,null,(int)shareVP,null,price,null);
 		case "ValueTarget":
 			double valueReal=0;
 			for(int i=0;i<vo.numlist.size();i++)
@@ -492,7 +492,7 @@ public class RealTestServiceImpl implements RealTestService {
 				order=1;
 				shareVT=(int) (valueReal/price);
 			}
-			return new ShareFunction(order,siid,shareVT,price);
+			return new ShareFunction(order,siid,null,(int)shareVT,null,price,null);
 		default:
 			return null;
 		}

@@ -9,68 +9,130 @@ import function.ResultType;
 public class SharePercentFunction extends Function{
 	/**买入1，卖出-1*/
 	public int order;
-//	public String siid;
+	
+	public String siid;
+	public Function siidF;
+	
 	public double percent;
+	public Function percentF;
+	
 	public double price;
+	public Function priceF;
 	
 	public SharePercentFunction(){
-		super();
 		this.function = "SharePercent";
 	}
-	public SharePercentFunction(String function, int order, String siid,
-			double percent,double price) {
-		super();
+	
+	public SharePercentFunction(int order, String siid,double percent, double price) {
 		this.function = "SharePercent";
 		this.order = order;
 		this.siid = siid;
 		this.percent = percent;
-		this.price=price;
+		this.price = price;
 	}
+
+	public SharePercentFunction(int order, String siid, Function siidF,
+			double percent, Function percentF, double price, Function priceF) {
+		this.function = "SharePercent";
+		this.order = order;
+		this.siid = siid;
+		this.siidF = siidF;
+		this.percent = percent;
+		this.percentF = percentF;
+		this.price = price;
+		this.priceF = priceF;
+	}
+
 	public SharePercentFunction(PercentVO vo)
 	{
 		this.function="SharePercent";
+		this.resultDownI=vo.resultDownI;
+		this.resultDownIF=vo.resultDownIF;
+		this.resultDownO=vo.resultDownO;
+		this.resultDownOF=vo.resultDownOF;
+		this.resultUpI=vo.resultUpI;
+		this.resultUpIF=vo.resultUpIF;
+		this.resultUpO=vo.resultUpO;
+		this.resultUpOF=vo.resultUpOF;
 		this.order=vo.order;
+		
 		this.siid=vo.siid;
+		this.siidF=vo.siidF;
 		this.percent=vo.percent;
+		this.percentF=vo.percentF;
 		this.price=vo.price;
+		this.priceF=vo.priceF;
 	}
 	@Override
 	public FunctionResult getResult(Date today) {
 		FunctionResult result=new FunctionResult();
-		result.location.add(ResultType.DOUBLE);
-		result.location.add(ResultType.STRING);
+		result.location.add(ResultType.DOUBLE.getCode());
+		result.location.add(ResultType.STRING.getCode());
 		result.rD=percent;
 		result.rS=siid;
 		return result;
 	}
-	
+
 	public int getOrder() {
 		return order;
 	}
+
 	public void setOrder(int order) {
 		this.order = order;
 	}
+
 	public String getSiid() {
 		return siid;
 	}
+
 	public void setSiid(String siid) {
 		this.siid = siid;
 	}
+
+	public Function getSiidF() {
+		return siidF;
+	}
+
+	public void setSiidF(Function siidF) {
+		this.siidF = siidF;
+	}
+
 	public double getPercent() {
 		return percent;
 	}
+
 	public void setPercent(double percent) {
 		this.percent = percent;
 	}
+
+	public Function getPercentF() {
+		return percentF;
+	}
+
+	public void setPercentF(Function percentF) {
+		this.percentF = percentF;
+	}
+
 	public double getPrice() {
 		return price;
 	}
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+	public Function getPriceF() {
+		return priceF;
+	}
+
+	public void setPriceF(Function priceF) {
+		this.priceF = priceF;
+	}
+
 	@Override
 	public String toString() {
 		return "SharePercentFunction [order=" + order + ", siid=" + siid
-				+ ", percent=" + percent + ", price=" + price + "]";
+				+ ", siidF=" + siidF + ", percent=" + percent + ", percentF="
+				+ percentF + ", price=" + price + ", priceF=" + priceF + "]";
 	}
 }
