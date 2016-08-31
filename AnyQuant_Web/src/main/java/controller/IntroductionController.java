@@ -51,4 +51,15 @@ public class IntroductionController {
 		modelAndView.setViewName("introduction/StrategyIntroduction");
 		return modelAndView;
 	}
+	
+	/**
+	 * 根据名称获得详细描述
+	 */
+	@RequestMapping("/getDetail")
+	public ModelAndView getDetail(String name){
+		ModelAndView modelAndView=new ModelAndView();
+		
+		
+		return modelAndView;
+	}
 }
