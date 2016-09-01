@@ -145,9 +145,11 @@ public class AttributeFunction extends Function{
 
 	@Override
 	public String toString() {
-		return "AttributeFunction [up=" + up + ", upF=" + upF + ", down="
-				+ down + ", downF=" + downF + ", attribute=" + attribute
-				+ ", attributeF=" + attributeF + "]";
+		return "AttributeFunction [up=" + up + ", upF=" + upF + ", down=" + down + ", downF=" + downF + ", attribute="
+				+ attribute + ", attributeF=" + attributeF + ", function=" + function + ", siid=" + siid + ", siidF="
+				+ siidF + ", resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF + ", resultDownI=" + resultDownI
+				+ ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF
+				+ ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF + "]";
 	}
 
 }

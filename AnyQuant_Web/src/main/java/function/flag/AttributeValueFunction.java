@@ -7,7 +7,7 @@ import function.Function;
 import function.FunctionResult;
 import function.ResultType;
 
-/**根据某些属性值发出交易信号*/
+/**根据某些属性值发出交易信号,可以和DataFunction合并*/
 public class AttributeValueFunction extends Function{
 	public String attribute;
 	public Function attributeF;
@@ -82,7 +82,11 @@ public class AttributeValueFunction extends Function{
 
 	@Override
 	public String toString() {
-		return "AttributeValueFunction [attribute=" + attribute
-				+ ", attributeF=" + attributeF + "]";
+		return "AttributeValueFunction [attribute=" + attribute + ", attributeF=" + attributeF + ", function="
+				+ function + ", siid=" + siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI + ", resultUpIF="
+				+ resultUpIF + ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF + ", resultUpO="
+				+ resultUpO + ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO + ", resultDownOF="
+				+ resultDownOF + "]";
 	}
+
 }

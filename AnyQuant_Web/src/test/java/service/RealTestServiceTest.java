@@ -33,7 +33,7 @@ public class RealTestServiceTest{
 	
 	public void initRealTest()
 	{
-		instance.initRealTest("u1","u1","s1",50000,1);
+		instance.initRealTest("admin","admin","波浪理论",100000,1);
 	}
 	//暂时不能用
 	public void realTestForToday()

@@ -36,26 +36,26 @@ public class StrategyVO {
 
 	public StrategyVO(Strategy strategy)
 	{
-		this.userName = strategy.userName;
-		this.createrName = strategy.createrName;
-		this.strategyName = strategy.strategyName;
-		this.stockList=JsonExchangeTool.getStock(strategy.stockList);
-		this.choose=JsonExchangeTool.getFunctionList(strategy.choose);
-		this.risk=JsonExchangeTool.getFunctionList(strategy.risk);
+//		this.userName = strategy.userName;
+//		this.createrName = strategy.createrName;
+//		this.strategyName = strategy.strategyName;
+//		this.stockList=JsonExchangeTool.getStock(strategy.stockList);
+//		this.choose=JsonExchangeTool.getFunctionList(strategy.choose);
+//		this.risk=JsonExchangeTool.getFunctionList(strategy.risk);
 		this.flags=JsonExchangeTool.getFlag(strategy.flags);
-		this.realTest=JsonExchangeTool.getRealTest(strategy.realTest);
-		this.realTest.stockList=this.stockList;
-		this.realTest.flags=this.flags;
-		this.realTest.risk=this.risk;
-		this.score=strategy.score;
-		this.privacy=strategy.privacy;
-		try
-		{
-			this.report=JsonExchangeTool.getReport(strategy.report);
-		}catch(Exception e)
-		{
-			e.printStackTrace();
-		}
+//		this.realTest=JsonExchangeTool.getRealTest(strategy.realTest);
+//		this.realTest.stockList=this.stockList;
+//		this.realTest.flags=this.flags;
+//		this.realTest.risk=this.risk;
+//		this.score=strategy.score;
+//		this.privacy=strategy.privacy;
+//		try
+//		{
+//			this.report=JsonExchangeTool.getReport(strategy.report);
+//		}catch(Exception e)
+//		{
+//			e.printStackTrace();
+//		}
 	}
 	/**指定策略时最常用的构造方法*/
 	public StrategyVO(String userName, String createrName, String strategyName,

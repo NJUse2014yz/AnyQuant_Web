@@ -111,8 +111,11 @@ public class ShareFunction extends Function{
 
 	@Override
 	public String toString() {
-		return "ShareFunction [share=" + share
-				+ ", shareF=" + shareF + ", price=" + price + ", priceF="
-				+ priceF + "]";
+		return "ShareFunction [share=" + share + ", shareF=" + shareF + ", price=" + price + ", priceF=" + priceF
+				+ ", function=" + function + ", siid=" + siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI
+				+ ", resultUpIF=" + resultUpIF + ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF
+				+ ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO
+				+ ", resultDownOF=" + resultDownOF + "]";
 	}
+
 }

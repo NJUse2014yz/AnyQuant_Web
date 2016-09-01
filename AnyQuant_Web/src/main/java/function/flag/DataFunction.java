@@ -10,6 +10,7 @@ import function.Function;
 import function.FunctionResult;
 import function.ResultType;
 
+/**根据一定日期内的数据属性值大小判断是否进行交易*/
 public class DataFunction extends Function{
 	/**设计的属性名*/
 	public String attribute;
@@ -112,10 +113,14 @@ public class DataFunction extends Function{
 	public void setDayF(Function dayF) {
 		this.dayF = dayF;
 	}
+
 	@Override
 	public String toString() {
-		return "DataFunction [siid=" + siid + ", siidF=" + siidF
-				+ ", attribute=" + attribute + ", attributeF=" + attributeF
-				+ ", day=" + day + ", dayF=" + dayF + "]";
+		return "\nDataFunction [attribute=" + attribute + ", attributeF=" + attributeF + ", day=" + day + ", dayF=" + dayF
+				+ ", function=" + function + ", siid=" + siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI
+				+ ", resultUpIF=" + resultUpIF + ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF
+				+ ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO
+				+ ", resultDownOF=" + resultDownOF + "]";
 	}
+	
 }

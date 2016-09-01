@@ -172,12 +172,15 @@ public class StandardPercentFunction extends Function{
 	public void setPercentF(Function percentF) {
 		this.percentF = percentF;
 	}
+
 	@Override
 	public String toString() {
-		return "StandardPercentFunction [sign=" + sign + ", signF=" + signF
-				+ ", siid=" + siid + ", siidF=" + siidF + ", attribute="
-				+ attribute + ", attributeF=" + attributeF + ", standard="
-				+ standard + ", standardF=" + standardF + ", percent="
-				+ percent + ", percentF=" + percentF + "]";
+		return "StandardPercentFunction [sign=" + sign + ", signF=" + signF + ", attribute=" + attribute
+				+ ", attributeF=" + attributeF + ", standard=" + standard + ", standardF=" + standardF + ", percent="
+				+ percent + ", percentF=" + percentF + ", function=" + function + ", siid=" + siid + ", siidF=" + siidF
+				+ ", resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF + ", resultDownI=" + resultDownI
+				+ ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF
+				+ ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF + "]";
 	}
+
 }

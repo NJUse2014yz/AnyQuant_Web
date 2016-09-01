@@ -65,6 +65,10 @@ public class AreaFunction extends Function{
 	}
 	@Override
 	public String toString() {
-		return "AreaFunction [area=" + area + ", areaF=" + areaF + "]";
+		return "AreaFunction [area=" + area + ", areaF=" + areaF + ", function=" + function + ", siid=" + siid
+				+ ", siidF=" + siidF + ", resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF + ", resultDownI="
+				+ resultDownI + ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO + ", resultUpOF="
+				+ resultUpOF + ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF + "]";
 	}
+	
 }

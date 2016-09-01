@@ -30,7 +30,6 @@ public class TrendFunction extends Function{
 	{
 		this.function="Trend";
 	}
-	
 	public TrendFunction(String siid,String attribute, int day, double standard) {
 		this.function="Trend";
 		this.siid=siid;
@@ -172,12 +171,13 @@ public class TrendFunction extends Function{
 	public void setStandardF(Function standardF) {
 		this.standardF = standardF;
 	}
-
 	@Override
 	public String toString() {
-		return "TrendFunction [siid=" + siid + ", siidF=" + siidF
-				+ ", attribute=" + attribute + ", attributeF=" + attributeF
-				+ ", day=" + day + ", dayF=" + dayF + ", standard=" + standard
-				+ ", standardF=" + standardF + "]";
+		return "\nTrendFunction [attribute=" + attribute + ", attributeF=" + attributeF + ", day=" + day + ", dayF="
+				+ dayF + ", standard=" + standard + ", standardF=" + standardF + ", function=" + function + ", siid="
+				+ siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF
+				+ ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO
+				+ ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF
+				+ "]";
 	}
 }

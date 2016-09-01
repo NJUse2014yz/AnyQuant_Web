@@ -65,9 +65,14 @@ public class IndustryFunction extends Function{
 	public void setIndustryF(Function industryF) {
 		this.industryF = industryF;
 	}
+
 	@Override
 	public String toString() {
-		return "IndustryFunction [industry=" + industry + ", industryF="
-				+ industryF + "]";
+		return "IndustryFunction [industry=" + industry + ", industryF=" + industryF + ", function=" + function
+				+ ", siid=" + siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF
+				+ ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO
+				+ ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF
+				+ "]";
 	}
+	
 }

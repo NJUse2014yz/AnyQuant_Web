@@ -21,8 +21,12 @@ public class MaxMinFunction extends Function{
 	public Function mmF;
 	
 	/**需要几个值*/
-	public int num;//几个
+	public int num=0;//几个
 	public Function numF;
+	
+	/**需要的是第几个极值*/
+	public int loc=0;//应该从1开始
+	public Function locF;
 	
 	public MaxMinFunction()
 	{
@@ -35,6 +39,13 @@ public class MaxMinFunction extends Function{
 		this.attribute = attribute;
 		this.mm = mm;
 		this.num = num;
+	}
+	public MaxMinFunction(int loc,String siid,String attribute, int mm) {
+		this.function="MaxMin";
+		this.siid=siid;
+		this.attribute = attribute;
+		this.mm = mm;
+		this.loc = loc;
 	}
 
 	public MaxMinFunction(String siid,Function siidF,String attribute, Function attributeF, int mm,
@@ -85,6 +96,14 @@ public class MaxMinFunction extends Function{
 		if(numF!=null)
 		{
 			num=numF.getResult(date).rI;
+		}
+		if(locF!=null)
+		{
+			loc=locF.getResult(date).rI;
+		}
+		if(loc!=0)
+		{
+			num=loc;
 		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.LONGLIST.getCode());
@@ -157,6 +176,16 @@ public class MaxMinFunction extends Function{
 				}
 			}
 		}
+		if(loc!=0)
+		{
+			result.location.clear();
+			result.location.add(ResultType.LONG.getCode());
+			result.location.add(ResultType.DOUBLE.getCode());
+			result.rD=result.rLD.get(loc-1);
+			result.rL=result.rLL.get(loc-1);
+			result.rLD=null;
+			result.rLL=null;
+		}
 		return result;
 	}
 	public String getAttribute() {
@@ -195,10 +224,15 @@ public class MaxMinFunction extends Function{
 	public void setNumF(Function numF) {
 		this.numF = numF;
 	}
+
 	@Override
 	public String toString() {
-		return "MaxMinFunction [attribute=" + attribute + ", attributeF="
-				+ attributeF + ", mm=" + mm + ", mmF=" + mmF + ", num=" + num
-				+ ", numF=" + numF + "]";
+		return "MaxMinFunction [attribute=" + attribute + ", attributeF=" + attributeF + ", mm=" + mm + ", mmF=" + mmF
+				+ ", num=" + num + ", numF=" + numF + ", loc=" + loc + ", locF=" + locF + ", function=" + function
+				+ ", siid=" + siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF
+				+ ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO
+				+ ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF
+				+ "]";
 	}
+
 }

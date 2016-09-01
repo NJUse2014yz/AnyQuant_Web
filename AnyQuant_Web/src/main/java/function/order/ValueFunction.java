@@ -108,8 +108,11 @@ public class ValueFunction extends Function{
 
 	@Override
 	public String toString() {
-		return "ValueFunction [value=" + value
-				+ ", valueF=" + valueF + ", price=" + price + ", priceF="
-				+ priceF + "]";
+		return "ValueFunction [value=" + value + ", valueF=" + valueF + ", price=" + price + ", priceF=" + priceF
+				+ ", function=" + function + ", siid=" + siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI
+				+ ", resultUpIF=" + resultUpIF + ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF
+				+ ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO
+				+ ", resultDownOF=" + resultDownOF + "]";
 	}
+
 }

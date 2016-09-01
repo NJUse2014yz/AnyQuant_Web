@@ -78,7 +78,11 @@ public class DivideFunction extends Function {
 	}
 	@Override
 	public String toString() {
-		return "DivideFunction [v1=" + v1 + ", v1F=" + v1F + ", v2=" + v2
-				+ ", v2F=" + v2F + "]";
+		return "\nDivideFunction [v1=" + v1 + ", v1F=" + v1F + ", v2=" + v2 + ", v2F=" + v2F + ", function=" + function
+				+ ", siid=" + siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF
+				+ ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO
+				+ ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF
+				+ "]\n";
 	}
+
 }

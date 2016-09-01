@@ -33,21 +33,24 @@ public class MaxMinVO {
 	public Function attributeF;
 	
 	/**要求极大值还是极小值*/
-	public int mm;//极大值为1，极小值为0
+	public int mm=0;//极大值为1，极小值为0
 	public Function mmF;
 	
 	/**需要几个值*/
-	public int num;//几个
+	public int num=0;//几个
 	public Function numF;
+	
+	
+	/**需要的是第几个极值*/
+	public int loc=0;
+	public Function locF;
 	
 	public MaxMinVO(){}
 
-	public MaxMinVO(String siid, Function siidF, FunctionResult resultUpI,
-			Function resultUpIF, FunctionResult resultDownI,
-			Function resultDownIF, FunctionResult resultUpO,
-			Function resultUpOF, FunctionResult resultDownO,
-			Function resultDownOF, String attribute, Function attributeF,
-			int mm, Function mmF, int num, Function numF) {
+	public MaxMinVO(String siid, Function siidF, FunctionResult resultUpI, Function resultUpIF,
+			FunctionResult resultDownI, Function resultDownIF, FunctionResult resultUpO, Function resultUpOF,
+			FunctionResult resultDownO, Function resultDownOF, String attribute, Function attributeF, int mm,
+			Function mmF, int num, Function numF, int loc, Function locF) {
 		super();
 		this.siid = siid;
 		this.siidF = siidF;
@@ -65,6 +68,8 @@ public class MaxMinVO {
 		this.mmF = mmF;
 		this.num = num;
 		this.numF = numF;
+		this.loc = loc;
+		this.locF = locF;
 	}
 
 	public String getSiid() {
@@ -195,15 +200,29 @@ public class MaxMinVO {
 		this.numF = numF;
 	}
 
+	public int getLoc() {
+		return loc;
+	}
+
+	public void setLoc(int loc) {
+		this.loc = loc;
+	}
+
+	public Function getLocF() {
+		return locF;
+	}
+
+	public void setLocF(Function locF) {
+		this.locF = locF;
+	}
+
 	@Override
 	public String toString() {
-		return "MaxMinVO [siid=" + siid + ", siidF=" + siidF + ", resultUpI="
-				+ resultUpI + ", resultUpIF=" + resultUpIF + ", resultDownI="
-				+ resultDownI + ", resultDownIF=" + resultDownIF
-				+ ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF
-				+ ", resultDownO=" + resultDownO + ", resultDownOF="
-				+ resultDownOF + ", attribute=" + attribute + ", attributeF="
-				+ attributeF + ", mm=" + mm + ", mmF=" + mmF + ", num=" + num
-				+ ", numF=" + numF + "]";
+		return "MaxMinVO [siid=" + siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF
+				+ ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO
+				+ ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF
+				+ ", attribute=" + attribute + ", attributeF=" + attributeF + ", mm=" + mm + ", mmF=" + mmF + ", num="
+				+ num + ", numF=" + numF + ", loc=" + loc + ", locF=" + locF + "]";
 	}
+
 }
