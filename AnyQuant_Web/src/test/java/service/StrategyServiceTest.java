@@ -153,16 +153,86 @@ public class StrategyServiceTest {
 	{
 		StrategyVO strategy=instance.getSingleStrategy("admin","admin","波浪理论");
 		
-//		System.out.println("userName "+strategy.userName);
-//		System.out.println("createrName "+strategy.createrName);
-//		System.out.println("strategyName "+strategy.strategyName);
-//		System.out.println("stockList "+strategy.stockList);
-//		System.out.println("choose "+strategy.choose);
-//		System.out.println("risk "+strategy.risk);
+		System.out.println("userName "+strategy.userName);
+		System.out.println("createrName "+strategy.createrName);
+		System.out.println("strategyName "+strategy.strategyName);
+		System.out.println("stockList "+strategy.stockList);
+		System.out.println("choose "+strategy.choose);
+		System.out.println("risk "+strategy.risk);
 		System.out.println("flags "+strategy.flags);
-//		System.out.println("report "+strategy.report);
-//		System.out.println("realTest "+strategy.realTest);
-//		System.out.println("score "+strategy.score);
+		System.out.println("report "+strategy.report);
+		System.out.println("realTest "+strategy.realTest);
+		System.out.println("score "+strategy.score);
+//		userName admin
+//		createrName admin
+//		strategyName 波浪理论
+//		stockList [ChooseStock [siid=sh600004, percent=1.0]]
+//		choose []
+//		risk [[StandardPercentFunction [sign=-1, signF=null, attribute=close, attributeF=null, standard=m20, standardF=null, percent=0.5, percentF=null, function=StandardPercent, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=FunctionResult [location=[1], rB=true, rI=0, rD=0.0, rS=, rL=0, rLI=[], rLD=[], rLS=[], rLL=[]], resultUpOF=null, resultDownO=FunctionResult [location=[1], rB=true, rI=0, rD=0.0, rS=, rL=0, rLI=[], rLD=[], rLS=[], rLL=[]], resultDownOF=null]]]
+//		flags [
+//		Flag [orderType=ShareFunction [share=50.0, shareF=null, price=0.0, priceF=null, function=Share, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null],
+//		flagList=[[
+//		TrendFunction [attribute=close, attributeF=null, day=5, dayF=null, standard=10.0, standardF=null, function=Trend, siid=sh600004, siidF=null, resultUpI=FunctionResult [location=[3], rB=false, rI=0, rD=0.0, rS=, rL=0, rLI=[], rLD=[], rLS=[], rLL=[]], resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null], 
+//		DataFunction [attribute=null, attributeF=null, day=1, dayF=null, function=Data, siid=null, siidF=null, resultUpI=null, resultUpIF=
+//		AddFunction [v1=0.0, v1F=
+//		MultipleFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		DivideFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=-1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Divide, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Multiple, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.3, v2F=null, function=Add, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, resultDownI=null, resultDownIF=
+//		MinusFunction [v1=0.0, v1F=
+//		MultipleFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		DivideFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=-1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Divide, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Multiple, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.3, v2F=null, function=Minus, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]]]
+//		]
+//		]
+//		report null
+//		realTest RealTestVO [cash=10000.0, n=1, stockList=[ChooseStock [siid=sh600004, percent=1.0]], risk=[[StandardPercentFunction [sign=-1, signF=null, attribute=close, attributeF=null, standard=m20, standardF=null, percent=0.5, percentF=null, function=StandardPercent, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=FunctionResult [location=[1], rB=true, rI=0, rD=0.0, rS=, rL=0, rLI=[], rLD=[], rLS=[], rLL=[]], resultUpOF=null, resultDownO=FunctionResult [location=[1], rB=true, rI=0, rD=0.0, rS=, rL=0, rLI=[], rLD=[], rLS=[], rLL=[]], resultDownOF=null]]], flags=[
+//		Flag [orderType=ShareFunction [share=50.0, shareF=null, price=0.0, priceF=null, function=Share, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null],
+//		flagList=[[
+//		TrendFunction [attribute=close, attributeF=null, day=5, dayF=null, standard=10.0, standardF=null, function=Trend, siid=sh600004, siidF=null, resultUpI=FunctionResult [location=[3], rB=false, rI=0, rD=0.0, rS=, rL=0, rLI=[], rLD=[], rLS=[], rLL=[]], resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null], 
+//		DataFunction [attribute=null, attributeF=null, day=1, dayF=null, function=Data, siid=null, siidF=null, resultUpI=null, resultUpIF=
+//		AddFunction [v1=0.0, v1F=
+//		MultipleFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		DivideFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=-1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Divide, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Multiple, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.3, v2F=null, function=Add, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, resultDownI=null, resultDownIF=
+//		MinusFunction [v1=0.0, v1F=
+//		MultipleFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		DivideFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=-1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Divide, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Multiple, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.3, v2F=null, function=Minus, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]]]
+//		]
+//		], numlist=[], capital=[], history=[]]
+//		score 0.0
 	}
 	public static void getSelfStrategy()
 	{
@@ -218,7 +288,7 @@ public class StrategyServiceTest {
 	}
 	public static void deleteStrategy()
 	{
-		instance.deleteStrategy("u1","u1","s1");
+		instance.deleteStrategy("admin","admin","波浪理论");
 	}
 	public static void saveReport()
 	{
@@ -253,6 +323,8 @@ public class StrategyServiceTest {
 //		StrategyServiceTest.getSelfStrategy();
 //		StrategyServiceTest.getSaveStrategy();
 //		new StrategyServiceTest().getFunction();
+		
+		
 		
 	}
 	

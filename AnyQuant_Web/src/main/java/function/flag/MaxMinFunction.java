@@ -224,15 +224,32 @@ public class MaxMinFunction extends Function{
 	public void setNumF(Function numF) {
 		this.numF = numF;
 	}
+	public int getLoc() {
+		return loc;
+	}
+
+	public void setLoc(int loc) {
+		this.loc = loc;
+	}
+
+	public Function getLocF() {
+		return locF;
+	}
+
+	public void setLocF(Function locF) {
+		this.locF = locF;
+	}
 
 	@Override
 	public String toString() {
-		return "MaxMinFunction [attribute=" + attribute + ", attributeF=" + attributeF + ", mm=" + mm + ", mmF=" + mmF
-				+ ", num=" + num + ", numF=" + numF + ", loc=" + loc + ", locF=" + locF + ", function=" + function
-				+ ", siid=" + siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF
-				+ ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO
-				+ ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF
-				+ "]";
+		return "\nMaxMinFunction [attribute=" + attribute + ", attributeF="
+				+ attributeF + ", mm=" + mm + ", mmF=" + mmF + ", num=" + num
+				+ ", numF=" + numF + ", loc=" + loc + ", locF=" + locF
+				+ ", function=" + function + ", siid=" + siid + ", siidF="
+				+ siidF + ", resultUpI=" + resultUpI + ", resultUpIF="
+				+ resultUpIF + ", resultDownI=" + resultDownI
+				+ ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO
+				+ ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO
+				+ ", resultDownOF=" + resultDownOF + "]\n";
 	}
-
 }

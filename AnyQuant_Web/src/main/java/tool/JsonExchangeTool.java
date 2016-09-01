@@ -28,8 +28,10 @@ import function.flag.CrossFunction;
 import function.flag.CrossPointFunction;
 import function.flag.CrossVO;
 import function.flag.DataFunction;
+import function.flag.DataVO;
 import function.flag.DownTrendFunction;
 import function.flag.MaxMinFunction;
+import function.flag.MaxMinVO;
 import function.flag.TrendFunction;
 import function.flag.TrendVO;
 import function.flag.UpTrendFunction;
@@ -229,18 +231,14 @@ public class JsonExchangeTool {
 			}
 			try{
 				resultUpIFJ=jObject.getJSONObject("resultUpIF");
-				System.out.println(resultUpIFJ);
 				resultUpIF=getFunction(resultUpIFJ.toString());
-				System.out.println(resultUpIF);
 			} catch(Exception e)
 			{
 				e.printStackTrace();
 			}
 			try{
 				resultDownIFJ=jObject.getJSONObject("resultDownIF");
-				System.out.println(resultDownIFJ);
 				resultDownIF=getFunction(resultDownIFJ.toString());
-				System.out.println(resultDownIF);
 			} catch(Exception e)
 			{
 				e.printStackTrace();
@@ -315,7 +313,7 @@ public class JsonExchangeTool {
 			JSONObject percentFJ=null;
 			JSONObject v1FJ=null;
 			JSONObject v2FJ=null;
-			JSONArray valueListFJ=null;
+			JSONObject valueListFJ=null;
 			JSONObject mmFJ=null;
 			JSONObject locFJ=null;
 			
@@ -323,515 +321,211 @@ public class JsonExchangeTool {
 			{
 			//choose
 			case "Pair":
-				try{
-					siid=(String)jObject.get("siid");
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				try{
-					siidFJ=jObject.getJSONObject("siidF");
-					siidF=getFunction(siidFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				num=jObject.getInt("num");
-				try{
-					numFJ=jObject.getJSONObject("numF");
-					numF=getFunction(numFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				siid = (String) jObject.get("siid");
+				siidFJ = jObject.getJSONObject("siidF");
+				siidF = getFunction(siidFJ.toString());
+				num = jObject.getInt("num");
+				numFJ = jObject.getJSONObject("numF");
+				numF =getFunction(numFJ.toString());
 				return new PairFunction(new PairVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid, siidF, num, numF));
 			case "Area":
 				area=jObject.getString("area");
-				try{
-					areaFJ=jObject.getJSONObject("areaF");
-					areaF=getFunction(areaFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				areaFJ=jObject.getJSONObject("areaF");
+				areaF=getFunction(areaFJ.toString());
 				return new AreaFunction(new AreaVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, area, areaF));
 			case "Concept":
 				concept=jObject.getString("concept");
-				try{
-					conceptFJ=jObject.getJSONObject("conceptF");
-					conceptF=getFunction(conceptFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}	
+				conceptFJ=jObject.getJSONObject("conceptF");
+				conceptF=getFunction(conceptFJ.toString());
 				return new ConceptFunction(new ConceptVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, concept, conceptF));
 			case "Industry":
 				industry=jObject.getString("industry");
-				try{
-					industryFJ=jObject.getJSONObject("industryFJ");
-					industryF=getFunction(industryFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				industryFJ=jObject.getJSONObject("industryFJ");
+				industryF=getFunction(industryFJ.toString());
 				return new IndustryFunction(new IndustryVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, industry, industryF));
 			case "Intersection":
-				stockList1=jObject.getJSONArray("stockList1");
-				try{
-					stockList1FJ=jObject.getJSONObject("stockList1F");
-					stockList1F=getFunction(stockList1FJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				stockList2=jObject.getJSONArray("stockList2");
-				try{
-					stockList2FJ=jObject.getJSONObject("stockList2F");
-					stockList2F=getFunction(stockList2FJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				stockList1 = jObject.getJSONArray("stockList1");
+				stockList1FJ = jObject.getJSONObject("stockList1F");
+				stockList1F = getFunction(stockList1FJ.toString());
+				stockList2 = jObject.getJSONArray("stockList2");
+				stockList2FJ = jObject.getJSONObject("stockList2F");
+				stockList2F = getFunction(stockList2FJ.toString());
 				return new IntersectionFunction(new IntersectionVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, stockList1J, stockList1F, stockList2J, stockList2F));
 			case "Attribute":
-				up=jObject.getDouble("up");
-				try{
-					upFJ=jObject.getJSONObject("upF");
-					upF=getFunction(upFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				down=jObject.getDouble("down");
-				try{
-					downFJ=jObject.getJSONObject("downF");
-					downF=getFunction(upFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				attribute=jObject.getString("attribute");
-				try
-				{
-					attributeFJ=jObject.getJSONObject("attributeF");
-					attributeF=getFunction(attributeFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				up = jObject.getDouble("up");
+				upFJ = jObject.getJSONObject("upF");
+				upF = getFunction(upFJ.toString());
+				down = jObject.getDouble("down");
+				downFJ = jObject.getJSONObject("downF");
+				downF = getFunction(upFJ.toString());
+				attribute = jObject.getString("attribute");
+				attributeFJ = jObject.getJSONObject("attributeF");
+				attributeF = getFunction(attributeFJ.toString());
 				return new AttributeFunction(new AttributeVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, up, upF, down, downF, attribute2, attributeF));
 				
 			//risk	
 			case "StandardPercent":
-				try{
-					sign=jObject.getInt("sign");
-				} catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-				try{
-					signFJ=jObject.getJSONObject("signF");
-					signF=getFunction(signFJ.toString());
-				} catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-				try{
-					siid=jObject.getString("siid");
-				} catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-				try{
-					siidFJ=jObject.getJSONObject("siidF");
-					siidF=getFunction(siidFJ.toString());
-				} catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-				try{
-					attribute=jObject.getString("attribute");
-				} catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-				try{
-					attributeFJ=jObject.getJSONObject("attributeF");
-					attributeF=getFunction(attributeFJ.toString());
-				} catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-				try{
-					standardAttr=jObject.getString("standard");
-				} catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-				try{
-					standardFJ=jObject.getJSONObject("standardF");
-					standardF=getFunction(standardFJ.toString());
-				} catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-				try{
-					percent=jObject.getDouble("percent");
-				} catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-				try{
-					percentFJ=jObject.getJSONObject("percentF");
-					percentF=getFunction(percentFJ.toString());
-				} catch(Exception e)
-				{
-					e.printStackTrace();
-				}
+				sign=jObject.getInt("sign");
+				signFJ=jObject.getJSONObject("signF");
+				signF=getFunction(signFJ.toString());
+				siid=jObject.getString("siid");
+				siidFJ=jObject.getJSONObject("siidF");
+				siidF=getFunction(siidFJ.toString());
+				attribute=jObject.getString("attribute");
+				attributeFJ=jObject.getJSONObject("attributeF");
+				attributeF=getFunction(attributeFJ.toString());
+				standardAttr=jObject.getString("standard");
+				standardFJ=jObject.getJSONObject("standardF");
+				standardF=getFunction(standardFJ.toString());
+				percent=jObject.getDouble("percent");
+				percentFJ=jObject.getJSONObject("percentF");
+				percentF=getFunction(percentFJ.toString());
 				return new StandardPercentFunction(new StandardPercentVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, sign, signF, siid, siidF, attribute, attributeF, standardAttr, standardF, percent, percentF));
 				
 			//flag	
 			case "Trend":
-				siid=(String)jObject.get("siid");
-				try{
-					siidFJ=jObject.getJSONObject("siidF");
-					siidF=getFunction(siidFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				attribute=(String)jObject.get("attribute");
-				try{
-					attributeFJ=jObject.getJSONObject("attributeF");
-					attributeF=getFunction(attributeFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				day=jObject.getInt("day");
-				try{
-					dayFJ=jObject.getJSONObject("dayF");
-					dayF=getFunction(dayFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				standard=jObject.getDouble("standard");
-				try{
-					standardFJ=jObject.getJSONObject("standardF");
-					standardF=getFunction(standardFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				siid = (String) jObject.get("siid");
+				siidFJ = jObject.getJSONObject("siidF");
+				siidF = getFunction(siidFJ.toString());
+				attribute = (String) jObject.get("attribute");
+				attributeFJ = jObject.getJSONObject("attributeF");
+				attributeF = getFunction(attributeFJ.toString());
+				day = jObject.getInt("day");
+				dayFJ = jObject.getJSONObject("dayF");
+				dayF = getFunction(dayFJ.toString());
+				standard = jObject.getDouble("standard");
+				standardFJ = jObject.getJSONObject("standardF");
+				standardF = getFunction(standardFJ.toString());
 				return new TrendFunction(new TrendVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid, siidF, attribute, attributeF, day, dayF, standard, standardF));
 			case "UpTrend":
-				siid=(String)jObject.get("siid");
-				try{
-					siidFJ=jObject.getJSONObject("siidF");
-					siidF=getFunction(siidFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				attribute=(String)jObject.get("attribute");
-				try{
-					attributeFJ=jObject.getJSONObject("attributeF");
-					attributeF=getFunction(attributeFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				day=jObject.getInt("day");
-				try{
-					dayFJ=jObject.getJSONObject("dayF");
-					dayF=getFunction(dayFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				standard=jObject.getDouble("standard");
-				try{
-					standardFJ=jObject.getJSONObject("standardF");
-					standardF=getFunction(standardFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				siid = (String) jObject.get("siid");
+				siidFJ = jObject.getJSONObject("siidF");
+				siidF = getFunction(siidFJ.toString());
+				attribute = (String) jObject.get("attribute");
+				attributeFJ = jObject.getJSONObject("attributeF");
+				attributeF = getFunction(attributeFJ.toString());
+				day = jObject.getInt("day");
+				dayFJ = jObject.getJSONObject("dayF");
+				dayF = getFunction(dayFJ.toString());
+				standard = jObject.getDouble("standard");
+				standardFJ = jObject.getJSONObject("standardF");
+				standardF = getFunction(standardFJ.toString());
 				return new UpTrendFunction(new TrendVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid, siidF, attribute, attributeF, day, dayF, standard, standardF));
 			case "DownTrend":
-				siid=(String)jObject.get("siid");
-				try{
-					siidFJ=jObject.getJSONObject("siidF");
-					siidF=getFunction(siidFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				attribute=(String)jObject.get("attribute");
-				try{
-					attributeFJ=jObject.getJSONObject("attributeF");
-					attributeF=getFunction(attributeFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				day=jObject.getInt("day");
-				try{
-					dayFJ=jObject.getJSONObject("dayF");
-					dayF=getFunction(dayFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				standard=jObject.getDouble("standard");
-				try{
-					standardFJ=jObject.getJSONObject("standardF");
-					standardF=getFunction(standardFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				siid = (String) jObject.get("siid");
+				siidFJ = jObject.getJSONObject("siidF");
+				siidF = getFunction(siidFJ.toString());
+				attribute = (String) jObject.get("attribute");
+				attributeFJ = jObject.getJSONObject("attributeF");
+				attributeF = getFunction(attributeFJ.toString());
+				day = jObject.getInt("day");
+				dayFJ = jObject.getJSONObject("dayF");
+				dayF = getFunction(dayFJ.toString());
+				standard = jObject.getDouble("standard");
+				standardFJ = jObject.getJSONObject("standardF");
+				standardF = getFunction(standardFJ.toString());
 				return new DownTrendFunction(new TrendVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid, siidF, attribute, attributeF, day, dayF, standard, standardF));
 			case "Cross":
-				siid1=(String)jObject.get("siid1");
-				try{
-					siid1FJ=jObject.getJSONObject("siid1F");
-					siid1F=getFunction(siid1FJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				siid2=(String)jObject.get("siid2");
-				try{
-					siid2FJ=jObject.getJSONObject("siid2F");
-					siid2F=getFunction(siid2FJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				attribute1=(String)jObject.get("attribute1");
-				try{
-					attribute1FJ=jObject.getJSONObject("attribute1F");
-					attribute1F=getFunction(attribute1FJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				attribute2=(String)jObject.get("attribute2");
-				try{
-					attribute2FJ=jObject.getJSONObject("attribute2F");
-					attribute2F=getFunction(attribute2FJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				day=jObject.getInt("day");
-				try{
-					dayFJ=jObject.getJSONObject("dayF");
-					dayF=getFunction(dayFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				siid1 = (String) jObject.get("siid1");
+				siid1FJ = jObject.getJSONObject("siid1F");
+				siid1F = getFunction(siid1FJ.toString());
+				siid2 = (String) jObject.get("siid2");
+				siid2FJ = jObject.getJSONObject("siid2F");
+				siid2F = getFunction(siid2FJ.toString());
+				attribute1 = (String) jObject.get("attribute1");
+				attribute1FJ = jObject.getJSONObject("attribute1F");
+				attribute1F = getFunction(attribute1FJ.toString());
+				attribute2 = (String) jObject.get("attribute2");
+				attribute2FJ = jObject.getJSONObject("attribute2F");
+				attribute2F = getFunction(attribute2FJ.toString());
+				day = jObject.getInt("day");
+				dayFJ = jObject.getJSONObject("dayF");
+				dayF = getFunction(dayFJ.toString());
 				return new CrossFunction(new CrossVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid1, siid1F, attribute1, attribute1F, siid2, siid2F, attribute2, attribute2F, day, dayF));
 			case "CrossPoint":
-				siid1=(String)jObject.get("siid1");
-				try{
-					siid1FJ=jObject.getJSONObject("siid1F");
-					siid1F=getFunction(siid1FJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				siid2=(String)jObject.get("siid2");
-				try{
-					siid2FJ=jObject.getJSONObject("siid2F");
-					siid2F=getFunction(siid2FJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				attribute1=(String)jObject.get("attribute1");
-				try{
-					attribute1FJ=jObject.getJSONObject("attribute1F");
-					attribute1F=getFunction(attribute1FJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				attribute2=(String)jObject.get("attribute2");
-				try{
-					attribute2FJ=jObject.getJSONObject("attribute2F");
-					attribute2F=getFunction(attribute2FJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				day=jObject.getInt("day");
-				try{
-					dayFJ=jObject.getJSONObject("dayF");
-					dayF=getFunction(dayFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				siid1 = (String) jObject.get("siid1");
+				siid1FJ = jObject.getJSONObject("siid1F");
+				siid1F = getFunction(siid1FJ.toString());
+				siid2 = (String) jObject.get("siid2");
+				siid2FJ = jObject.getJSONObject("siid2F");
+				siid2F = getFunction(siid2FJ.toString());
+				attribute1 = (String) jObject.get("attribute1");
+				attribute1FJ = jObject.getJSONObject("attribute1F");
+				attribute1F = getFunction(attribute1FJ.toString());
+				attribute2 = (String) jObject.get("attribute2");
+				attribute2FJ = jObject.getJSONObject("attribute2F");
+				attribute2F = getFunction(attribute2FJ.toString());
+				day = jObject.getInt("day");
+				dayFJ = jObject.getJSONObject("dayF");
+				dayF = getFunction(dayFJ.toString());
 				return new CrossPointFunction(new CrossVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid1, siid1F, attribute1, attribute1F, siid2, siid2F, attribute2, attribute2F, day, dayF));
 			case "MaxMin":
-				System.out.println("MaxMin");
-				siid=jObject.getString("siid");
-				try{
-					siidFJ=jObject.getJSONObject("siidF");
-					siidF=getFunction(siidFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				attribute=jObject.getString("attribute");
-				try{
-					attributeFJ=jObject.getJSONObject("attributeF");
-					attributeF=getFunction(attributeFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				siid=jObject.getString("siid");	
+				siidFJ=jObject.getJSONObject("siidF");
+				siidF=getFunction(siidFJ.toString());
+				attribute=jObject.getString("attribute");	
+				attributeFJ=jObject.getJSONObject("attributeF");
+				attributeF=getFunction(attributeFJ.toString());
 				mm=jObject.getInt("mm");
-				try{
-					mmFJ=jObject.getJSONObject("mmF");
-					mmF=getFunction(mmFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				mmFJ=jObject.getJSONObject("mmF");
+				mmF=getFunction(mmFJ.toString());
 				num=jObject.getInt("num");
-				try{
-					numFJ=jObject.getJSONObject("numF");
-					numF=getFunction(numFJ.toString());
-				}catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				numFJ=jObject.getJSONObject("numF");
+				numF=getFunction(numFJ.toString());
 				loc=jObject.getInt("loc");
-				try{
-					locFJ=jObject.getJSONObject("locF");
-					locF=getFunction(locFJ.toString());
-				}catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				return new MaxMinFunction(siid, siidF, attribute, attributeF, mm, mmF, num, numF);
+				locFJ=jObject.getJSONObject("locF");
+				locF=getFunction(locFJ.toString());
+				return new MaxMinFunction(new MaxMinVO(siid, siidF, resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, attribute2, attributeF, mm, mmF, num, numF, loc, locF));
 			case "Data":
 				siid=jObject.getString("siid");
-				try{
-					siidFJ=jObject.getJSONObject("siidF");
-					siidF=getFunction(siidFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				siidFJ=jObject.getJSONObject("siidF");
+				siidF=getFunction(siidFJ.toString());
 				attribute=jObject.getString("attribute");
-				try{
-					attributeFJ=jObject.getJSONObject("attributeF");
-					attributeF=getFunction(attributeFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				attributeFJ=jObject.getJSONObject("attributeF");
+				attributeF=getFunction(attributeFJ.toString());
 				day=jObject.getInt("day");
-				try{
-					dayFJ=jObject.getJSONObject("dayF");
-					dayF=getFunction(dayFJ.toString());
-				} catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				return new DataFunction(siid, siidF, attribute, attributeF, day, dayF);
+				dayFJ=jObject.getJSONObject("dayF");
+				dayF=getFunction(dayFJ.toString());
+				return new DataFunction(new DataVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid2, siidF, attribute2, attributeF, day, dayF));
 				
 			//tool
 			case "Add":
 				v1=jObject.getDouble("v1");
-				try{
-					v1FJ=jObject.getJSONObject("v1F");
-					v1F=getFunction(v1FJ.toString());
-				}catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				v1FJ=jObject.getJSONObject("v1F");
+				v1F=getFunction(v1FJ.toString());
 				v2=jObject.getDouble("v2");
-				try{
-					v2FJ=jObject.getJSONObject("v2F");
-					v2F=getFunction(v2FJ.toString());
-				}catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				v2FJ=jObject.getJSONObject("v2F");
+				v2F=getFunction(v2FJ.toString());
 				return new AddFunction(v1, v1F, v2, v2F);
 			case "Minus":
 				v1=jObject.getDouble("v1");
-				try{
-					v1FJ=jObject.getJSONObject("v1F");
-					v1F=getFunction(v1FJ.toString());
-				}catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				v1FJ=jObject.getJSONObject("v1F");
+				v1F=getFunction(v1FJ.toString());
 				v2=jObject.getDouble("v2");
-				try{
-					v2FJ=jObject.getJSONObject("v2F");
-					v2F=getFunction(v2FJ.toString());
-				}catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				v2FJ=jObject.getJSONObject("v2F");
+				v2F=getFunction(v2FJ.toString());
 				return new MinusFunction(v1, v1F, v2, v2F);
 			case "Multiple":
 				v1=jObject.getDouble("v1");
-				try{
-					v1FJ=jObject.getJSONObject("v1F");
-					System.out.println("v1FJ==< "+v1FJ);
-					v1F=getFunction(v1FJ.toString());
-				}catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				System.out.println("v1F==>"+v1F);
+				v1FJ=jObject.getJSONObject("v1F");
+				v1F=getFunction(v1FJ.toString());
 				v2=jObject.getDouble("v2");
-				try{
-					v2FJ=jObject.getJSONObject("v2F");
-					v2F=getFunction(v2FJ.toString());
-				}catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				v2FJ=jObject.getJSONObject("v2F");
+				v2F=getFunction(v2FJ.toString());
 				return new MultipleFunction(v1, v1F, v2, v2F);
 			case "Divide":
 				v1=jObject.getDouble("v1");
-				try{
-					v1FJ=jObject.getJSONObject("v1F");
-					v1F=getFunction(v1FJ.toString());
-				}catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				v1FJ=jObject.getJSONObject("v1F");
+				v1F=getFunction(v1FJ.toString());
 				v2=jObject.getDouble("v2");
-				try{
-					v2FJ=jObject.getJSONObject("v2F");
-					v2F=getFunction(v2FJ.toString());
-				}catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
+				v2FJ=jObject.getJSONObject("v2F");
+				v2F=getFunction(v2FJ.toString());
 				return new DivideFunction(v1, v1F, v2, v2F);
 			case "Mean":
-				valueList=jObject.getJSONArray("valueList");
-				try{
-					valueListFJ=jObject.getJSONArray("valueListF");
-					valueListF=getFunction(valueListFJ.toString());
-				}catch(Exception e)
-				{
-	//				e.printStackTrace();
-				}
-				return new MeanFunction(valueListFJ, valueListF);
+				valueList=jObject.getJSONArray("valueList");//TODO 类似这种时候会不会出问题
+				valueListFJ=jObject.getJSONObject("valueListF");
+				valueListF=getFunction(valueListFJ.toString());
+				return new MeanFunction(valueList, valueListF);
 			default:
 				return null;
 			}
@@ -848,8 +542,8 @@ public class JsonExchangeTool {
 		{
 			e.printStackTrace();
 		}
-		System.out.println("jArrayOut"+jArrayOut);
-		if(jArrayOut==null||jArrayOut.get(0).equals(null))
+//		System.out.println("jArrayOut"+jArrayOut);
+		if(jArrayOut.toString().equals("null")||jArrayOut.get(0).equals(null))
 		{
 			return list;
 		}
@@ -859,7 +553,7 @@ public class JsonExchangeTool {
 			JSONArray jArrayIn=null;
 			try{
 				jArrayIn=jArrayOut.getJSONArray(j);
-				System.out.println("jArrayIn"+jArrayIn);
+//				System.out.println("jArrayIn"+jArrayIn);
 				for(int i=0;i<jArrayIn.size();i++)
 				{
 					list.get(j).add(getFunction(jArrayIn.getJSONObject(i).toString()));
