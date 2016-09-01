@@ -64,6 +64,18 @@ public class AttributeFunction extends Function{
 
 	@Override
 	public FunctionResult getResult(Date date) {
+		if(attributeF!=null)
+		{
+			attribute=attributeF.getResult(date).rS;
+		}
+		if(upF!=null)
+		{
+			up=upF.getResult(date).rD;
+		}
+		if(downF!=null)
+		{
+			down=downF.getResult(date).rD;
+		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.STRINGLIST.getCode());
 		List<StockInf> list=null;

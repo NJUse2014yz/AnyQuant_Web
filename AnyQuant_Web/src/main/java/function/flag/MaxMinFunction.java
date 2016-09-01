@@ -29,16 +29,19 @@ public class MaxMinFunction extends Function{
 		this.function="MaxMin";
 	}
 	
-	public MaxMinFunction(String attribute, int mm,int num) {
+	public MaxMinFunction(String siid,String attribute, int mm,int num) {
 		this.function="MaxMin";
+		this.siid=siid;
 		this.attribute = attribute;
 		this.mm = mm;
 		this.num = num;
 	}
 
-	public MaxMinFunction(String attribute, Function attributeF, int mm,
+	public MaxMinFunction(String siid,Function siidF,String attribute, Function attributeF, int mm,
 			Function mmF, int num, Function numF) {
 		this.function="MaxMin";
+		this.siid=siid;
+		this.siidF=siidF;
 		this.attribute = attribute;
 		this.attributeF = attributeF;
 		this.mm = mm;
@@ -67,6 +70,22 @@ public class MaxMinFunction extends Function{
 	}
 	@Override
 	public FunctionResult getResult(Date date) {
+		if(siidF!=null)
+		{
+			siid=siidF.getResult(date).rS;
+		}
+		if(attributeF!=null)
+		{
+			attribute=attributeF.getResult(date).rS;
+		}
+		if(mmF!=null)
+		{
+			mm=mmF.getResult(date).rI;
+		}
+		if(numF!=null)
+		{
+			num=numF.getResult(date).rI;
+		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.LONGLIST.getCode());
 		result.location.add(ResultType.DOUBLELIST.getCode());

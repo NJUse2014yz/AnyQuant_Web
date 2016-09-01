@@ -7,12 +7,6 @@ import function.FunctionResult;
 import function.ResultType;
 /**指定交易价值百分比订单*/
 public class ValuePercentFunction extends Function{
-	/**买入1，卖出-1*/
-	public int order;
-	
-	public String siid;
-	public Function siidF;
-	
 	public double percent;
 	public Function percentF;
 	
@@ -23,18 +17,16 @@ public class ValuePercentFunction extends Function{
 		this.function="ValuePercent";
 	}
 
-	public ValuePercentFunction(int order, String siid,double percent, double price) {
+	public ValuePercentFunction(String siid,double percent, double price) {
 		this.function="ValuePercent";
-		this.order = order;
 		this.siid = siid;
 		this.percent = percent;
 		this.price = price;
 	}
 
-	public ValuePercentFunction(int order, String siid, Function siidF,
+	public ValuePercentFunction(String siid, Function siidF,
 			double percent, Function percentF, double price, Function priceF) {
 		this.function="ValuePercent";
-		this.order = order;
 		this.siid = siid;
 		this.siidF = siidF;
 		this.percent = percent;
@@ -54,7 +46,6 @@ public class ValuePercentFunction extends Function{
 		this.resultUpIF=vo.resultUpIF;
 		this.resultUpO=vo.resultUpO;
 		this.resultUpOF=vo.resultUpOF;
-		this.order=vo.order;
 		this.siid=vo.siid;
 		this.siidF=vo.siidF;
 		this.percent=vo.percent;
@@ -63,21 +54,25 @@ public class ValuePercentFunction extends Function{
 		this.priceF=vo.priceF;
 	}
 	@Override
-	public FunctionResult getResult(Date today) {
+	public FunctionResult getResult(Date date) {
+		if(siidF!=null)
+		{
+			siid=siidF.getResult(date).rS;
+		}
+		if(percentF!=null)
+		{
+			percent=percentF.getResult(date).rD;
+		}
+		if(priceF!=null)
+		{
+			price=priceF.getResult(date).rD;
+		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.STRING.getCode());
 		result.location.add(ResultType.DOUBLE.getCode());
 		result.rD=percent;
 		result.rS=siid;
 		return result;
-	}
-
-	public int getOrder() {
-		return order;
-	}
-
-	public void setOrder(int order) {
-		this.order = order;
 	}
 
 	public String getSiid() {
@@ -130,7 +125,7 @@ public class ValuePercentFunction extends Function{
 
 	@Override
 	public String toString() {
-		return "ValuePercentFunction [order=" + order + ", siid=" + siid
+		return "ValuePercentFunction [siid=" + siid
 				+ ", siidF=" + siidF + ", percent=" + percent + ", percentF="
 				+ percentF + ", price=" + price + ", priceF=" + priceF + "]";
 	}

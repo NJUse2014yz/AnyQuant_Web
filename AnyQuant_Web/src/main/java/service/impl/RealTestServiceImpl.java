@@ -22,8 +22,14 @@ import function.ResultType;
 import function.choose.ChooseStock;
 import function.flag.TrendFunction;
 import function.order.ShareFunction;
+import function.order.SharePercentFunction;
+import function.order.ShareTargetFunction;
+import function.order.ValueFunction;
+import function.order.ValuePercentFunction;
+import function.order.ValueTargetFunction;
 import mapper.HistoryDataMapper;
 import mapper.StrategyMapper;
+import po.HistoryData;
 import po.Strategy;
 import po.StrategySearch;
 import service.RealTestService;
@@ -49,10 +55,12 @@ public class RealTestServiceImpl implements RealTestService {
 		this.strMapper=strMapper;
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public String realTestForToday(RealTestVO vo) {//在15:00之后调用 TODO 开发通知功能、交易周期
-		
-		String history=DateExchangeTool.dateToString1(new Date(Calendar.getInstance().getTimeInMillis()))+"\n";
+		Date today=new Date(Calendar.getInstance().getTimeInMillis());
+		Date yesterday=new Date(Calendar.getInstance().getTimeInMillis()-24*60*60*1000);
+		String history=DateExchangeTool.dateToString1(today)+"\n";
 //		File file=new File("realtest.txt");
 //		FileWriter fw=null;
 //		try {
@@ -66,19 +74,24 @@ public class RealTestServiceImpl implements RealTestService {
 //		} catch (IOException e2) {
 //			e2.printStackTrace();
 //		}
-		/***********************************************/
+//		/***********************************************/
 		this.vo=vo;
 		List<Double> priceList=new ArrayList<Double>();
+		List<Double> valueList=new ArrayList<Double>();
 		for(int i=0;i<vo.stockList.size();i++)
 		{
+			double open=0;
 			double close=0;
 			try {
-				close=hisMapper.selectHistoryData_new_single(vo.stockList.get(i).siid).getOpen();//买进价格为今日开盘价/*=====================*/
+				HistoryData data=hisMapper.selectHistoryData_new_single(vo.stockList.get(i).siid);
+				open=data.getOpen();//买进价格为今日开盘价/*=====================*/
+				close=data.getClose();
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
 			try {
-				priceList.add(close);
+				priceList.add(open);
+				valueList.add(close);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -113,70 +126,171 @@ public class RealTestServiceImpl implements RealTestService {
 				{//内列表
 					function=flagList.get(j).get(h);
 					
-					FunctionResult upFRI=function.getResultUpI();
-					FunctionResult downFRI=function.getResultDownI();
-					FunctionResult upFRO=function.getResultUpO();
-					FunctionResult downFRO=function.getResultDownO();
+					FunctionResult resultUpI=function.getResultUpI();
+					FunctionResult resultDownI=function.getResultDownI();
+					FunctionResult resultUpO=function.getResultUpO();
+					FunctionResult resultDownO=function.getResultDownO();
 					
-					result=function.getResult(new Date(Calendar.getInstance().getTimeInMillis()-24*60*60*1000));//预测使用前一天及之前的数据
+					result=function.getResult(yesterday);//预测使用前一天及之前的数据
 				
 //					System.out.println("result "+result.rI);/*======================*/
+					
+					if(function.resultUpIF!=null)
+					{
+						resultUpI=function.resultUpIF.getResult(yesterday);
+					}
+					if(function.resultUpOF!=null)
+					{
+						resultUpO=function.resultUpOF.getResult(yesterday);
+					}
+					if(function.resultDownIF!=null)
+					{
+						resultDownI=function.resultDownIF.getResult(yesterday);
+					}
+					if(function.resultDownOF!=null)
+					{
+						resultDownO=function.resultDownOF.getResult(yesterday);
+					}
 					
 					switch(ResultType.getEnum(result.location.get(0)))
 					{
 					case BOOLEAN://boolean
-						if(result.rB==upFRI.rB&&result.rB==downFRI.rB)
+						if(resultUpI!=null)
 						{
-							flagInI=flagInI&&true;
+							if(result.rB==resultUpI.rB)
+							{
+								flagInI=flagInI&&true;
+							}
+							else
+							{
+								flagInI=flagInI&&false;
+							}
 						}
-						else
+						if(resultDownI!=null)
 						{
-							flagInI=flagInI&&false;
+							if(result.rB==resultDownI.rB)
+							{
+								flagInI=flagInI&&true;
+							}
+							else
+							{
+								flagInI=flagInI&&false;
+							}
 						}
-						if(result.rB==upFRO.rB&&result.rB==downFRO.rB)
+						if(resultUpO!=null)
 						{
-							flagInO=flagInO&&true;
+							if(result.rB==resultUpO.rB)
+							{
+								flagInO=flagInO&&true;
+							}
+							else
+							{
+								flagInO=flagInO&&false;
+							}
 						}
-						else
+						if(resultDownO!=null)
 						{
-							flagInO=flagInO&&false;
+							if(result.rB==resultDownO.rB)
+							{
+								flagInO=flagInO&&true;
+							}
+							else
+							{
+								flagInO=flagInO&&false;
+							}
 						}
 						break;
 					case INT://int
-						if(result.rI<=upFRI.rI&&result.rI>=downFRI.rI)
+						if(resultUpI!=null)
 						{
-							flagInI=flagInI&&true;
+							if(result.rI<=resultUpI.rI)
+							{
+								flagInI=flagInI&&true;
+							}
+							else
+							{
+								flagInI=flagInI&&false;
+							}
 						}
-						else
+						if(resultDownI!=null)
 						{
-							flagInI=flagInI&&false;
+							if(result.rI>=resultDownI.rI)
+							{
+								flagInI=flagInI&&true;
+							}
+							else
+							{
+								flagInI=flagInI&&false;
+							}
 						}
-						if(result.rI<=upFRO.rI&&result.rI>=downFRO.rI)
+						if(resultUpO!=null)
 						{
-							flagInO=flagInO&&true;
+							if(result.rI<=resultUpO.rI)
+							{
+								flagInO=flagInO&&true;
+							}
+							else
+							{
+								flagInO=flagInO&&false;
+							}
 						}
-						else
+						if(resultDownO!=null)
 						{
-							flagInO=flagInO&&false;
+							if(result.rI>=resultDownO.rI)
+							{
+								flagInO=flagInO&&true;
+							}
+							else
+							{
+								flagInO=flagInO&&false;
+							}
 						}
 						break;
 					case DOUBLE://double
 						//触发订单
-						if(result.rD<=upFRI.rD&&result.rD>=downFRI.rD)
+						if(resultUpI!=null)
 						{
-							flagInI=flagInI&&true;
+							if(result.rD<=resultUpI.rD)
+							{
+								flagInI=flagInI&&true;
+							}
+							else
+							{
+								flagInI=flagInI&&false;
+							}
 						}
-						else
+						if(resultDownI!=null)
 						{
-							flagInI=flagInI&&false;
+							if(result.rD>=resultDownI.rD)
+							{
+								flagInI=flagInI&&true;
+							}
+							else
+							{
+								flagInI=flagInI&&false;
+							}
 						}
-						if(result.rD<=upFRO.rD&&result.rD>=downFRO.rD)
+						if(resultUpO!=null)
 						{
-							flagInO=flagInO&&true;
+							if(result.rD<=resultUpO.rD)
+							{
+								flagInO=flagInO&&true;
+							}
+							else
+							{
+								flagInO=flagInO&&false;
+							}
 						}
-						else
+						if(resultDownO!=null)
 						{
-							flagInO=flagInO&&false;
+							if(result.rD>=resultDownO.rD)
+							{
+								flagInO=flagInO&&true;
+							}
+							else
+							{
+								flagInO=flagInO&&false;
+							}
 						}
 						break;
 					case STRING://String
@@ -184,6 +298,53 @@ public class RealTestServiceImpl implements RealTestService {
 					case INTLIST://int list
 						break;
 					case DOUBLELIST://double list
+						for(int i=0;i<result.rLD.size();i++)
+						{
+							if(resultUpI!=null)
+							{
+								if(result.rLD.get(i)<=resultUpI.rLD.get(i))
+								{
+									flagInI=flagInI&&true;
+								}
+								else
+								{
+									flagInI=flagInI&&false;
+								}
+							}
+							if(resultDownI!=null)
+							{
+								if(result.rLD.get(i)>=resultDownI.rLD.get(i))
+								{
+									flagInI=flagInI&&true;
+								}
+								else
+								{
+									flagInI=flagInI&&false;
+								}
+							}
+							if(resultUpO!=null)
+							{
+								if(result.rLD.get(i)<=resultUpO.rLD.get(i))
+								{
+									flagInO=flagInO&&true;
+								}
+								else
+								{
+									flagInO=flagInO&&false;
+								}
+							}
+							if(resultDownO!=null)
+							{
+								if(result.rLD.get(i)>=resultDownO.rLD.get(i))
+								{
+									flagInO=flagInO&&true;
+								}
+								else
+								{
+									flagInO=flagInO&&false;
+								}
+							}
+						}
 						break;
 					case STRINGLIST://String list
 						break;
@@ -196,9 +357,15 @@ public class RealTestServiceImpl implements RealTestService {
 	//		System.out.println(vo.stockList);
 	//		System.out.println(priceList);
 		
+			String siidForTrade=orderType.siid;
+			if(orderType.siidF!=null)
+			{
+				siidForTrade=orderType.siidF.getResult(yesterday).rS;
+			}
+			
 			if(flagOutI)
 			{
-				inOrder.add(setOrder(orderType.function,1,orderType.getResult(null).rS,orderType.getResult(null).rD,priceList.get(getNum(orderType.getResult(null).rS))));
+				inOrder.add(setOrder(orderType,yesterday,priceList.get(getNum(siidForTrade))));
 //				/*=======================*/
 //				try {
 //					bw.write("买入\r\n");
@@ -227,7 +394,7 @@ public class RealTestServiceImpl implements RealTestService {
 //					e.printStackTrace();
 //				}
 //				/*=======================*/
-				outOrder.add(setOrder(orderType.function,-1,orderType.getResult(null).rS,orderType.getResult(null).rD,priceList.get(getNum(orderType.getResult(null).rS))));
+				outOrder.add(setOrder(orderType,yesterday,priceList.get(getNum(siidForTrade))));
 			}
 			else
 			{
@@ -349,7 +516,11 @@ public class RealTestServiceImpl implements RealTestService {
 			}
 			
 		}
-		vo.capital.add(new DateDouble(Calendar.getInstance().getTimeInMillis(),capitaltoday+vo.cash));
+		for(int j=0;j<vo.numlist.size()-1;j++)
+		{
+			capitaltoday+=vo.numlist.get(j)*valueList.get(j);
+		}
+		vo.capital.add(new DateDouble(today.getTime(),capitaltoday+vo.cash));
 		
 		/*==========================*/
 //		try {
@@ -433,22 +604,59 @@ public class RealTestServiceImpl implements RealTestService {
 		return -1;
 	}
 	
-	public Function setOrder(String type,int order,String siid,double value,double price)
+//	public Function setOrder(String type,int order,String siid,double value,double price)
+	public Function setOrder(Function order,Date today,double price)
 	{
-		switch(type)
+		String siid=order.siid;
+		if(order.siidF!=null)
+		{
+			siid=order.siidF.getResult(today).rS;
+		}
+		double value=0;
+		
+		switch(order.function)
 		{
 		case "Share":
-			return new ShareFunction(order,siid,null,(int)value,null,price,null);
-		case "Order":
-			return new ShareFunction(order,siid,null,(int)value,null,price,null);
+			ShareFunction sf=(ShareFunction) order;
+			value=sf.share;
+			if(sf.shareF!=null)
+			{
+				value=sf.shareF.getResult(today).rD;
+			}
+			if(sf.priceF!=null)
+			{
+				price=sf.priceF.getResult(today).rD;
+			}
+			return new ShareFunction(siid,(int)value,price);
 		case "SharePercent":
+			SharePercentFunction spf=(SharePercentFunction)order;
+			value=spf.percent;
+			if(spf.percentF!=null)
+			{
+				value=spf.percentF.getResult(today).rD;
+			}
+			if(spf.priceF!=null)
+			{
+				price=spf.priceF.getResult(today).rD;
+			}
 			int sum=0;
 			for(int i=0;i<vo.numlist.size();i++)
 			{
 				sum+=vo.numlist.get(i);
 			}
-			return new ShareFunction(order,siid,null,(int)sum*value,null,price,null);
+			
+			return new ShareFunction(siid,null,(int)sum*value,null,price,null);
 		case "ShareTarget":
+			ShareTargetFunction stf=(ShareTargetFunction)order;
+			value=stf.share;
+			if(stf.shareF!=null)
+			{
+				value=stf.shareF.getResult(today).rD;
+			}
+			if(stf.priceF!=null)
+			{
+				price=stf.priceF.getResult(today).rD;
+			}
 			int shareTargetShare=0;
 			for(int i=0;i<vo.stockList.size();i++)
 			{
@@ -456,23 +664,51 @@ public class RealTestServiceImpl implements RealTestService {
 				{
 					if(vo.numlist.get(i)<value)
 					{
-						order=1;
 						shareTargetShare=(int)value-vo.numlist.get(i);
 					}
 					else
 					{
-						order=-1;
 						shareTargetShare=vo.numlist.get(i)-(int)value;
 					}
 				}
 			}
-			return new ShareFunction(order,siid,null,(int)shareTargetShare,null,price,null);
+			return new ShareFunction(siid,shareTargetShare,price);
 		case "Value":
-			return new ShareFunction(order,siid,null,(int)value/price,null,price,null);
+			ValueFunction vf=(ValueFunction)order;
+			value=vf.value;
+			if(vf.priceF!=null)
+			{
+				price=vf.priceF.getResult(today).rD;
+			}
+			if(vf.valueF!=null)
+			{
+				value=vf.valueF.getResult(today).rD;
+			}
+			return new ShareFunction(siid,(int)value/price,price);
 		case "ValuePercent":
+			ValuePercentFunction vpf=(ValuePercentFunction)order;
+			value=vpf.percent;
+			if(vpf.priceF!=null)
+			{
+				price=vpf.priceF.getResult(today).rD;
+			}
+			if(vpf.percentF!=null)
+			{
+				value=vpf.percentF.getResult(today).rD;
+			}
 			int shareVP=(int) (vo.capital.get(vo.capital.size()-1).getValue()*value/price);
-			return new ShareFunction(order,siid,null,(int)shareVP,null,price,null);
+			return new ShareFunction(siid,null,shareVP,null,price,null);
 		case "ValueTarget":
+			ValueTargetFunction vtf=(ValueTargetFunction)order;
+			value=vtf.value;
+			if(vtf.priceF!=null)
+			{
+				price=vtf.priceF.getResult(today).rD;
+			}
+			if(vtf.valueF!=null)
+			{
+				value=vtf.valueF.getResult(today).rD;
+			}
 			double valueReal=0;
 			for(int i=0;i<vo.numlist.size();i++)
 			{
@@ -484,15 +720,13 @@ public class RealTestServiceImpl implements RealTestService {
 			int shareVT=0;
 			if(valueReal<0)
 			{
-				order=-1;
 				shareVT=(int) (-valueReal/price);
 			}
 			else
 			{
-				order=1;
 				shareVT=(int) (valueReal/price);
 			}
-			return new ShareFunction(order,siid,null,(int)shareVT,null,price,null);
+			return new ShareFunction(siid,null,shareVT,null,price,null);
 		default:
 			return null;
 		}

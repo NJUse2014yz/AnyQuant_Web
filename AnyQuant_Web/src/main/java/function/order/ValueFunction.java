@@ -7,9 +7,6 @@ import function.FunctionResult;
 import function.ResultType;
 /**指定交易价值订单*/
 public class ValueFunction extends Function{
-	/**买入1，卖出-1*/
-	public int order;
-	
 	public double value;
 	public Function valueF;
 	
@@ -20,17 +17,18 @@ public class ValueFunction extends Function{
 		this.function="Value";
 	}
 	
-	public ValueFunction(int order, double value, double price) {
+	public ValueFunction(String siid,double value, double price) {
 		this.function="Value";
-		this.order = order;
+		this.siid=siid;
 		this.value = value;
 		this.price = price;
 	}
 
-	public ValueFunction(int order, double value, Function valueF,
+	public ValueFunction(String siid,Function siidF,double value, Function valueF,
 			double price, Function priceF) {
 		this.function="Value";
-		this.order = order;
+		this.siid=siid;
+		this.siidF=siidF;
 		this.value = value;
 		this.valueF = valueF;
 		this.price = price;
@@ -48,7 +46,6 @@ public class ValueFunction extends Function{
 		this.resultUpIF=vo.resultUpIF;
 		this.resultUpO=vo.resultUpO;
 		this.resultUpOF=vo.resultUpOF;
-		this.order=vo.order;
 		this.siid=vo.siid;
 		this.siidF=vo.siidF;
 		this.value=vo.value;
@@ -57,7 +54,19 @@ public class ValueFunction extends Function{
 		this.priceF=vo.priceF;
 	}
 	@Override
-	public FunctionResult getResult(Date today) {
+	public FunctionResult getResult(Date date) {
+		if(siidF!=null)
+		{
+			siid=siidF.getResult(date).rS;
+		}
+		if(valueF!=null)
+		{
+			value=valueF.getResult(date).rD;
+		}
+		if(priceF!=null)
+		{
+			price=priceF.getResult(date).rD;
+		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.DOUBLE.getCode());
 		result.location.add(ResultType.STRING.getCode());
@@ -65,15 +74,6 @@ public class ValueFunction extends Function{
 		result.rS=siid;
 		return result;
 	}
-
-	public int getOrder() {
-		return order;
-	}
-
-	public void setOrder(int order) {
-		this.order = order;
-	}
-
 	public double getValue() {
 		return value;
 	}
@@ -108,7 +108,7 @@ public class ValueFunction extends Function{
 
 	@Override
 	public String toString() {
-		return "ValueFunction [order=" + order + ", value=" + value
+		return "ValueFunction [value=" + value
 				+ ", valueF=" + valueF + ", price=" + price + ", priceF="
 				+ priceF + "]";
 	}

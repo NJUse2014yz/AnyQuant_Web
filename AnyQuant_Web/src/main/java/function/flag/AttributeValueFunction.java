@@ -50,6 +50,14 @@ public class AttributeValueFunction extends Function{
 	
 	@Override
 	public FunctionResult getResult(Date date) {
+		if(siidF!=null)
+		{
+			siid=siidF.getResult(date).rS;
+		}
+		if(attributeF!=null)
+		{
+			attribute=attributeF.getResult(date).rS;
+		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.DOUBLE.getCode());
 		result.rD=new ListTool().getNew(siid, attribute);

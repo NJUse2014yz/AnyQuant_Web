@@ -7,9 +7,6 @@ import function.FunctionResult;
 import function.ResultType;
 /**指定交易股数订单*/
 public class ShareFunction extends Function{
-	/**买入1，卖出-1*/
-	public int order;
-	
 	public double share;
 	public Function shareF;
 	
@@ -20,18 +17,16 @@ public class ShareFunction extends Function{
 		this.function = "Share";
 	}
 	
-	public ShareFunction(int order,String siid, double share,double price) {
+	public ShareFunction(String siid, double share,double price) {
 		this.function = "Share";
-		this.order = order;
 		this.siid=siid;
 		this.share = share;
 		this.price = price;
 	}
 	
-	public ShareFunction(int order,String siid,Function siidF, double share, Function shareF,
+	public ShareFunction(String siid,Function siidF, double share, Function shareF,
 			double price, Function priceF) {
 		this.function = "Share";
-		this.order = order;
 		this.siid=siid;
 		this.siidF=siidF;
 		this.share = share;
@@ -43,7 +38,6 @@ public class ShareFunction extends Function{
 	public ShareFunction(ShareVO vo)
 	{
 		this.function="Share";
-		this.order=vo.order;
 		this.siid=vo.siid;
 		this.siidF=vo.siidF;
 		this.resultDownI=vo.resultDownI;
@@ -62,21 +56,25 @@ public class ShareFunction extends Function{
 		this.priceF=vo.priceF;
 	}
 	@Override
-	public FunctionResult getResult(Date today) {
+	public FunctionResult getResult(Date date) {
+		if(siidF!=null)
+		{
+			siid=siidF.getResult(date).rS;
+		}
+		if(shareF!=null)
+		{
+			share=shareF.getResult(date).rD;
+		}
+		if(priceF!=null)
+		{
+			price=priceF.getResult(date).rD;
+		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.DOUBLE.getCode());
 		result.location.add(ResultType.STRING.getCode());
 		result.rD=share;
 		result.rS=siid;
 		return result;
-	}
-
-	public int getOrder() {
-		return order;
-	}
-
-	public void setOrder(int order) {
-		this.order = order;
 	}
 
 	public double getShare() {
@@ -113,7 +111,7 @@ public class ShareFunction extends Function{
 
 	@Override
 	public String toString() {
-		return "ShareFunction [order=" + order + ", share=" + share
+		return "ShareFunction [share=" + share
 				+ ", shareF=" + shareF + ", price=" + price + ", priceF="
 				+ priceF + "]";
 	}

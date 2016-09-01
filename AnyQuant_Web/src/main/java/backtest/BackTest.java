@@ -21,6 +21,11 @@ import function.ResultType;
 import function.choose.ChooseStock;
 import function.flag.TrendFunction;
 import function.order.ShareFunction;
+import function.order.SharePercentFunction;
+import function.order.ShareTargetFunction;
+import function.order.ValueFunction;
+import function.order.ValuePercentFunction;
+import function.order.ValueTargetFunction;
 import po.DatePack;
 import po.HistoryData;
 import po.QuotaData;
@@ -107,16 +112,16 @@ public class BackTest {
 	
 	public TestReport test() throws Exception
 	{
-		File file=new File("test.txt");
-		FileWriter fw=null;
-		try {
-			fw = new FileWriter(file);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		BufferedWriter bw=new BufferedWriter(fw);
-		bw.write("flags "+flags+"\r\n\r\n");
-	/***********************************************/
+//		File file=new File("test.txt");
+//		FileWriter fw=null;
+//		try {
+//			fw = new FileWriter(file);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		BufferedWriter bw=new BufferedWriter(fw);
+//		bw.write("flags "+flags+"\r\n\r\n");
+//	/***********************************************/
 		
 		//交易订单类型
 		int b=stockList.size()-1;
@@ -156,7 +161,7 @@ public class BackTest {
 		capital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(0).getDate().getTime(),cash));
 		bCapital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(0).getDate().getTime(),bCash));
 
-		//建仓,假设没有税费,从此次开始买入和卖出均用开盘价 TODO
+		//建仓,假设没有税费,从此次开始买入和卖出均用开盘价
 		for(int i=0;i<stockList.size()-1;i++)
 		{
 			numlist.add((int)(cash*stockList.get(i).percent/HQstatisticlist.get(i).hislist.get(0).getOpen()));/*==========\\\\===========*/
@@ -182,7 +187,7 @@ public class BackTest {
 		List<Double> outPrice=new ArrayList<Double>();
 		
 		/*=================*/
-		bw.write("初始情况"+numlist+" "+cash+"\n\n");
+//		bw.write("初始情况"+numlist+" "+cash+"\n\n");
 		/*=================*/
 		
 		//下订单
@@ -195,6 +200,8 @@ public class BackTest {
 		int counter=0;
 		for(int m=n-1+1;m<length;m=m+n)//n=1默认每天
 		{//每个交易日
+			Date today=HQstatisticlist.get(0).hislist.get(m).getDate();
+			Date yesterday=HQstatisticlist.get(0).hislist.get(m-1).getDate();
 			counter++;
 			inOrder.clear();
 			outOrder.clear();
@@ -213,15 +220,32 @@ public class BackTest {
 					for(int h=0;h<flagList.get(j).size();h++)
 					{//内列表
 						function=flagList.get(j).get(h);
-						result=function.getResult(new Date(HQstatisticlist.get(j).hislist.get(m-1).getDate().getTime()));
+						result=function.getResult(yesterday);
 						
 //						bw.write("交易标志"+function.function+" 结果为   "+result.rI+"\r\n");/*==================================*/
 						
-						FunctionResult upFRI=function.getResultUpI();
-						FunctionResult downFRI=function.getResultDownI();
-						FunctionResult upFRO=function.getResultUpO();
-						FunctionResult downFRO=function.getResultDownO();
+						FunctionResult resultUpI=function.getResultUpI();
+						FunctionResult resultDownI=function.getResultDownI();
+						FunctionResult resultUpO=function.getResultUpO();
+						FunctionResult resultDownO=function.getResultDownO();
 				
+						if(function.resultUpIF!=null)
+						{
+							resultUpI=function.resultUpIF.getResult(yesterday);
+						}
+						if(function.resultUpOF!=null)
+						{
+							resultUpO=function.resultUpOF.getResult(yesterday);
+						}
+						if(function.resultDownIF!=null)
+						{
+							resultDownI=function.resultDownIF.getResult(yesterday);
+						}
+						if(function.resultDownOF!=null)
+						{
+							resultDownO=function.resultDownOF.getResult(yesterday);
+						}
+						
 //						bw.write("upFRI "+upFRI.rI);/*====================*/
 //						bw.write(" downFRI "+downFRI.rI);/*====================*/
 //						bw.write(" upFRO "+upFRO.rI);/*====================*/
@@ -230,63 +254,143 @@ public class BackTest {
 						switch(ResultType.getEnum(result.location.get(0)))
 						{
 						case BOOLEAN://boolean
-							if(result.rB==upFRI.rB&&result.rB==downFRI.rB)
+							if(resultUpI!=null)
 							{
-								flagInI=flagInI&&true;
+								if(result.rB==resultUpI.rB)
+								{
+									flagInI=flagInI&&true;
+								}
+								else
+								{
+									flagInI=flagInI&&false;
+								}
 							}
-							else
+							if(resultDownI!=null)
 							{
-								flagInI=flagInI&&false;
+								if(result.rB==resultDownI.rB)
+								{
+									flagInI=flagInI&&true;
+								}
+								else
+								{
+									flagInI=flagInI&&false;
+								}
 							}
-							if(result.rB==upFRO.rB&&result.rB==downFRO.rB)
+							if(resultUpO!=null)
 							{
-								flagInO=flagInO&&true;
+								if(result.rB==resultUpO.rB)
+								{
+									flagInO=flagInO&&true;
+								}
+								else
+								{
+									flagInO=flagInO&&false;
+								}
 							}
-							else
+							if(resultDownO!=null)
 							{
-								flagInO=flagInO&&false;
+								if(result.rB==resultDownO.rB)
+								{
+									flagInO=flagInO&&true;
+								}
+								else
+								{
+									flagInO=flagInO&&false;
+								}
 							}
 							break;
 						case INT://int
-							if(result.rI<=upFRI.rI&&result.rI>=downFRI.rI)
+							if(resultUpI!=null)
 							{
-//								bw.write("in\r\n");/*======================*/
-								flagInI=flagInI&&true;
+								if(result.rI<=resultUpI.rI)
+								{
+									flagInI=flagInI&&true;
+								}
+								else
+								{
+									flagInI=flagInI&&false;
+								}
 							}
-							else
+							if(resultDownI!=null)
 							{
-//								bw.write("not in\r\n");/*======================*/
-								flagInI=flagInI&&false;
+								if(result.rI>=resultDownI.rI)
+								{
+									flagInI=flagInI&&true;
+								}
+								else
+								{
+									flagInI=flagInI&&false;
+								}
 							}
-							if(result.rI<=upFRO.rI&&result.rI>=downFRO.rI)
+							if(resultUpO!=null)
 							{
-//								bw.write("out\r\n");/*======================*/
-								flagInO=flagInO&&true;
+								if(result.rI<=resultUpO.rI)
+								{
+									flagInO=flagInO&&true;
+								}
+								else
+								{
+									flagInO=flagInO&&false;
+								}
 							}
-							else
+							if(resultDownO!=null)
 							{
-//								bw.write("not out\r\n");/*======================*/
-								flagInO=flagInO&&false;
+								if(result.rI>=resultDownO.rI)
+								{
+									flagInO=flagInO&&true;
+								}
+								else
+								{
+									flagInO=flagInO&&false;
+								}
 							}
 //							bw.write("内部买入标志 "+flagInI+" 内部卖出标志 "+flagInO+"\r\n");/*=================*/
 							break;
 						case DOUBLE://double
 							//触发订单
-							if(result.rD<=upFRI.rD&&result.rD>=downFRI.rD)
+							if(resultUpI!=null)
 							{
-								flagInI=flagInI&&true;
+								if(result.rD<=resultUpI.rD)
+								{
+									flagInI=flagInI&&true;
+								}
+								else
+								{
+									flagInI=flagInI&&false;
+								}
 							}
-							else
+							if(resultDownI!=null)
 							{
-								flagInI=flagInI&&false;
+								if(result.rD>=resultDownI.rD)
+								{
+									flagInI=flagInI&&true;
+								}
+								else
+								{
+									flagInI=flagInI&&false;
+								}
 							}
-							if(result.rD<=upFRO.rD&&result.rD>=downFRO.rD)
+							if(resultUpO!=null)
 							{
-								flagInO=flagInO&&true;
+								if(result.rD<=resultUpO.rD)
+								{
+									flagInO=flagInO&&true;
+								}
+								else
+								{
+									flagInO=flagInO&&false;
+								}
 							}
-							else
+							if(resultDownO!=null)
 							{
-								flagInO=flagInO&&false;
+								if(result.rD>=resultDownO.rD)
+								{
+									flagInO=flagInO&&true;
+								}
+								else
+								{
+									flagInO=flagInO&&false;
+								}
 							}
 							break;
 						case STRING://String
@@ -296,21 +400,49 @@ public class BackTest {
 						case DOUBLELIST://double list
 							for(int i=0;i<result.rLD.size();i++)
 							{
-								if(result.rLD.get(i)<=upFRI.rLD.get(i))
+								if(resultUpI!=null)
 								{
-									flagInI=flagInI&&true;
+									if(result.rLD.get(i)<=resultUpI.rLD.get(i))
+									{
+										flagInI=flagInI&&true;
+									}
+									else
+									{
+										flagInI=flagInI&&false;
+									}
 								}
-								else
+								if(resultDownI!=null)
 								{
-									flagInI=flagInI&&false;
+									if(result.rLD.get(i)>=resultDownI.rLD.get(i))
+									{
+										flagInI=flagInI&&true;
+									}
+									else
+									{
+										flagInI=flagInI&&false;
+									}
 								}
-								if(result.rLD.get(i)<=upFRO.rLD.get(i))
+								if(resultUpO!=null)
 								{
-									flagInO=flagInO&&true;
+									if(result.rLD.get(i)<=resultUpO.rLD.get(i))
+									{
+										flagInO=flagInO&&true;
+									}
+									else
+									{
+										flagInO=flagInO&&false;
+									}
 								}
-								else
+								if(resultDownO!=null)
 								{
-									flagInO=flagInO&&false;
+									if(result.rLD.get(i)>=resultDownO.rLD.get(i))
+									{
+										flagInO=flagInO&&true;
+									}
+									else
+									{
+										flagInO=flagInO&&false;
+									}
 								}
 							}
 							break;
@@ -323,11 +455,18 @@ public class BackTest {
 //					bw.write("外部买入标志 "+flagOutI+" 外部卖出标志 "+flagOutO+"\r\n");/*=======================*/
 				}
 
-				FunctionResult result=orderType.getResult(null);
+				String siidForTrade=orderType.siid;
+				if(orderType.siidF!=null)
+				{
+					siidForTrade=orderType.siidF.getResult(yesterday).rS;
+				}
+				
+				
 				if(flagOutI)
 				{
 //					bw.write("买入"+orderType.getResult(null).rS+"\r\n");/*=======================*/
-					inOrder.add(setOrder(orderType.function,1,orderType.siid,result.rD,HQstatisticlist.get(getNum(orderType.siid)).hislist.get(m).getOpen()));
+//					inOrder.add(setOrder(orderType.function,1,siidForTrade,valueForTrade,HQstatisticlist.get(getNum(orderType.siid)).hislist.get(m).getOpen()));
+					inOrder.add(setOrder(orderType,yesterday,HQstatisticlist.get(getNum(siidForTrade)).hislist.get(m).getOpen()));
 					
 				}
 				else
@@ -338,7 +477,8 @@ public class BackTest {
 				if(flagOutO)
 				{
 //					bw.write("卖出"+orderType.getResult(null).rS+"\r\n");/*=======================*/
-					outOrder.add(setOrder(orderType.function,-1,orderType.siid,result.rD,HQstatisticlist.get(getNum(orderType.siid)).hislist.get(m).getOpen()));
+//					outOrder.add(setOrder(orderType.function,-1,orderType.siid,result.rD,HQstatisticlist.get(getNum(orderType.siid)).hislist.get(m).getOpen()));
+					outOrder.add(setOrder(orderType,yesterday,HQstatisticlist.get(getNum(siidForTrade)).hislist.get(m).getOpen()));
 				}
 				else
 				{
@@ -348,8 +488,8 @@ public class BackTest {
 			}
 			
 //			/*======================*/
-			bw.write("今日买入订单"+inOrder+"\n");
-			bw.write("今日卖出订单"+outOrder+"\n");
+//			bw.write("今日买入订单"+inOrder+"\n");
+//			bw.write("今日卖出订单"+outOrder+"\n");
 //			/*======================*/
 			
 			
@@ -366,7 +506,7 @@ public class BackTest {
 					if(cash-order.share*order.price*(1+inTaxRatio)<0)
 					{
 						int share=(int) (cash*(1-inTaxRatio)/order.price);
-						bw.write("买入"+order.siid+";股数： "+share+";价格: "+order.price+"\n");/*==========================*/
+//						bw.write("买入"+order.siid+";股数： "+share+";价格: "+order.price+"\n");/*==========================*/
 						cash-=share*order.price*(1+inTaxRatio);
 						numlist.set(j,numlist.get(j)+share);//加仓
 						inprice+=share*order.price;
@@ -374,7 +514,7 @@ public class BackTest {
 					else
 					{
 						cash-=order.share*order.price*(1+inTaxRatio);
-						bw.write("买入"+order.siid+"股数： "+order.share+";价格: "+order.price+"\n");/*==========================*/
+//						bw.write("买入"+order.siid+"股数： "+order.share+";价格: "+order.price+"\n");/*==========================*/
 						numlist.set(j,numlist.get(j)+(int)order.share);//加仓
 						inprice+=order.share*order.price;
 					}
@@ -386,14 +526,14 @@ public class BackTest {
 					if(order.share<=numlist.get(j))
 					{
 						cash+=order.share*order.price*(1-outTaxRatio);
-						bw.write("卖出"+order.siid+"股数： "+order.share+";价格: "+order.price+"\n");/*==========================*/
+//						bw.write("卖出"+order.siid+"股数： "+order.share+";价格: "+order.price+"\n");/*==========================*/
 						numlist.set(j,numlist.get(j)-(int)order.share);
 						outprice+=order.share*order.price;
 					}
 					else
 					{
 						cash+=numlist.get(j)*order.price*(1-outTaxRatio);
-						bw.write("卖出"+order.siid+"股数： "+numlist.get(j)+";价格: "+order.price+"\n");/*==========================*/
+//						bw.write("卖出"+order.siid+"股数： "+numlist.get(j)+";价格: "+order.price+"\n");/*==========================*/
 						numlist.set(j,0);//减仓
 						outprice+=numlist.get(j)*order.price;
 					}
@@ -448,7 +588,7 @@ public class BackTest {
 					for(int q=0;q<risk.get(p).size();q++)
 					{
 						risk.get(p).get(q).siid=stockList.get(j).siid;
-						avoidRiskIn=avoidRiskIn&&risk.get(p).get(q).getResult(HQstatisticlist.get(0).hislist.get(m-1).getDate()).rB;
+						avoidRiskIn=avoidRiskIn&&risk.get(p).get(q).getResult(yesterday).rB;
 					}
 					avoidRiskOut=avoidRiskOut||avoidRiskIn;
 				}
@@ -470,29 +610,29 @@ public class BackTest {
 			//清算
 			for(int j=0;j<numlist.size()-1;j++)
 			{
-				capitaltoday+=numlist.get(j)*HQstatisticlist.get(j).hislist.get(m-1).getClose();
+				capitaltoday+=numlist.get(j)*HQstatisticlist.get(j).hislist.get(m).getClose();
 			}
-			capital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(m).getDate().getTime(),capitaltoday+cash));
+			capital.add(new DateDouble(today.getTime(),capitaltoday+cash));
 			
 //			bw.write("资本情况:\r\n");
 //			bw.write("capital "+capital.get(m)+"\n");/*=====================================*/
 			
 			bCapitalToday+=numlist.get(b)*HQstatisticlist.get(b).hislist.get(m).getClose();
-			bCapital.add(new DateDouble(HQstatisticlist.get(0).hislist.get(m).getDate().getTime(),bCapitalToday+bCash));
+			bCapital.add(new DateDouble(today.getTime(),bCapitalToday+bCash));
 		}
 		
-		/*==========================*/
-		try {
-			bw.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
-			fw.close();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		/*==========================*/
+//		/*==========================*/
+//		try {
+//			bw.close();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		try {
+//			fw.close();
+//		} catch (IOException e1) {
+//			e1.printStackTrace();
+//		}
+//		/*==========================*/
 		
 		//生成回测报告
 		TestReport testReport=new TestReport(HQstatisticlist.get(0).hislist.size()/n,capital,bCapital,inPrice,outPrice);
@@ -513,22 +653,59 @@ public class BackTest {
 		return -1;
 	}
 	
-	public Function setOrder(String type,int order,String siid,double value,double price)
+//	public Function setOrder(String type,int order,String siid,double value,double price)
+	public Function setOrder(Function order,Date today,double price)
 	{
-		switch(type)
+		String siid=order.siid;
+		if(order.siidF!=null)
+		{
+			siid=order.siidF.getResult(today).rS;
+		}
+		double value=0;
+		
+		switch(order.function)
 		{
 		case "Share":
-			return new ShareFunction(order,siid,null,(int)value,null,price,null);
-		case "Order":
-			return new ShareFunction(order,siid,null,(int)value,null,price,null);
+			ShareFunction sf=(ShareFunction) order;
+			value=sf.share;
+			if(sf.shareF!=null)
+			{
+				value=sf.shareF.getResult(today).rD;
+			}
+			if(sf.priceF!=null)
+			{
+				price=sf.priceF.getResult(today).rD;
+			}
+			return new ShareFunction(siid,(int)value,price);
 		case "SharePercent":
+			SharePercentFunction spf=(SharePercentFunction)order;
+			value=spf.percent;
+			if(spf.percentF!=null)
+			{
+				value=spf.percentF.getResult(today).rD;
+			}
+			if(spf.priceF!=null)
+			{
+				price=spf.priceF.getResult(today).rD;
+			}
 			int sum=0;
 			for(int i=0;i<numlist.size();i++)
 			{
 				sum+=numlist.get(i);
 			}
-			return new ShareFunction(order,siid,null,(int)sum*value,null,price,null);
+			
+			return new ShareFunction(siid,null,(int)sum*value,null,price,null);
 		case "ShareTarget":
+			ShareTargetFunction stf=(ShareTargetFunction)order;
+			value=stf.share;
+			if(stf.shareF!=null)
+			{
+				value=stf.shareF.getResult(today).rD;
+			}
+			if(stf.priceF!=null)
+			{
+				price=stf.priceF.getResult(today).rD;
+			}
 			int shareTargetShare=0;
 			for(int i=0;i<stockList.size();i++)
 			{
@@ -536,23 +713,51 @@ public class BackTest {
 				{
 					if(numlist.get(i)<value)
 					{
-						order=1;
 						shareTargetShare=(int)value-numlist.get(i);
 					}
 					else
 					{
-						order=-1;
 						shareTargetShare=numlist.get(i)-(int)value;
 					}
 				}
 			}
-			return new ShareFunction(order,siid,null,shareTargetShare,null,price,null);
+			return new ShareFunction(siid,shareTargetShare,price);
 		case "Value":
-			return new ShareFunction(order,siid,null,(int)value/price,null,price,null);
+			ValueFunction vf=(ValueFunction)order;
+			value=vf.value;
+			if(vf.priceF!=null)
+			{
+				price=vf.priceF.getResult(today).rD;
+			}
+			if(vf.valueF!=null)
+			{
+				value=vf.valueF.getResult(today).rD;
+			}
+			return new ShareFunction(siid,(int)value/price,price);
 		case "ValuePercent":
+			ValuePercentFunction vpf=(ValuePercentFunction)order;
+			value=vpf.percent;
+			if(vpf.priceF!=null)
+			{
+				price=vpf.priceF.getResult(today).rD;
+			}
+			if(vpf.percentF!=null)
+			{
+				value=vpf.percentF.getResult(today).rD;
+			}
 			int shareVP=(int) (capital.get(capital.size()-1).getValue()*value/price);
-			return new ShareFunction(order,siid,null,shareVP,null,price,null);
+			return new ShareFunction(siid,null,shareVP,null,price,null);
 		case "ValueTarget":
+			ValueTargetFunction vtf=(ValueTargetFunction)order;
+			value=vtf.value;
+			if(vtf.priceF!=null)
+			{
+				price=vtf.priceF.getResult(today).rD;
+			}
+			if(vtf.valueF!=null)
+			{
+				value=vtf.valueF.getResult(today).rD;
+			}
 			double valueReal=0;
 			for(int i=0;i<numlist.size();i++)
 			{
@@ -564,15 +769,13 @@ public class BackTest {
 			int shareVT=0;
 			if(valueReal<0)
 			{
-				order=-1;
 				shareVT=(int) (-valueReal/price);
 			}
 			else
 			{
-				order=1;
 				shareVT=(int) (valueReal/price);
 			}
-			return new ShareFunction(order,siid,null,shareVT,null,price,null);
+			return new ShareFunction(siid,null,shareVT,null,price,null);
 		default:
 			return null;
 		}

@@ -29,17 +29,21 @@ public class StandardPercentFunction extends Function{
 		this.function="StandardPercent";
 	}
 	
-	public StandardPercentFunction(int sign,String attribute,String standard,double percent) {
+	public StandardPercentFunction(String siid,int sign,String attribute,String standard,double percent) {
 		this.function="StandardPercent";
+		this.siid=siid;
 		this.sign = sign;
 		this.attribute = attribute;
 		this.standard = standard;
 		this.percent = percent;
 	}
-	public StandardPercentFunction(int sign, Function signF, String attribute,
+	public StandardPercentFunction(String siid,Function siidF,
+			int sign, Function signF, String attribute,
 			Function attributeF, String standard, Function standardF,
 			double percent, Function percentF) {
 		this.function="StandardPercent";
+		this.siid=siid;
+		this.siidF=siidF;
 		this.sign = sign;
 		this.signF = signF;
 		this.attribute = attribute;
@@ -75,6 +79,26 @@ public class StandardPercentFunction extends Function{
 	
 	@Override
 	public FunctionResult getResult(Date date) {
+		if(siidF!=null)
+		{
+			siid=siidF.getResult(date).rS;
+		}
+		if(signF!=null)
+		{
+			sign=signF.getResult(date).rI;
+		}
+		if(attributeF!=null)
+		{
+			attribute=attributeF.getResult(date).rS;
+		}
+		if(percentF!=null)
+		{
+			percent=percentF.getResult(date).rD;
+		}
+		if(standardF!=null)
+		{
+			standard=standardF.getResult(date).rS;
+		}
 		double targetValue=new ListTool().getNew(siid, attribute);
 		double standardValue=new ListTool().getNew(siid, standard);
 		FunctionResult result=new FunctionResult();

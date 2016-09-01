@@ -44,7 +44,11 @@ public class PairFunction extends Function{
 	}
 	
 	@Override
-	public FunctionResult getResult(Date today) {
+	public FunctionResult getResult(Date date) {
+		if(numF!=null)
+		{
+			num=numF.getResult(date).rI;
+		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.STRINGLIST.getCode());
 		result.rLS=new ListTool().getPair(siid, num);

@@ -24,9 +24,6 @@ public class ValueVO {
 	/**得到买入结果上界的方法*/
 	public Function resultDownOF;
 	
-	/**买入1，卖出-1*/
-	public int order;
-	
 	public String siid;
 	public Function siidF;
 	
@@ -40,7 +37,7 @@ public class ValueVO {
 	public ValueVO(FunctionResult resultUpI, Function resultUpIF,
 			FunctionResult resultDownI, Function resultDownIF,
 			FunctionResult resultUpO, Function resultUpOF,
-			FunctionResult resultDownO, Function resultDownOF, int order,
+			FunctionResult resultDownO, Function resultDownOF,
 			String siid, Function siidF, double value, Function valueF,
 			double price, Function priceF) {
 		super();
@@ -52,7 +49,6 @@ public class ValueVO {
 		this.resultUpOF = resultUpOF;
 		this.resultDownO = resultDownO;
 		this.resultDownOF = resultDownOF;
-		this.order = order;
 		this.siid = siid;
 		this.siidF = siidF;
 		this.value = value;
@@ -108,12 +104,6 @@ public class ValueVO {
 	public void setResultDownOF(Function resultDownOF) {
 		this.resultDownOF = resultDownOF;
 	}
-	public int getOrder() {
-		return order;
-	}
-	public void setOrder(int order) {
-		this.order = order;
-	}
 	public String getSiid() {
 		return siid;
 	}
@@ -156,7 +146,7 @@ public class ValueVO {
 				+ ", resultDownI=" + resultDownI + ", resultDownIF="
 				+ resultDownIF + ", resultUpO=" + resultUpO + ", resultUpOF="
 				+ resultUpOF + ", resultDownO=" + resultDownO
-				+ ", resultDownOF=" + resultDownOF + ", order=" + order
+				+ ", resultDownOF=" + resultDownOF 
 				+ ", siid=" + siid + ", siidF=" + siidF + ", value=" + value
 				+ ", valueF=" + valueF + ", price=" + price + ", priceF="
 				+ priceF + "]";

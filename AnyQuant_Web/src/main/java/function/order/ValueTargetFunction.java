@@ -7,9 +7,6 @@ import function.FunctionResult;
 import function.ResultType;
 /**指定持仓价值订单*/
 public class ValueTargetFunction extends Function{
-	/**买入1，卖出-1*/
-	public int order;
-	
 	public double value;
 	public Function valueF;
 	
@@ -20,17 +17,18 @@ public class ValueTargetFunction extends Function{
 		this.function="ValueTarget";
 	}
 	
-	public ValueTargetFunction(int order, double value, double price) {
+	public ValueTargetFunction(String siid,double value, double price) {
 		this.function="ValueTarget";
-		this.order = order;
+		this.siid=siid;
 		this.value = value;
 		this.price = price;
 	}
 
-	public ValueTargetFunction(int order, double value, Function valueF,
+	public ValueTargetFunction(String siid,Function siidF,double value, Function valueF,
 			double price, Function priceF) {
 		this.function="ValueTarget";
-		this.order = order;
+		this.siid=siid;
+		this.siidF=siidF;
 		this.value = value;
 		this.valueF = valueF;
 		this.price = price;
@@ -48,7 +46,6 @@ public class ValueTargetFunction extends Function{
 		this.resultUpIF=vo.resultUpIF;
 		this.resultUpO=vo.resultUpO;
 		this.resultUpOF=vo.resultUpOF;
-		this.order=vo.order;
 		this.siid=vo.siid;
 		this.siidF=vo.siidF;
 		this.value=vo.value;
@@ -57,21 +54,25 @@ public class ValueTargetFunction extends Function{
 		this.priceF=vo.priceF;
 	}
 	@Override
-	public FunctionResult getResult(Date today) {
+	public FunctionResult getResult(Date date) {
+		if(siidF!=null)
+		{
+			siid=siidF.getResult(date).rS;
+		}
+		if(valueF!=null)
+		{
+			value=valueF.getResult(date).rD;
+		}
+		if(priceF!=null)
+		{
+			price=priceF.getResult(date).rD;
+		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.STRING.getCode());
 		result.location.add(ResultType.DOUBLE.getCode());
 		result.rD=value;
 		result.rS=siid;
 		return result;
-	}
-
-	public int getOrder() {
-		return order;
-	}
-
-	public void setOrder(int order) {
-		this.order = order;
 	}
 
 	public double getValue() {
@@ -108,7 +109,7 @@ public class ValueTargetFunction extends Function{
 
 	@Override
 	public String toString() {
-		return "ValueTargetFunction [order=" + order + ", value=" + value
+		return "ValueTargetFunction [value=" + value
 				+ ", valueF=" + valueF + ", price=" + price + ", priceF="
 				+ priceF + "]";
 	}

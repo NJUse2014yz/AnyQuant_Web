@@ -13,10 +13,6 @@ import function.tool.TrendTool;
 import tool.ListTool;
 /**趋势判断*/
 public class TrendFunction extends Function{
-	/**股票代码*/
-	public String siid;
-	public Function siidF;
-	
 	/**数据属性*/
 	public String attribute;
 	public Function attributeF;
@@ -35,16 +31,19 @@ public class TrendFunction extends Function{
 		this.function="Trend";
 	}
 	
-	public TrendFunction(String attribute, int day, double standard) {
+	public TrendFunction(String siid,String attribute, int day, double standard) {
 		this.function="Trend";
+		this.siid=siid;
 		this.attribute = attribute;
 		this.day = day;
 		this.standard = standard;
 	}
 
-	public TrendFunction(String attribute, Function attributeF, int day,
+	public TrendFunction(String siid,Function siidF,String attribute, Function attributeF, int day,
 			Function dayF, double standard, Function standardF) {
 		this.function="Trend";
+		this.siid=siid;
+		this.siidF=siidF;
 		this.attribute = attribute;
 		this.attributeF = attributeF;
 		this.day = day;
@@ -75,9 +74,25 @@ public class TrendFunction extends Function{
 	}
 
 	@Override
-	public FunctionResult getResult(Date today) {
-		Date start=new Date(today.getTime()-day*24*60*60*1000);
-		Date end=today;
+	public FunctionResult getResult(Date date) {
+		if(siidF!=null)
+		{
+			siid=siidF.getResult(date).rS;
+		}
+		if(attributeF!=null)
+		{
+			attribute=attributeF.getResult(date).rS;
+		}
+		if(dayF!=null)
+		{
+			day=dayF.getResult(date).rI;
+		}
+		if(standardF!=null)
+		{
+			standard=standardF.getResult(date).rD;
+		}
+		Date start=new Date(date.getTime()-day*24*60*60*1000);
+		Date end=date;
 		List<TrendPoint> trendList=new ArrayList<TrendPoint>();
 		List<Double> list=new ListTool().getList(siid,attribute,start,end);
 		

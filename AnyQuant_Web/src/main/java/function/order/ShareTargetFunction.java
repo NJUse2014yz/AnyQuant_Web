@@ -7,8 +7,6 @@ import function.FunctionResult;
 import function.ResultType;
 /**指定仓位股数订单*/
 public class ShareTargetFunction extends Function{
-	public int order;
-	
 	public double share;
 	public Function shareF;
 	
@@ -19,19 +17,20 @@ public class ShareTargetFunction extends Function{
 		this.function="ShareTarget";
 	}
 	
-	public ShareTargetFunction(int order, double share, Function shareF,
+	public ShareTargetFunction(String siid,Function siidF,double share, Function shareF,
 			double price, Function priceF) {
 		this.function="ShareTarget";
-		this.order = order;
+		this.siid=siid;
+		this.siidF=siidF;
 		this.share = share;
 		this.shareF = shareF;
 		this.price = price;
 		this.priceF = priceF;
 	}
 
-	public ShareTargetFunction(int order, double share,double price) {
+	public ShareTargetFunction(String siid,double share,double price) {
 		this.function="ShareTarget";
-		this.order = order;
+		this.siid=siid;
 		this.share = share;
 		this.price = price;
 	}
@@ -47,7 +46,6 @@ public class ShareTargetFunction extends Function{
 		this.resultUpIF=vo.resultUpIF;
 		this.resultUpO=vo.resultUpO;
 		this.resultUpOF=vo.resultUpOF;
-		this.order=vo.order;
 		this.siid=vo.siid;
 		this.siidF=vo.siidF;
 		this.share=vo.share;
@@ -57,7 +55,19 @@ public class ShareTargetFunction extends Function{
 	}
 	
 	@Override
-	public FunctionResult getResult(Date today) {
+	public FunctionResult getResult(Date date) {
+		if(siidF!=null)
+		{
+			siid=siidF.getResult(date).rS;
+		}
+		if(shareF!=null)
+		{
+			share=shareF.getResult(date).rD;
+		}
+		if(priceF!=null)
+		{
+			price=priceF.getResult(date).rD;
+		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.DOUBLE.getCode());
 		result.location.add(ResultType.STRING.getCode());

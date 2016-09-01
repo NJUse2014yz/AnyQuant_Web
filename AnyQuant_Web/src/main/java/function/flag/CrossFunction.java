@@ -81,9 +81,29 @@ public class CrossFunction extends Function {
 		this.resultUpOF=vo.resultDownOF;
 	}
 	@Override
-	public FunctionResult getResult(Date today) {
-		Date start=new Date(today.getTime()-day*24*60*60*1000);
-		Date end=today;
+	public FunctionResult getResult(Date date) {
+		if(siid1F!=null)
+		{
+			siid1=siid1F.getResult(date).rS;
+		}
+		if(siid2F!=null)
+		{
+			siid2=siid2F.getResult(date).rS;
+		}
+		if(attribute1F!=null)
+		{
+			attribute1=attribute1F.getResult(date).rS;
+		}
+		if(attribute2F!=null)
+		{
+			attribute2=attribute2F.getResult(date).rS;
+		}
+		if(dayF!=null)
+		{
+			day=dayF.getResult(date).rI;
+		}
+		Date start=new Date(date.getTime()-day*24*60*60*1000);
+		Date end=date;
 		List<Double> activelist=new ListTool().getList(siid1,attribute1,start,end);
 		List<Double> passivelist=new ListTool().getList(siid2,attribute2,start,end);
 		CrossResult crossResult=new CrossTool(activelist,passivelist).cross();

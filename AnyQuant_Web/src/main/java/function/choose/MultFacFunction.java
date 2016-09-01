@@ -8,7 +8,7 @@ import function.Function;
 import function.FunctionResult;
 import function.ResultType;
 import po.MultFactData;
-
+//TODO 还没加Function
 //就一些要求的参数做30，60，300天的回测
 //使用 平均换手率，平均成交量，平均涨跌幅，最新的成交量变异率（20），最旧的动向指标
 public class MultFacFunction extends Function {

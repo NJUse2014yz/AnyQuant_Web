@@ -24,15 +24,18 @@ public class DataFunction extends Function{
 		this.function="Data";
 	}
 	
-	public DataFunction(String attribute, int day) {
+	public DataFunction(String siid,String attribute, int day) {
 		this.function="Data";
+		this.siid=siid;
 		this.attribute = attribute;
 		this.day = day;
 	}
 
-	public DataFunction(String attribute, Function attributeF, int day,
+	public DataFunction(String siid,Function siidF,String attribute, Function attributeF, int day,
 			Function dayF) {
 		this.function="Data";
+		this.siid=siid;
+		this.siidF=siidF;
 		this.attribute = attribute;
 		this.attributeF = attributeF;
 		this.day = day;
@@ -58,9 +61,21 @@ public class DataFunction extends Function{
 	}
 	
 	@Override
-	public FunctionResult getResult(Date today) {
-		Date start=new Date(today.getTime()-day*24*60*60*1000);
-		Date end=today;
+	public FunctionResult getResult(Date date) {
+		if(siidF!=null)
+		{
+			siid=siidF.getResult(date).rS;
+		}
+		if(attributeF!=null)
+		{
+			attribute=attributeF.getResult(date).rS;
+		}
+		if(dayF!=null)
+		{
+			day=dayF.getResult(date).rI;
+		}
+		Date start=new Date(date.getTime()-day*24*60*60*1000);
+		Date end=date;
 		List<Double> list=new ListTool().getList(siid,attribute,start,end);
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.DOUBLELIST.getCode());
@@ -72,12 +87,6 @@ public class DataFunction extends Function{
 	}
 	public void setSiid(String siid) {
 		this.siid = siid;
-	}
-	public Function getSiidF() {
-		return siidF;
-	}
-	public void setSiidF(Function siidF) {
-		this.siidF = siidF;
 	}
 	public String getAttribute() {
 		return attribute;

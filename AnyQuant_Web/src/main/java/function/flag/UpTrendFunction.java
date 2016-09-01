@@ -31,15 +31,18 @@ public class UpTrendFunction extends Function{
 		this.function="UpTrend";
 	}
 	
-	public UpTrendFunction(String attribute, int day, double standard) {
+	public UpTrendFunction(String siid,String attribute, int day, double standard) {
 		this.function="UpTrend";
+		this.siid=siid;
 		this.attribute = attribute;
 		this.day = day;
 		this.standard = standard;
 	}
 
-	public UpTrendFunction(String attribute, Function attributeF, int day,
+	public UpTrendFunction(String siid,Function siidF,String attribute, Function attributeF, int day,
 			Function dayF, double standard, Function standardF) {
+		this.siid=siid;
+		this.siidF=siidF;
 		this.function="UpTrend";
 		this.attribute = attribute;
 		this.attributeF = attributeF;
@@ -69,10 +72,26 @@ public class UpTrendFunction extends Function{
 		this.standard=vo.standard;
 		this.standardF=vo.standardF;
 	}
-	public FunctionResult getResult(Date today)
+	public FunctionResult getResult(Date date)
 	{
-		Date start=new Date(today.getTime()-day*24*60*60*1000);
-		Date end=today;
+		if(siidF!=null)
+		{
+			siid=siidF.getResult(date).rS;
+		}
+		if(attributeF!=null)
+		{
+			attribute=attributeF.getResult(date).rS;
+		}
+		if(dayF!=null)
+		{
+			day=dayF.getResult(date).rI;
+		}
+		if(standardF!=null)
+		{
+			standard=standardF.getResult(date).rD;
+		}
+		Date start=new Date(date.getTime()-day*24*60*60*1000);
+		Date end=date;
 		List<TrendPoint> trendList=new ArrayList<TrendPoint>();
 		List<Double> list=new ListTool().getList(siid,attribute,start,end);
 		for(int i=0;i<list.size();i++)

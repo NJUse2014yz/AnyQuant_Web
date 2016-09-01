@@ -24,8 +24,6 @@ public class ShareVO {
 	/**得到买入结果上界的方法*/
 	public Function resultDownOF;
 	
-	public int order;
-	
 	public String siid;
 	public Function siidF;
 	
@@ -39,7 +37,7 @@ public class ShareVO {
 	public ShareVO(FunctionResult resultUpI, Function resultUpIF,
 			FunctionResult resultDownI, Function resultDownIF,
 			FunctionResult resultUpO, Function resultUpOF,
-			FunctionResult resultDownO, Function resultDownOF, int order,
+			FunctionResult resultDownO, Function resultDownOF,
 			String siid, Function siidF, double share, Function shareF,
 			double price, Function priceF) {
 		super();
@@ -51,7 +49,6 @@ public class ShareVO {
 		this.resultUpOF = resultUpOF;
 		this.resultDownO = resultDownO;
 		this.resultDownOF = resultDownOF;
-		this.order = order;
 		this.siid = siid;
 		this.siidF = siidF;
 		this.share = share;
@@ -108,12 +105,6 @@ public class ShareVO {
 	public void setResultDownOF(Function resultDownOF) {
 		this.resultDownOF = resultDownOF;
 	}
-	public int getOrder() {
-		return order;
-	}
-	public void setOrder(int order) {
-		this.order = order;
-	}
 	public String getSiid() {
 		return siid;
 	}
@@ -156,7 +147,7 @@ public class ShareVO {
 				+ ", resultDownI=" + resultDownI + ", resultDownIF="
 				+ resultDownIF + ", resultUpO=" + resultUpO + ", resultUpOF="
 				+ resultUpOF + ", resultDownO=" + resultDownO
-				+ ", resultDownOF=" + resultDownOF + ", order=" + order
+				+ ", resultDownOF=" + resultDownOF
 				+ ", siid=" + siid + ", siidF=" + siidF + ", share=" + share
 				+ ", shareF=" + shareF + ", price=" + price + ", priceF="
 				+ priceF + "]";

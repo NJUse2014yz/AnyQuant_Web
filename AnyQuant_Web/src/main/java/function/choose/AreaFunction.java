@@ -42,6 +42,10 @@ public class AreaFunction extends Function{
 	
 	@Override
 	public FunctionResult getResult(Date date) {
+		if(areaF!=null)
+		{
+			area=areaF.getResult(date).rS;
+		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.STRINGLIST.getCode());
 		result.rLS=new ListTool().getArea(area);

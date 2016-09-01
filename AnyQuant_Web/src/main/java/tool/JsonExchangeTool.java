@@ -40,7 +40,7 @@ import function.risk.StandardPercentVO;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
-
+//TODO 还有加了Function的要改
 public class JsonExchangeTool {
 	public static List<ChooseStock> getStock(String json)
 	{
@@ -378,14 +378,12 @@ public class JsonExchangeTool {
 		case "Share":
 			ShareFunction share=new ShareFunction();
 			share.setFunction(function);
-			share.setOrder(jObject.getInt("order"));
 			share.setShare(jObject.getInt("share"));
 			share.setSiid(jObject.getString("siid"));
 			return share;
 		case "SharePercent":
 			SharePercentFunction sharePercent=new SharePercentFunction();
 			sharePercent.setFunction(function);
-			sharePercent.setOrder(jObject.getInt("order"));
 			sharePercent.setPercent(jObject.getInt("percent"));
 			sharePercent.setSiid(jObject.getString("siid"));
 			return sharePercent;
@@ -398,14 +396,12 @@ public class JsonExchangeTool {
 		case "Value":
 			ValueFunction value=new ValueFunction();
 			value.setFunction(function);
-			value.setOrder(jObject.getInt("order"));
 			value.setValue(jObject.getInt("value"));
 			value.setSiid(jObject.getString("siid"));
 			return value;
 		case "ValuePercent":
 			ValuePercentFunction valuePercent=new ValuePercentFunction();
 			valuePercent.setFunction(function);
-			valuePercent.setOrder(jObject.getInt("order"));
 			valuePercent.setPercent(jObject.getInt("percent"));
 			valuePercent.setSiid(jObject.getString("siid"));
 			return valuePercent;

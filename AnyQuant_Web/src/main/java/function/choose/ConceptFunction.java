@@ -44,6 +44,10 @@ public class ConceptFunction extends Function{
 	
 	@Override
 	public FunctionResult getResult(Date date) {
+		if(conceptF!=null)
+		{
+			concept=conceptF.getResult(date).rS;
+		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.STRINGLIST.getCode());
 		result.rLS=new ListTool().getConcept(concept);

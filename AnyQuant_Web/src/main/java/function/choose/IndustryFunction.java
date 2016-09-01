@@ -44,6 +44,10 @@ public class IndustryFunction extends Function{
 	
 	@Override
 	public FunctionResult getResult(Date date) {
+		if(industryF!=null)
+		{
+			industry=industryF.getResult(date).rS;
+		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.STRINGLIST.getCode());
 		result.rLS=new ListTool().getIndustry(industry);

@@ -53,6 +53,14 @@ public class IntersectionFunction extends Function{
 
 	@Override
 	public FunctionResult getResult(Date date) {
+		if(stockList1F!=null)
+		{
+			stockList1=stockList1F.getResult(date).rLS;
+		}
+		if(stockList2F!=null)
+		{
+			stockList2=stockList2F.getResult(date).rLS;
+		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.STRINGLIST.getCode());
 		for(int i=0;i<stockList1.size();i++)
