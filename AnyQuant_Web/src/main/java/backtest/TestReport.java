@@ -112,6 +112,7 @@ public class TestReport {
 			bCumlist.add(new DateDouble(capital.get(i).date,DataHelper.controldigit(bCum)));
 		}
 
+		System.out.println(bCapital);
 		
 		beta=beta(MMSTool.cov(arlist, brlist),MMSTool.variance_sample(brlist));
 		alpha=alpha(annualizedReturns,benchmarkReturns,risklessReturns,beta);

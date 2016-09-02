@@ -11,9 +11,16 @@ public class UserInfVO {
 	public double score;
 	public List<String> stocks;
 	
+	public UserInfVO()
+	{
+		this.userName = null;
+		this.rank = 0;
+		this.score = 0;
+		this.stocks = null;
+	}
 	public UserInfVO(String userName, int rank, double score,
 			List<String> stocks) {
-		super();
+		this();
 		this.userName = userName;
 		this.rank = rank;
 		this.score = score;
@@ -21,6 +28,7 @@ public class UserInfVO {
 	}
 	public UserInfVO(UserInf inf)
 	{
+		this();
 		this.userName=inf.userName;
 		this.rank=inf.rank;
 		this.score=inf.score;

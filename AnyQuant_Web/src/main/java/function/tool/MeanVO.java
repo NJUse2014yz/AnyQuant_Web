@@ -1,9 +1,11 @@
-package function.order;
+package function.tool;
+
+import java.util.List;
 
 import function.Function;
 import function.FunctionResult;
 
-public class PercentVO {
+public class MeanVO {
 	/**方法买入结果的上界*/
 	public FunctionResult resultUpI;
 	/**得到买入结果上界的方法*/
@@ -16,7 +18,7 @@ public class PercentVO {
 	
 	/**方法卖出结果的上界*/
 	public FunctionResult resultUpO;
-	/**得到买入结果上界的方法*/
+	/**得到卖出结果上界的方法*/
 	public Function resultUpOF;
 	
 	/**方法卖出结果的下界*/
@@ -24,19 +26,11 @@ public class PercentVO {
 	/**得到买入结果上界的方法*/
 	public Function resultDownOF;
 	
-	public String siid;
-	public Function siidF;
+	public List<Double> valueList;
+	public Function valueListF;
 	
-	public double percent;
-	public Function percentF;
-	
-	public double price;
-	public Function priceF;
-	
-	public PercentVO()
+	public MeanVO()
 	{
-		this.siid=null;
-		this.siidF=null;
 		this.resultDownI=null;
 		this.resultDownIF=null;
 		this.resultDownO=null;
@@ -45,18 +39,13 @@ public class PercentVO {
 		this.resultUpIF=null;
 		this.resultUpO=null;
 		this.resultUpOF=null;
-		this.percent=0;
-		this.percentF=null;
-		this.price=0;
-		this.priceF=null;
+		this.valueList=null;
+		this.valueListF=null;
 	}
-	public PercentVO(FunctionResult resultUpI, Function resultUpIF,
-			FunctionResult resultDownI, Function resultDownIF,
-			FunctionResult resultUpO, Function resultUpOF,
-			FunctionResult resultDownO, Function resultDownOF,
-			String siid, Function siidF, double percent, Function percentF,
-			double price, Function priceF) {
-		super();
+	public MeanVO(FunctionResult resultUpI, Function resultUpIF, FunctionResult resultDownI, Function resultDownIF,
+			FunctionResult resultUpO, Function resultUpOF, FunctionResult resultDownO, Function resultDownOF,
+			List<Double> valueList, Function valueListF) {
+		this();
 		this.resultUpI = resultUpI;
 		this.resultUpIF = resultUpIF;
 		this.resultDownI = resultDownI;
@@ -65,12 +54,8 @@ public class PercentVO {
 		this.resultUpOF = resultUpOF;
 		this.resultDownO = resultDownO;
 		this.resultDownOF = resultDownOF;
-		this.siid = siid;
-		this.siidF = siidF;
-		this.percent = percent;
-		this.percentF = percentF;
-		this.price = price;
-		this.priceF = priceF;
+		this.valueList = valueList;
+		this.valueListF = valueListF;
 	}
 	public FunctionResult getResultUpI() {
 		return resultUpI;
@@ -120,51 +105,23 @@ public class PercentVO {
 	public void setResultDownOF(Function resultDownOF) {
 		this.resultDownOF = resultDownOF;
 	}
-	public String getSiid() {
-		return siid;
+	public List<Double> getValueList() {
+		return valueList;
 	}
-	public void setSiid(String siid) {
-		this.siid = siid;
+	public void setValueList(List<Double> valueList) {
+		this.valueList = valueList;
 	}
-	public Function getSiidF() {
-		return siidF;
+	public Function getValueListF() {
+		return valueListF;
 	}
-	public void setSiidF(Function siidF) {
-		this.siidF = siidF;
-	}
-	public double getPercent() {
-		return percent;
-	}
-	public void setPercent(double percent) {
-		this.percent = percent;
-	}
-	public Function getPercentF() {
-		return percentF;
-	}
-	public void setPercentF(Function percentF) {
-		this.percentF = percentF;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
-	public Function getPriceF() {
-		return priceF;
-	}
-	public void setPriceF(Function priceF) {
-		this.priceF = priceF;
+	public void setValueListF(Function valueListF) {
+		this.valueListF = valueListF;
 	}
 	@Override
 	public String toString() {
-		return "PercentVO [resultUpI=" + resultUpI + ", resultUpIF="
-				+ resultUpIF + ", resultDownI=" + resultDownI
-				+ ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO
-				+ ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO
-				+ ", resultDownOF=" + resultDownOF
-				+ ", siid=" + siid + ", siidF=" + siidF + ", percent="
-				+ percent + ", percentF=" + percentF + ", price=" + price
-				+ ", priceF=" + priceF + "]";
+		return "MeanVO [resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF + ", resultDownI=" + resultDownI
+				+ ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF
+				+ ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF + ", valueList=" + valueList
+				+ ", valueListF=" + valueListF + "]";
 	}
 }

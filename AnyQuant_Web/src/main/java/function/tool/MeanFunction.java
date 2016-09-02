@@ -1,22 +1,26 @@
 package function.tool;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 
 import function.Function;
 import function.FunctionResult;
 import function.ResultType;
-
-public class DivideFunction extends Function {
-	public double v1;
-	public Function v1F;
-	public double v2;
-	public Function v2F;
+import tool.MMSTool;
+/**得到平均值*/
+public class MeanFunction extends Function{
+	public List<Double> valueList;
+	public Function valueListF;
 	
-	public DivideFunction()
+	public MeanFunction()
 	{
 		super();
-		this.function="Divide";
+		this.function="Mean";
 		this.siid=null;
 		this.siidF=null;
 		this.resultDownI=null;
@@ -27,30 +31,23 @@ public class DivideFunction extends Function {
 		this.resultUpIF=null;
 		this.resultUpO=null;
 		this.resultUpOF=null;
-		this.v1=0;
-		this.v1F=null;
-		this.v2=1;
-		this.v2F=null;
+		this.valueList=null;
+		this.valueListF=null;
 	}
-	public DivideFunction(double v1,double v2)
-	{
+	public MeanFunction(List<Double> valueList) {
 		this();
-		this.function="Divide";
-		this.v1=v1;
-		this.v2=v2;
+		this.function="Mean";
+		this.valueList = valueList;
 	}
-	public DivideFunction(double v1, Function v1f, double v2, Function v2f) {
+	public MeanFunction(List<Double> valueList, Function valueListF) {
 		this();
-		this.function="Divide";
-		this.v1 = v1;
-		this.v1F = v1f;
-		this.v2 = v2;
-		this.v2F = v2f;
+		this.function="Mean";
+		this.valueList = valueList;
+		this.valueListF = valueListF;
 	}
-	public DivideFunction(DivideVO vo)
-	{
+	public MeanFunction(MeanVO vo) {
 		this();
-		this.function="Divide";
+		this.function="Mean";
 		this.resultDownI=vo.resultDownI;
 		this.resultDownIF=vo.resultDownIF;
 		this.resultDownO=vo.resultDownO;
@@ -59,52 +56,42 @@ public class DivideFunction extends Function {
 		this.resultUpIF=vo.resultUpIF;
 		this.resultUpO=vo.resultUpO;
 		this.resultUpOF=vo.resultUpOF;
-		this.v1 = vo.v1;
-		this.v1F = vo.v1F;
-		this.v2 =vo.v2;
-		this.v2F = vo.v2F;
+		this.valueList = vo.valueList;
+		this.valueListF = vo.valueListF;
 	}
 	@Override
 	public FunctionResult getResult(Date date) {
+		if(valueListF!=null)
+		{
+			valueList=valueListF.getResult(date).rLD;
+		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.DOUBLE.getCode());
 		result.location.add(ResultType.DOUBLELIST.getCode());
-		result.rD=v1/v2;
+		result.rD=MMSTool.mean(valueList);
 		result.rLD=new ArrayList<Double>();
-		result.rLD.add(v1/v2);
+		result.rLD.add(result.rD);
 		return result;
 	}
-	public double getV1() {
-		return v1;
+	
+	public List<Double> getValueList() {
+		return valueList;
 	}
-	public void setV1(double v1) {
-		this.v1 = v1;
+	public void setValueList(List<Double> valueList) {
+		this.valueList = valueList;
 	}
-	public Function getV1F() {
-		return v1F;
+	public Function getValueListF() {
+		return valueListF;
 	}
-	public void setV1F(Function v1f) {
-		v1F = v1f;
-	}
-	public double getV2() {
-		return v2;
-	}
-	public void setV2(double v2) {
-		this.v2 = v2;
-	}
-	public Function getV2F() {
-		return v2F;
-	}
-	public void setV2F(Function v2f) {
-		v2F = v2f;
+	public void setValueListF(Function valueListF) {
+		this.valueListF = valueListF;
 	}
 	@Override
 	public String toString() {
-		return "\nDivideFunction [v1=" + v1 + ", v1F=" + v1F + ", v2=" + v2 + ", v2F=" + v2F + ", function=" + function
+		return "\nMeanFunction [valueList=" + valueList + ", valueListF=" + valueListF + ", function=" + function
 				+ ", siid=" + siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF
 				+ ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO
 				+ ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF
 				+ "]\n";
 	}
-
 }

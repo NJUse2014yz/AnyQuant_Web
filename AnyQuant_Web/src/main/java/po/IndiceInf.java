@@ -37,10 +37,9 @@ public class IndiceInf {
 	private int monthquoid;
 	
 	public IndiceInf() {
-		super();
 		this.id = -1;
-		this.iid = "";
-		this.iname = "";
+		this.iid = null;
+		this.iname = null;
 		this.date = null;
 		this.hisid = -1;
 		this.quoid = -1;
@@ -54,7 +53,7 @@ public class IndiceInf {
 	public IndiceInf(int id, String iid, String iname, Date date, int hisid,
 			int quoid, int weekid, int weekhisid, int weekquoid, int monthid,
 			int monthhisid, int monthquoid) {
-		super();
+		this();
 		this.id = id;
 		this.iid = iid;
 		this.iname = iname;

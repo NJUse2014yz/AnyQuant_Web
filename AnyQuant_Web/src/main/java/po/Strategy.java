@@ -32,10 +32,24 @@ public class Strategy {
 	/**公开性*/
 	public int privacy;
 	
-	public Strategy(){}
+	public Strategy()
+	{
+		this.userName=null;
+		this.createrName=null;
+		this.strategyName=null;
+		this.choose=null;
+		this.stockList=null;
+		this.risk=null;
+		this.flags=null;
+		this.realTest=null;
+		this.report=null;
+		this.score=0;
+		this.privacy=0;
+	}
 
 	public Strategy(StrategyVO vo)
 	{
+		this();
 		this.userName=vo.userName;
 		this.createrName=vo.createrName;
 		this.strategyName=vo.strategyName;
@@ -52,7 +66,7 @@ public class Strategy {
 	public Strategy(String userName, String createrName, String strategyName,
 			String stockList, String choose, String risk, String flags,
 			String realTest, String report, double score, int privacy) {
-		super();
+		this();
 		this.userName = userName;
 		this.createrName = createrName;
 		this.strategyName = strategyName;

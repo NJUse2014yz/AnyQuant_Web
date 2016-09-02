@@ -14,10 +14,26 @@ public class ValuePercentFunction extends Function{
 	public Function priceF;
 	
 	public ValuePercentFunction(){
+		super();
 		this.function="ValuePercent";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.percent=0;
+		this.percentF=null;
+		this.price=0;
+		this.priceF=null;
 	}
 
 	public ValuePercentFunction(String siid,double percent, double price) {
+		this();
 		this.function="ValuePercent";
 		this.siid = siid;
 		this.percent = percent;
@@ -26,6 +42,7 @@ public class ValuePercentFunction extends Function{
 
 	public ValuePercentFunction(String siid, Function siidF,
 			double percent, Function percentF, double price, Function priceF) {
+		this();
 		this.function="ValuePercent";
 		this.siid = siid;
 		this.siidF = siidF;
@@ -37,6 +54,7 @@ public class ValuePercentFunction extends Function{
 
 	public ValuePercentFunction(PercentVO vo)
 	{
+		this();
 		this.function="ValuePercent";
 		this.resultDownI=vo.resultDownI;
 		this.resultDownIF=vo.resultDownIF;
@@ -125,9 +143,16 @@ public class ValuePercentFunction extends Function{
 
 	@Override
 	public String toString() {
-		return "ValuePercentFunction [siid=" + siid
-				+ ", siidF=" + siidF + ", percent=" + percent + ", percentF="
-				+ percentF + ", price=" + price + ", priceF=" + priceF + "]";
+		return "ValuePercentFunction [percent=" + percent + ", percentF=" + percentF + ", price=" + price + ", priceF="
+				+ priceF + ", function=" + function + ", siid=" + siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI
+				+ ", resultUpIF=" + resultUpIF + ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF
+				+ ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO
+				+ ", resultDownOF=" + resultDownOF + "]";
+	}
+
+	@Override
+	public ValuePercentFunction clone() throws CloneNotSupportedException {
+		return new ValuePercentFunction(new PercentVO(resultUpI, percentF, resultDownI, percentF, resultUpO, percentF, resultDownO, percentF, siid, percentF, percent, percentF, price, priceF));
 	}
 	
 }

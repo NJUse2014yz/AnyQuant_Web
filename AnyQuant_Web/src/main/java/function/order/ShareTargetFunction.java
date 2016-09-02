@@ -111,10 +111,19 @@ public class ShareTargetFunction extends Function{
 	public void setPriceF(Function priceF) {
 		this.priceF = priceF;
 	}
+
 	@Override
 	public String toString() {
-		return "ShareTargetFunction [siid=" + siid + ", siidF=" + siidF
-				+ ", share=" + share + ", shareF=" + shareF + ", price="
-				+ price + ", priceF=" + priceF + "]";
+		return "ShareTargetFunction [share=" + share + ", shareF=" + shareF + ", price=" + price + ", priceF=" + priceF
+				+ ", function=" + function + ", siid=" + siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI
+				+ ", resultUpIF=" + resultUpIF + ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF
+				+ ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO
+				+ ", resultDownOF=" + resultDownOF + "]";
 	}
+
+	@Override
+	public ShareTargetFunction clone() throws CloneNotSupportedException {
+		return new ShareTargetFunction(new ShareVO(resultUpI, priceF, resultDownI, priceF, resultUpO, priceF, resultDownO, priceF, siid, priceF, share, shareF, price, priceF));
+	}
+
 }

@@ -26,10 +26,30 @@ public class StandardPercentFunction extends Function{
 	
 	public StandardPercentFunction()
 	{
+		super();
 		this.function="StandardPercent";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.sign=0;
+		this.signF=null;
+		this.attribute=null;
+		this.attributeF=null;
+		this.standard=null;
+		this.standardF=null;
+		this.percent=0;
+		this.percentF=null;
 	}
 	
 	public StandardPercentFunction(String siid,int sign,String attribute,String standard,double percent) {
+		this();
 		this.function="StandardPercent";
 		this.siid=siid;
 		this.sign = sign;
@@ -41,6 +61,7 @@ public class StandardPercentFunction extends Function{
 			int sign, Function signF, String attribute,
 			Function attributeF, String standard, Function standardF,
 			double percent, Function percentF) {
+		this();
 		this.function="StandardPercent";
 		this.siid=siid;
 		this.siidF=siidF;
@@ -56,6 +77,7 @@ public class StandardPercentFunction extends Function{
 
 	public StandardPercentFunction(StandardPercentVO vo)
 	{
+		this();
 		this.function="StandardPercent";
 		this.resultDownI=vo.resultDownI;
 		this.resultDownIF=vo.resultDownIF;
@@ -172,12 +194,15 @@ public class StandardPercentFunction extends Function{
 	public void setPercentF(Function percentF) {
 		this.percentF = percentF;
 	}
+
 	@Override
 	public String toString() {
-		return "StandardPercentFunction [sign=" + sign + ", signF=" + signF
-				+ ", siid=" + siid + ", siidF=" + siidF + ", attribute="
-				+ attribute + ", attributeF=" + attributeF + ", standard="
-				+ standard + ", standardF=" + standardF + ", percent="
-				+ percent + ", percentF=" + percentF + "]";
+		return "StandardPercentFunction [sign=" + sign + ", signF=" + signF + ", attribute=" + attribute
+				+ ", attributeF=" + attributeF + ", standard=" + standard + ", standardF=" + standardF + ", percent="
+				+ percent + ", percentF=" + percentF + ", function=" + function + ", siid=" + siid + ", siidF=" + siidF
+				+ ", resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF + ", resultDownI=" + resultDownI
+				+ ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF
+				+ ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF + "]";
 	}
+
 }

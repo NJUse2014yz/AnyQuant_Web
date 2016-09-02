@@ -12,15 +12,14 @@ public class IndustryInfPack {
 	/**行业股票信息列表*/
 	public List<IndustryInf> industryInfList;
 	public IndustryInfPack() {
-		super();
-		this.cname="";
-		this.sid="";
+		this.cname=null;
+		this.sid=null;
 		this.industryInf = null;
 		this.industryInfList=null;
 	}
 	public IndustryInfPack(String cname, String sid, IndustryInf industryInf,
 			List<IndustryInf> industryInfList) {
-		super();
+		this();
 		this.cname = cname;
 		this.sid = sid;
 		this.industryInf = industryInf;

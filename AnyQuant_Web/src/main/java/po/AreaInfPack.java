@@ -12,15 +12,14 @@ public class AreaInfPack {
 	/**地域股票信息列表*/
 	public List<AreaInf> areaInfList;
 	public AreaInfPack() {
-		super();
-		this.area="";
-		this.sid="";
+		this.area=null;
+		this.sid=null;
 		this.areaInf = null;
 		this.areaInfList=null;
 	}
 	public AreaInfPack(String area, String sid, AreaInf areaInf,
 			List<AreaInf> areaInfList) {
-		super();
+		this();
 		this.area = area;
 		this.sid = sid;
 		this.areaInf = areaInf;

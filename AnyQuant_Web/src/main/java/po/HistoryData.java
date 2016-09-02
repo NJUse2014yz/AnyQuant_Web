@@ -40,7 +40,6 @@ public class HistoryData {
 	
 	public HistoryData()
 	{
-		super();
 		this.id=-1;
 		this.date = null;
 		this.weekid=-1;
@@ -59,7 +58,7 @@ public class HistoryData {
 	public HistoryData(int id, Date date, int weekid, int monthid, int yearid,
 			double open, double close, double increase, double incrPer,
 			double low, double high, long volume, double amount, double turnover) {
-		super();
+		this();
 		this.id = id;
 		this.date = date;
 		this.weekid = weekid;
@@ -75,27 +74,6 @@ public class HistoryData {
 		this.amount = amount;
 		this.turnover = turnover;
 	}
-//	public HistoryData(HistoryDataString historyStockDataString)
-//	{
-//		super();
-//		this.date = DateExchangeTool.stringToSqlDate(historyStockDataString.getDate());
-//		this.open = Double.parseDouble(historyStockDataString.getOpen());
-//		this.close = Double.parseDouble(historyStockDataString.getClose());
-//		this.increase = Double.parseDouble(historyStockDataString.getIncrease());
-//		this.incrPer = Double.parseDouble(historyStockDataString.getIncrPer());
-//		this.low = Double.parseDouble(historyStockDataString.getLow());
-//		this.high = Double.parseDouble(historyStockDataString.getHigh());
-//		this.volume = Long.parseLong(historyStockDataString.getVolume());
-//		this.amount = Double.parseDouble(historyStockDataString.getAmount());
-//		if(historyStockDataString.getTurnover().equals(""))
-//		{
-//			this.turnover=-1;
-//		}
-//		else
-//		{
-//			this.turnover = Double.parseDouble(historyStockDataString.getTurnover());
-//		}
-//	}
 	
 	public int getId() {
 		return id;

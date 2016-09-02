@@ -50,10 +50,9 @@ public class StockInf {
 	private double coe3;
 	public StockInf()
 	{
-		super();
 		id=-1;
-		sid="";
-		sname="";
+		sid=null;
+		sname=null;
 		date=null;
 		hisid=-1;
 		quoid=-1;
@@ -72,7 +71,7 @@ public class StockInf {
 	}
 	public StockInf(String sid,String name)
 	{
-		super();
+		this();
 		id=-1;
 		this.sid=sid;
 		this.sname=name;
@@ -95,7 +94,7 @@ public class StockInf {
 	public StockInf(int id, String sid, String sname, Date date, int hisid,
 			int quoid, int weekid, int weekhisid, int weekquoid, int monthid,
 			int monthhisid, int monthquoid) {
-		super();
+		this();
 		this.id = id;
 		this.sid = sid;
 		this.sname = sname;

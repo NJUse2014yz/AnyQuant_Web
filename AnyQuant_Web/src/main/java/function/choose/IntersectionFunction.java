@@ -97,10 +97,14 @@ public class IntersectionFunction extends Function{
 	public void setStockList2F(Function stockList2F) {
 		this.stockList2F = stockList2F;
 	}
+
 	@Override
 	public String toString() {
-		return "IntersectionFunction [stockList1=" + stockList1
-				+ ", stockList1F=" + stockList1F + ", stockList2=" + stockList2
-				+ ", stockList2F=" + stockList2F + "]";
+		return "IntersectionFunction [stockList1=" + stockList1 + ", stockList1F=" + stockList1F + ", stockList2="
+				+ stockList2 + ", stockList2F=" + stockList2F + ", function=" + function + ", siid=" + siid + ", siidF="
+				+ siidF + ", resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF + ", resultDownI=" + resultDownI
+				+ ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF
+				+ ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF + "]";
 	}
+	
 }

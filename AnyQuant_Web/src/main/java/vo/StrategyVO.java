@@ -29,13 +29,30 @@ public class StrategyVO {
 	public TestReport report;
 	/**积分*/
 	public double score;
-	/**公开性*/
+	/**公开性,1为公开*/
 	public int privacy;
 	
-	public StrategyVO(){}
+	public StrategyVO()
+	{
+		this.userName = null;
+		this.createrName = null;
+		this.strategyName = null;
+		this.stockList=null;
+		this.choose=null;
+		this.risk=null;
+		this.flags=null;
+		this.realTest=null;
+		this.realTest.stockList=null;
+		this.realTest.flags=null;
+		this.realTest.risk=null;
+		this.score=0;
+		this.privacy=0;
+		this.report=null;
+	}
 
 	public StrategyVO(Strategy strategy)
 	{
+		this();
 		this.userName = strategy.userName;
 		this.createrName = strategy.createrName;
 		this.strategyName = strategy.strategyName;
@@ -61,7 +78,7 @@ public class StrategyVO {
 	public StrategyVO(String userName, String createrName, String strategyName,
 			List<ChooseStock> stockList, List<List<Function>> choose,
 			List<List<Function>> risk, List<Flag> flags) {
-		super();
+		this();
 		this.userName = userName;
 		this.createrName = createrName;
 		this.strategyName = strategyName;
@@ -74,7 +91,7 @@ public class StrategyVO {
 			List<ChooseStock> stockList, List<List<Function>> choose,
 			List<List<Function>> risk, List<Flag> flags, RealTestVO realTest,
 			TestReport report, double score, int privacy) {
-		super();
+		this();
 		this.userName = userName;
 		this.createrName = createrName;
 		this.strategyName = strategyName;
@@ -92,7 +109,7 @@ public class StrategyVO {
 			List<ChooseStock> stockList, List<List<Function>> choose,
 			List<List<Function>> risk, List<Flag> flags, RealTestVO realTest,
 			TestReport report, double score) {
-		super();
+		this();
 		this.userName = userName;
 		this.createrName = createrName;
 		this.strategyName = strategyName;

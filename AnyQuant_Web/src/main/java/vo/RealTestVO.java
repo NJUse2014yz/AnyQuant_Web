@@ -29,19 +29,18 @@ public class RealTestVO {
 	public RealTestVO(){
 		cash=10000;
 		n=1;
-		stockList=new ArrayList<ChooseStock>();
-		risk=new ArrayList<List<Function>>();
-		risk.add(new ArrayList<Function>());
-		flags=new ArrayList<Flag>();
-		numlist=new ArrayList<Integer>();
-		capital=new ArrayList<DateDouble>();
-		history=new ArrayList<String>();
+		stockList=null;
+		risk=null;
+		flags=null;
+		numlist=null;
+		capital=null;
+		history=null;
 	}
 	
 	public RealTestVO(double cash, int n, List<ChooseStock> stockList,
 			List<Flag> flags, List<Integer> numList,
 			List<DateDouble> capital,List<List<Function>> risk,List<String> history) {
-		super();
+		this();
 		this.cash = cash;
 		this.n = n;
 		this.stockList = stockList;

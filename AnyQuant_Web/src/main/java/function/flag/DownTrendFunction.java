@@ -140,10 +140,15 @@ public class DownTrendFunction extends Function{
 	public void setStandardF(Function standardF) {
 		this.standardF = standardF;
 	}
+
 	@Override
 	public String toString() {
-		return "DownTrendFunction [attribute=" + attribute + ", attributeF="
-				+ attributeF + ", day=" + day + ", dayF=" + dayF
-				+ ", standard=" + standard + ", standardF=" + standardF + "]";
+		return "DownTrendFunction [attribute=" + attribute + ", attributeF=" + attributeF + ", day=" + day + ", dayF="
+				+ dayF + ", standard=" + standard + ", standardF=" + standardF + ", function=" + function + ", siid="
+				+ siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF
+				+ ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO
+				+ ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF
+				+ "]";
 	}
+
 }

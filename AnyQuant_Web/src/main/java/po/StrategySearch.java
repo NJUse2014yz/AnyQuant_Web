@@ -9,12 +9,17 @@ public class StrategySearch {
 	public double d;
 	public StrategySearch()
 	{
-		
+		this.userName = null;
+		this.createrName = null;
+		this.strategyName = null;
+		this.str = null;
+		this.i = 0;
+		this.d = 0;
 	}
 	
 	public StrategySearch(String userName, String createrName,
 			String strategyName) {
-		super();
+		this();
 		this.userName = userName;
 		this.createrName = createrName;
 		this.strategyName = strategyName;
@@ -22,7 +27,7 @@ public class StrategySearch {
 	
 	public StrategySearch(String userName, String createrName,
 			String strategyName, String str, int i, double d) {
-		super();
+		this();
 		this.userName = userName;
 		this.createrName = createrName;
 		this.strategyName = strategyName;
@@ -33,7 +38,7 @@ public class StrategySearch {
 
 	public StrategySearch(String userName, String createrName,
 			String strategyName,String str) {
-		super();
+		this();
 		this.userName = userName;
 		this.createrName = createrName;
 		this.strategyName = strategyName;
@@ -43,7 +48,7 @@ public class StrategySearch {
 	
 	public StrategySearch(String userName, String createrName,
 			String strategyName, String str, double d) {
-		super();
+		this();
 		this.userName = userName;
 		this.createrName = createrName;
 		this.strategyName = strategyName;

@@ -109,8 +109,16 @@ public class ValueTargetFunction extends Function{
 
 	@Override
 	public String toString() {
-		return "ValueTargetFunction [value=" + value
-				+ ", valueF=" + valueF + ", price=" + price + ", priceF="
-				+ priceF + "]";
+		return "ValueTargetFunction [value=" + value + ", valueF=" + valueF + ", price=" + price + ", priceF=" + priceF
+				+ ", function=" + function + ", siid=" + siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI
+				+ ", resultUpIF=" + resultUpIF + ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF
+				+ ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO
+				+ ", resultDownOF=" + resultDownOF + "]";
 	}
+
+	@Override
+	public ValueTargetFunction clone() throws CloneNotSupportedException {
+		return new ValueTargetFunction(new ValueVO(resultUpI, priceF, resultDownI, priceF, resultUpO, priceF, resultDownO, priceF, siid, priceF, value, valueF, price, priceF));
+	}
+	
 }

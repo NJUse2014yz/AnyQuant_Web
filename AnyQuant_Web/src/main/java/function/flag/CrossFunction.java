@@ -172,12 +172,16 @@ public class CrossFunction extends Function {
 	public void setDayF(Function dayF) {
 		this.dayF = dayF;
 	}
+
 	@Override
 	public String toString() {
-		return "CrossFunction [siid1=" + siid1 + ", siid1F=" + siid1F
-				+ ", attribute1=" + attribute1 + ", attribute1F=" + attribute1F
-				+ ", siid2=" + siid2 + ", siid2F=" + siid2F + ", attribute2="
-				+ attribute2 + ", attribute2F=" + attribute2F + ", day=" + day
-				+ ", dayF=" + dayF + "]";
+		return "CrossFunction [siid1=" + siid1 + ", siid1F=" + siid1F + ", attribute1=" + attribute1 + ", attribute1F="
+				+ attribute1F + ", siid2=" + siid2 + ", siid2F=" + siid2F + ", attribute2=" + attribute2
+				+ ", attribute2F=" + attribute2F + ", day=" + day + ", dayF=" + dayF + ", function=" + function
+				+ ", siid=" + siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF
+				+ ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO
+				+ ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF
+				+ "]";
 	}
+
 }

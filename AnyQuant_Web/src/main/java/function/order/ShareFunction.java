@@ -111,8 +111,17 @@ public class ShareFunction extends Function{
 
 	@Override
 	public String toString() {
-		return "ShareFunction [share=" + share
-				+ ", shareF=" + shareF + ", price=" + price + ", priceF="
-				+ priceF + "]";
+		return "ShareFunction [share=" + share + ", shareF=" + shareF + ", price=" + price + ", priceF=" + priceF
+				+ ", function=" + function + ", siid=" + siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI
+				+ ", resultUpIF=" + resultUpIF + ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF
+				+ ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO
+				+ ", resultDownOF=" + resultDownOF + "]";
 	}
+
+	@Override
+	public ShareFunction clone() throws CloneNotSupportedException {
+		ShareFunction sf=new ShareFunction(new ShareVO(resultUpI, priceF, resultDownI, priceF, resultUpO, priceF, resultDownO, priceF, siid, priceF, share, shareF, price, priceF));
+		return sf;
+	}
+
 }

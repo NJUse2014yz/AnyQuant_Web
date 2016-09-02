@@ -66,9 +66,14 @@ public class ConceptFunction extends Function{
 	public void setConceptF(Function conceptF) {
 		this.conceptF = conceptF;
 	}
+
 	@Override
 	public String toString() {
-		return "ConceptFunction [concept=" + concept + ", conceptF=" + conceptF
+		return "ConceptFunction [concept=" + concept + ", conceptF=" + conceptF + ", function=" + function + ", siid="
+				+ siid + ", siidF=" + siidF + ", resultUpI=" + resultUpI + ", resultUpIF=" + resultUpIF
+				+ ", resultDownI=" + resultDownI + ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO
+				+ ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO + ", resultDownOF=" + resultDownOF
 				+ "]";
 	}
+
 }

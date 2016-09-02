@@ -21,6 +21,7 @@ import po.Strategy;
 import service.impl.BackTestServiceImpl;
 import service.impl.StrategyServiceImpl;
 import tool.JsonExchangeTool;
+import vo.Attribute;
 import vo.Flag;
 import vo.RealTestVO;
 import vo.StrategyVO;
@@ -34,11 +35,18 @@ import function.choose.IndustryFunction;
 import function.choose.IndustryVO;
 import function.choose.PairFunction;
 import function.choose.PairVO;
+import function.flag.DataFunction;
+import function.flag.MaxMinFunction;
 import function.flag.TrendFunction;
 import function.flag.TrendVO;
 import function.order.ShareFunction;
 import function.risk.StandardPercentFunction;
 import function.risk.StandardPercentVO;
+import function.tool.AddFunction;
+import function.tool.DivideFunction;
+import function.tool.MeanFunction;
+import function.tool.MinusFunction;
+import function.tool.MultipleFunction;
 
 public class StrategyServiceTest {
 	public static ApplicationContext applicationContext1 =new ClassPathXmlApplicationContext("classpath:configure/spring/applicationContext-dao.xml");
@@ -66,110 +74,165 @@ public class StrategyServiceTest {
 	}
 	public static void makeStrategy()
 	{
+		StrategyVO strategy=new StrategyVO();
 		String siid="sh600004";
+		//Name
+		strategy.setUserName("admin");
+		strategy.setCreaterName("admin");
+		strategy.setStrategyName("波浪理论");
 		
-		//userName
-		String userName="u3";
-		String createrName="u3";
-		//strategyName
-		String strategyName="s3";
 		//choose
-//		int num=1;
-//		PairVO pairVO=new PairVO(siid,num);
-//		PairFunction pair=new PairFunction(pairVO);
-
-		List<List<Function>> choose=new ArrayList<List<Function>>();
-		choose.add(new ArrayList<Function>());
-//		choose.get(0).add(pair);
-		//chooseStock
-		StockInf stockInf=null;
-		try {
-			stockInf = new DataServiceImpl().getStockInf_sid(siid);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-//		String partner=stockInf.getPartner1();
+		strategy.setChoose(null);
+		
+		//stockList
 		List<ChooseStock> stockList=new ArrayList<ChooseStock>();
 		stockList.add(new ChooseStock(siid,1));
-//		stockList.add(new ChooseStock(siid,0.505));
-//		stockList.add(new ChooseStock(partner,0.495));
+		strategy.setStockList(stockList);
+		
+		//flag
+		List<Flag> flags=new ArrayList<Flag>();
+		List<List<Function>> functions=new ArrayList<List<Function>>();
+		functions.add(new ArrayList<Function>());
+		//==========================以下为趋势买入判断的方法==============================//
+		TrendFunction tf1=new TrendFunction(siid,Attribute.close.getCode(),5,10);//以最近5天siid(sh600004)的收盘价的趋势为标志，标准暂写10
+			MeanFunction mef1=new MeanFunction();
+				DataFunction df2=new DataFunction(siid,Attribute.close.getCode(),5);//得到最近5天的收盘价
+			mef1.valueListF=df2;//平均值方法的值列表是由数据方法得到的最近5天的收盘价
+		tf1.standardF=mef1;//趋势方法的标准是由平均值方法得到的最近5天收盘价的平均值
+		FunctionResult fr1=new FunctionResult();
+			fr1.location.add(ResultType.DOUBLE.getCode());
+			fr1.rD=0;
+		tf1.resultUpI=fr1;//买入上界为趋势为0
+		//========================================================================//
+		functions.get(0).add(tf1);//首先满足价格在下跌
+		//==========================以下为数据值买入判断的方法=============================//
+		DataFunction df1=new DataFunction(siid,Attribute.close.getCode(),1);//以最近(昨天)siid(sh600004)的收盘价为标志
+			AddFunction af1=new AddFunction();
+				MultipleFunction muf1=new MultipleFunction();
+					DivideFunction dif1=new DivideFunction();
+						MaxMinFunction mmf2=new MaxMinFunction(1,siid,Attribute.close.getCode(),-1);//得到最近的第一个极小值
+						MaxMinFunction mmf3=new MaxMinFunction(2,siid,Attribute.close.getCode(),1);//得到最近的第二个极大值
+					dif1.v1F=mmf2;//除法的被被数是由极值方法得到的最近的第一个极小值
+					dif1.v2F=mmf3;//除法的被被数是由极值方法得到的最近的第二个极大值
+				muf1.v2F=dif1;//乘法的第二个乘数是由除法方法得到的最近第一个极小值与最近第二个极大值的商
+					MaxMinFunction mmf1=new MaxMinFunction(1,siid,Attribute.close.getCode(),1);//得到最近的第一个极大值
+				muf1.v1F=mmf1;//乘法的第一个乘数是由极大值方法得到的最近的第一个极大值
+			af1.v1F=muf1;//加法的第一个加数是由乘法方法得到的预计买入价
+			af1.v2=0.3;//加法的第二个加数是偏移值0.3	
+		df1.resultUpIF=af1;//买入上界方法--加法
+			MinusFunction mf1=new MinusFunction();
+			mf1.v1F=muf1;//减法的被减数是由乘法方法得到的预计买入价
+			mf1.v2=0.3;//减法的减数是偏移值0.3
+		df1.resultDownIF=mf1;//买入下界方法--减法
+		//=========================================================================//
+		functions.get(0).add(df1);//其次满足收盘价达到一定值
+		ShareFunction sf=new ShareFunction();
+			sf.siid=siid;
+			sf.share=50;
+		flags.add(new Flag(sf,functions));//订单为达到条件交易siid(sh600004)50股
+		strategy.setFlags(flags);
+		
 		//risk
-		StandardPercentVO spvo=new StandardPercentVO();
-		spvo.setAttribute("close");
-		spvo.setStandard("m20");
-		spvo.setPercent(0.8);
-		spvo.setSign(-1);
-		Function StandardPercentFunction=new StandardPercentFunction(spvo);
-		FunctionResult upFRI=new FunctionResult();
-		upFRI.location.add(ResultType.BOOLEAN.getCode());
-		upFRI.rB=true;
-		FunctionResult downFRI=new FunctionResult();
-		downFRI.location.add(ResultType.BOOLEAN.getCode());
-		downFRI.rB=true;
-		FunctionResult upFRO=new FunctionResult();
-		upFRO.location.add(ResultType.BOOLEAN.getCode());
-		upFRO.rB=true;
-		FunctionResult downFRO=new FunctionResult();
-		downFRO.location.add(ResultType.BOOLEAN.getCode());
-		downFRO.rB=true;
-		StandardPercentFunction.setResultDownI(downFRI);
-		StandardPercentFunction.setResultDownO(downFRO);
-		StandardPercentFunction.setResultUpI(upFRI);
-		StandardPercentFunction.setResultUpO(upFRO);
+		StandardPercentFunction spf1=new StandardPercentFunction(siid,-1,Attribute.close.getCode(),Attribute.m20.getCode(),0.5);//当siid(sh600004)的收盘价达到20日均线的0.5时强制清仓
+			FunctionResult upFRO=new FunctionResult();
+			upFRO.location.add(ResultType.BOOLEAN.getCode());
+			upFRO.rB=true;
+			FunctionResult downFRO=new FunctionResult();
+			downFRO.location.add(ResultType.BOOLEAN.getCode());
+			downFRO.rB=true;
+		spf1.resultDownO=downFRO;
+		spf1.resultUpO=upFRO;
 		List<List<Function>> risk=new ArrayList<List<Function>>();
 		risk.add(new ArrayList<Function>());
-		risk.get(0).add(StandardPercentFunction);
-		//flag1
-		String attribute1="m10";
-		String attribute2="m5";
-		int day1=30;
-		Double standard1=0.5;
-		FunctionResult upFRI1=new FunctionResult();
-		upFRI1.location.add(ResultType.DOUBLELIST.getCode());
-		upFRI1.rD=0.5;
-		FunctionResult downFRI1=new FunctionResult();
-		downFRI1.location.add(ResultType.DOUBLELIST.getCode());
-		downFRI1.rD=0.2;
-		FunctionResult upFRO1=new FunctionResult();
-		upFRO1.location.add(ResultType.DOUBLELIST.getCode());
-		upFRO1.rD=-0.2;
-		FunctionResult downFRO1=new FunctionResult();
-		downFRO1.location.add(ResultType.DOUBLELIST.getCode());
-		downFRO1.rD=-0.5;
-		TrendVO trendVO=new TrendVO(upFRI1,null,downFRI1,null,upFRO1,null,downFRO1,null,siid,null,attribute1,null,day1,null,standard1,null);
-		TrendFunction trend=new TrendFunction(trendVO);
-		//flag2
-		
-		List<List<Function>> flag=new ArrayList<List<Function>>();
-		flag.add(new ArrayList<Function>());
-		flag.get(0).add(trend);
-		ShareFunction share=new ShareFunction();
-		share.siid="sh600004";
-		share.share=10;
-		List<Flag> flags=new ArrayList<Flag>();
-		flags.add(new Flag(share,flag));
-		StrategyVO strategy=new StrategyVO(userName,createrName,strategyName,stockList,choose,risk,flags);
+		risk.get(0).add(spf1);
+		strategy.setRisk(risk);
 		
 		instance.makeStrategy(strategy);
 	}
 	public static void getStrategy()
 	{
-		StrategyVO strategy=instance.getSingleStrategy("u1","u1","s1");
-		String userName=strategy.userName;
-		String createrName=strategy.createrName;
-		String strategyName=strategy.strategyName;
-		List<ChooseStock> stockList=strategy.stockList;
-		List<Function> choose=strategy.choose.get(0);
-		List<List<Function>> risk=strategy.risk;
-		List<Flag> flag=strategy.flags;
-		System.out.println(userName);
-		System.out.println(createrName);
-		System.out.println(strategyName);
-		System.out.println(stockList);
-		System.out.println(choose);
-		System.out.println(risk);
-		System.out.println(flag);
-		System.out.println(strategy.realTest);
+		StrategyVO strategy=instance.getSingleStrategy("admin","admin","波浪理论");
+		
+		System.out.println("userName "+strategy.userName);
+		System.out.println("createrName "+strategy.createrName);
+		System.out.println("strategyName "+strategy.strategyName);
+		System.out.println("stockList "+strategy.stockList);
+		System.out.println("choose "+strategy.choose);
+		System.out.println("risk "+strategy.risk);
+		System.out.println("flags "+strategy.flags);
+		System.out.println("report "+strategy.report);
+		System.out.println("realTest "+strategy.realTest);
+		System.out.println("score "+strategy.score);
+//		userName admin
+//		createrName admin
+//		strategyName 波浪理论
+//		stockList [ChooseStock [siid=sh600004, percent=1.0]]
+//		choose []
+//		risk [[StandardPercentFunction [sign=-1, signF=null, attribute=close, attributeF=null, standard=m20, standardF=null, percent=0.5, percentF=null, function=StandardPercent, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=FunctionResult [location=[1], rB=true, rI=0, rD=0.0, rS=, rL=0, rLI=[], rLD=[], rLS=[], rLL=[]], resultUpOF=null, resultDownO=FunctionResult [location=[1], rB=true, rI=0, rD=0.0, rS=, rL=0, rLI=[], rLD=[], rLS=[], rLL=[]], resultDownOF=null]]]
+//		flags [
+//		Flag [orderType=ShareFunction [share=50.0, shareF=null, price=0.0, priceF=null, function=Share, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null],
+//		flagList=[[
+//		TrendFunction [attribute=close, attributeF=null, day=5, dayF=null, standard=10.0, standardF=null, function=Trend, siid=sh600004, siidF=null, resultUpI=FunctionResult [location=[3], rB=false, rI=0, rD=0.0, rS=, rL=0, rLI=[], rLD=[], rLS=[], rLL=[]], resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null], 
+//		DataFunction [attribute=null, attributeF=null, day=1, dayF=null, function=Data, siid=null, siidF=null, resultUpI=null, resultUpIF=
+//		AddFunction [v1=0.0, v1F=
+//		MultipleFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		DivideFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=-1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Divide, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Multiple, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.3, v2F=null, function=Add, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, resultDownI=null, resultDownIF=
+//		MinusFunction [v1=0.0, v1F=
+//		MultipleFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		DivideFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=-1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Divide, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Multiple, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.3, v2F=null, function=Minus, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]]]
+//		]
+//		]
+//		report null
+//		realTest RealTestVO [cash=10000.0, n=1, stockList=[ChooseStock [siid=sh600004, percent=1.0]], risk=[[StandardPercentFunction [sign=-1, signF=null, attribute=close, attributeF=null, standard=m20, standardF=null, percent=0.5, percentF=null, function=StandardPercent, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=FunctionResult [location=[1], rB=true, rI=0, rD=0.0, rS=, rL=0, rLI=[], rLD=[], rLS=[], rLL=[]], resultUpOF=null, resultDownO=FunctionResult [location=[1], rB=true, rI=0, rD=0.0, rS=, rL=0, rLI=[], rLD=[], rLS=[], rLL=[]], resultDownOF=null]]], flags=[
+//		Flag [orderType=ShareFunction [share=50.0, shareF=null, price=0.0, priceF=null, function=Share, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null],
+//		flagList=[[
+//		TrendFunction [attribute=close, attributeF=null, day=5, dayF=null, standard=10.0, standardF=null, function=Trend, siid=sh600004, siidF=null, resultUpI=FunctionResult [location=[3], rB=false, rI=0, rD=0.0, rS=, rL=0, rLI=[], rLD=[], rLS=[], rLL=[]], resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null], 
+//		DataFunction [attribute=null, attributeF=null, day=1, dayF=null, function=Data, siid=null, siidF=null, resultUpI=null, resultUpIF=
+//		AddFunction [v1=0.0, v1F=
+//		MultipleFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		DivideFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=-1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Divide, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Multiple, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.3, v2F=null, function=Add, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, resultDownI=null, resultDownIF=
+//		MinusFunction [v1=0.0, v1F=
+//		MultipleFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		DivideFunction [v1=0.0, v1F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=-1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.0, v2F=
+//		MaxMinFunction [attribute=null, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Divide, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, function=Multiple, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, v2=0.3, v2F=null, function=Minus, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+//		, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]]]
+//		]
+//		], numlist=[], capital=[], history=[]]
+//		score 0.0
 	}
 	public static void getSelfStrategy()
 	{
@@ -225,20 +288,22 @@ public class StrategyServiceTest {
 	}
 	public static void deleteStrategy()
 	{
-		instance.deleteStrategy("u1","u1","s1");
+		instance.deleteStrategy("admin","admin","波浪理论");
 	}
 	public static void saveReport()
 	{
 		BackTestService backTest=new BackTestServiceImpl(strategyMapper);
-		StrategyVO vo=new StrategyServiceImpl(strategyMapper).getSingleStrategy("u1","u1", "s1");
+		StrategyVO vo=new StrategyServiceImpl(strategyMapper).getSingleStrategy("admin","admin", "波浪理论");
+//	System.out.println(vo);
 		TestReport report=null;
 		try {
 			report = backTest.backtest(vo.stockList, vo.flags, 1, vo.flags.get(0), vo.risk);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		backTest.saveBackTest("u1", "u1", "s1", report);
-		System.out.println(report);
+		
+//		backTest.saveBackTest("admin", "admin", "波浪理论", report);
+	System.out.println(report);
 	}
 	public static void saveStrategy()
 	{
@@ -250,16 +315,18 @@ public class StrategyServiceTest {
 //		StrategyServiceTest.makeStrategy();
 //		StrategyServiceTest.getSaveStrategy();
 //		StrategyServiceTest.chooseStock();
-		StrategyServiceTest.getStrategy();
+//		StrategyServiceTest.getStrategy();
 //		new RealTestServiceTest().initRealTest();
 //		new RealTestServiceTest().saveRealTest();
-//		StrategyServiceTest.saveReport();
+		StrategyServiceTest.saveReport();
 //		System.out.println(new StrategyServiceImpl(strategyMapper).getScore("u1","u1","s1"));
 		
 //		StrategyServiceTest.getStrategy();
 //		StrategyServiceTest.getSelfStrategy();
 //		StrategyServiceTest.getSaveStrategy();
 //		new StrategyServiceTest().getFunction();
+		
+		
 		
 	}
 	

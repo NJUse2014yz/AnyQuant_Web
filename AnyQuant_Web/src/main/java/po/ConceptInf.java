@@ -5,13 +5,12 @@ public class ConceptInf {
 	public String name;
 	public String cname;
 	public ConceptInf() {
-		super();
-		this.sid = "";
-		this.name = "";
-		this.cname = "";
+		this.sid = null;
+		this.name = null;
+		this.cname = null;
 	}
 	public ConceptInf(String sid, String name, String cname) {
-		super();
+		this();
 		this.sid = sid;
 		this.name = name;
 		this.cname = cname;

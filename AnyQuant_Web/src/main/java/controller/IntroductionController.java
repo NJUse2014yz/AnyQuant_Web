@@ -59,7 +59,7 @@ public class IntroductionController {
 	public ModelAndView getDetail(String name){
 		ModelAndView modelAndView=new ModelAndView();
 		
-		
+		modelAndView.setViewName("introduction/Detail");
 		return modelAndView;
 	}
 }

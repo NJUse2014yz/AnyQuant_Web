@@ -20,14 +20,14 @@ public class HistoryDataPack {
 	public HistoryDataPack()
 	{
 		super();
-		this.siid = "";
+		this.siid = null;
 		this.list = null;
 		this.historyData1 = null;
 		this.historyData2 = null;
 	}
 	public HistoryDataPack(String siid, List<HistoryData> list,
 			HistoryData historyData1, HistoryData historyData2) {
-		super();
+		this();
 		this.siid = siid;
 		this.list = list;
 		this.historyData1 = historyData1;
