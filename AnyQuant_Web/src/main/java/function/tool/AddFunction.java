@@ -15,15 +15,32 @@ public class AddFunction extends Function {
 	
 	public AddFunction()
 	{
+		super();
 		this.function="Add";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.v1=0;
+		this.v1F=null;
+		this.v2=0;
+		this.v2F=null;
 	}
 	public AddFunction(double v1,double v2)
 	{
+		this();
 		this.function="Add";
 		this.v1=v1;
 		this.v2=v2;
 	}
 	public AddFunction(double v1, Function v1f, double v2, Function v2f) {
+		this();
 		this.function="Add";
 		this.v1 = v1;
 		this.v1F = v1f;
@@ -32,6 +49,7 @@ public class AddFunction extends Function {
 	}
 	public AddFunction(AddVO vo)
 	{
+		this();
 		this.function="Add";
 		this.resultDownI=vo.resultDownI;
 		this.resultDownIF=vo.resultDownIF;

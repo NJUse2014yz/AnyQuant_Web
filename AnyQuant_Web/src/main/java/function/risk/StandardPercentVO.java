@@ -42,7 +42,27 @@ public class StandardPercentVO {
 	public double percent;
 	public Function percentF;
 	
-	public StandardPercentVO(){}
+	public StandardPercentVO()
+	{
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.sign=0;
+		this.signF=null;
+		this.attribute=null;
+		this.attributeF=null;
+		this.standard=null;
+		this.standardF=null;
+		this.percent=0;
+		this.percentF=null;
+	}
 
 	public StandardPercentVO(FunctionResult resultUpI, Function resultUpIF,
 			FunctionResult resultDownI, Function resultDownIF,
@@ -51,7 +71,7 @@ public class StandardPercentVO {
 			Function signF, String siid, Function siidF, String attribute,
 			Function attributeF, String standard, Function standardF,
 			double percent, Function percentF) {
-		super();
+		this();
 		this.resultUpI = resultUpI;
 		this.resultUpIF = resultUpIF;
 		this.resultDownI = resultDownI;

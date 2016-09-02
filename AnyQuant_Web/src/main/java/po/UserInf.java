@@ -7,12 +7,17 @@ public class UserInf {
 	public long score;
 	public String stocks;
 	
-	public UserInf()
-	{
-		super();
+	
+	public UserInf() {
+		this.userName = null;
+		this.password = null;
+		this.rank = 0;
+		this.score = 0;
+		this.stocks = null;
 	}
+
 	public UserInf(String userName, String password) {
-		super();
+		this();
 		this.userName = userName;
 		this.password = password;
 	}

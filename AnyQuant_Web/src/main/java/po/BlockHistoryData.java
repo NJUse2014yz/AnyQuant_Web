@@ -37,9 +37,9 @@ public class BlockHistoryData {
 	private double turnover;
 	
 	public BlockHistoryData() {
-		this.sid = "";
-		this.name="";
-		this.block="";
+		this.sid = null;
+		this.name=null;
+		this.block=null;
 		this.id = 0;
 		this.date = null;
 		this.weekid = 0;
@@ -60,7 +60,7 @@ public class BlockHistoryData {
 			Date date, int weekid, int monthid, int yearid, double open,
 			double close, double increase, double incrPer, double low,
 			double high, long volume, double amount, double turnover) {
-		super();
+		this();
 		this.sid = sid;
 		this.name = name;
 		this.block = block;

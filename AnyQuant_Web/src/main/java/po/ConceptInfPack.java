@@ -12,15 +12,14 @@ public class ConceptInfPack {
 	/**行业股票信息列表*/
 	public List<ConceptInf> conceptInfList;
 	public ConceptInfPack() {
-		super();
-		this.cname="";
-		this.sid="";
+		this.cname=null;
+		this.sid=null;
 		this.conceptInf = null;
 		this.conceptInfList=null;
 	}
 	public ConceptInfPack(String cname, String sid, ConceptInf conceptInf,
 			List<ConceptInf> conceptInfList) {
-		super();
+		this();
 		this.cname = cname;
 		this.sid = sid;
 		this.conceptInf = conceptInf;

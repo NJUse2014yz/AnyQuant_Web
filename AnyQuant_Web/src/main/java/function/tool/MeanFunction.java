@@ -19,18 +19,34 @@ public class MeanFunction extends Function{
 	
 	public MeanFunction()
 	{
+		super();
 		this.function="Mean";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.valueList=null;
+		this.valueListF=null;
 	}
 	public MeanFunction(List<Double> valueList) {
+		this();
 		this.function="Mean";
 		this.valueList = valueList;
 	}
 	public MeanFunction(List<Double> valueList, Function valueListF) {
+		this();
 		this.function="Mean";
 		this.valueList = valueList;
 		this.valueListF = valueListF;
 	}
 	public MeanFunction(MeanVO vo) {
+		this();
 		this.function="Mean";
 		this.resultDownI=vo.resultDownI;
 		this.resultDownIF=vo.resultDownIF;

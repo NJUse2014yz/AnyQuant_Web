@@ -6,12 +6,12 @@ public class AreaInf {
 	private String area;
 	public AreaInf() {
 		super();
-		this.sid = "";
-		this.name = "";
-		this.area = "";
+		this.sid = null;
+		this.name = null;
+		this.area = null;
 	}
 	public AreaInf(String sid, String name, String area) {
-		super();
+		this();
 		this.sid = sid;
 		this.name = name;
 		this.area = area;

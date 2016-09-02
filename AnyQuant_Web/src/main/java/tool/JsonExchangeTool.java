@@ -66,8 +66,7 @@ public class JsonExchangeTool {
 		jArray=JSONArray.fromObject(json);
 		for(int i=0;i<jArray.size();i++)
 		{
-			jObject=(JSONObject) jArray.get(i);
-//			System.out.println(jObject);
+			jObject=jArray.getJSONObject(i);
 			String siid=jObject.getString("siid");
 			Double percent=jObject.getDouble("percent");
 			list.add(new ChooseStock(siid,percent));

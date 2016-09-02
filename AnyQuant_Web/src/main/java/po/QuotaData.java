@@ -72,16 +72,7 @@ public class QuotaData {
 	private double roc12;
 	private double roc25;
 	
-//	/**中间意愿指标*/
-//	private double cr1;//2C+H+L
-//	private double cr2;//C+H+L+O
-//	private double cr3;//C+H+L
-//	private double cr4;//H+L
-//	/**宝塔线 */
-//	private double tow;
-	
 	public QuotaData() {
-		super();
 		this.id=-1;
 		this.date = null;
 		this.m5 = 0;
@@ -142,7 +133,7 @@ public class QuotaData {
 			double dmh12, double dml12, double tr12, double dih, double dil,
 			double dih12, double dil12, double dx, double adx, double adxr,
 			double obv, double roc12, double roc25) {
-		super();
+		this();
 		this.id = id;
 		this.date = date;
 		this.m5 = m5;

@@ -28,10 +28,24 @@ public class MeanVO {
 	
 	public List<Double> valueList;
 	public Function valueListF;
+	
+	public MeanVO()
+	{
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.valueList=null;
+		this.valueListF=null;
+	}
 	public MeanVO(FunctionResult resultUpI, Function resultUpIF, FunctionResult resultDownI, Function resultDownIF,
 			FunctionResult resultUpO, Function resultUpOF, FunctionResult resultDownO, Function resultDownOF,
 			List<Double> valueList, Function valueListF) {
-		super();
+		this();
 		this.resultUpI = resultUpI;
 		this.resultUpIF = resultUpIF;
 		this.resultDownI = resultDownI;

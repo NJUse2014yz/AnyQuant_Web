@@ -15,23 +15,41 @@ public class MultipleFunction extends Function {
 	
 	public MultipleFunction()
 	{
+		super();
 		this.function="Multiple";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.v1=0;
+		this.v1F=null;
+		this.v2=0;
+		this.v2F=null;
 	}
 	public MultipleFunction(double v1,double v2)
 	{
+		this();
 		this.function="Multiple";
 		this.v1=v1;
 		this.v2=v2;
 	}
 	public MultipleFunction(double v1, Function v1f, double v2, Function v2f) {
+		this();
 		this.function="Multiple";
 		this.v1 = v1;
 		this.v1F = v1f;
 		this.v2 = v2;
 		this.v2F = v2f;
 	}
-	public MultipleFunction(AddVO vo)
+	public MultipleFunction(MultipleVO vo)
 	{
+		this();
 		this.function="Multiple";
 		this.resultDownI=vo.resultDownI;
 		this.resultDownIF=vo.resultDownIF;

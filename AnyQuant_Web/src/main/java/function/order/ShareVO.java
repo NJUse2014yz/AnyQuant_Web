@@ -33,7 +33,23 @@ public class ShareVO {
 	public double price;
 	public Function priceF;
 	
-	public ShareVO(){}
+	public ShareVO()
+	{
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.price=0;
+		this.priceF=null;
+		this.share=0;
+		this.shareF=null;
+	}
 	public ShareVO(FunctionResult resultUpI, Function resultUpIF,
 			FunctionResult resultDownI, Function resultDownIF,
 			FunctionResult resultUpO, Function resultUpOF,

@@ -13,15 +13,14 @@ public class QuotaDataPack {
 	private QuotaData quotaData2;
 	
 	public QuotaDataPack() {
-		super();
-		this.siid = "";
+		this.siid = null;
 		this.list = null;
 		this.quotaData1 = null;
 		this.quotaData2 = null;
 	}
 	public QuotaDataPack(String siid, List<QuotaData> list,
 			QuotaData quotaData1, QuotaData quotaData2) {
-		super();
+		this();
 		this.siid = siid;
 		this.list = list;
 		this.quotaData1 = quotaData1;

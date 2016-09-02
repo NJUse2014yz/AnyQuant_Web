@@ -33,7 +33,23 @@ public class PercentVO {
 	public double price;
 	public Function priceF;
 	
-	public PercentVO(){}
+	public PercentVO()
+	{
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.percent=0;
+		this.percentF=null;
+		this.price=0;
+		this.priceF=null;
+	}
 	public PercentVO(FunctionResult resultUpI, Function resultUpIF,
 			FunctionResult resultDownI, Function resultDownIF,
 			FunctionResult resultUpO, Function resultUpOF,

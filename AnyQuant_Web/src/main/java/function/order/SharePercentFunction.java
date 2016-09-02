@@ -14,10 +14,26 @@ public class SharePercentFunction extends Function{
 	public Function priceF;
 	
 	public SharePercentFunction(){
+		super();
 		this.function = "SharePercent";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.percent=0;
+		this.percentF=null;
+		this.price=0;
+		this.priceF=null;
 	}
 	
 	public SharePercentFunction(String siid,double percent, double price) {
+		this();
 		this.function = "SharePercent";
 		this.siid = siid;
 		this.percent = percent;
@@ -26,6 +42,7 @@ public class SharePercentFunction extends Function{
 
 	public SharePercentFunction(String siid, Function siidF,
 			double percent, Function percentF, double price, Function priceF) {
+		this();
 		this.function = "SharePercent";
 		this.siid = siid;
 		this.siidF = siidF;
@@ -37,6 +54,7 @@ public class SharePercentFunction extends Function{
 
 	public SharePercentFunction(PercentVO vo)
 	{
+		this();
 		this.function="SharePercent";
 		this.resultDownI=vo.resultDownI;
 		this.resultDownIF=vo.resultDownIF;

@@ -9,8 +9,14 @@ public class Flag {
 	public Function orderType;
 	/**出入场标志列表(内列表'且'，外列表'或')*/
 	public List<List<Function>> flagList;
+	
+	public Flag()
+	{
+		this.orderType = null;
+		this.flagList = null;
+	}
 	public Flag(Function orderType, List<List<Function>> flagList) {
-		super();
+		this();
 		this.orderType = orderType;
 		this.flagList = flagList;
 	}
