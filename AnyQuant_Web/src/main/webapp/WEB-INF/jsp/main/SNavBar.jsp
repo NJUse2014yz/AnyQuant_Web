@@ -49,11 +49,10 @@
 	                	<li class="dropdown">
 	                		<a href="##" class="dropdown-toggle" data-toggle="dropdown"><span class="badge pull-right">5</span>实践分区<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">进出时机</a></li>
-								<li><a href="#">股票选择</a></li>
-								<li><a href="#">风险控制</a></li>
-								<li><a href="#">策略回测</a></li>
-								<li><a href="#">策略对比</a></li>
+								<li><a href="/AnyQuant_Web/addStrategy.action">新建策略</a></li>
+								<li><a href="/AnyQuant_Web/myStrategy.action">个人策略</a></li>
+								<li><a href="/AnyQuant_Web/publicStrategy.action">策略社区</a></li>
+								<li><a href="/AnyQuant_Web/strategyCompare.action">策略对比</a></li>
 							</ul>
 						</li>
 						<li class="dropdown">
@@ -61,7 +60,7 @@
 							<ul class="dropdown-menu">
 								<li><a href="#">个人策略</a></li>
 								<li><a href="#">收藏策略</a></li>
-								<li><a href="/AnyQuant_web/personalStock.action">个人资料</a></li>
+								<li><a href="#">个人资料</a></li>
 								<li><a href="#">消息空间</a></li>
 							</ul>
 						</li>
