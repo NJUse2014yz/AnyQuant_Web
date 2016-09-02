@@ -10,7 +10,6 @@
     <link href="css/main/bootstrap.min.css" rel="stylesheet">
     <!-- 全局配置 CSS -->
     <link href="css/reset.css" rel="stylesheet">
-    <link href="css/strategy/default.css" rel="stylesheet">
 	<link href="css/strategy/styles.css" rel="stylesheet">
     <script src="js/jquery-3.1.0.min.js"></script>
     
@@ -25,15 +24,16 @@
 	        <form id="msform">
 	            <!-- progressbar -->
 	            <ul id="progressbar">
-	                <li class="active">选择股票</li>
+	                <li class="active">股票选择</li>
 	                <li>进出时机</li>
 	                <li>风险控制</li>
+	                <li>回测实测</li>
 					<li>完成</li>
 	            </ul>
 	            <!-- fieldsets -->
 	            <fieldset>
-	                <h2 class="fs-title">创建你的账号</h2>
-	                <h3 class="fs-subtitle">这是第一步</h3>
+	                <h2 class="fs-title">一个良好的策略从精准选股开始</h2>
+	                <h3 class="fs-subtitle">搜索 对冲 地区 概念 行业 属性 组合</h3>
 	                <input type="text" name="email" placeholder="Email地址" />
 	                <input type="password" name="pass" placeholder="密码" />
 	                <input type="password" name="cpass" placeholder="重复密码" />
@@ -56,7 +56,23 @@
 	                <input type="text" name="phone" placeholder="电话号码" />
 	                <textarea name="address" placeholder="家庭住址"></textarea>
 	                <input type="button" name="previous" class="previous action-button" value="Previous" />
-	                <input type="submit" name="submit" class="submit action-button" value="Submit" />
+	                <input type="button" name="next" class="next action-button" value="next" />
+	            </fieldset>
+	            <fieldset>
+	                <h2 class="fs-title">一个良好的策略从精准选股开始</h2>
+	                <h3 class="fs-subtitle">搜索 对冲 地区 概念 行业 属性 组合</h3>
+	                <input type="text" name="email" placeholder="Email地址" />
+	                <input type="password" name="pass" placeholder="密码" />
+	                <input type="password" name="cpass" placeholder="重复密码" />
+	                <input type="button" name="next" class="next action-button" value="Next" />
+	            </fieldset>
+	            <fieldset>
+	                <h2 class="fs-title">注意：完成后策略无法修改，请仔细核对所填信息</h2>
+	                <h3 class="fs-subtitle">点击完成，生成策略</h3>
+	                <input type="text" name="email" placeholder="Email地址" />
+	                <input type="password" name="pass" placeholder="密码" />
+	                <input type="button" name="previous" class="previous action-button" value="Previous" />
+	                <input type="button" name="submit" class="submit action-button" value="完成" />
 	            </fieldset>
 	        </form>
 	    </article>
