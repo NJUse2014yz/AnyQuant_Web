@@ -10,7 +10,7 @@
 
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<title>指标介绍</title>
+<title>工具介绍</title>
 </head>
 <body>
 
@@ -27,7 +27,7 @@
 		$(function(){
 		    $.ajax({
 			type:'post',
-			url:'${pageContext.request.contextPath}/getQuotas.action',
+			url:'${pageContext.request.contextPath}/getFunctions.action',
 			success:function(data){
 			    var after="</h2></div>";
 			    $.each(data,function(i,quota){
@@ -43,7 +43,7 @@
 		});
 		
 		function detail(dom){
-		    window.location.href="getQuotaDetail.action?name="+$(dom).text();
+		    window.location.href="getFunctionDetail.action?name="+$(dom).text();
 		}
 		
 	

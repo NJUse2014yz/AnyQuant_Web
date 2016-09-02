@@ -26,14 +26,21 @@
 	text-align:center
 }
 
-a{
-	font-size:30px;
+h1{
 	position:relative;
-	top:18%;
+	font-size:16px !important;
+	top:5px;
+	color:rgb(85,132,255) !important;
+}
+
+h2{
+	font-size:25px !important;
+	position:relative;
+	top:5px;
 	color:black
 }
 
-a:hover{
-	color:red;
+h2:hover{
+	color:rgb(85,132,255);
 }
 
