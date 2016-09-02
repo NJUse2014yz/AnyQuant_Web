@@ -27,14 +27,26 @@ public class ConceptVO {
 	public String concept;
 	public Function conceptF;
 
-	public ConceptVO() {}
+	public ConceptVO() 
+	{
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.concept=null;
+		this.conceptF=null;
+	}
 
 	public ConceptVO(FunctionResult resultUpI, Function resultUpIF,
 			FunctionResult resultDownI, Function resultDownIF,
 			FunctionResult resultUpO, Function resultUpOF,
 			FunctionResult resultDownO, Function resultDownOF, String concept,
 			Function conceptF) {
-		super();
+		this();
 		this.resultUpI = resultUpI;
 		this.resultUpIF = resultUpIF;
 		this.resultDownI = resultDownI;

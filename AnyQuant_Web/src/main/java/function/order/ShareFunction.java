@@ -14,10 +14,26 @@ public class ShareFunction extends Function{
 	public Function priceF;
 	
 	public ShareFunction(){
+		super();
 		this.function = "Share";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.price=0;
+		this.priceF=null;
+		this.share=0;
+		this.shareF=null;
 	}
 	
 	public ShareFunction(String siid, double share,double price) {
+		this();
 		this.function = "Share";
 		this.siid=siid;
 		this.share = share;
@@ -26,6 +42,7 @@ public class ShareFunction extends Function{
 	
 	public ShareFunction(String siid,Function siidF, double share, Function shareF,
 			double price, Function priceF) {
+		this();
 		this.function = "Share";
 		this.siid=siid;
 		this.siidF=siidF;
@@ -37,6 +54,7 @@ public class ShareFunction extends Function{
 
 	public ShareFunction(ShareVO vo)
 	{
+		this();
 		this.function="Share";
 		this.siid=vo.siid;
 		this.siidF=vo.siidF;

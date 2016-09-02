@@ -13,15 +13,30 @@ public class IndustryFunction extends Function{
 	
 	public IndustryFunction()
 	{
+		super();
 		this.function="Industry";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.industry=null;
+		this.industryF=null;
 	}
 	
 	public IndustryFunction(String industry) {
+		this();
 		this.function="Industry";
 		this.industry = industry;
 	}
 	
 	public IndustryFunction(String industry, Function industryF) {
+		this();
 		this.function="Industry";
 		this.industry = industry;
 		this.industryF = industryF;
@@ -29,6 +44,7 @@ public class IndustryFunction extends Function{
 	
 	public IndustryFunction(IndustryVO vo)
 	{
+		this();
 		this.function="Industry";
 		this.resultUpI = vo.resultUpI;
 		this.resultUpIF = vo.resultUpIF;

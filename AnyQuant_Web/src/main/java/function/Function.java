@@ -32,13 +32,25 @@ public abstract class Function {
 	/**得到买入结果上界的方法*/
 	public Function resultDownOF=null;
 	
-	public Function(){}
+	public Function()
+	{
+		this.siid = null;
+		this.siidF = null;
+		this.resultUpI = null;
+		this.resultUpIF = null;
+		this.resultDownI = null;
+		this.resultDownIF = null;
+		this.resultUpO = null;
+		this.resultUpOF = null;
+		this.resultDownO = null;
+		this.resultDownOF = null;
+	}
 	public Function(String function, String siid, Function siidF,
 			FunctionResult resultUpI, Function resultUpIF,
 			FunctionResult resultDownI, Function resultDownIF,
 			FunctionResult resultUpO, Function resultUpOF,
 			FunctionResult resultDownO, Function resultDownOF) {
-		super();
+		this();
 		this.function = function;
 		this.siid = siid;
 		this.siidF = siidF;

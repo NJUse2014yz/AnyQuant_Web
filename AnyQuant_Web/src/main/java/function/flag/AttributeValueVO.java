@@ -34,9 +34,23 @@ public class AttributeValueVO {
 	/**得到属性的方法*/
 	public Function attributeF;
 	
-	public AttributeValueVO(){}
+	public AttributeValueVO()
+	{
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.attribute=null;
+		this.attributeF=null;
+	}
 	public AttributeValueVO(String siid, String attribute) {
-		super();
+		this();
 		this.siid = siid;
 		this.attribute = attribute;
 	}
@@ -46,7 +60,7 @@ public class AttributeValueVO {
 			FunctionResult resultUpO, Function resultUpOF,
 			FunctionResult resultDownO, Function resultDownOF,
 			String attribute, Function attributeF) {
-		super();
+		this();
 		this.siid = siid;
 		this.siidF = siidF;
 		this.resultUpI = resultUpI;

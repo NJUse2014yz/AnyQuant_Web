@@ -29,9 +29,31 @@ public class CrossPointFunction extends Function{
 	
 	public CrossPointFunction()
 	{
+		super();
 		this.function="CrossPoint";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.siid1=null;
+		this.siid1F=null;
+		this.attribute1=null;
+		this.attribute1F=null;
+		this.siid2=null;
+		this.siid2F=null;
+		this.attribute2=null;
+		this.attribute2F=null;
+		this.day=0;
+		this.dayF=null;
 	}
 	public CrossPointFunction(String siid1, String attribute1, String siid2,String attribute2, int day) {
+		this();
 		this.function="CrossPoint";
 		this.siid1 = siid1;
 		this.attribute1 = attribute1;
@@ -43,6 +65,7 @@ public class CrossPointFunction extends Function{
 	public CrossPointFunction(String siid1, Function siid1f, String attribute1,
 			Function attribute1f, String siid2, Function siid2f,
 			String attribute2, Function attribute2f, int day, Function dayF) {
+		this();
 		this.function="CrossPoint";
 		this.siid1 = siid1;
 		siid1F = siid1f;
@@ -57,6 +80,7 @@ public class CrossPointFunction extends Function{
 	}
 	public CrossPointFunction(CrossVO vo)
 	{
+		this();
 		this.function="CrossPoint";
 		this.siid1=vo.siid1;
 		this.siid1F=vo.siid1F;

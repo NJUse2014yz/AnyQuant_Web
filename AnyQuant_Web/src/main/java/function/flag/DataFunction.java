@@ -26,10 +26,26 @@ public class DataFunction extends Function{
 
 	public DataFunction()
 	{
+		super();
 		this.function="Data";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.attribute=null;
+		this.attributeF=null;
+		this.day=0;
+		this.dayF=null;
 	}
 	
 	public DataFunction(String siid,String attribute, int day) {
+		this();
 		this.function="Data";
 		this.siid=siid;
 		this.attribute = attribute;
@@ -38,6 +54,7 @@ public class DataFunction extends Function{
 
 	public DataFunction(String siid,Function siidF,String attribute, Function attributeF, int day,
 			Function dayF) {
+		this();
 		this.function="Data";
 		this.siid=siid;
 		this.siidF=siidF;
@@ -48,6 +65,7 @@ public class DataFunction extends Function{
 	}
 
 	public DataFunction(DataVO vo){
+		this();
 		this.function="Data";
 		this.siid=vo.siid;
 		this.siidF=vo.siidF;

@@ -42,9 +42,6 @@ public class StrategyVO {
 		this.risk=null;
 		this.flags=null;
 		this.realTest=null;
-		this.realTest.stockList=null;
-		this.realTest.flags=null;
-		this.realTest.risk=null;
 		this.score=0;
 		this.privacy=0;
 		this.report=null;
@@ -61,18 +58,15 @@ public class StrategyVO {
 		this.risk=JsonExchangeTool.getFunctionList(strategy.risk);
 		this.flags=JsonExchangeTool.getFlag(strategy.flags);
 		this.realTest=JsonExchangeTool.getRealTest(strategy.realTest);
-		this.realTest.stockList=this.stockList;
-		this.realTest.flags=this.flags;
-		this.realTest.risk=this.risk;
+		if(this.realTest!=null)
+		{
+			this.realTest.stockList=this.stockList;
+			this.realTest.flags=this.flags;
+			this.realTest.risk=this.risk;
+		}
 		this.score=strategy.score;
 		this.privacy=strategy.privacy;
-		try
-		{
-			this.report=JsonExchangeTool.getReport(strategy.report);
-		}catch(Exception e)
-		{
-			e.printStackTrace();
-		}
+		this.report=JsonExchangeTool.getReport(strategy.report);
 	}
 	/**指定策略时最常用的构造方法*/
 	public StrategyVO(String userName, String createrName, String strategyName,

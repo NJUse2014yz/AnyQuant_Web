@@ -6,8 +6,13 @@ public class ChooseStock {
 	/**该股占比*/
 	public double percent;
 	
+	public ChooseStock()
+	{
+		this.siid=null;
+		this.percent=0;
+	}
 	public ChooseStock(String siid, double percent) {
-		super();
+		this();
 		this.siid = siid;
 		this.percent = percent;
 	}

@@ -24,16 +24,38 @@ public class CrossFunction extends Function {
 	/**被动数据属性*/
 	public String attribute2;
 	public Function attribute2F;
-	/**往前推的天数*/
+	/**往前推的天数(包括今天)*/
 	public int day;
 	public Function dayF;
 	
 	public CrossFunction()
 	{
+		super();
 		this.function="Cross";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.siid1=null;
+		this.siid1F=null;
+		this.attribute1=null;
+		this.attribute1F=null;
+		this.siid2=null;
+		this.siid2F=null;
+		this.attribute2=null;
+		this.attribute2F=null;
+		this.day=0;
+		this.dayF=null;
 	}
 	
 	public CrossFunction(String siid1, String attribute1, String siid2,String attribute2, int day) {
+		this();
 		this.function="Cross";
 		this.siid1 = siid1;
 		this.attribute1 = attribute1;
@@ -45,6 +67,7 @@ public class CrossFunction extends Function {
 	public CrossFunction(String siid1, Function siid1f, String attribute1,
 			Function attribute1f, String siid2, Function siid2f,
 			String attribute2, Function attribute2f, int day, Function dayF) {
+		this();
 		this.function="Cross";
 		this.siid1 = siid1;
 		siid1F = siid1f;
@@ -60,6 +83,7 @@ public class CrossFunction extends Function {
 
 	public CrossFunction(CrossVO vo)
 	{
+		this();
 		this.function="Cross";
 		this.siid1=vo.siid1;
 		this.siid1F=vo.siid1F;

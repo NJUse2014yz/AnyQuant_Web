@@ -56,7 +56,7 @@ public class ShareVO {
 			FunctionResult resultDownO, Function resultDownOF,
 			String siid, Function siidF, double share, Function shareF,
 			double price, Function priceF) {
-		super();
+		this();
 		this.resultUpI = resultUpI;
 		this.resultUpIF = resultUpIF;
 		this.resultDownI = resultDownI;

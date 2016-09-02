@@ -40,7 +40,27 @@ public class CrossVO {
 	public int day;
 	public Function dayF;
 
-	public CrossVO(){}
+	public CrossVO()
+	{
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.siid1=null;
+		this.siid1F=null;
+		this.attribute1=null;
+		this.attribute1F=null;
+		this.siid2=null;
+		this.siid2F=null;
+		this.attribute2=null;
+		this.attribute2F=null;
+		this.day=0;
+		this.dayF=null;
+	}
 	public CrossVO(FunctionResult resultUpI, Function resultUpIF,
 			FunctionResult resultDownI, Function resultDownIF,
 			FunctionResult resultUpO, Function resultUpOF,
@@ -48,7 +68,7 @@ public class CrossVO {
 			Function siid1f, String attribute1, Function attribute1f,
 			String siid2, Function siid2f, String attribute2,
 			Function attribute2f, int day, Function dayF) {
-		super();
+		this();
 		this.resultUpI = resultUpI;
 		this.resultUpIF = resultUpIF;
 		this.resultDownI = resultDownI;

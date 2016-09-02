@@ -28,10 +28,28 @@ public class DownTrendFunction extends Function{
 	
 	public DownTrendFunction()
 	{
+		super();
 		this.function="DownTrend";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.attribute=null;
+		this.attributeF=null;
+		this.day=0;
+		this.dayF=null;
+		this.standard=10;
+		this.standardF=null;
 	}
 	
 	public DownTrendFunction(String siid,String attribute, int day, double standard) {
+		this();
 		this.function="DownTrend";
 		this.siid=siid;
 		this.attribute = attribute;
@@ -41,6 +59,7 @@ public class DownTrendFunction extends Function{
 
 	public DownTrendFunction(String siid,Function siidF,String attribute, Function attributeF, int day,
 			Function dayF, double standard, Function standardF) {
+		this();
 		this.function="DownTrend";
 		this.siid=siid;
 		this.siidF=siidF;
@@ -53,6 +72,7 @@ public class DownTrendFunction extends Function{
 	}
 
 	public DownTrendFunction(TrendVO vo) {
+		this();
 		this.function="DownTrend";
 		this.resultUpI=vo.resultUpI;
 		this.resultUpIF=vo.resultUpIF;

@@ -14,10 +14,26 @@ public class ValueTargetFunction extends Function{
 	public Function priceF;
 	
 	public ValueTargetFunction(){
+		super();
 		this.function="ValueTarget";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.price=0;
+		this.priceF=null;
+		this.value=0;
+		this.valueF=null;
 	}
 	
 	public ValueTargetFunction(String siid,double value, double price) {
+		this();
 		this.function="ValueTarget";
 		this.siid=siid;
 		this.value = value;
@@ -26,6 +42,7 @@ public class ValueTargetFunction extends Function{
 
 	public ValueTargetFunction(String siid,Function siidF,double value, Function valueF,
 			double price, Function priceF) {
+		this();
 		this.function="ValueTarget";
 		this.siid=siid;
 		this.siidF=siidF;
@@ -37,6 +54,7 @@ public class ValueTargetFunction extends Function{
 
 	public ValueTargetFunction(ValueVO vo)
 	{
+		this();
 		this.function="ValueTarget";
 		this.resultDownI=vo.resultDownI;
 		this.resultDownIF=vo.resultDownIF;

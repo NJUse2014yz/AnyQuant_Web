@@ -18,7 +18,16 @@ public class FunctionResult {
 	
 	public FunctionResult()
 	{
-		
+		this.location=new ArrayList<Integer>();//只有这个是在构造函数里初始化为空列表的
+		this.rB=false;
+		this.rI=0;
+		this.rD=0;
+		this.rS=null;
+		this.rL=0;
+		this.rLI=null;
+		this.rLD=null;
+		this.rLS=null;
+		this.rLL=null;
 	}
 	public List<Integer> getLocation() {
 		return location;

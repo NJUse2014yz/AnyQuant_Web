@@ -45,13 +45,33 @@ public class MaxMinVO {
 	public int loc=0;
 	public Function locF;
 	
-	public MaxMinVO(){}
+	public MaxMinVO()
+	{
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.attribute=null;
+		this.attributeF=null;
+		this.mm=0;
+		this.mmF=null;
+		this.num=0;
+		this.numF=null;
+		this.loc=0;
+		this.locF=null;
+	}
 
 	public MaxMinVO(String siid, Function siidF, FunctionResult resultUpI, Function resultUpIF,
 			FunctionResult resultDownI, Function resultDownIF, FunctionResult resultUpO, Function resultUpOF,
 			FunctionResult resultDownO, Function resultDownOF, String attribute, Function attributeF, int mm,
 			Function mmF, int num, Function numF, int loc, Function locF) {
-		super();
+		this();
 		this.siid = siid;
 		this.siidF = siidF;
 		this.resultUpI = resultUpI;

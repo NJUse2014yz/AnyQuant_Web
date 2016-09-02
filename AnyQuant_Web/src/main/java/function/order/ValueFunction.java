@@ -14,10 +14,26 @@ public class ValueFunction extends Function{
 	public Function priceF;
 	
 	public ValueFunction(){
+		super();
 		this.function="Value";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.price=0;
+		this.priceF=null;
+		this.value=0;
+		this.valueF=null;
 	}
 	
 	public ValueFunction(String siid,double value, double price) {
+		this();
 		this.function="Value";
 		this.siid=siid;
 		this.value = value;
@@ -26,6 +42,7 @@ public class ValueFunction extends Function{
 
 	public ValueFunction(String siid,Function siidF,double value, Function valueF,
 			double price, Function priceF) {
+		this();
 		this.function="Value";
 		this.siid=siid;
 		this.siidF=siidF;
@@ -37,6 +54,7 @@ public class ValueFunction extends Function{
 
 	public ValueFunction(ValueVO vo)
 	{
+		this();
 		this.function="Value";
 		this.resultDownI=vo.resultDownI;
 		this.resultDownIF=vo.resultDownIF;

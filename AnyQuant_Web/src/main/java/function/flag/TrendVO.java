@@ -43,7 +43,22 @@ public class TrendVO {
 	
 	public TrendVO()
 	{
-		
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.attribute=null;
+		this.attributeF=null;
+		this.day=0;
+		this.dayF=null;
+		this.standard=10;
+		this.standardF=null;
 	}
 	public TrendVO(FunctionResult resultUpI, Function resultUpIF,
 			FunctionResult resultDownI, Function resultDownIF,
@@ -51,7 +66,7 @@ public class TrendVO {
 			FunctionResult resultDownO, Function resultDownOF, String siid,
 			Function siidF, String attribute, Function attributeF, int day,
 			Function dayF, double standard, Function standardF) {
-		super();
+		this();
 		this.resultUpI = resultUpI;
 		this.resultUpIF = resultUpIF;
 		this.resultDownI = resultDownI;

@@ -14,19 +14,35 @@ public class PairFunction extends Function{
 	
 	public PairFunction()
 	{
+		super();
 		this.function="Pair";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.num=1;
+		this.numF=null;
 	}
 	public PairFunction(int num) {
+		this();
 		this.function="Pair";
 		this.num = num;
 	}
 	public PairFunction(int num, Function numF) {
+		this();
 		this.function="Pair";
 		this.num = num;
 		this.numF = numF;
 	}
 	public PairFunction(PairVO vo)
 	{
+		this();
 		this.function="Pair";
 		this.resultUpI = vo.resultUpI;
 		this.resultUpIF = vo.resultUpIF;

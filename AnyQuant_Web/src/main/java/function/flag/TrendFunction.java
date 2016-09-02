@@ -32,9 +32,27 @@ public class TrendFunction extends Function{
 	
 	public TrendFunction()
 	{
+		super();
 		this.function="Trend";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.attribute=null;
+		this.attributeF=null;
+		this.day=0;
+		this.dayF=null;
+		this.standard=10;
+		this.standardF=null;
 	}
 	public TrendFunction(String siid,String attribute, int day, double standard) {
+		this();
 		this.function="Trend";
 		this.siid=siid;
 		this.attribute = attribute;
@@ -44,6 +62,7 @@ public class TrendFunction extends Function{
 
 	public TrendFunction(String siid,Function siidF,String attribute, Function attributeF, int day,
 			Function dayF, double standard, Function standardF) {
+		this();
 		this.function="Trend";
 		this.siid=siid;
 		this.siidF=siidF;
@@ -57,6 +76,7 @@ public class TrendFunction extends Function{
 	
 	public TrendFunction(TrendVO vo)
 	{
+		this();
 		this.function="Trend";
 		this.resultUpI=vo.resultUpI;
 		this.resultUpIF=vo.resultUpIF;

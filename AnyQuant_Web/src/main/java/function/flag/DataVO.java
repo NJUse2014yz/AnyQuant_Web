@@ -36,14 +36,30 @@ public class DataVO {
 	public int day;
 	public Function dayF;
 	
-	public DataVO(){}
+	public DataVO()
+	{
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.attribute=null;
+		this.attributeF=null;
+		this.day=0;
+		this.dayF=null;
+	}
 	public DataVO(FunctionResult resultUpI, Function resultUpIF,
 			FunctionResult resultDownI, Function resultDownIF,
 			FunctionResult resultUpO, Function resultUpOF,
 			FunctionResult resultDownO, Function resultDownOF, String siid,
 			Function siidF, String attribute, Function attributeF, int day,
 			Function dayF) {
-		super();
+		this();
 		this.resultUpI = resultUpI;
 		this.resultUpIF = resultUpIF;
 		this.resultDownI = resultDownI;

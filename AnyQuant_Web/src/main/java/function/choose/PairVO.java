@@ -32,14 +32,28 @@ public class PairVO {
 	public int num;
 	public Function numF;
 	
-	public PairVO() {}
+	public PairVO() 
+	{
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.num=1;
+		this.numF=null;
+	}
 	
 	public PairVO(FunctionResult resultUpI, Function resultUpIF,
 			FunctionResult resultDownI, Function resultDownIF,
 			FunctionResult resultUpO, Function resultUpOF,
 			FunctionResult resultDownO, Function resultDownOF, String siid,
 			Function siidF, int num, Function numF) {
-		super();
+		this();
 		this.resultUpI = resultUpI;
 		this.resultUpIF = resultUpIF;
 		this.resultDownI = resultDownI;

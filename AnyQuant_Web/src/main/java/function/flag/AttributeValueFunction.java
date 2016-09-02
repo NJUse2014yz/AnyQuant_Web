@@ -14,16 +14,31 @@ public class AttributeValueFunction extends Function{
 	
 	public AttributeValueFunction()
 	{
+		super();
 		this.function="AttributeValue";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.attribute=null;
+		this.attributeF=null;
 	}
 	
 	public AttributeValueFunction(String siid,String attribute) {
+		this();
 		this.function="AttributeValue";
 		this.siid=siid;
 		this.attribute = attribute;
 	}
 	
 	public AttributeValueFunction(String siid,Function siidF,String attribute, Function attributeF) {
+		this();
 		this.function="AttributeValue";
 		this.siid=siid;
 		this.siidF=siidF;
@@ -33,6 +48,7 @@ public class AttributeValueFunction extends Function{
 
 	public AttributeValueFunction(AttributeValueVO vo)
 	{
+		this();
 		this.function="AttributeValue";
 		this.siid=vo.siid;
 		this.siidF=vo.siidF;

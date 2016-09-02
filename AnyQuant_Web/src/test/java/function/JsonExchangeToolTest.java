@@ -1,5 +1,6 @@
 package function;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import net.sf.json.JSONObject;
 public class JsonExchangeToolTest {
 	public static void main(String[] args)
 	{
-//		JSONArray jArray1=JSONArray.fromObject("null");//数组如果为null报错,必须以[开始
+//		JSONArray jArray1=JSONArray.fromObject("null");//数组如果为null报错net.sf.json.JSONException,必须以[开始
 		
 //		JSONArray jArray2=JSONArray.fromObject("[]");
 //		System.out.println(jArray2.toString());//数组为[]则转化为空数组[]
@@ -69,10 +70,42 @@ public class JsonExchangeToolTest {
 //		System.out.println(o1);//null
 //		int i2=jObject2.getInt("key");//解析不存在的属性并get给基础类型报错 net.sf.json.JSONException
 //		float f1=(float)jObject2.get("key");//解析不存在的属性并强制类型转换为基础类型报错 java.lang.NullPointerException
-//		String s1=jObject2.getString("key");//解析不存在的属性并get给对象类型报错 net.sf.json.JSONException
-//		String s2=(String)jObject2.get("key");//解析不存在的属性并强制类型转换为对象类型则赋值null
+//		String s1=jObject2.getString("key");//解析不存在的属性并get给String报错 net.sf.json.JSONException
+//		String s2=(String)jObject2.get("key");//解析不存在的属性并强制类型转换为String则赋值null
 //		System.out.println(s2);//null
 		
+//		JSONArray jArray3=JSONArray.fromObject("[null]");
+//		System.out.println(jArray3);//[null]
+//		System.out.println(jArray3.size());//1
+//		System.out.println(jArray3.get(0));//null
+//		if(jArray3.get(0)==null)
+//		{
+//			System.out.println("element in [null] is null Pointer");
+//		}
+//		if(jArray3.get(0).equals("null"))
+//		{
+//			System.out.println("element in [null] is 'null' String");//正确
+//		}
+//		if(jArray3.get(0).equals(null))
+//		{
+//			System.out.println("element in [null] is null");//正确
+//		}
+//		if(jArray3.get(0).toString().equals("null"))
+//		{
+//			System.out.println("element in [null].toString() is 'null'");//正确
+//		}
+//		int i3=jArray3.getInt(0);//报错net.sf.json.JSONException
+//		String s4=(String)jArray3.get(0);//报错java.lang.ClassCastException
+//		String s5=jArray3.getString(0);
+//		System.out.println(s5);//null
 		
+//		JSONObject jObject3=JSONObject.fromObject("{data:[]}");
+//		JSONArray jArray4=jObject3.getJSONArray("data");
+//		System.out.println(jArray4);//[]
+//		JSONArray jArray5=(JSONArray) jObject3.get("data");
+//		System.out.println(jArray5);//[]
+//		JSONArray jArray6=jObject3.getJSONArray("key");//报错 net.sf.json.JSONException
+//		JSONArray jArray7=(JSONArray) jObject3.get("key");
+//		System.out.println(jArray7);//null
 	}
 }

@@ -33,9 +33,26 @@ public class AttributeVO {
 	public String attribute;
 	public Function attributeF;
 	
-	public AttributeVO(){}
+	public AttributeVO()
+	{
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.attribute=null;
+		this.attributeF=null;
+		this.up=0;
+		this.upF=null;
+		this.down=0;
+		this.downF=null;
+	}
 	public AttributeVO(double up, double down, String attribute)
 	{
+		this();
 		this.up = up;
 		this.down = down;
 		this.attribute = attribute;
@@ -46,7 +63,7 @@ public class AttributeVO {
 			FunctionResult resultDownO, Function resultDownOF, double up,
 			Function upF, double down, Function downF, String attribute,
 			Function attributeF) {
-		super();
+		this();
 		this.resultUpI = resultUpI;
 		this.resultUpIF = resultUpIF;
 		this.resultDownI = resultDownI;

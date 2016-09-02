@@ -22,10 +22,28 @@ public class AttributeFunction extends Function{
 	
 	public AttributeFunction()
 	{
+		super();
 		this.function="Attribute";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.attribute=null;
+		this.attributeF=null;
+		this.up=0;
+		this.upF=null;
+		this.down=0;
+		this.downF=null;
 	}
 	
 	public AttributeFunction(double up, double down,String attribute) {
+		this();
 		this.function="Attribute";
 		this.up = up;
 		this.down = down;
@@ -34,6 +52,7 @@ public class AttributeFunction extends Function{
 
 	public AttributeFunction(double up, Function upF, double down,
 			Function downF, String attribute, Function attributeF) {
+		this();
 		this.function="Attribute";
 		this.up = up;
 		this.upF = upF;
@@ -45,6 +64,7 @@ public class AttributeFunction extends Function{
 
 	public AttributeFunction(AttributeVO vo)
 	{
+		this();
 		this.function="Attribute";
 		this.resultUpI = vo.resultUpI;
 		this.resultUpIF = vo.resultUpIF;

@@ -13,15 +13,30 @@ public class ConceptFunction extends Function{
 	
 	public ConceptFunction()
 	{
+		super();
 		this.function="Concept";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.concept=null;
+		this.conceptF=null;
 	}
 	
 	public ConceptFunction(String concept) {
+		this();
 		this.function="Concept";
 		this.concept = concept;
 	}
 	
 	public ConceptFunction(String concept, Function conceptF) {
+		this();
 		this.function="Concept";
 		this.concept = concept;
 		this.conceptF = conceptF;
@@ -29,6 +44,7 @@ public class ConceptFunction extends Function{
 
 	public ConceptFunction(ConceptVO vo)
 	{
+		this();
 		this.function="Concept";
 		this.resultUpI = vo.resultUpI;
 		this.resultUpIF = vo.resultUpIF;

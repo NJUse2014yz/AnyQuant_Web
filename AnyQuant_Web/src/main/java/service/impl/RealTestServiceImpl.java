@@ -55,12 +55,16 @@ public class RealTestServiceImpl implements RealTestService {
 		this.strMapper=strMapper;
 	}
 
-	@SuppressWarnings("unused")
 	@Override
 	public String realTestForToday(RealTestVO vo) {//在15:00之后调用 TODO 开发通知功能、交易周期
 		Date today=new Date(Calendar.getInstance().getTimeInMillis());
 		Date yesterday=new Date(Calendar.getInstance().getTimeInMillis()-24*60*60*1000);
 		String history=DateExchangeTool.dateToString1(today)+"\n";
+		if(vo==null||vo.capital==null||vo.flags==null||vo.history==null||vo.numlist==null||vo.stockList==null)
+		{
+			System.err.println("RealTestServiceImpl==>e1 RealTestVO or it's essential elements are null");
+			return history;
+		}
 //		File file=new File("realtest.txt");
 //		FileWriter fw=null;
 //		try {
@@ -86,15 +90,11 @@ public class RealTestServiceImpl implements RealTestService {
 				HistoryData data=hisMapper.selectHistoryData_new_single(vo.stockList.get(i).siid);
 				open=data.getOpen();//买进价格为今日开盘价/*=====================*/
 				close=data.getClose();
-			} catch (Exception e1) {
-				e1.printStackTrace();
+			} catch (Exception e2) {
+				System.err.println("RealTestServiceImpl==>e2 mysql exception");
 			}
-			try {
-				priceList.add(open);
-				valueList.add(close);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			priceList.add(open);
+			valueList.add(close);
 		}
 		
 //		/*===========================*/
@@ -354,9 +354,6 @@ public class RealTestServiceImpl implements RealTestService {
 				flagOutO=flagOutO||flagInO;
 			}
 
-	//		System.out.println(vo.stockList);
-	//		System.out.println(priceList);
-		
 			String siidForTrade=orderType.siid;
 			if(orderType.siidF!=null)
 			{
@@ -575,11 +572,14 @@ public class RealTestServiceImpl implements RealTestService {
 		RealTestVO vo=new RealTestVO();
 		vo.setCash(cash);
 		vo.setN(n);
+		vo.setCapital(new ArrayList<DateDouble>());
 		vo.getCapital().add(new DateDouble(Calendar.getInstance().getTimeInMillis(),cash));
+		vo.setNumList(new ArrayList<Integer>());
 		for(int i=0;i<new StrategyServiceImpl(strMapper).getSingleStrategy(userName, createrName, strategyName).getStockList().size();i++)
 		{
 			vo.getNumList().add(0);
 		}
+		vo.setHistory(new ArrayList<String>());
 		String str=JSONObject.fromObject(vo).toString();
 		StrategySearch search=new StrategySearch(userName,createrName,strategyName,str);
 		try {
@@ -591,20 +591,16 @@ public class RealTestServiceImpl implements RealTestService {
 	
 	public int getNum(String siid)
 	{
-		System.out.println(siid);
 		for(int i=0;i<vo.stockList.size();i++)
 		{
 			if(vo.stockList.get(i).siid.equals(siid))
 			{
-				System.out.println(i);
 				return i;
 			}
 		}
-		System.out.println(-1);
 		return -1;
 	}
 	
-//	public Function setOrder(String type,int order,String siid,double value,double price)
 	public Function setOrder(Function order,Date today,double price)
 	{
 		String siid=order.siid;

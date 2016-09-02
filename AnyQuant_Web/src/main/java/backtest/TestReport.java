@@ -48,9 +48,28 @@ public class TestReport {
 	/**基准累计收益率*/
 	public List<DateDouble> bCumlist;
 	
-	public TestReport(){}
+	public TestReport()
+	{
+		this.n = 0;
+		this.risklessReturns = 0;
+		this.capital = null;
+		this.bCapital = null;
+		this.inPrice = null;
+		this.outPrice = null;
+		this.annualizedReturns = 0;
+		this.benchmarkReturns = 0;
+		this.alpha = 0;
+		this.beta = 0;
+		this.sharpeRatio = 0;
+		this.volatility = 0;
+		this.informationRatio = 0;
+		this.maxDrawdown = 0;
+		this.turnoverRate = 0;
+		this.cumlist = null;
+		this.bCumlist = null;
+	}
 	public TestReport(int n,List<DateDouble> capital,List<DateDouble> bCapital,List<Double> inPrice,List<Double> outPrice) {
-		super();
+		this();
 		this.n = n;
 		this.risklessReturns = 0.0475;
 		this.capital=capital;
@@ -59,7 +78,6 @@ public class TestReport {
 		this.outPrice=outPrice;
 		this.cumlist=new ArrayList<DateDouble>();
 		this.bCumlist=new ArrayList<DateDouble>();
-//		run(capital.get(capital.size()-1),capital.get(0),bCapital.get(bCapital.size()-1),bCapital.get(0));
 	}
 	public TestReport(int n, double risklessReturns, List<DateDouble> capital,
 			List<DateDouble> bCapital, List<Double> inPrice,
@@ -68,7 +86,7 @@ public class TestReport {
 			double sharpeRatio, double volatility, double informationRatio,
 			double maxDrawdown, double turnoverRate, List<DateDouble> cumlist,
 			List<DateDouble> bCumlist) {
-		super();
+		this();
 		this.n = n;
 		this.risklessReturns = risklessReturns;
 		this.capital = capital;
@@ -112,8 +130,6 @@ public class TestReport {
 			bCumlist.add(new DateDouble(capital.get(i).date,DataHelper.controldigit(bCum)));
 		}
 
-		System.out.println(bCapital);
-		
 		beta=beta(MMSTool.cov(arlist, brlist),MMSTool.variance_sample(brlist));
 		alpha=alpha(annualizedReturns,benchmarkReturns,risklessReturns,beta);
 		volatility=v(MMSTool.variance_sample(arrlist));
@@ -284,8 +300,6 @@ public class TestReport {
 	 * */
 	public double tr(double pX,double pAvg)
 	{
-		System.out.println(pX);
-		System.out.println(pAvg);
 		return pX/pAvg;
 	}
 

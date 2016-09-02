@@ -27,11 +27,23 @@ public class IndustryVO {
 	public String industry;
 	public Function industryF;
 
-	public IndustryVO() {}
+	public IndustryVO() 
+	{
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.industry=null;
+		this.industryF=null;
+	}
 	public IndustryVO(String industry)
 	{
+		this();
 		this.industry=industry;
-		
 		this.resultUpI = null;
 		this.resultUpIF = null;
 		this.resultDownI = null;
@@ -47,7 +59,7 @@ public class IndustryVO {
 			FunctionResult resultUpO, Function resultUpOF,
 			FunctionResult resultDownO, Function resultDownOF, String industry,
 			Function industryF) {
-		super();
+		this();
 		this.resultUpI = resultUpI;
 		this.resultUpIF = resultUpIF;
 		this.resultDownI = resultDownI;

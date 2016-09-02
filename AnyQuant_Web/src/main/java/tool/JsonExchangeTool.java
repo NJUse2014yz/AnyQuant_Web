@@ -58,116 +58,154 @@ import net.sf.json.JSONNull;
 import net.sf.json.JSONObject;
 
 public class JsonExchangeTool {
+	/**得到股票池*/
 	public static List<ChooseStock> getStock(String json)
 	{
-		List<ChooseStock> list=new ArrayList<ChooseStock>();
+		List<ChooseStock> list=null;
 		JSONArray jArray=null;
 		JSONObject jObject=null;
-		jArray=JSONArray.fromObject(json);
-		for(int i=0;i<jArray.size();i++)
-		{
-			jObject=jArray.getJSONObject(i);
-			String siid=jObject.getString("siid");
-			Double percent=jObject.getDouble("percent");
-			list.add(new ChooseStock(siid,percent));
-		}
-		return list;
-	}
-	public static List<String> getSaveStocks(String json)
-	{
-		List<String> list=new ArrayList<String>();
-		JSONArray jArray=JSONArray.fromObject(json);
-		for(int i=0;i<jArray.size();i++)
-		{
-			list.add(jArray.getString(i));
-		}
-		return list;
-	}
-	public static List<Flag> getFlag(String json)
-	{
-		List<Flag> flags=new ArrayList<Flag>();
-		JSONArray jArray=JSONArray.fromObject(json);
-		for(int i=0;i<jArray.size();i++)
-		{
-			JSONObject jObject=(JSONObject) jArray.get(i);
-			flags.add(new Flag(getOrder(jObject.get("orderType").toString()),getFunctionList(jObject.get("flagList").toString())));
-		}
-		return flags;
-	}
-	public static FunctionResult getResult(String json)
-	{
-		FunctionResult result=new FunctionResult();
-		JSONObject jObject=JSONObject.fromObject(json);
 		try{
-			result.location=jObject.getJSONArray("location");
-		} catch(Exception e)
+			jArray=JSONArray.fromObject(json);
+		}catch(Exception e1)
 		{
-//			e.printStackTrace();
-		}
-		if(result.location.size()==0)
-		{
+			System.err.println("JsonExchangeTool==>e1:json exception");
 			return null;
 		}
-		try{
-			result.rB=jObject.getBoolean("rB");
-		} catch(Exception e)
+		if(jArray!=null)
 		{
-//			e.printStackTrace();
+			list=new ArrayList<ChooseStock>();
+			for(int i=0;i<jArray.size();i++)
+			{
+				jObject=jArray.getJSONObject(i);
+				String siid=jObject.getString("siid");
+				Double percent=jObject.getDouble("percent");
+				list.add(new ChooseStock(siid,percent));
+			}
 		}
-		try{
-			result.rI=jObject.getInt("rI");
-		} catch(Exception e)
+		else
 		{
-//			e.printStackTrace();
+			System.err.println("JsonExchangeTool==>e2:jArray is null");
 		}
-		try{
-			result.rD=jObject.getDouble("rD");
-		} catch(Exception e)
-		{
-//			e.printStackTrace();
-		}
-		try{
-			result.rS=jObject.getString("rS");
-		} catch(Exception e)
-		{
-//			e.printStackTrace();
-		}
-		try{
-			result.rL=jObject.getLong("rL");
-		} catch(Exception e)
-		{
-//			e.printStackTrace();
-		}
-		try{
-			result.rLI=jObject.getJSONArray("rLI");
-		} catch(Exception e)
-		{
-//			e.printStackTrace();
-		}
-		try{
-			result.rLD=jObject.getJSONArray("rLD");
-		} catch(Exception e)
-		{
-//			e.printStackTrace();
-		}
-		try{
-			result.rLS=jObject.getJSONArray("rLS");
-		} catch(Exception e)
-		{
-//			e.printStackTrace();
-		}
-		try{
-			result.rLL=jObject.getJSONArray("rLL");
-		} catch(Exception e)
-		{
-//			e.printStackTrace();
-		}
-		return result;
+		return list;//如果没有则返回null,不是空列表
 	}
 	
-	public static Function getFunction(String json)
+	/**得到收藏的股票列表*/
+	public static List<String> getSaveStocks(String json)
 	{
-		JSONObject jObject=JSONObject.fromObject(json);
+		List<String> list=null;
+		JSONArray jArray=null;
+		try
+		{
+			jArray=JSONArray.fromObject(json);
+		} catch(Exception e3)
+		{
+			System.err.println("JsonExchangeTool==>e3:json exception");
+			return null;
+		}
+		if(jArray!=null)
+		{
+			list=new ArrayList<String>();
+			for(int i=0;i<jArray.size();i++)
+			{
+				list.add(jArray.getString(i));
+			}
+		}
+		else
+		{
+			System.err.println("JsonExchangeTool==>e4:jArray is null");
+		}	
+		return list;//如果没有则返回null,不是空列表
+	}
+	
+	/**得到交易信号列表*/
+	public static List<Flag> getFlag(String json)
+	{
+		List<Flag> flags=null;
+		JSONArray jArray=null;
+		try
+		{
+			jArray=JSONArray.fromObject(json);
+		} catch(Exception e5)
+		{
+			System.err.println("JsonExchangeTool==>e5:json exception");
+			return null;
+		}
+		if(jArray!=null)
+		{
+			flags=new ArrayList<Flag>();
+			for(int i=0;i<jArray.size();i++)
+			{
+				JSONObject jObject=(JSONObject) jArray.get(i);
+				flags.add(new Flag(getOrder(jObject.get("orderType").toString()),getFunctionList(jObject.get("flagList").toString())));
+			}
+		}
+		else
+		{
+			System.err.println("JsonExchangeTool==>e6:jArray is null");
+		}
+		return flags;//如果没有则返回null,不是空列表
+	}
+	
+	/**得到方法结果*/
+	public static FunctionResult getResult(JSONObject json)
+	{
+		FunctionResult result=new FunctionResult();
+		JSONObject jObject=json;
+		if(!jObject.toString().equals("null"))
+		{
+			try{
+				result.location=jObject.getJSONArray("location");//location肯定不是null所以不会报错，至少是一个空列表
+			}catch(Exception e7)
+			{
+				System.err.println("JsonExchangeTool==>e7:json exception");
+			}
+			if(result.location.size()==0)
+			{
+				System.err.println("JsonExchangeTool==>e8:result.location is blank,result should be null");
+				return null;//如果location为空列表，返回null
+			}
+			result.rB=jObject.getBoolean("rB");
+			result.rI=jObject.getInt("rI");
+			result.rD=jObject.getDouble("rD");
+			result.rS=jObject.getString("rS");
+			result.rL=jObject.getLong("rL");
+			try{
+				result.rLI=jObject.getJSONArray("rLI");
+			} catch(Exception e9)
+			{
+				System.err.println("JsonExchangeTool==>e9:rLI is null");
+			}
+			try{
+				result.rLD=jObject.getJSONArray("rLD");
+			} catch(Exception e10)
+			{
+				System.err.println("JsonExchangeTool==>e10:rLD is null");
+			}
+			try{
+				result.rLS=jObject.getJSONArray("rLS");
+			} catch(Exception e11)
+			{
+				System.err.println("JsonExchangeTool==>e11:rLS is null");
+			}
+			try{
+				result.rLL=jObject.getJSONArray("rLL");
+			} catch(Exception e12)
+			{
+				System.err.println("JsonExchangeTool==>e12:rLL is null");
+			}
+			return result;
+		}
+		else
+		{
+			System.err.println("JsonExchangeTool==>e13:jObject is null");
+			return null;//json对象为空返回null
+		}
+	}
+	
+	/**得到方法*/
+	public static Function getFunction(JSONObject json)
+	{
+		JSONObject jObject=json;
 		if(!jObject.toString().equals("null")){
 			String function=jObject.getString("function");
 			String siid=null;
@@ -191,62 +229,22 @@ public class JsonExchangeTool {
 			FunctionResult resultDownO=null;
 			Function resultDownOF=null;
 			
-			try{
-				resultUpOJ=jObject.getJSONObject("resultUpO");
-				resultUpO=getResult(resultUpOJ.toString());
-			} catch(Exception e)
-			{
-				e.printStackTrace();
-			}
-			try{
-				resultDownOJ=jObject.getJSONObject("resultDownO");
-				resultDownO=getResult(resultDownOJ.toString());
-			} catch(Exception e)
-			{
-				e.printStackTrace();
-			}
-			try{
-				resultUpIJ=jObject.getJSONObject("resultUpI");
-				resultUpI=getResult(resultUpIJ.toString());
-			} catch(Exception e)
-			{
-				e.printStackTrace();
-			}
-			try{
-				resultDownIJ=jObject.getJSONObject("resultDownI");
-				resultDownI=getResult(resultDownIJ.toString());
-			} catch(Exception e)
-			{
-				e.printStackTrace();
-			}
-			try{
-				resultUpOFJ=jObject.getJSONObject("resultUpOF");
-				resultUpOF=getFunction(resultUpOFJ.toString());
-			} catch(Exception e)
-			{
-				e.printStackTrace();
-			}
-			try{
-				resultDownOFJ=jObject.getJSONObject("resultDownOF");
-				resultDownOF=getFunction(resultDownOFJ.toString());
-			} catch(Exception e)
-			{
-				e.printStackTrace();
-			}
-			try{
-				resultUpIFJ=jObject.getJSONObject("resultUpIF");
-				resultUpIF=getFunction(resultUpIFJ.toString());
-			} catch(Exception e)
-			{
-				e.printStackTrace();
-			}
-			try{
-				resultDownIFJ=jObject.getJSONObject("resultDownIF");
-				resultDownIF=getFunction(resultDownIFJ.toString());
-			} catch(Exception e)
-			{
-				e.printStackTrace();
-			}
+			resultUpOJ=jObject.getJSONObject("resultUpO");
+			resultUpO=getResult(resultUpOJ);
+			resultDownOJ=jObject.getJSONObject("resultDownO");
+			resultDownO=getResult(resultDownOJ);
+			resultUpIJ=jObject.getJSONObject("resultUpI");
+			resultUpI=getResult(resultUpIJ);
+			resultDownIJ=jObject.getJSONObject("resultDownI");
+			resultDownI=getResult(resultDownIJ);
+			resultUpOFJ=jObject.getJSONObject("resultUpOF");
+			resultUpOF=getFunction(resultUpOFJ);
+			resultDownOFJ=jObject.getJSONObject("resultDownOF");
+			resultDownOF=getFunction(resultDownOFJ);
+			resultUpIFJ=jObject.getJSONObject("resultUpIF");
+			resultUpIF=getFunction(resultUpIFJ);
+			resultDownIFJ=jObject.getJSONObject("resultDownIF");
+			resultDownIF=getFunction(resultDownIFJ);
 			
 			String attribute=null;
 			String siid1=null;
@@ -271,9 +269,6 @@ public class JsonExchangeTool {
 			List<Double> valueList=null;
 			int mm=0;
 			int loc=0;
-			
-			JSONArray stockList1J=null;
-			JSONArray stockList2J=null;
 			
 			Function attributeF=null;
 			Function siid1F=null;
@@ -325,422 +320,784 @@ public class JsonExchangeTool {
 			{
 			//choose
 			case "Pair":
-				siid = (String) jObject.get("siid");
+				siid = (String)jObject.get("siid");
 				siidFJ = jObject.getJSONObject("siidF");
-				siidF = getFunction(siidFJ.toString());
+				siidF = getFunction(siidFJ);
 				num = jObject.getInt("num");
 				numFJ = jObject.getJSONObject("numF");
-				numF =getFunction(numFJ.toString());
+				numF =getFunction(numFJ);
 				return new PairFunction(new PairVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid, siidF, num, numF));
 			case "Area":
-				area=jObject.getString("area");
+				area=(String)jObject.get("area");
 				areaFJ=jObject.getJSONObject("areaF");
-				areaF=getFunction(areaFJ.toString());
+				areaF=getFunction(areaFJ);
 				return new AreaFunction(new AreaVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, area, areaF));
 			case "Concept":
-				concept=jObject.getString("concept");
+				concept=(String)jObject.get("concept");
 				conceptFJ=jObject.getJSONObject("conceptF");
-				conceptF=getFunction(conceptFJ.toString());
+				conceptF=getFunction(conceptFJ);
 				return new ConceptFunction(new ConceptVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, concept, conceptF));
 			case "Industry":
-				industry=jObject.getString("industry");
+				industry=(String)jObject.get("industry");
 				industryFJ=jObject.getJSONObject("industryFJ");
-				industryF=getFunction(industryFJ.toString());
+				industryF=getFunction(industryFJ);
 				return new IndustryFunction(new IndustryVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, industry, industryF));
 			case "Intersection":
 				try{
 					stockList1 = jObject.getJSONArray("stockList1");
-				} catch(Exception e)
+				} catch(Exception e14)
 				{
-					e.printStackTrace();
+					System.err.println("JsonExchangeTool==>e14 stockList1 is null");
 				}
 				stockList1FJ = jObject.getJSONObject("stockList1F");
-				stockList1F = getFunction(stockList1FJ.toString());
+				stockList1F = getFunction(stockList1FJ);
 				try{
 					stockList2 = jObject.getJSONArray("stockList2");
-				} catch(Exception e)
+				} catch(Exception e15)
 				{
-					e.printStackTrace();
+					System.err.println("JsonExchangeTool==>e15 stockList2 is null");
 				}
 				stockList2FJ = jObject.getJSONObject("stockList2F");
-				stockList2F = getFunction(stockList2FJ.toString());
-				return new IntersectionFunction(new IntersectionVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, stockList1J, stockList1F, stockList2J, stockList2F));
+				stockList2F = getFunction(stockList2FJ);
+				return new IntersectionFunction(new IntersectionVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, stockList1, stockList1F, stockList2, stockList2F));
 			case "Attribute":
-				up = jObject.getDouble("up");
+				try{
+					up = jObject.getDouble("up");
+				} catch(Exception e16)
+				{
+					System.err.println("JsonExchangeTool==>e16 json exception");
+				}
 				upFJ = jObject.getJSONObject("upF");
-				upF = getFunction(upFJ.toString());
-				down = jObject.getDouble("down");
+				upF = getFunction(upFJ);
+				try{
+					down = jObject.getDouble("down");
+				} catch(Exception e17)
+				{
+					System.err.println("JsonExchangeTool==>e17 json exception");
+				}
 				downFJ = jObject.getJSONObject("downF");
-				downF = getFunction(upFJ.toString());
-				attribute = jObject.getString("attribute");
+				downF = getFunction(upFJ);
+				attribute = (String)jObject.get("attribute");
 				attributeFJ = jObject.getJSONObject("attributeF");
-				attributeF = getFunction(attributeFJ.toString());
+				attributeF = getFunction(attributeFJ);
 				return new AttributeFunction(new AttributeVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, up, upF, down, downF, attribute2, attributeF));
 				
 			//risk	
 			case "StandardPercent":
-				sign=jObject.getInt("sign");
+				try{
+					sign=jObject.getInt("sign");
+				} catch(Exception e18)
+				{
+					System.err.println("JsonExchangeTool==>e18 json exception");
+				}
 				signFJ=jObject.getJSONObject("signF");
-				signF=getFunction(signFJ.toString());
-				siid=jObject.getString("siid");
+				signF=getFunction(signFJ);
+				siid=(String)jObject.get("siid");
 				siidFJ=jObject.getJSONObject("siidF");
-				siidF=getFunction(siidFJ.toString());
-				attribute=jObject.getString("attribute");
+				siidF=getFunction(siidFJ);
+				attribute=(String)jObject.get("attribute");
 				attributeFJ=jObject.getJSONObject("attributeF");
-				attributeF=getFunction(attributeFJ.toString());
-				standardAttr=jObject.getString("standard");
+				attributeF=getFunction(attributeFJ);
+				standardAttr=(String)jObject.get("standard");
 				standardFJ=jObject.getJSONObject("standardF");
-				standardF=getFunction(standardFJ.toString());
-				percent=jObject.getDouble("percent");
+				standardF=getFunction(standardFJ);
+				try{
+					percent=jObject.getDouble("percent");
+				} catch(Exception e19)
+				{
+					System.err.println("JsonExchangeTool==>e19 json exception");
+				}
 				percentFJ=jObject.getJSONObject("percentF");
-				percentF=getFunction(percentFJ.toString());
+				percentF=getFunction(percentFJ);
 				return new StandardPercentFunction(new StandardPercentVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, sign, signF, siid, siidF, attribute, attributeF, standardAttr, standardF, percent, percentF));
 				
 			//flag	
 			case "Trend":
 				siid = (String) jObject.get("siid");
 				siidFJ = jObject.getJSONObject("siidF");
-				siidF = getFunction(siidFJ.toString());
+				siidF = getFunction(siidFJ);
 				attribute = (String) jObject.get("attribute");
 				attributeFJ = jObject.getJSONObject("attributeF");
-				attributeF = getFunction(attributeFJ.toString());
-				day = jObject.getInt("day");
+				attributeF = getFunction(attributeFJ);
+				try{
+					day = jObject.getInt("day");
+				} catch(Exception e20)
+				{
+					System.err.println("JsonExchangeTool==>e20 json exception");
+				}
 				dayFJ = jObject.getJSONObject("dayF");
-				dayF = getFunction(dayFJ.toString());
-				standard = jObject.getDouble("standard");
+				dayF = getFunction(dayFJ);
+				try{
+					standard = jObject.getDouble("standard");
+				} catch(Exception e21)
+				{
+					System.err.println("JsonExchangeTool==>e21 json exception");
+				}
 				standardFJ = jObject.getJSONObject("standardF");
-				standardF = getFunction(standardFJ.toString());
+				standardF = getFunction(standardFJ);
 				return new TrendFunction(new TrendVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid, siidF, attribute, attributeF, day, dayF, standard, standardF));
 			case "UpTrend":
 				siid = (String) jObject.get("siid");
 				siidFJ = jObject.getJSONObject("siidF");
-				siidF = getFunction(siidFJ.toString());
+				siidF = getFunction(siidFJ);
 				attribute = (String) jObject.get("attribute");
 				attributeFJ = jObject.getJSONObject("attributeF");
-				attributeF = getFunction(attributeFJ.toString());
-				day = jObject.getInt("day");
+				attributeF = getFunction(attributeFJ);
+				try{
+					day = jObject.getInt("day");
+				} catch(Exception e22)
+				{
+					System.err.println("JsonExchangeTool==>e22 json exception");
+				}
 				dayFJ = jObject.getJSONObject("dayF");
-				dayF = getFunction(dayFJ.toString());
-				standard = jObject.getDouble("standard");
+				dayF = getFunction(dayFJ);
+				try{
+					standard = jObject.getDouble("standard");
+				} catch(Exception e23)
+				{
+					System.err.println("JsonExchangeTool==>e23 json exception");
+				}
 				standardFJ = jObject.getJSONObject("standardF");
-				standardF = getFunction(standardFJ.toString());
+				standardF = getFunction(standardFJ);
 				return new UpTrendFunction(new TrendVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid, siidF, attribute, attributeF, day, dayF, standard, standardF));
 			case "DownTrend":
 				siid = (String) jObject.get("siid");
 				siidFJ = jObject.getJSONObject("siidF");
-				siidF = getFunction(siidFJ.toString());
+				siidF = getFunction(siidFJ);
 				attribute = (String) jObject.get("attribute");
 				attributeFJ = jObject.getJSONObject("attributeF");
-				attributeF = getFunction(attributeFJ.toString());
-				day = jObject.getInt("day");
+				attributeF = getFunction(attributeFJ);
+				try{
+					day = jObject.getInt("day");
+				} catch(Exception e24)
+				{
+					System.err.println("JsonExchangeTool==>e24 json exception");
+				}
 				dayFJ = jObject.getJSONObject("dayF");
-				dayF = getFunction(dayFJ.toString());
-				standard = jObject.getDouble("standard");
+				dayF = getFunction(dayFJ);
+				try{
+					standard = jObject.getDouble("standard");
+				} catch(Exception e25)
+				{
+					System.err.println("JsonExchangeTool==>e25 json exception");
+				}
 				standardFJ = jObject.getJSONObject("standardF");
-				standardF = getFunction(standardFJ.toString());
+				standardF = getFunction(standardFJ);
 				return new DownTrendFunction(new TrendVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid, siidF, attribute, attributeF, day, dayF, standard, standardF));
 			case "Cross":
 				siid1 = (String) jObject.get("siid1");
 				siid1FJ = jObject.getJSONObject("siid1F");
-				siid1F = getFunction(siid1FJ.toString());
+				siid1F = getFunction(siid1FJ);
 				siid2 = (String) jObject.get("siid2");
 				siid2FJ = jObject.getJSONObject("siid2F");
-				siid2F = getFunction(siid2FJ.toString());
+				siid2F = getFunction(siid2FJ);
 				attribute1 = (String) jObject.get("attribute1");
 				attribute1FJ = jObject.getJSONObject("attribute1F");
-				attribute1F = getFunction(attribute1FJ.toString());
+				attribute1F = getFunction(attribute1FJ);
 				attribute2 = (String) jObject.get("attribute2");
 				attribute2FJ = jObject.getJSONObject("attribute2F");
-				attribute2F = getFunction(attribute2FJ.toString());
-				day = jObject.getInt("day");
+				attribute2F = getFunction(attribute2FJ);
+				try{
+					day = jObject.getInt("day");
+				} catch(Exception e26)
+				{
+					System.err.println("JsonExchangeTool==>e26 json exception");
+				}
 				dayFJ = jObject.getJSONObject("dayF");
-				dayF = getFunction(dayFJ.toString());
+				dayF = getFunction(dayFJ);
 				return new CrossFunction(new CrossVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid1, siid1F, attribute1, attribute1F, siid2, siid2F, attribute2, attribute2F, day, dayF));
 			case "CrossPoint":
 				siid1 = (String) jObject.get("siid1");
 				siid1FJ = jObject.getJSONObject("siid1F");
-				siid1F = getFunction(siid1FJ.toString());
+				siid1F = getFunction(siid1FJ);
 				siid2 = (String) jObject.get("siid2");
 				siid2FJ = jObject.getJSONObject("siid2F");
-				siid2F = getFunction(siid2FJ.toString());
+				siid2F = getFunction(siid2FJ);
 				attribute1 = (String) jObject.get("attribute1");
 				attribute1FJ = jObject.getJSONObject("attribute1F");
-				attribute1F = getFunction(attribute1FJ.toString());
+				attribute1F = getFunction(attribute1FJ);
 				attribute2 = (String) jObject.get("attribute2");
 				attribute2FJ = jObject.getJSONObject("attribute2F");
-				attribute2F = getFunction(attribute2FJ.toString());
-				day = jObject.getInt("day");
+				attribute2F = getFunction(attribute2FJ);
+				try{
+					day = jObject.getInt("day");
+				} catch(Exception e27)
+				{
+					System.err.println("JsonExchangeTool==>e27 json exception");
+				}
 				dayFJ = jObject.getJSONObject("dayF");
-				dayF = getFunction(dayFJ.toString());
+				dayF = getFunction(dayFJ);
 				return new CrossPointFunction(new CrossVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid1, siid1F, attribute1, attribute1F, siid2, siid2F, attribute2, attribute2F, day, dayF));
 			case "MaxMin":
-				siid=jObject.getString("siid");	
+				siid=(String)jObject.get("siid");	
 				siidFJ=jObject.getJSONObject("siidF");
-				siidF=getFunction(siidFJ.toString());
+				siidF=getFunction(siidFJ);
 				attribute=jObject.getString("attribute");
 				attributeFJ=jObject.getJSONObject("attributeF");
-				attributeF=getFunction(attributeFJ.toString());
-				mm=jObject.getInt("mm");
+				attributeF=getFunction(attributeFJ);
+				try{
+					mm=jObject.getInt("mm");
+				} catch(Exception e27)
+				{
+					System.err.println("JsonExchangeTool==>e27 json exception");
+				}
 				mmFJ=jObject.getJSONObject("mmF");
-				mmF=getFunction(mmFJ.toString());
-				num=jObject.getInt("num");
+				mmF=getFunction(mmFJ);
+				try{
+					num=jObject.getInt("num");
+				} catch(Exception e28)
+				{
+					System.err.println("JsonExchangeTool==>e28 json exception");
+				}
 				numFJ=jObject.getJSONObject("numF");
-				numF=getFunction(numFJ.toString());
-				loc=jObject.getInt("loc");
+				numF=getFunction(numFJ);
+				try{
+					loc=jObject.getInt("loc");
+				} catch(Exception e29)
+				{
+					System.err.println("JsonExchangeTool==>e29 json exception");
+				}
 				locFJ=jObject.getJSONObject("locF");
-				locF=getFunction(locFJ.toString());
+				locF=getFunction(locFJ);
 				return new MaxMinFunction(new MaxMinVO(siid, siidF, resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, attribute, attributeF, mm, mmF, num, numF, loc, locF));
 			case "Data":
-				siid=jObject.getString("siid");
+				siid=(String)jObject.get("siid");
 				siidFJ=jObject.getJSONObject("siidF");
-				siidF=getFunction(siidFJ.toString());
-				attribute=jObject.getString("attribute");
+				siidF=getFunction(siidFJ);
+				attribute=(String)jObject.get("attribute");
 				attributeFJ=jObject.getJSONObject("attributeF");
-				attributeF=getFunction(attributeFJ.toString());
-				day=jObject.getInt("day");
+				attributeF=getFunction(attributeFJ);
+				try{
+					day=jObject.getInt("day");
+				} catch(Exception e30)
+				{
+					System.err.println("JsonExchangeTool==>e30 json exception");
+				}
 				dayFJ=jObject.getJSONObject("dayF");
-				dayF=getFunction(dayFJ.toString());
+				dayF=getFunction(dayFJ);
 				return new DataFunction(new DataVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid, siidF, attribute, attributeF, day, dayF));
 
 			//tool
 			case "Add":
-				v1=jObject.getDouble("v1");
+				try{
+					v1=jObject.getDouble("v1");
+				} catch(Exception e31)
+				{
+					System.err.println("JsonExchangeTool==>e31 json exception");
+				}
 				v1FJ=jObject.getJSONObject("v1F");
-				v1F=getFunction(v1FJ.toString());
-				v2=jObject.getDouble("v2");
+				v1F=getFunction(v1FJ);
+				try{
+					v2=jObject.getDouble("v2");
+				} catch(Exception e32)
+				{
+					System.err.println("JsonExchangeTool==>e32 json exception");
+				}
 				v2FJ=jObject.getJSONObject("v2F");
-				v2F=getFunction(v2FJ.toString());
+				v2F=getFunction(v2FJ);
 				return new AddFunction(v1, v1F, v2, v2F);
 			case "Minus":
-				v1=jObject.getDouble("v1");
+				try{
+					v1=jObject.getDouble("v1");
+				} catch(Exception e33)
+				{
+					System.err.println("JsonExchangeTool==>e33 json exception");
+				}
 				v1FJ=jObject.getJSONObject("v1F");
-				v1F=getFunction(v1FJ.toString());
-				v2=jObject.getDouble("v2");
+				v1F=getFunction(v1FJ);
+				try{
+					v2=jObject.getDouble("v2");
+				} catch(Exception e34)
+				{
+					System.err.println("JsonExchangeTool==>e34 json exception");
+				}
 				v2FJ=jObject.getJSONObject("v2F");
-				v2F=getFunction(v2FJ.toString());
+				v2F=getFunction(v2FJ);
 				return new MinusFunction(v1, v1F, v2, v2F);
 			case "Multiple":
-				v1=jObject.getDouble("v1");
+				try{
+					v1=jObject.getDouble("v1");
+				} catch(Exception e35)
+				{
+					System.err.println("JsonExchangeTool==>e35 json exception");
+				}
 				v1FJ=jObject.getJSONObject("v1F");
-				v1F=getFunction(v1FJ.toString());
-				v2=jObject.getDouble("v2");
+				v1F=getFunction(v1FJ);
+				try{
+					v2=jObject.getDouble("v2");
+				} catch(Exception e36)
+				{
+					System.err.println("JsonExchangeTool==>e36 json exception");
+				}
 				v2FJ=jObject.getJSONObject("v2F");
-				v2F=getFunction(v2FJ.toString());
+				v2F=getFunction(v2FJ);
 				return new MultipleFunction(v1, v1F, v2, v2F);
 			case "Divide":
-				v1=jObject.getDouble("v1");
+				try{
+					v1=jObject.getDouble("v1");
+				} catch(Exception e37)
+				{
+					System.err.println("JsonExchangeTool==>e37 json exception");
+				}
 				v1FJ=jObject.getJSONObject("v1F");
-				v1F=getFunction(v1FJ.toString());
-				v2=jObject.getDouble("v2");
+				v1F=getFunction(v1FJ);
+				try{
+					v2=jObject.getDouble("v2");
+				} catch(Exception e38)
+				{
+					System.err.println("JsonExchangeTool==>e38 json exception");
+				}
 				v2FJ=jObject.getJSONObject("v2F");
-				v2F=getFunction(v2FJ.toString());
+				v2F=getFunction(v2FJ);
 				return new DivideFunction(v1, v1F, v2, v2F);
 			case "Mean":
 				try{
 					valueList=jObject.getJSONArray("valueList");
-				} catch(Exception e)
+				} catch(Exception e39)
 				{
-					e.printStackTrace();
+					System.err.println("JsonExchangeTool==>e39 valueList is null");
 				}
 				valueListFJ=jObject.getJSONObject("valueListF");
-				valueListF=getFunction(valueListFJ.toString());
+				valueListF=getFunction(valueListFJ);
 				return new MeanFunction(valueList, valueListF);
 			default:
 				return null;
 			}
 		}
-		return null;
+		else
+		{
+			System.err.println("JsonExchangeTool==>e40:jObject is null");
+			return null;
+		}
 	}
 	
+	/**得到方法列表*/
 	public static List<List<Function>> getFunctionList(String json)
 	{
-		List<List<Function>> list=new ArrayList<List<Function>>();
+		List<List<Function>> list=null;
 		JSONArray jArrayOut=null;
 		try{
 			jArrayOut=JSONArray.fromObject(json);
-		} catch(Exception e)
+		} catch(Exception e41)
 		{
-			e.printStackTrace();
+			System.err.println("JsonExchangeTool==>e41 jArrayOut is null");
+			return null;
 		}
-//		System.out.println("jArrayOut"+jArrayOut);
-		if(jArrayOut.toString().equals("null")||jArrayOut.get(0).equals(null))
+		if(jArrayOut==null||jArrayOut.toString().equals("null")||jArrayOut.get(0).toString().equals("null"))
 		{
-			return list;
+			System.err.println("JsonExchangeTool==>e42 jArrayIn is null");
+			return null;
 		}
+		list=new ArrayList<List<Function>>();
 		for(int j=0;j<jArrayOut.size();j++)
 		{
 			list.add(new ArrayList<Function>());
 			JSONArray jArrayIn=null;
 			try{
 				jArrayIn=jArrayOut.getJSONArray(j);
-//				System.out.println("jArrayIn"+jArrayIn);
+			}catch(Exception e43)
+			{
+				System.err.println("JsonExchangeTool==>e43 jArrayIn is null");
+			}
+			if(jArrayIn==null||jArrayIn.toString().equals("null"))
+			{
+				continue;
+			}
+			else
+			{
 				for(int i=0;i<jArrayIn.size();i++)
 				{
-					list.get(j).add(getFunction(jArrayIn.getJSONObject(i).toString()));
+					Function f=getFunction(jArrayIn.getJSONObject(i));
+					if(f!=null)
+					{
+						list.get(j).add(f);
+					}
 				}
-			}catch(Exception e)
-			{
-				e.printStackTrace();
 			}
 		}
 		return list;
 	}
-	//不处理result
+	
+	/**得到订单*/
 	public static Function getOrder(String json)
 	{
 		JSONObject jObject=JSONObject.fromObject(json);
+		if(jObject.toString().equals("null"))
+		{
+			System.err.println("JsonExchangeTool==>e43.5 jObject is null");
+			return null;
+		}
 		String function=(String)jObject.get("function");
 		switch(function)
 		{
 		case "Share":
 			ShareFunction share=new ShareFunction();
 			share.setFunction(function);
-			share.setShare(jObject.getInt("share"));
-			share.setShareF(getFunction(jObject.getJSONObject("shareF").toString()));
-			share.setSiid(jObject.getString("siid"));
-			share.setSiidF(getFunction(jObject.getJSONObject("siidF").toString()));
+			try{
+				share.setShare(jObject.getDouble("share"));
+			} catch(Exception e44)
+			{
+				System.err.println("JsonExchangeTool==>e44 json exception");
+			}
+			share.setShareF(getFunction(jObject.getJSONObject("shareF")));
+			share.setSiid((String)jObject.get("siid"));
+			share.setSiidF(getFunction(jObject.getJSONObject("siidF")));
 			return share;
 		case "SharePercent":
 			SharePercentFunction sharePercent=new SharePercentFunction();
 			sharePercent.setFunction(function);
-			sharePercent.setPercent(jObject.getInt("percent"));
-			sharePercent.setPercentF(getFunction(jObject.getJSONObject("percentF").toString()));
-			sharePercent.setSiid(jObject.getString("siid"));
-			sharePercent.setSiidF(getFunction(jObject.getJSONObject("siidF").toString()));
+			try{
+				sharePercent.setPercent(jObject.getDouble("percent"));
+			} catch(Exception e45)
+			{
+				System.err.println("JsonExchangeTool==>e45 json exception");
+			}
+			sharePercent.setPercentF(getFunction(jObject.getJSONObject("percentF")));
+			sharePercent.setSiid((String)jObject.get("siid"));
+			sharePercent.setSiidF(getFunction(jObject.getJSONObject("siidF")));
 			return sharePercent;
 		case "ShareTarget":
 			ShareTargetFunction shareTarget=new ShareTargetFunction();
 			shareTarget.setFunction(function);
-			shareTarget.setShare(jObject.getInt("share"));
-			shareTarget.setShareF(getFunction(jObject.getJSONObject("shareF").toString()));
-			shareTarget.setSiid(jObject.getString("siid"));
-			shareTarget.setSiidF(getFunction(jObject.getJSONObject("siidF").toString()));
+			try{
+				shareTarget.setShare(jObject.getDouble("share"));
+			} catch(Exception e46)
+			{
+				System.err.println("JsonExchangeTool==>e46 json exception");
+			}
+			shareTarget.setShareF(getFunction(jObject.getJSONObject("shareF")));
+			shareTarget.setSiid((String)jObject.get("siid"));
+			shareTarget.setSiidF(getFunction(jObject.getJSONObject("siidF")));
 			return shareTarget;
 		case "Value":
 			ValueFunction value=new ValueFunction();
 			value.setFunction(function);
-			value.setValue(jObject.getInt("value"));
-			value.setValueF(getFunction(jObject.getJSONObject("valueF").toString()));
-			value.setSiid(jObject.getString("siid"));
-			value.setSiidF(getFunction(jObject.getJSONObject("siidF").toString()));
+			try{
+				value.setValue(jObject.getDouble("value"));
+			} catch(Exception e47)
+			{
+				System.err.println("JsonExchangeTool==>e47 json exception");
+			}
+			value.setValueF(getFunction(jObject.getJSONObject("valueF")));
+			value.setSiid((String)jObject.get("siid"));
+			value.setSiidF(getFunction(jObject.getJSONObject("siidF")));
 			return value;
 		case "ValuePercent":
 			ValuePercentFunction valuePercent=new ValuePercentFunction();
 			valuePercent.setFunction(function);
-			valuePercent.setPercent(jObject.getInt("percent"));
-			valuePercent.setPercentF(getFunction(jObject.getJSONObject("percentF").toString()));
+			try{
+				valuePercent.setPercent(jObject.getDouble("percent"));
+			} catch(Exception e48)
+			{
+				System.err.println("JsonExchangeTool==>e48 json exception");
+			}
+			valuePercent.setPercentF(getFunction(jObject.getJSONObject("percentF")));
 			valuePercent.setSiid(jObject.getString("siid"));
-			valuePercent.setSiidF(getFunction(jObject.getJSONObject("siidF").toString()));
+			valuePercent.setSiidF(getFunction(jObject.getJSONObject("siidF")));
 			return valuePercent;
 		case "ValueTarget":
 			ValueTargetFunction valueTarget=new ValueTargetFunction();
 			valueTarget.setFunction(function);
-			valueTarget.setValue(jObject.getInt("value"));
-			valueTarget.setValueF(getFunction(jObject.getJSONObject("valueF").toString()));
-			valueTarget.setSiid(jObject.getString("siid"));
-			valueTarget.setSiidF(getFunction(jObject.getJSONObject("siidF").toString()));
+			try{
+				valueTarget.setValue(jObject.getDouble("value"));
+			} catch(Exception e49)
+			{
+				System.err.println("JsonExchangeTool==>e49 json exception");
+			}	
+			valueTarget.setValueF(getFunction(jObject.getJSONObject("valueF")));
+			valueTarget.setSiid((String)jObject.get("siid"));
+			valueTarget.setSiidF(getFunction(jObject.getJSONObject("siidF")));
 			return valueTarget;
 		}
 		return null;
 	}
+	
+	/**得到实测数据*/
 	public static RealTestVO getRealTest(String json)
 	{
 		RealTestVO vo=new RealTestVO();
-		try
+		JSONObject jObject=JSONObject.fromObject(json);
+		if(jObject.toString().equals("null"))
 		{
-			JSONObject jObject=JSONObject.fromObject(json);
+			System.err.println("JsonExchangeTool==>e50 jObject is null");
+			return null;
+		}
+		try{
 			vo.setCash(jObject.getDouble("cash"));
+		} catch(Exception e51)
+		{
+			System.err.println("JsonExchangeTool==>e51 json exception");
+		}
+		try{
 			vo.setN(jObject.getInt("n"));
-//			vo.orderType=getOrder(jObject.get("orderType").toString());
-//			vo.stockList=getStock(jObject.get("stockList").toString());
+		} catch(Exception e52)
+		{
+			System.err.println("JsonExchangeTool==>e52 json exception");
+		}
 			List<DateDouble> capital=new ArrayList<DateDouble>();
 			JSONArray jCapital=(JSONArray)jObject.get("capital");
-			for(int i=0;i<jCapital.size();i++)
+			if(jCapital!=null)
 			{
-				JSONObject jDateDouble=(JSONObject) jCapital.get(i);
-				capital.add(new DateDouble(jDateDouble.getLong("date"),jDateDouble.getDouble("value")));
+				for(int i=0;i<jCapital.size();i++)
+				{
+					JSONObject jDateDouble=(JSONObject) jCapital.get(i);
+					try{
+						capital.add(new DateDouble(jDateDouble.getLong("date"),jDateDouble.getDouble("value")));
+					} catch(Exception e53)
+					{
+						System.err.println("JsonExchangeTool==>e53 json exception");
+					}
+				}
 			}
-			vo.setCapital(capital);
-//			List<List<Function>> flagList=getFunction(jObject.get("flagList").toString());
-//			vo.flagList=flagList;
+			else
+			{
+				System.err.println("JsonExchangeTool==>e54 jCapital is null");
+			}
+			vo.setCapital(capital);//有问题则返回空列表
 			List<Integer> numList=new ArrayList<Integer>();
 			JSONArray jNum=(JSONArray) jObject.get("numList");
-			for(int i=0;i<jNum.size();i++)
+			if(jNum!=null)
 			{
-				numList.add((int)jNum.get(i));
+				for(int i=0;i<jNum.size();i++)
+				{
+					try{
+						numList.add(jNum.getInt(i));
+					} catch(Exception e55)
+					{
+						System.err.println("JsonExchangeTool==>e55 json exception");
+					}
+				}
 			}
-			vo.setNumList(numList);
+			else
+			{
+				System.err.println("JsonExchangeTool==>e56 jNum is null");
+			}
+			vo.setNumList(numList);//有问题则返回空列表
 			JSONArray jHistory=(JSONArray) jObject.get("history");
 			List<String> history=new ArrayList<String>();
-			for(int i=0;i<jHistory.size();i++)
+			if(jHistory!=null)
 			{
-				history.add(jHistory.getString(i));
+				for(int i=0;i<jHistory.size();i++)
+				{
+					try{
+						history.add(jHistory.getString(i));
+					} catch(Exception e57)
+					{
+						System.err.println("JsonExchangeTool==>e57 json exception");
+					}	
+				}
 			}
-			vo.setHistory(history);
-		} catch(JSONException e)
-		{
-			return new RealTestVO();
-		}
+			else
+			{
+				System.err.println("JsonExchangeTool==>e58 jNum is null");
+			}
+			vo.setHistory(history);//有问题则返回空列表
 		return vo;
 	}
+	
+	/**得到回测报告*/
 	public static TestReport getReport(String report) {
 		JSONObject jObject=JSONObject.fromObject(report);
 		if(!jObject.toString().equals("null"))
 		{
-			int n=jObject.getInt("n");
-			double risklessReturns=jObject.getDouble("risklessReturns");
-			double annualizedReturns=jObject.getDouble("annualizedReturns");
-			double benchmarkReturns=jObject.getDouble("benchmarkReturns");
-			double alpha=jObject.getDouble("alpha");
-			double beta=jObject.getDouble("beta");
-			double sharpeRatio=jObject.getDouble("sharpeRatio");
-			double volatility=jObject.getDouble("volatility");
-			double informationRatio=jObject.getDouble("informationRatio");
-			double maxDrawdown=jObject.getDouble("maxDrawdown");
-			double turnoverRate=jObject.getDouble("turnoverRate");
+			int n=0;
+			double risklessReturns=0;
+			double annualizedReturns=0;
+			double benchmarkReturns=0;
+			double alpha=0;
+			double beta=0;
+			double sharpeRatio=0;
+			double volatility=0;
+			double informationRatio=0;
+			double maxDrawdown=0;
+			double turnoverRate=0;
+			try{
+				n=jObject.getInt("n");
+			} catch(Exception e59)
+			{
+				System.err.println("JsonExchangeTool==>e59 json exception");
+			}
+			try{
+				risklessReturns=jObject.getDouble("risklessReturns");
+			} catch(Exception e60)
+			{
+				System.err.println("JsonExchangeTool==>e60 json exception");
+			}
+			try{
+				annualizedReturns=jObject.getDouble("annualizedReturns");
+			} catch(Exception e61)
+			{
+				System.err.println("JsonExchangeTool==>e61 json exception");
+			}
+			try{
+				benchmarkReturns=jObject.getDouble("benchmarkReturns");
+			} catch(Exception e62)
+			{
+				System.err.println("JsonExchangeTool==>e62 json exception");
+			}
+			try{
+				alpha=jObject.getDouble("alpha");
+			} catch(Exception e63)
+			{
+				System.err.println("JsonExchangeTool==>e63 json exception");
+			}
+			try{
+				beta=jObject.getDouble("beta");
+			} catch(Exception e64)
+			{
+				System.err.println("JsonExchangeTool==>e64 json exception");
+			}
+			try{
+				sharpeRatio=jObject.getDouble("sharpeRatio");
+			} catch(Exception e65)
+			{
+				System.err.println("JsonExchangeTool==>e65 json exception");
+			}
+			try{
+				volatility=jObject.getDouble("volatility");
+			} catch(Exception e66)
+			{
+				System.err.println("JsonExchangeTool==>e66 json exception");
+			}
+			try{
+				informationRatio=jObject.getDouble("informationRatio");
+			} catch(Exception e67)
+			{
+				System.err.println("JsonExchangeTool==>e67 json exception");
+			}
+			try{
+				maxDrawdown=jObject.getDouble("maxDrawdown");
+			} catch(Exception e68)
+			{
+				System.err.println("JsonExchangeTool==>e68 json exception");
+			}
+			try{
+				turnoverRate=jObject.getDouble("turnoverRate");
+			} catch(Exception e69)
+			{
+				System.err.println("JsonExchangeTool==>e69 json exception");
+			}
+			
 			List<DateDouble> cumlist=new ArrayList<DateDouble>();
 			List<DateDouble> bCumlist=new ArrayList<DateDouble>();
 			List<DateDouble> capital=new ArrayList<DateDouble>();
 			List<DateDouble> bCapital=new ArrayList<DateDouble>();
 			List<Double> inPrice=new ArrayList<Double>();
 			List<Double> outPrice=new ArrayList<Double>();
-			JSONArray jCumlist=jObject.getJSONArray("cumlist");
-			JSONArray jBCumlist=jObject.getJSONArray("bCumlist");
-			JSONArray jCapital=jObject.getJSONArray("capital");
-			JSONArray jBCapital=jObject.getJSONArray("bCapital");
-			JSONArray jInPrice=jObject.getJSONArray("inPrice");
-			JSONArray jOutPrice=jObject.getJSONArray("outPrice");
-			for(int i=0;i<jCumlist.size();i++)
+			
+			JSONArray jCumlist=(JSONArray) jObject.get("cumlist");
+			JSONArray jBCumlist=(JSONArray) jObject.get("bCumlist");
+			JSONArray jCapital=(JSONArray) jObject.get("capital");
+			JSONArray jBCapital=(JSONArray) jObject.get("bCapital");
+			JSONArray jInPrice=(JSONArray) jObject.get("inPrice");
+			JSONArray jOutPrice=(JSONArray) jObject.get("outPrice");
+			if(jCumlist!=null)
 			{
-				JSONObject jobject=jCumlist.getJSONObject(i);
-				cumlist.add(new DateDouble(jobject.getLong("date"),jobject.getDouble("value")));
+				for(int i=0;i<jCumlist.size();i++)
+				{
+					try{
+						JSONObject jobject=(JSONObject)jCumlist.get(i);
+						cumlist.add(new DateDouble(jobject.getLong("date"),jobject.getDouble("value")));
+					} catch(Exception e70)
+					{
+						System.err.println("JsonExchangeTool==>e70 json exception");
+					}
+				}
 			}
-			for(int i=0;i<jBCumlist.size();i++)
+			else
 			{
-				JSONObject jobject=jBCumlist.getJSONObject(i);
-				bCumlist.add(new DateDouble(jobject.getLong("date"),jobject.getDouble("value")));
+				System.err.println("JsonExchangeTool==>e70.5 jCumlist is null");
 			}
-			for(int i=0;i<jCapital.size();i++)
+			if(jBCumlist!=null)
 			{
-				JSONObject jobject=jCapital.getJSONObject(i);
-				capital.add(new DateDouble(jobject.getLong("date"),jobject.getDouble("value")));
+				for(int i=0;i<jBCumlist.size();i++)
+				{
+					try{
+						JSONObject jobject=jBCumlist.getJSONObject(i);
+						bCumlist.add(new DateDouble(jobject.getLong("date"),jobject.getDouble("value")));
+					} catch(Exception e71)
+					{
+						System.err.println("JsonExchangeTool==>e71 json exception");
+					}
+				}
 			}
-			for(int i=0;i<jBCapital.size();i++)
+			else
 			{
-				JSONObject jobject=jBCapital.getJSONObject(i);
-				bCapital.add(new DateDouble(jobject.getLong("date"),jobject.getDouble("value")));
+				System.err.println("JsonExchangeTool==>e71.5 jBCumlist is null");
 			}
-			for(int i=0;i<jInPrice.size();i++)
+			if(jCapital!=null)
 			{
-				inPrice.add(jInPrice.getDouble(i));
+				for(int i=0;i<jCapital.size();i++)
+				{
+					try{
+						JSONObject jobject=jCapital.getJSONObject(i);
+						capital.add(new DateDouble(jobject.getLong("date"),jobject.getDouble("value")));
+					} catch(Exception e72)
+					{
+						System.err.println("JsonExchangeTool==>e72 json exception");
+					}
+				}
 			}
-			for(int i=0;i<jOutPrice.size();i++)
+			else
 			{
-				outPrice.add(jOutPrice.getDouble(i));
+				System.err.println("JsonExchangeTool==>e72.5 jCapital is null");
+			}
+			if(jBCapital!=null)
+			{
+				for(int i=0;i<jBCapital.size();i++)
+				{
+					try{
+						JSONObject jobject=jBCapital.getJSONObject(i);
+						bCapital.add(new DateDouble(jobject.getLong("date"),jobject.getDouble("value")));
+					} catch(Exception e73)
+					{
+						System.err.println("JsonExchangeTool==>e73 json exception");
+					}
+				}
+			}
+			else
+			{
+				System.err.println("JsonExchangeTool==>e73.5 jBCapital is null");
+			}
+			if(jInPrice!=null)
+			{
+				for(int i=0;i<jInPrice.size();i++)
+				{
+					try{
+						inPrice.add(jInPrice.getDouble(i));
+					} catch(Exception e74)
+					{
+						System.err.println("JsonExchangeTool==>e74 json exception");
+					}
+				}
+			}
+			else
+			{
+				System.err.println("JsonExchangeTool==>e74.5 jInPrice is null");
+			}
+			if(jOutPrice!=null)
+			{
+				for(int i=0;i<jOutPrice.size();i++)
+				{
+					try{	
+						outPrice.add(jOutPrice.getDouble(i));
+					} catch(Exception e75)
+					{
+						System.err.println("JsonExchangeTool==>e75 json exception");
+					}
+				}
+			}
+			else
+			{
+				System.err.println("JsonExchangeTool==>e75.5 jOutPrice is null");
 			}
 			TestReport testReport=new TestReport(n, risklessReturns, capital, bCapital, inPrice, outPrice, annualizedReturns, benchmarkReturns, alpha, beta, sharpeRatio, volatility, informationRatio, maxDrawdown, turnoverRate, cumlist, bCumlist);
 			return testReport;
 		}
-		return null;
+		else
+		{
+			System.err.println("JsonExchangeTool==>e6 jObject is null");
+			return null;	
+		}
 	}
 }

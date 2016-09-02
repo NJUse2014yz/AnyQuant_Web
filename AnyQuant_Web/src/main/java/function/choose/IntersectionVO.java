@@ -32,8 +32,23 @@ public class IntersectionVO {
 	public List<String> stockList2;
 	public Function stockList2F;
 	
+	public IntersectionVO()
+	{
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.stockList1=null;
+		this.stockList1F=null;
+		this.stockList2=null;
+		this.stockList2F=null;
+	}
 	public IntersectionVO(List<String> stockList1, List<String> stockList2) {
-		super();
+		this();
 		this.stockList1 = stockList1;
 		this.stockList2 = stockList2;
 	}
@@ -44,7 +59,7 @@ public class IntersectionVO {
 			FunctionResult resultDownO, Function resultDownOF,
 			List<String> stockList1, Function stockList1F,
 			List<String> stockList2, Function stockList2F) {
-		super();
+		this();
 		this.resultUpI = resultUpI;
 		this.resultUpIF = resultUpIF;
 		this.resultDownI = resultDownI;

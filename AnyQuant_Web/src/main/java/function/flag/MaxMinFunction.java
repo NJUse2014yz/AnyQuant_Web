@@ -30,10 +30,30 @@ public class MaxMinFunction extends Function{
 	
 	public MaxMinFunction()
 	{
+		super();
 		this.function="MaxMin";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.attribute=null;
+		this.attributeF=null;
+		this.mm=0;
+		this.mmF=null;
+		this.num=0;
+		this.numF=null;
+		this.loc=0;
+		this.locF=null;
 	}
 	
 	public MaxMinFunction(String siid,String attribute, int mm,int num) {
+		this();
 		this.function="MaxMin";
 		this.siid=siid;
 		this.attribute = attribute;
@@ -41,6 +61,7 @@ public class MaxMinFunction extends Function{
 		this.num = num;
 	}
 	public MaxMinFunction(int loc,String siid,String attribute, int mm) {
+		this();
 		this.function="MaxMin";
 		this.siid=siid;
 		this.attribute = attribute;
@@ -50,6 +71,7 @@ public class MaxMinFunction extends Function{
 
 	public MaxMinFunction(String siid,Function siidF,String attribute, Function attributeF, int mm,
 			Function mmF, int num, Function numF) {
+		this();
 		this.function="MaxMin";
 		this.siid=siid;
 		this.siidF=siidF;
@@ -63,6 +85,7 @@ public class MaxMinFunction extends Function{
 
 	public MaxMinFunction(MaxMinVO vo)
 	{
+		this();
 		this.function="MaxMin";
 		this.siid=vo.siid;
 		this.siidF=vo.siidF;

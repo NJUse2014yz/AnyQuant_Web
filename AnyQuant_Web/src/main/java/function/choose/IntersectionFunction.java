@@ -17,10 +17,26 @@ public class IntersectionFunction extends Function{
 	
 	public IntersectionFunction()
 	{
+		super();
 		this.function="Intersection";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.stockList1=null;
+		this.stockList1F=null;
+		this.stockList2=null;
+		this.stockList2F=null;
 	}
 	
 	public IntersectionFunction(List<String> stockList1,List<String> stockList2) {
+		this();
 		this.function="Intersection";
 		this.stockList1 = stockList1;
 		this.stockList2 = stockList2;
@@ -28,6 +44,7 @@ public class IntersectionFunction extends Function{
 	
 	public IntersectionFunction(List<String> stockList1, Function stockList1F,
 			List<String> stockList2, Function stockList2F) {
+		this();
 		this.function="Intersection";
 		this.stockList1 = stockList1;
 		this.stockList1F = stockList1F;
@@ -36,6 +53,7 @@ public class IntersectionFunction extends Function{
 	}
 
 	public IntersectionFunction(IntersectionVO vo) {
+		this();
 		this.function="Intersection";
 		this.resultUpI = vo.resultUpI;
 		this.resultUpIF = vo.resultUpIF;

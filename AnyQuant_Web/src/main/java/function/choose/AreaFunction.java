@@ -13,13 +13,28 @@ public class AreaFunction extends Function{
 	
 	public AreaFunction()
 	{
+		super();
 		this.function="Area";
+		this.siid=null;
+		this.siidF=null;
+		this.resultDownI=null;
+		this.resultDownIF=null;
+		this.resultDownO=null;
+		this.resultDownOF=null;
+		this.resultUpI=null;
+		this.resultUpIF=null;
+		this.resultUpO=null;
+		this.resultUpOF=null;
+		this.area=null;
+		this.areaF=null;
 	}
 	public AreaFunction(String area) {
+		this();
 		this.function="Area";
 		this.area = area;
 	}
 	public AreaFunction(String area, Function areaF) {
+		this();
 		this.function="Area";
 		this.area = area;
 		this.areaF = areaF;
@@ -27,6 +42,7 @@ public class AreaFunction extends Function{
 
 	public AreaFunction(AreaVO vo)
 	{
+		this();
 		this.function="Area";
 		this.resultUpI = vo.resultUpI;
 		this.resultUpIF = vo.resultUpIF;
