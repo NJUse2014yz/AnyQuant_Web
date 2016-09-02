@@ -8,12 +8,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from Function where name=#{value}
 	</select>
 	<select id="selectRank" parameterType="int" resultType="FunctionDisRnk">
-		select * from Function where rank=#{value}
+		select * from Function where rank &lt;= #{value}
 	</select>
 	<select id="selectType" parameterType="String" resultType="FunctionDisRnk">
 		select * from Function where type=#{value}
 	</select>
 	<select id="selectTypeRank" parameterType="FunctionDisRnk" resultType="FunctionDisRnk">
-		select * from Function where rank=#{rank} and type=#{type}
+		select * from Function where rank &lt;= #{rank} and type=#{type}
 	</select>
 </mapper>

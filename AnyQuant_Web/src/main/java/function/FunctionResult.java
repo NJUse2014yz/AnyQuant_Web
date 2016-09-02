@@ -5,16 +5,16 @@ import java.util.List;
 
 /**工具方法的通用返回结果*/
 public class FunctionResult {
-	public List<Integer> location=new ArrayList<Integer>();
-	public boolean rB=false;
-	public int rI=0;
-	public double rD=0;
-	public String rS=null;
-	public long rL=0;
-	public List<Integer> rLI=null;
-	public List<Double> rLD=null;
-	public List<String> rLS=null;
-	public List<Long> rLL=null;
+	public List<Integer> location;
+	public boolean rB;
+	public int rI;
+	public double rD;
+	public String rS;
+	public long rL;
+	public List<Integer> rLI;
+	public List<Double> rLD;
+	public List<String> rLS;
+	public List<Long> rLL;
 	
 	public FunctionResult()
 	{

@@ -164,11 +164,36 @@ public class JsonExchangeTool {
 				System.err.println("JsonExchangeTool==>e8:result.location is blank,result should be null");
 				return null;//如果location为空列表，返回null
 			}
-			result.rB=jObject.getBoolean("rB");
-			result.rI=jObject.getInt("rI");
-			result.rD=jObject.getDouble("rD");
-			result.rS=jObject.getString("rS");
-			result.rL=jObject.getLong("rL");
+			try{
+				result.rB=jObject.getBoolean("rB");
+			} catch(Exception e81)
+			{
+				System.err.println("JsonExchangeTool==>e8.1:rLI is null");
+			}
+			try{
+				result.rI=jObject.getInt("rI");
+			} catch(Exception e81)
+			{
+				System.err.println("JsonExchangeTool==>e8.1:json exception");
+			}
+			try{
+				result.rD=jObject.getDouble("rD");
+			} catch(Exception e82)
+			{
+				System.err.println("JsonExchangeTool==>e8.2:json exception");
+			}
+			try{
+				result.rS=jObject.getString("rS");
+			} catch(Exception e83)
+			{
+				System.err.println("JsonExchangeTool==>e8.3:json exception");
+			}
+			try{
+				result.rL=jObject.getLong("rL");
+			} catch(Exception e84)
+			{
+				System.err.println("JsonExchangeTool==>e8.4:json exception");
+			}
 			try{
 				result.rLI=jObject.getJSONArray("rLI");
 			} catch(Exception e9)

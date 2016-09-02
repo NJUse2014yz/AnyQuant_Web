@@ -35,7 +35,7 @@ public class RealTestServiceTest{
 	{
 		instance.initRealTest("admin","admin","波浪理论",100000,1);
 	}
-	//暂时不能用
+	
 	public void realTestForToday()
 	{
 		RealTestVO vo=new RealTestVO();
@@ -89,7 +89,7 @@ public class RealTestServiceTest{
 		StrategyServiceImpl stImpl=new StrategyServiceImpl();
 		stImpl.strategyMapper=strategyMapper;
 		stImpl.functionMapper=functionMapper;
-		StrategyVO strategy=stImpl.getSingleStrategy("u1","u1","s1");
+		StrategyVO strategy=stImpl.getSingleStrategy("admin","admin","波浪理论");
 		RealTestVO vo=strategy.getRealTest();
 		
 		System.out.println(instance.realTestForToday(vo));
@@ -98,7 +98,7 @@ public class RealTestServiceTest{
 	public static void main(String[] args)
 	{
 		RealTestServiceTest test=new RealTestServiceTest();
-		test.initRealTest();
+//		test.initRealTest();
 		test.saveRealTest();
 //		test.realTestForToday();
 	}
