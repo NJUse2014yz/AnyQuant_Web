@@ -1,6 +1,11 @@
 package function.tool;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import function.Function;
@@ -46,8 +51,24 @@ public class MeanFunction extends Function{
 		}
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.DOUBLE.getCode());
+		result.location.add(ResultType.DOUBLELIST.getCode());
 		result.rD=MMSTool.mean(valueList);
+		result.rLD=new ArrayList<Double>();
+		result.rLD.add(result.rD);
 		return result;
+	}
+	
+	public List<Double> getValueList() {
+		return valueList;
+	}
+	public void setValueList(List<Double> valueList) {
+		this.valueList = valueList;
+	}
+	public Function getValueListF() {
+		return valueListF;
+	}
+	public void setValueListF(Function valueListF) {
+		this.valueListF = valueListF;
 	}
 	@Override
 	public String toString() {

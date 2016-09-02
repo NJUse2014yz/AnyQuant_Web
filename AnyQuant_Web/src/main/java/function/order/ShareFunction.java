@@ -118,4 +118,10 @@ public class ShareFunction extends Function{
 				+ ", resultDownOF=" + resultDownOF + "]";
 	}
 
+	@Override
+	public ShareFunction clone() throws CloneNotSupportedException {
+		ShareFunction sf=new ShareFunction(new ShareVO(resultUpI, priceF, resultDownI, priceF, resultUpO, priceF, resultDownO, priceF, siid, priceF, share, shareF, price, priceF));
+		return sf;
+	}
+
 }

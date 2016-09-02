@@ -1,432 +1,578 @@
 flags [
-Flag [orderType=ShareFunction [order=0, siid=sh600004, share=10.0, price=0.0],
-flagList=[[TrendFunction [siid=sh600004, attribute=m10, day=30, standard=0.5]]]
+Flag [orderType=ShareFunction [share=50.0, shareF=null, price=0.0, priceF=null, function=Share, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null],
+flagList=[[
+TrendFunction [attribute=close, attributeF=null, day=5, dayF=null, standard=10.0, standardF=
+MeanFunction [valueList=[], valueListF=
+DataFunction [attribute=close, attributeF=null, day=5, dayF=null, function=Data, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null], function=Mean, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, function=Trend, siid=sh600004, siidF=null, resultUpI=FunctionResult [location=[3], rB=false, rI=0, rD=0.0, rS=, rL=0, rLI=[], rLD=[], rLS=[], rLL=[]], resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null], 
+DataFunction [attribute=close, attributeF=null, day=1, dayF=null, function=Data, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=
+AddFunction [v1=0.0, v1F=
+MultipleFunction [v1=0.0, v1F=
+MaxMinFunction [attribute=close, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, v2=0.0, v2F=
+DivideFunction [v1=0.0, v1F=
+MaxMinFunction [attribute=close, attributeF=null, mm=-1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, v2=0.0, v2F=
+MaxMinFunction [attribute=close, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, function=Divide, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, function=Multiple, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, v2=0.3, v2F=null, function=Add, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, resultDownI=null, resultDownIF=
+MinusFunction [v1=0.0, v1F=
+MultipleFunction [v1=0.0, v1F=
+MaxMinFunction [attribute=close, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, v2=0.0, v2F=
+DivideFunction [v1=0.0, v1F=
+MaxMinFunction [attribute=close, attributeF=null, mm=-1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, v2=0.0, v2F=
+MaxMinFunction [attribute=close, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, function=Divide, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, function=Multiple, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, v2=0.3, v2F=null, function=Minus, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]]]
 ]
 , 
-Flag [orderType=ShareFunction [order=0, siid=sh600004, share=10.0, price=0.0],
-flagList=[[TrendFunction [siid=sh600004, attribute=m10, day=30, standard=0.5]]]
+Flag [orderType=ShareFunction [share=50.0, shareF=null, price=0.0, priceF=null, function=Share, siid=sh000001, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null],
+flagList=[[
+TrendFunction [attribute=close, attributeF=null, day=5, dayF=null, standard=10.0, standardF=
+MeanFunction [valueList=[], valueListF=
+DataFunction [attribute=close, attributeF=null, day=5, dayF=null, function=Data, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null], function=Mean, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, function=Trend, siid=sh600004, siidF=null, resultUpI=FunctionResult [location=[3], rB=false, rI=0, rD=0.0, rS=, rL=0, rLI=[], rLD=[], rLS=[], rLL=[]], resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null], 
+DataFunction [attribute=close, attributeF=null, day=1, dayF=null, function=Data, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=
+AddFunction [v1=0.0, v1F=
+MultipleFunction [v1=0.0, v1F=
+MaxMinFunction [attribute=close, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, v2=0.0, v2F=
+DivideFunction [v1=0.0, v1F=
+MaxMinFunction [attribute=close, attributeF=null, mm=-1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, v2=0.0, v2F=
+MaxMinFunction [attribute=close, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, function=Divide, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, function=Multiple, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, v2=0.3, v2F=null, function=Add, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, resultDownI=null, resultDownIF=
+MinusFunction [v1=0.0, v1F=
+MultipleFunction [v1=0.0, v1F=
+MaxMinFunction [attribute=close, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, v2=0.0, v2F=
+DivideFunction [v1=0.0, v1F=
+MaxMinFunction [attribute=close, attributeF=null, mm=-1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, v2=0.0, v2F=
+MaxMinFunction [attribute=close, attributeF=null, mm=1, mmF=null, num=0, numF=null, loc=0, locF=null, function=MaxMin, siid=sh600004, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, function=Divide, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, function=Multiple, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, v2=0.3, v2F=null, function=Minus, siid=null, siidF=null, resultUpI=null, resultUpIF=null, resultDownI=null, resultDownIF=null, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]
+, resultUpO=null, resultUpOF=null, resultDownO=null, resultDownOF=null]]]
 ]
 ]
 
-初始情况[8149, 33] 11.770000000004075
+b price 3009.53
+卖出sh600004
+卖出sh000001
 
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.23], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.23]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.23], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.23]]
-买入sh600004;股数： 0;价格: 12.23
-卖出sh600004股数： 10.0;价格: 12.23
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.18], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.18]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.18], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.18]]
-买入sh600004股数： 10.0;价格: 12.18
-卖出sh600004股数： 10.0;价格: 12.18
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.4], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.4]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.4], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.4]]
-买入sh600004股数： 10.0;价格: 12.4
-卖出sh600004股数： 10.0;价格: 12.4
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.36], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.36]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.36], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.36]]
-买入sh600004股数： 10.0;价格: 12.36
-卖出sh600004股数： 10.0;价格: 12.36
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.3], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.3]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.3], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.3]]
-买入sh600004股数： 10.0;价格: 12.3
-卖出sh600004股数： 10.0;价格: 12.3
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.6], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.6]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.6], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.6]]
-买入sh600004股数： 10.0;价格: 12.6
-卖出sh600004股数： 10.0;价格: 12.6
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.62], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.62]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.62], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.62]]
-买入sh600004股数： 10.0;价格: 12.62
-卖出sh600004股数： 10.0;价格: 12.62
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.44], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.44]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.44], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.44]]
-买入sh600004股数： 10.0;价格: 12.44
-卖出sh600004股数： 10.0;价格: 12.44
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.43], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.43]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.43], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.43]]
-买入sh600004股数： 10.0;价格: 12.43
-卖出sh600004股数： 10.0;价格: 12.43
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.56], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.56]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.56], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.56]]
-买入sh600004股数： 10.0;价格: 12.56
-卖出sh600004股数： 10.0;价格: 12.56
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.52], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.52]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.52], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.52]]
-买入sh600004股数： 10.0;价格: 12.52
-卖出sh600004股数： 10.0;价格: 12.52
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.71], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.71]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.71], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.71]]
-买入sh600004股数： 10.0;价格: 12.71
-卖出sh600004股数： 10.0;价格: 12.71
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.71], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.71]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.71], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.71]]
-买入sh600004股数： 10.0;价格: 12.71
-卖出sh600004股数： 10.0;价格: 12.71
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.7], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.7]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.7], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.7]]
-买入sh600004股数： 10.0;价格: 12.7
-卖出sh600004股数： 10.0;价格: 12.7
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.52], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.52]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.52], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.52]]
-买入sh600004股数： 10.0;价格: 12.52
-卖出sh600004股数： 10.0;价格: 12.52
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.41], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.41]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.41], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.41]]
-买入sh600004股数： 10.0;价格: 12.41
-卖出sh600004股数： 10.0;价格: 12.41
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.09], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.09]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.09], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.09]]
-买入sh600004股数： 10.0;价格: 12.09
-卖出sh600004股数： 10.0;价格: 12.09
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.12], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.12]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.12], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.12]]
-买入sh600004股数： 10.0;价格: 12.12
-卖出sh600004股数： 10.0;价格: 12.12
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.09], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.09]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.09], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.09]]
-买入sh600004股数： 10.0;价格: 12.09
-卖出sh600004股数： 10.0;价格: 12.09
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.11], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.11]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.11], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.11]]
-买入sh600004股数： 10.0;价格: 12.11
-卖出sh600004股数： 10.0;价格: 12.11
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.18], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.18]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.18], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.18]]
-买入sh600004股数： 10.0;价格: 12.18
-卖出sh600004股数： 10.0;价格: 12.18
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.13], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.13]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.13], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.13]]
-买入sh600004股数： 10.0;价格: 12.13
-卖出sh600004股数： 10.0;价格: 12.13
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.07], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.07]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.07], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.07]]
-买入sh600004股数： 10.0;价格: 12.07
-卖出sh600004股数： 10.0;价格: 12.07
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.05], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.05]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.05], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.05]]
-买入sh600004股数： 10.0;价格: 12.05
-卖出sh600004股数： 10.0;价格: 12.05
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.24], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.24]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.24], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.24]]
-买入sh600004股数： 10.0;价格: 12.24
-卖出sh600004股数： 10.0;价格: 12.24
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.36], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.36]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.36], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.36]]
-买入sh600004股数： 10.0;价格: 12.36
-卖出sh600004股数： 10.0;价格: 12.36
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.45], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.45]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.45], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.45]]
-买入sh600004;股数： 9;价格: 12.45
-卖出sh600004股数： 10.0;价格: 12.45
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.25], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.25]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.25], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.25]]
-买入sh600004股数： 10.0;价格: 12.25
-卖出sh600004股数： 10.0;价格: 12.25
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=11.84], ShareFunction [order=1, siid=sh600004, share=10.0, price=11.84]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.84], ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.84]]
-买入sh600004股数： 10.0;价格: 11.84
-卖出sh600004股数： 10.0;价格: 11.84
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=11.99], ShareFunction [order=1, siid=sh600004, share=10.0, price=11.99]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.99], ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.99]]
-买入sh600004股数： 10.0;价格: 11.99
-卖出sh600004股数： 10.0;价格: 11.99
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.26], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.26]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.26], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.26]]
-买入sh600004股数： 10.0;价格: 12.26
-卖出sh600004股数： 10.0;价格: 12.26
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.22], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.22]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.22], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.22]]
-买入sh600004股数： 10.0;价格: 12.22
-卖出sh600004股数： 10.0;价格: 12.22
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.19], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.19]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.19], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.19]]
-买入sh600004股数： 10.0;价格: 12.19
-卖出sh600004股数： 10.0;价格: 12.19
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.29], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.29]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.29], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.29]]
-买入sh600004股数： 10.0;价格: 12.29
-卖出sh600004股数： 10.0;价格: 12.29
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.22], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.22]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.22], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.22]]
-买入sh600004股数： 10.0;价格: 12.22
-卖出sh600004股数： 10.0;价格: 12.22
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.03], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.03]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.03], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.03]]
-买入sh600004股数： 10.0;价格: 12.03
-卖出sh600004股数： 10.0;价格: 12.03
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=11.96], ShareFunction [order=1, siid=sh600004, share=10.0, price=11.96]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.96], ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.96]]
-买入sh600004股数： 10.0;价格: 11.96
-卖出sh600004股数： 10.0;价格: 11.96
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=11.99], ShareFunction [order=1, siid=sh600004, share=10.0, price=11.99]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.99], ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.99]]
-买入sh600004股数： 10.0;价格: 11.99
-卖出sh600004股数： 10.0;价格: 11.99
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.15], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.15]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.15], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.15]]
-买入sh600004股数： 10.0;价格: 12.15
-卖出sh600004股数： 10.0;价格: 12.15
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.14], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.14]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.14], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.14]]
-买入sh600004股数： 10.0;价格: 12.14
-卖出sh600004股数： 10.0;价格: 12.14
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.07], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.07]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.07], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.07]]
-买入sh600004股数： 10.0;价格: 12.07
-卖出sh600004股数： 10.0;价格: 12.07
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=11.99], ShareFunction [order=1, siid=sh600004, share=10.0, price=11.99]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.99], ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.99]]
-买入sh600004股数： 10.0;价格: 11.99
-卖出sh600004股数： 10.0;价格: 11.99
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=11.95], ShareFunction [order=1, siid=sh600004, share=10.0, price=11.95]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.95], ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.95]]
-买入sh600004股数： 10.0;价格: 11.95
-卖出sh600004股数： 10.0;价格: 11.95
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=11.92], ShareFunction [order=1, siid=sh600004, share=10.0, price=11.92]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.92], ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.92]]
-买入sh600004股数： 10.0;价格: 11.92
-卖出sh600004股数： 10.0;价格: 11.92
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.23], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.23]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.23], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.23]]
-买入sh600004股数： 10.0;价格: 12.23
-卖出sh600004股数： 10.0;价格: 12.23
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.2], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.2]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.2], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.2]]
-买入sh600004股数： 10.0;价格: 12.2
-卖出sh600004股数： 10.0;价格: 12.2
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.21], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.21]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.21], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.21]]
-买入sh600004股数： 10.0;价格: 12.21
-卖出sh600004股数： 10.0;价格: 12.21
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.31], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.31]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.31], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.31]]
-买入sh600004股数： 10.0;价格: 12.31
-卖出sh600004股数： 10.0;价格: 12.31
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.3], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.3]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.3], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.3]]
-买入sh600004股数： 10.0;价格: 12.3
-卖出sh600004股数： 10.0;价格: 12.3
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.25], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.25]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.25], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.25]]
-买入sh600004股数： 10.0;价格: 12.25
-卖出sh600004股数： 10.0;价格: 12.25
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.08], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.08]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.08], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.08]]
-买入sh600004股数： 10.0;价格: 12.08
-卖出sh600004股数： 10.0;价格: 12.08
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=11.94], ShareFunction [order=1, siid=sh600004, share=10.0, price=11.94]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.94], ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.94]]
-买入sh600004股数： 10.0;价格: 11.94
-卖出sh600004股数： 10.0;价格: 11.94
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=11.91], ShareFunction [order=1, siid=sh600004, share=10.0, price=11.91]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.91], ShareFunction [order=-1, siid=sh600004, share=10.0, price=11.91]]
-买入sh600004股数： 10.0;价格: 11.91
-卖出sh600004股数： 10.0;价格: 11.91
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.1], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.1]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.1], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.1]]
-买入sh600004股数： 10.0;价格: 12.1
-卖出sh600004股数： 10.0;价格: 12.1
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.03], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.03]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.03], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.03]]
-买入sh600004股数： 10.0;价格: 12.03
-卖出sh600004股数： 10.0;价格: 12.03
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.07], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.07]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.07], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.07]]
-买入sh600004股数： 10.0;价格: 12.07
-卖出sh600004股数： 10.0;价格: 12.07
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.07], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.07]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.07], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.07]]
-买入sh600004股数： 10.0;价格: 12.07
-卖出sh600004股数： 10.0;价格: 12.07
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.06], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.06]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.06], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.06]]
-买入sh600004股数： 10.0;价格: 12.06
-卖出sh600004股数： 10.0;价格: 12.06
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.23], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.23]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.23], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.23]]
-买入sh600004股数： 10.0;价格: 12.23
-卖出sh600004股数： 10.0;价格: 12.23
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.13], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.13]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.13], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.13]]
-买入sh600004股数： 10.0;价格: 12.13
-卖出sh600004股数： 10.0;价格: 12.13
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.05], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.05]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.05], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.05]]
-买入sh600004股数： 10.0;价格: 12.05
-卖出sh600004股数： 10.0;价格: 12.05
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.13], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.13]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.13], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.13]]
-买入sh600004股数： 10.0;价格: 12.13
-卖出sh600004股数： 10.0;价格: 12.13
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.17], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.17]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.17], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.17]]
-买入sh600004股数： 10.0;价格: 12.17
-卖出sh600004股数： 10.0;价格: 12.17
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.29], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.29]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.29], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.29]]
-买入sh600004股数： 10.0;价格: 12.29
-卖出sh600004股数： 10.0;价格: 12.29
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.27], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.27]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.27], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.27]]
-买入sh600004股数： 10.0;价格: 12.27
-卖出sh600004股数： 10.0;价格: 12.27
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.27], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.27]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.27], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.27]]
-买入sh600004股数： 10.0;价格: 12.27
-卖出sh600004股数： 10.0;价格: 12.27
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.51], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.51]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.51], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.51]]
-买入sh600004;股数： 9;价格: 12.51
-卖出sh600004股数： 10.0;价格: 12.51
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.6], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.6]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.6], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.6]]
-买入sh600004股数： 10.0;价格: 12.6
-卖出sh600004股数： 10.0;价格: 12.6
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.64], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.64]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.64], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.64]]
-买入sh600004股数： 10.0;价格: 12.64
-卖出sh600004股数： 10.0;价格: 12.64
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.64], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.64]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.64], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.64]]
-买入sh600004股数： 10.0;价格: 12.64
-卖出sh600004股数： 10.0;价格: 12.64
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.53], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.53]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.53], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.53]]
-买入sh600004股数： 10.0;价格: 12.53
-卖出sh600004股数： 10.0;价格: 12.53
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.52], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.52]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.52], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.52]]
-买入sh600004股数： 10.0;价格: 12.52
-卖出sh600004股数： 10.0;价格: 12.52
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.05], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.05]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.05], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.05]]
-买入sh600004股数： 10.0;价格: 13.05
-卖出sh600004股数： 10.0;价格: 13.05
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.94], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.94]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.94], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.94]]
-买入sh600004股数： 10.0;价格: 12.94
-卖出sh600004股数： 10.0;价格: 12.94
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.95], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.95]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.95], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.95]]
-买入sh600004股数： 10.0;价格: 12.95
-卖出sh600004股数： 10.0;价格: 12.95
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.06], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.06]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.06], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.06]]
-买入sh600004股数： 10.0;价格: 13.06
-卖出sh600004股数： 10.0;价格: 13.06
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.98], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.98]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.98], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.98]]
-买入sh600004股数： 10.0;价格: 12.98
-卖出sh600004股数： 10.0;价格: 12.98
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.93], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.93]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.93], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.93]]
-买入sh600004股数： 10.0;价格: 12.93
-卖出sh600004股数： 10.0;价格: 12.93
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.9], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.9]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.9], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.9]]
-买入sh600004股数： 10.0;价格: 12.9
-卖出sh600004股数： 10.0;价格: 12.9
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.24], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.24]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.24], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.24]]
-买入sh600004;股数： 9;价格: 13.24
-卖出sh600004股数： 10.0;价格: 13.24
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.15], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.15]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.15], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.15]]
-买入sh600004股数： 10.0;价格: 13.15
-卖出sh600004股数： 10.0;价格: 13.15
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.25], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.25]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.25], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.25]]
-买入sh600004股数： 10.0;价格: 13.25
-卖出sh600004股数： 10.0;价格: 13.25
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.57], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.57]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.57], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.57]]
-买入sh600004股数： 10.0;价格: 13.57
-卖出sh600004股数： 10.0;价格: 13.57
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.51], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.51]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.51], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.51]]
-买入sh600004股数： 10.0;价格: 13.51
-卖出sh600004股数： 10.0;价格: 13.51
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.76], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.76]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.76], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.76]]
-买入sh600004股数： 10.0;价格: 13.76
-卖出sh600004股数： 10.0;价格: 13.76
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.52], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.52]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.52], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.52]]
-买入sh600004股数： 10.0;价格: 13.52
-卖出sh600004股数： 10.0;价格: 13.52
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.42], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.42]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.42], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.42]]
-买入sh600004股数： 10.0;价格: 13.42
-卖出sh600004股数： 10.0;价格: 13.42
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.38], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.38]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.38], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.38]]
-买入sh600004股数： 10.0;价格: 13.38
-卖出sh600004股数： 10.0;价格: 13.38
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.47], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.47]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.47], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.47]]
-买入sh600004股数： 10.0;价格: 13.47
-卖出sh600004股数： 10.0;价格: 13.47
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.2], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.2]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.2], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.2]]
-买入sh600004股数： 10.0;价格: 13.2
-卖出sh600004股数： 10.0;价格: 13.2
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.09], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.09]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.09], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.09]]
-买入sh600004股数： 10.0;价格: 13.09
-卖出sh600004股数： 10.0;价格: 13.09
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.07], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.07]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.07], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.07]]
-买入sh600004股数： 10.0;价格: 13.07
-卖出sh600004股数： 10.0;价格: 13.07
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.21], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.21]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.21], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.21]]
-买入sh600004股数： 10.0;价格: 13.21
-卖出sh600004股数： 10.0;价格: 13.21
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.05], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.05]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.05], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.05]]
-买入sh600004股数： 10.0;价格: 13.05
-卖出sh600004股数： 10.0;价格: 13.05
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=12.9], ShareFunction [order=1, siid=sh600004, share=10.0, price=12.9]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.9], ShareFunction [order=-1, siid=sh600004, share=10.0, price=12.9]]
-买入sh600004股数： 10.0;价格: 12.9
-卖出sh600004股数： 10.0;价格: 12.9
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.26], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.26]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.26], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.26]]
-买入sh600004股数： 10.0;价格: 13.26
-卖出sh600004股数： 10.0;价格: 13.26
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.55], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.55]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.55], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.55]]
-买入sh600004股数： 10.0;价格: 13.55
-卖出sh600004股数： 10.0;价格: 13.55
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.39], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.39]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.39], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.39]]
-买入sh600004股数： 10.0;价格: 13.39
-卖出sh600004股数： 10.0;价格: 13.39
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.49], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.49]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.49], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.49]]
-买入sh600004股数： 10.0;价格: 13.49
-卖出sh600004股数： 10.0;价格: 13.49
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.55], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.55]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.55], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.55]]
-买入sh600004;股数： 9;价格: 13.55
-卖出sh600004股数： 10.0;价格: 13.55
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.56], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.56]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.56], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.56]]
-买入sh600004股数： 10.0;价格: 13.56
-卖出sh600004股数： 10.0;价格: 13.56
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.64], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.64]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.64], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.64]]
-买入sh600004股数： 10.0;价格: 13.64
-卖出sh600004股数： 10.0;价格: 13.64
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.69], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.69]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.69], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.69]]
-买入sh600004股数： 10.0;价格: 13.69
-卖出sh600004股数： 10.0;价格: 13.69
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=13.93], ShareFunction [order=1, siid=sh600004, share=10.0, price=13.93]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.93], ShareFunction [order=-1, siid=sh600004, share=10.0, price=13.93]]
-买入sh600004股数： 10.0;价格: 13.93
-卖出sh600004股数： 10.0;价格: 13.93
-今日买入订单[ShareFunction [order=1, siid=sh600004, share=10.0, price=14.22], ShareFunction [order=1, siid=sh600004, share=10.0, price=14.22]]
-今日卖出订单[ShareFunction [order=-1, siid=sh600004, share=10.0, price=14.22], ShareFunction [order=-1, siid=sh600004, share=10.0, price=14.22]]
-买入sh600004股数： 10.0;价格: 14.22
-卖出sh600004股数： 10.0;价格: 14.22
+b num:33卖出b：33 价格：2997.09 bCash 99396.95206000001
+b price 3053.07
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3000.94 bCash 99396.95206000001
+b price 3050.59
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3039.74 bCash 99396.95206000001
+b price 3008.42
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3058.34 bCash 99396.95206000001
+b price 2984.96
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2988.2 bCash 99396.95206000001
+b price 3033.96
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3006.91 bCash 99396.95206000001
+b price 3023.65
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3031.3 bCash 99396.95206000001
+b price 3066.64
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3041.36 bCash 99396.95206000001
+b price 3082.36
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3080.09 bCash 99396.95206000001
+b price 3078.12
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3085.03 bCash 99396.95206000001
+b price 3033.66
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3058.46 bCash 99396.95206000001
+b price 3042.82
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3047.13 bCash 99396.95206000001
+b price 2972.58
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3050.38 bCash 99396.95206000001
+b price 2952.89
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2954.37 bCash 99396.95206000001
+b price 2959.24
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2933.03 bCash 99396.95206000001
+b price 2946.67
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2949.97 bCash 99396.95206000001
+b price 2964.7
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2944.72 bCash 99396.95206000001
+b price 2953.67
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2967.19 bCash 99396.95206000001
+b price 2945.59
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2955.74 bCash 99396.95206000001
+b price 2938.32
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2935.38 bCash 99396.95206000001
+b price 2992.64
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2940.39 bCash 99396.95206000001
+b price 2991.27
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2983.03 bCash 99396.95206000001
+b price 2997.84
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2987.02 bCash 99396.95206000001
+b price 2913.25
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2998.4 bCash 99396.95206000001
+b price 2832.11
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2896.16 bCash 99396.95206000001
+b price 2832.59
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2822.33 bCash 99396.95206000001
+b price 2837.04
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2843.54 bCash 99396.95206000001
+b price 2835.86
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2812.11 bCash 99396.95206000001
+b price 2827.11
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2828.46 bCash 99396.95206000001
+b price 2850.86
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2816.78 bCash 99396.95206000001
+b price 2843.68
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2850.93 bCash 99396.95206000001
+b price 2807.51
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2828.18 bCash 99396.95206000001
+b price 2806.91
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2802.31 bCash 99396.95206000001
+b price 2825.48
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2792.89 bCash 99396.95206000001
+b price 2843.65
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2826.31 bCash 99396.95206000001
+b price 2821.67
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2839.68 bCash 99396.95206000001
+b price 2815.09
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2835.03 bCash 99396.95206000001
+b price 2822.44
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2813.54 bCash 99396.95206000001
+b price 2821.05
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2817.97 bCash 99396.95206000001
+b price 2822.45
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2814.65 bCash 99396.95206000001
+b price 2916.62
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2822.59 bCash 99396.95206000001
+b price 2913.51
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2917.15 bCash 99396.95206000001
+b price 2925.23
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2911.22 bCash 99396.95206000001
+b price 2938.68
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2929.79 bCash 99396.95206000001
+b price 2934.1
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2940.99 bCash 99396.95206000001
+b price 2936.04
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2936.28 bCash 99396.95206000001
+b price 2927.16
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2932.38 bCash 99396.95206000001
+b price 2833.07
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2897.27 bCash 99396.95206000001
+b price 2842.19
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2824.23 bCash 99396.95206000001
+b price 2887.21
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2814.69 bCash 99396.95206000001
+b price 2872.82
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2878.4 bCash 99396.95206000001
+b price 2885.1
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2873.01 bCash 99396.95206000001
+b price 2888.81
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2887.64 bCash 99396.95206000001
+b price 2878.56
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2898.38 bCash 99396.95206000001
+b price 2905.55
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2872.73 bCash 99396.95206000001
+b price 2891.96
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2902.4 bCash 99396.95206000001
+b price 2854.29
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2883.76 bCash 99396.95206000001
+b price 2895.7
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2840.56 bCash 99396.95206000001
+b price 2912.56
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2885.01 bCash 99396.95206000001
+b price 2931.59
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2918.53 bCash 99396.95206000001
+b price 2929.61
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2931.48 bCash 99396.95206000001
+b price 2932.48
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2931.8 bCash 99396.95206000001
+b price 2988.6
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2924.29 bCash 99396.95206000001
+b price 3006.39
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2991.75 bCash 99396.95206000001
+b price 3017.29
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2998.52 bCash 99396.95206000001
+b price 3016.85
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3009.35 bCash 99396.95206000001
+b price 2988.09
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3000.33 bCash 99396.95206000001
+b price 2994.92
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2993.75 bCash 99396.95206000001
+b price 3049.38
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2992.52 bCash 99396.95206000001
+b price 3060.69
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3049.51 bCash 99396.95206000001
+b price 3054.02
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3054.97 bCash 99396.95206000001
+b price 3054.3
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3056.68 bCash 99396.95206000001
+b price 3043.56
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3047.64 bCash 99396.95206000001
+b price 3036.6
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3040.23 bCash 99396.95206000001
+b price 3027.9
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3034.71 bCash 99396.95206000001
+b price 3039.01
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3027.6 bCash 99396.95206000001
+b price 3012.82
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3038.12 bCash 99396.95206000001
+b price 3015.83
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3008.09 bCash 99396.95206000001
+b price 3050.17
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3014.04 bCash 99396.95206000001
+b price 2992.0
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3050.37 bCash 99396.95206000001
+b price 2994.32
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2980.5 bCash 99396.95206000001
+b price 2979.34
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2992.54 bCash 99396.95206000001
+b price 2953.39
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2971.95 bCash 99396.95206000001
+b price 2971.28
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2950.08 bCash 99396.95206000001
+b price 2978.46
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2963.21 bCash 99396.95206000001
+b price 2982.43
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2976.41 bCash 99396.95206000001
+b price 2976.7
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2978.78 bCash 99396.95206000001
+b price 3004.28
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：2972.62 bCash 99396.95206000001
+b price 3025.68
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3001.31 bCash 99396.95206000001
+b price 3018.75
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3023.47 bCash 99396.95206000001
+b price 3002.64
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3013.68 bCash 99396.95206000001
+b price 3050.67
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3000.27 bCash 99396.95206000001
+b price 3125.2
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3056.48 bCash 99396.95206000001
+b price 3110.04
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3130.53 bCash 99396.95206000001
+b price 3109.55
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3106.99 bCash 99396.95206000001
+b price 3104.11
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3107.75 bCash 99396.95206000001
+b price 3108.1
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3100.39 bCash 99396.95206000001
+b price 3084.81
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3107.38 bCash 99396.95206000001
+b price 3089.71
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3081.57 bCash 99396.95206000001
+b price 3085.88
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3092.02 bCash 99396.95206000001
+b price 3068.33
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3073.44 bCash 99396.95206000001
+b price 3070.31
+卖出sh600004
+卖出sh000001
+
+b num:0卖出b：0 价格：3069.85 bCash 99396.95206000001

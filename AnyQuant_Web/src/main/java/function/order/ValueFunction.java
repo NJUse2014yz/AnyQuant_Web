@@ -115,4 +115,9 @@ public class ValueFunction extends Function{
 				+ ", resultDownOF=" + resultDownOF + "]";
 	}
 
+	@Override
+	public ValueFunction clone() throws CloneNotSupportedException {
+		return new ValueFunction(new ValueVO(resultUpI, priceF, resultDownI, priceF, resultUpO, priceF, resultDownO, priceF, siid, priceF, value, valueF, price, priceF));
+	}
+
 }

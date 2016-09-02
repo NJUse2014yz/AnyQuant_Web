@@ -32,6 +32,26 @@ public abstract class Function {
 	/**得到买入结果上界的方法*/
 	public Function resultDownOF=null;
 	
+	public Function(){}
+	public Function(String function, String siid, Function siidF,
+			FunctionResult resultUpI, Function resultUpIF,
+			FunctionResult resultDownI, Function resultDownIF,
+			FunctionResult resultUpO, Function resultUpOF,
+			FunctionResult resultDownO, Function resultDownOF) {
+		super();
+		this.function = function;
+		this.siid = siid;
+		this.siidF = siidF;
+		this.resultUpI = resultUpI;
+		this.resultUpIF = resultUpIF;
+		this.resultDownI = resultDownI;
+		this.resultDownIF = resultDownIF;
+		this.resultUpO = resultUpO;
+		this.resultUpOF = resultUpOF;
+		this.resultDownO = resultDownO;
+		this.resultDownOF = resultDownOF;
+	}
+	
 	public abstract FunctionResult getResult(Date date);
 	public String getFunction() {
 		return function;
@@ -129,6 +149,10 @@ public abstract class Function {
 				+ ", resultDownIF=" + resultDownIF + ", resultUpO=" + resultUpO
 				+ ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO
 				+ ", resultDownOF=" + resultDownOF + "]";
+	}
+	@Override
+	public Function clone() throws CloneNotSupportedException {
+		return (Function) super.clone();
 	}
 	
 }

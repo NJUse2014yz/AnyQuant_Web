@@ -121,4 +121,9 @@ public class ShareTargetFunction extends Function{
 				+ ", resultDownOF=" + resultDownOF + "]";
 	}
 
+	@Override
+	public ShareTargetFunction clone() throws CloneNotSupportedException {
+		return new ShareTargetFunction(new ShareVO(resultUpI, priceF, resultDownI, priceF, resultUpO, priceF, resultDownO, priceF, siid, priceF, share, shareF, price, priceF));
+	}
+
 }

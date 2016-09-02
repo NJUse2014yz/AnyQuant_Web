@@ -115,4 +115,10 @@ public class ValueTargetFunction extends Function{
 				+ ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO
 				+ ", resultDownOF=" + resultDownOF + "]";
 	}
+
+	@Override
+	public ValueTargetFunction clone() throws CloneNotSupportedException {
+		return new ValueTargetFunction(new ValueVO(resultUpI, priceF, resultDownI, priceF, resultUpO, priceF, resultDownO, priceF, siid, priceF, value, valueF, price, priceF));
+	}
+	
 }

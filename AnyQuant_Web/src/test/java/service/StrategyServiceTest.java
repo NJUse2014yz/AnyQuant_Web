@@ -293,15 +293,17 @@ public class StrategyServiceTest {
 	public static void saveReport()
 	{
 		BackTestService backTest=new BackTestServiceImpl(strategyMapper);
-		StrategyVO vo=new StrategyServiceImpl(strategyMapper).getSingleStrategy("u1","u1", "s1");
+		StrategyVO vo=new StrategyServiceImpl(strategyMapper).getSingleStrategy("admin","admin", "波浪理论");
+//	System.out.println(vo);
 		TestReport report=null;
 		try {
 			report = backTest.backtest(vo.stockList, vo.flags, 1, vo.flags.get(0), vo.risk);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		backTest.saveBackTest("u1", "u1", "s1", report);
-		System.out.println(report);
+		
+//		backTest.saveBackTest("admin", "admin", "波浪理论", report);
+	System.out.println(report);
 	}
 	public static void saveStrategy()
 	{
@@ -313,10 +315,10 @@ public class StrategyServiceTest {
 //		StrategyServiceTest.makeStrategy();
 //		StrategyServiceTest.getSaveStrategy();
 //		StrategyServiceTest.chooseStock();
-		StrategyServiceTest.getStrategy();
+//		StrategyServiceTest.getStrategy();
 //		new RealTestServiceTest().initRealTest();
 //		new RealTestServiceTest().saveRealTest();
-//		StrategyServiceTest.saveReport();
+		StrategyServiceTest.saveReport();
 //		System.out.println(new StrategyServiceImpl(strategyMapper).getScore("u1","u1","s1"));
 		
 //		StrategyServiceTest.getStrategy();

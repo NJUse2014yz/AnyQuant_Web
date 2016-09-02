@@ -1,6 +1,10 @@
 package function.flag;
 
 import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
 
@@ -90,12 +94,11 @@ public class TrendFunction extends Function{
 		{
 			standard=standardF.getResult(date).rD;
 		}
+		
 		Date start=new Date(date.getTime()-day*24*60*60*1000);
 		Date end=date;
 		List<TrendPoint> trendList=new ArrayList<TrendPoint>();
 		List<Double> list=new ListTool().getList(siid,attribute,start,end);
-		
-		System.out.println(list);
 		
 		for(int i=0;i<list.size();i++)
 		{

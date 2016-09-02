@@ -1,5 +1,9 @@
 package function.flag;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
 
@@ -75,7 +79,7 @@ public class DataFunction extends Function{
 		{
 			day=dayF.getResult(date).rI;
 		}
-		Date start=new Date(date.getTime()-day*24*60*60*1000);
+		Date start=new Date(date.getTime()-(day-1)*24*60*60*1000);
 		Date end=date;
 		List<Double> list=new ListTool().getList(siid,attribute,start,end);
 		FunctionResult result=new FunctionResult();

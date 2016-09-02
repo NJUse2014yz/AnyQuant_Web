@@ -131,5 +131,10 @@ public class ValuePercentFunction extends Function{
 				+ ", resultUpO=" + resultUpO + ", resultUpOF=" + resultUpOF + ", resultDownO=" + resultDownO
 				+ ", resultDownOF=" + resultDownOF + "]";
 	}
+
+	@Override
+	public ValuePercentFunction clone() throws CloneNotSupportedException {
+		return new ValuePercentFunction(new PercentVO(resultUpI, percentF, resultDownI, percentF, resultUpO, percentF, resultDownO, percentF, siid, percentF, percent, percentF, price, priceF));
+	}
 	
 }

@@ -1,5 +1,9 @@
 package tool;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +56,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONException;
 import net.sf.json.JSONNull;
 import net.sf.json.JSONObject;
-//TODO 还有加了Function的要改
+
 public class JsonExchangeTool {
 	public static List<ChooseStock> getStock(String json)
 	{
@@ -161,6 +165,7 @@ public class JsonExchangeTool {
 		}
 		return result;
 	}
+	
 	public static Function getFunction(String json)
 	{
 		JSONObject jObject=JSONObject.fromObject(json);
@@ -344,10 +349,20 @@ public class JsonExchangeTool {
 				industryF=getFunction(industryFJ.toString());
 				return new IndustryFunction(new IndustryVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, industry, industryF));
 			case "Intersection":
-				stockList1 = jObject.getJSONArray("stockList1");
+				try{
+					stockList1 = jObject.getJSONArray("stockList1");
+				} catch(Exception e)
+				{
+					e.printStackTrace();
+				}
 				stockList1FJ = jObject.getJSONObject("stockList1F");
 				stockList1F = getFunction(stockList1FJ.toString());
-				stockList2 = jObject.getJSONArray("stockList2");
+				try{
+					stockList2 = jObject.getJSONArray("stockList2");
+				} catch(Exception e)
+				{
+					e.printStackTrace();
+				}
 				stockList2FJ = jObject.getJSONObject("stockList2F");
 				stockList2F = getFunction(stockList2FJ.toString());
 				return new IntersectionFunction(new IntersectionVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, stockList1J, stockList1F, stockList2J, stockList2F));
@@ -463,7 +478,7 @@ public class JsonExchangeTool {
 				siid=jObject.getString("siid");	
 				siidFJ=jObject.getJSONObject("siidF");
 				siidF=getFunction(siidFJ.toString());
-				attribute=jObject.getString("attribute");	
+				attribute=jObject.getString("attribute");
 				attributeFJ=jObject.getJSONObject("attributeF");
 				attributeF=getFunction(attributeFJ.toString());
 				mm=jObject.getInt("mm");
@@ -475,7 +490,7 @@ public class JsonExchangeTool {
 				loc=jObject.getInt("loc");
 				locFJ=jObject.getJSONObject("locF");
 				locF=getFunction(locFJ.toString());
-				return new MaxMinFunction(new MaxMinVO(siid, siidF, resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, attribute2, attributeF, mm, mmF, num, numF, loc, locF));
+				return new MaxMinFunction(new MaxMinVO(siid, siidF, resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, attribute, attributeF, mm, mmF, num, numF, loc, locF));
 			case "Data":
 				siid=jObject.getString("siid");
 				siidFJ=jObject.getJSONObject("siidF");
@@ -486,8 +501,8 @@ public class JsonExchangeTool {
 				day=jObject.getInt("day");
 				dayFJ=jObject.getJSONObject("dayF");
 				dayF=getFunction(dayFJ.toString());
-				return new DataFunction(new DataVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid2, siidF, attribute2, attributeF, day, dayF));
-				
+				return new DataFunction(new DataVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid, siidF, attribute, attributeF, day, dayF));
+
 			//tool
 			case "Add":
 				v1=jObject.getDouble("v1");
@@ -522,7 +537,12 @@ public class JsonExchangeTool {
 				v2F=getFunction(v2FJ.toString());
 				return new DivideFunction(v1, v1F, v2, v2F);
 			case "Mean":
-				valueList=jObject.getJSONArray("valueList");//TODO 类似这种时候会不会出问题
+				try{
+					valueList=jObject.getJSONArray("valueList");
+				} catch(Exception e)
+				{
+					e.printStackTrace();
+				}
 				valueListFJ=jObject.getJSONObject("valueListF");
 				valueListF=getFunction(valueListFJ.toString());
 				return new MeanFunction(valueList, valueListF);
@@ -532,6 +552,7 @@ public class JsonExchangeTool {
 		}
 		return null;
 	}
+	
 	public static List<List<Function>> getFunctionList(String json)
 	{
 		List<List<Function>> list=new ArrayList<List<Function>>();
@@ -565,7 +586,7 @@ public class JsonExchangeTool {
 		}
 		return list;
 	}
-	//也要加Function
+	//不处理result
 	public static Function getOrder(String json)
 	{
 		JSONObject jObject=JSONObject.fromObject(json);
@@ -576,37 +597,49 @@ public class JsonExchangeTool {
 			ShareFunction share=new ShareFunction();
 			share.setFunction(function);
 			share.setShare(jObject.getInt("share"));
+			share.setShareF(getFunction(jObject.getJSONObject("shareF").toString()));
 			share.setSiid(jObject.getString("siid"));
+			share.setSiidF(getFunction(jObject.getJSONObject("siidF").toString()));
 			return share;
 		case "SharePercent":
 			SharePercentFunction sharePercent=new SharePercentFunction();
 			sharePercent.setFunction(function);
 			sharePercent.setPercent(jObject.getInt("percent"));
+			sharePercent.setPercentF(getFunction(jObject.getJSONObject("percentF").toString()));
 			sharePercent.setSiid(jObject.getString("siid"));
+			sharePercent.setSiidF(getFunction(jObject.getJSONObject("siidF").toString()));
 			return sharePercent;
 		case "ShareTarget":
 			ShareTargetFunction shareTarget=new ShareTargetFunction();
 			shareTarget.setFunction(function);
 			shareTarget.setShare(jObject.getInt("share"));
+			shareTarget.setShareF(getFunction(jObject.getJSONObject("shareF").toString()));
 			shareTarget.setSiid(jObject.getString("siid"));
+			shareTarget.setSiidF(getFunction(jObject.getJSONObject("siidF").toString()));
 			return shareTarget;
 		case "Value":
 			ValueFunction value=new ValueFunction();
 			value.setFunction(function);
 			value.setValue(jObject.getInt("value"));
+			value.setValueF(getFunction(jObject.getJSONObject("valueF").toString()));
 			value.setSiid(jObject.getString("siid"));
+			value.setSiidF(getFunction(jObject.getJSONObject("siidF").toString()));
 			return value;
 		case "ValuePercent":
 			ValuePercentFunction valuePercent=new ValuePercentFunction();
 			valuePercent.setFunction(function);
 			valuePercent.setPercent(jObject.getInt("percent"));
+			valuePercent.setPercentF(getFunction(jObject.getJSONObject("percentF").toString()));
 			valuePercent.setSiid(jObject.getString("siid"));
+			valuePercent.setSiidF(getFunction(jObject.getJSONObject("siidF").toString()));
 			return valuePercent;
 		case "ValueTarget":
 			ValueTargetFunction valueTarget=new ValueTargetFunction();
 			valueTarget.setFunction(function);
 			valueTarget.setValue(jObject.getInt("value"));
+			valueTarget.setValueF(getFunction(jObject.getJSONObject("valueF").toString()));
 			valueTarget.setSiid(jObject.getString("siid"));
+			valueTarget.setSiidF(getFunction(jObject.getJSONObject("siidF").toString()));
 			return valueTarget;
 		}
 		return null;

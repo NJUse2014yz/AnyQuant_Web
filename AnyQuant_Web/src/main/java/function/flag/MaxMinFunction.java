@@ -70,6 +70,8 @@ public class MaxMinFunction extends Function{
 		this.numF=vo.numF;
 		this.mm=vo.mm;
 		this.mmF=vo.mmF;
+		this.attribute=vo.attribute;
+		this.attributeF=vo.attributeF;
 		this.resultUpI=vo.resultUpI;
 		this.resultUpIF=vo.resultUpIF;
 		this.resultDownI=vo.resultDownI;

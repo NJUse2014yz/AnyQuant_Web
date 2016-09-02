@@ -23,7 +23,7 @@ public class BackTestServiceTest {
 		StrategyServiceImpl stImpl=new StrategyServiceImpl();
 		stImpl.strategyMapper=strategyMapper;
 		stImpl.functionMapper=functionMapper;
-		StrategyVO strategy=stImpl.getSingleStrategy("u1","u1","s1");
+		StrategyVO strategy=stImpl.getSingleStrategy("admin","admin","波浪理论");
 		
 		try {
 			instance.backtest(strategy.stockList, strategy.flags, 1, strategy.flags.get(0), strategy.risk);

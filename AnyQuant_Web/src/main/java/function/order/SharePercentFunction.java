@@ -133,4 +133,9 @@ public class SharePercentFunction extends Function{
 				+ ", resultDownOF=" + resultDownOF + "]";
 	}
 
+	@Override
+	public SharePercentFunction clone() throws CloneNotSupportedException {
+		return new SharePercentFunction(new PercentVO(resultUpI, percentF, resultDownI, percentF, resultUpO, percentF, resultDownO, percentF, siid, percentF, percent, percentF, price, priceF));
+	}
+
 }

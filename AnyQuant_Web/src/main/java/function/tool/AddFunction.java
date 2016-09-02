@@ -1,6 +1,7 @@
 package function.tool;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 import function.Function;
 import function.FunctionResult;
@@ -49,7 +50,10 @@ public class AddFunction extends Function {
 	public FunctionResult getResult(Date date) {
 		FunctionResult result=new FunctionResult();
 		result.location.add(ResultType.DOUBLE.getCode());
+		result.location.add(ResultType.DOUBLELIST.getCode());
 		result.rD=v1+v2;
+		result.rLD=new ArrayList<Double>();
+		result.rLD.add(v1+v2);
 		return result;
 	}
 	public double getV1() {
