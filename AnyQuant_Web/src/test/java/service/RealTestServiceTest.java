@@ -31,9 +31,14 @@ public class RealTestServiceTest{
 	public static HistoryDataMapper historyMapper=(HistoryDataMapper) applicationContext1.getBean("historyDataMapper");
 	public RealTestService instance=new RealTestServiceImpl(historyMapper,strategyMapper);
 	
-	public void initRealTest()
+	public void initRealTest1()
 	{
 		instance.initRealTest("admin","admin","波浪理论",100000,1);
+	}
+	
+	public void initRealTest2()
+	{
+		instance.initRealTest("admin","admin","五日金叉策略",100000,1);
 	}
 	
 	public void realTestForToday()
@@ -85,7 +90,8 @@ public class RealTestServiceTest{
 		instance.realTestForToday(vo);
 		System.out.println(vo);
 	}
-	public void saveRealTest() {
+	
+	public void saveRealTest1() {
 		StrategyServiceImpl stImpl=new StrategyServiceImpl();
 		stImpl.strategyMapper=strategyMapper;
 		stImpl.functionMapper=functionMapper;
@@ -95,11 +101,22 @@ public class RealTestServiceTest{
 		System.out.println(instance.realTestForToday(vo));
 		instance.saveRealTest(strategy.userName, strategy.createrName, strategy.strategyName, vo);
 	}
+	
+	public void saveRealTest2() {
+		StrategyServiceImpl stImpl=new StrategyServiceImpl();
+		stImpl.strategyMapper=strategyMapper;
+		stImpl.functionMapper=functionMapper;
+		StrategyVO strategy=stImpl.getSingleStrategy("admin","admin","五日金叉策略");
+		RealTestVO vo=strategy.getRealTest();
+		
+		System.out.println(instance.realTestForToday(vo));
+		instance.saveRealTest(strategy.userName, strategy.createrName, strategy.strategyName, vo);
+	}
+	
 	public static void main(String[] args)
 	{
 		RealTestServiceTest test=new RealTestServiceTest();
-//		test.initRealTest();
-		test.saveRealTest();
-//		test.realTestForToday();
+//		test.saveRealTest1();
+		test.saveRealTest2();
 	}
 }
