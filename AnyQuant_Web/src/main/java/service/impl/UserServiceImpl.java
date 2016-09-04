@@ -26,8 +26,8 @@ public class UserServiceImpl implements UserService {
 	
 	
 	public UserServiceImpl() {
-//		ApplicationContext applicationContext1 =new ClassPathXmlApplicationContext("classpath:configure/spring/applicationContext-dao.xml");
-//		userInfMapper=(UserInfMapper) applicationContext1.getBean("userInfMapper");
+		ApplicationContext applicationContext1 =new ClassPathXmlApplicationContext("classpath:configure/spring/applicationContext-dao.xml");
+		userInfMapper=(UserInfMapper) applicationContext1.getBean("userInfMapper");
 	}
 
 	@Override
@@ -74,6 +74,20 @@ public class UserServiceImpl implements UserService {
 		}
 		return false;
 	}
+	
+	@Override
+	public UserInf getUserInf(String Userid) throws Exception {
+		// TODO Auto-generated method stub
+		UserInf userInf = null;
+		try {
+			userInf = userInfMapper.select(Userid);
+		} catch (Exception e) {
+			e.printStackTrace();
+//			return false;
+		}
+		return userInf;
+	}
+	
 
 	@Override
 	public void modifyUserId(String OldUserid, String newUserid) throws Exception {
@@ -139,13 +153,6 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 	
-	public static void main(String[] args) throws Exception {
-		UserServiceImpl user=new UserServiceImpl();
-//		user.modifyScore("u4",1000);
-//		System.out.println(user.UserNameExists("u2"));
-		System.out.println(user.LoginUser("u7","77777"));
-		}
-
 	@Override
 	public List<String> queryStocks(String userName) {
 		UserInf userInf=null;
@@ -213,4 +220,15 @@ public class UserServiceImpl implements UserService {
 		UserInfVO vo=new UserInfVO(userInf);
 		return vo;
 	}
+	
+	public static void main(String[] args) throws Exception {
+		UserServiceImpl user=new UserServiceImpl();
+//		user.modifyScore("u4",1000);
+//		System.out.println(user.UserNameExists("u2"));
+//		System.out.println(user.LoginUser("u7","77777"));
+		System.out.println(user.getUserInf("congye6"));
+		}
+
 }
+
+

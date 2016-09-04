@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import po.UserInf;
 import vo.UserInfVO;
 
 
@@ -12,6 +13,8 @@ public interface UserService {
 	public void addUser(String Userid,String password) throws Exception;
 	//登录
 	public boolean LoginUser(String Userid,String password) throws Exception;
+	//获得用户信息
+	public UserInf getUserInf(String Userid)throws Exception;
 	//修改用户名
 	public void modifyUserId(String OldUserid,String newUserid)throws Exception;
 	//修改密码
