@@ -252,7 +252,7 @@ ol, ul {
 	width: 130px;
   	height:30px;
   	right:20px;
-    top:10px
+    top:5px
 }
 .unlogin{
 	position:relative;
@@ -263,6 +263,7 @@ ol, ul {
 	position:relative;
 	width:130px;
 	height:30px;
+	left:100px;
 }
 .header-signin,
 .header-signup{

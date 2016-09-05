@@ -162,6 +162,7 @@ public class IntroductionController {
 		String userName=CookieHelper.getCookie(request, CookieHelper.USER_NAME);
 		if(userName==null||userName==" "||userName.length()==0)
 			return 0;
+		System.out.println(userName);
 		UserInfVO vo=userService.queryUser(userName);
 		return vo.rank;
 	}

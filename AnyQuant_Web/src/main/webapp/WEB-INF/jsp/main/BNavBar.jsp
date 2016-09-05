@@ -10,6 +10,18 @@
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/cookie.js"></script>
+		<script src="js/user/userIcon.js"></script>
+		<script type="text/javascript">
+			$(function(){
+	            $('.logined img').jqthumb({
+	                width: 30,
+	                height: 30,
+	                after: function(imgObj){
+	                   imgObj.css('opacity', 0).animate({opacity: 1},1000);
+	                 }
+	            });
+	        })
+        </script>
 	</head>
 	
 	<body>
@@ -46,18 +58,13 @@
 		</div>
 		
 		<div id="login-area">
-		
-		
 			<!-- 已登录的界面 -->
-			<ul class="logined">
-				<li class="header-signup">
-                    <a class="logout">注销</a>
-                </li>	
-				<li id="signined" class="header-signin">
-                    <a>已登录</a>
-                </li>	
+			<div class="logined">
+				<img src="graphics/introduction/image1.jpg" style="width:30px;height:30px"></img>	
 			
-			</ul>
+			</div>
+		
+			
 			<!--未登陆的界面 -->
 			<ul class="unlogin">
 				<li class="header-signup">
@@ -72,6 +79,8 @@
 		</div>
 		
 		
+		
+		
 		<script type="text/javascript">
 			$(function(){
 				showUserInfo();
@@ -82,11 +91,11 @@
 
 				if(userName!='""'){
 					$("ul.unlogin").hide();
-					$("ul.logined").show();
+					$(".logined").show();
 					$("#signined a").text(userName);
 				}
 				else{
-					$("ul.logined").hide();
+					$(".logined").hide();
 					$("ul.unlogin").show();
 				}
 					
