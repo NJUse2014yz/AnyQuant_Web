@@ -10,9 +10,8 @@ body {
 }
 /*form styles*/
 #msform {
-	width: 80%;
+	width: 90%;
 	min-width:300px;
-	max-width:1000px;
 	margin: 50px auto;
 	text-align: center;
 	position: relative;
@@ -25,8 +24,8 @@ body {
 	padding: 20px 30px;
 	
 	box-sizing: border-box;
-	width: 80%;
-	margin: 0 10%;
+	width: 90%;
+	margin: 0 5%;
 	
 	/*stacking fieldsets above each other*/
 	position: absolute;
@@ -41,7 +40,7 @@ body {
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	margin-bottom: 10px;
-	width: 100%;
+	width: 50%;
 	box-sizing: border-box;
 	font-family: "Microsoft YaHei",montserrat;
 	color: #2C3E50;
@@ -64,14 +63,14 @@ body {
 }
 /*headings*/
 .fs-title {
-	font-size: 17px;
+	font-size: 26px;
 	text-transform: uppercase;
 	color: #2C3E50;
 	margin-bottom: 10px;
 }
 .fs-subtitle {
 	font-weight: normal;
-	font-size: 13px;
+	font-size: 18px;
 	color: #666;
 	margin-bottom: 20px;
 }
@@ -124,4 +123,8 @@ body {
 	background: #27AE60;
 	color: white;
 }
-
+.choose-stocks{
+	float:left;
+	width:50%;
+	height:80%;
+}

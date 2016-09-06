@@ -13,11 +13,12 @@
     <script src="js/jquery-3.1.0.min.js"></script> 
 </head>
 <body>
-	<h1>看这里是策略社区</h1>
 	<div class="head">
 		<jsp:include page="/WEB-INF/jsp/main/NavBar.jsp"></jsp:include>
 	</div>
 	<div class="content">
+	<h1>看这里是策略社区</h1>
+	
 	</div>
 	<div class="foot">
 		<jsp:include page="/WEB-INF/jsp/main/Foot.jsp"></jsp:include>

@@ -21,7 +21,7 @@
 	<div class="content">
 	    <article class="htmleaf-content">
 	        <!-- multistep form -->
-	        <form id="msform">
+	        <div id="msform">
 	            <!-- progressbar -->
 	            <ul id="progressbar">
 	                <li class="active">股票选择</li>
@@ -34,10 +34,15 @@
 	            <fieldset>
 	                <h2 class="fs-title">一个良好的策略从精准选股开始</h2>
 	                <h3 class="fs-subtitle">搜索 对冲 地区 概念 行业 属性 组合</h3>
+	                <div class="choose-stocks">
+	                	<h3>已选股票</h3>
+	                	<table></table>
+	                </div>
 	                <input type="text" name="email" placeholder="Email地址" />
 	                <input type="password" name="pass" placeholder="密码" />
 	                <input type="password" name="cpass" placeholder="重复密码" />
 	                <input type="button" name="next" class="next action-button" value="Next" />
+	                <input type="button"  class="add" value="添加条件" />
 	            </fieldset>
 	            <fieldset>
 	                <h2 class="fs-title">填写社交账号</h2>
@@ -74,7 +79,7 @@
 	                <input type="button" name="previous" class="previous action-button" value="Previous" />
 	                <input type="button" name="submit" class="submit action-button" value="完成" />
 	            </fieldset>
-	        </form>
+	        </div>
 	    </article>
     </div>
     <div class="foot">
