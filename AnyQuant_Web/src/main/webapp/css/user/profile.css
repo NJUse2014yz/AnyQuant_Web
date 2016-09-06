@@ -1,0 +1,31 @@
+div.userIcon{
+	position: relative;
+	left:500px;
+	width:900px;
+	top:100px;
+	
+}
+
+.icon{
+	position: relative;
+	width:150px;
+	height:150px;
+	margin-right:50px; 
+}
+
+.userIcon img{
+	position: relative;
+	width:150px;
+	height:150px;
+	
+}
+
+div{
+	float:left;
+}
+
+p.userName{
+	position: relative;
+	right:200px;
+	font-size:28px !important;
+}

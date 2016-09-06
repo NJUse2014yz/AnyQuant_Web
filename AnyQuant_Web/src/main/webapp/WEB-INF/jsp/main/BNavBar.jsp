@@ -50,7 +50,7 @@
 					<ul class="submenu">
 						<li><a href="#">个人策略</a></li>
 						<li><a href="#">收藏策略</a></li>
-						<li><a href="#">个人资料</a></li>
+						<li><a href="/AnyQuant_Web/profile.action">个人资料</a></li>
 						<li><a href="#">消息空间</a></li>
 					</ul>
 				</li>
@@ -60,6 +60,7 @@
 		<div id="login-area">
 			<!-- 已登录的界面 -->
 			<div class="logined">
+				<!-- todo -->
 				<img src="graphics/introduction/image1.jpg" style="width:30px;height:30px"></img>	
 			
 			</div>

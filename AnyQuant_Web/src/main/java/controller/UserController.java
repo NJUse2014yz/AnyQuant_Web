@@ -12,7 +12,7 @@ public class UserController {
 	public ModelAndView profile(){
 		ModelAndView modelAndView = new ModelAndView();
 		
-		
+		modelAndView.setViewName("user/Profile");
 		return modelAndView;
 	}
 	
