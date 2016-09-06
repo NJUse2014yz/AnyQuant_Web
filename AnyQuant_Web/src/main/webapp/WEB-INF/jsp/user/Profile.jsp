@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/user/percent.css">
 
 <script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/user/jquery.carouFredSel-6.0.4-packed.js"></script>
 <script type="text/javascript">
 	$(function(){
 	      //头像
@@ -24,6 +25,21 @@
 			  height: "70%"
 	
 		  },1000);
+          
+          //tabs
+          $('#tabs').carouFredSel({
+			circular: false,
+			items: 1,
+			width: '100%',
+			auto: false,
+			pagination: {
+				container: '#pager',
+				anchorBuilder: function( nr ) {
+					return '<a href="#">' + $(this).find('h3').text() + '</a>';
+				}
+			}
+		});
+		$('#tabs h3').hide();
 
 
       })
@@ -43,17 +59,30 @@
 
 			<div class="r_in">
 
-			<div class="r_c c1"></div>
+				<div class="r_c c1"></div>
+	
+				<div class="r_num">Lv4</div>
 
-			<div class="r_num">Lv4</div>
-
+			</div>
+			<p class="userName">congye6</p>
 		</div>
-		<p class="userName">congye6</p>
-
-
+	</div>
+	
+	<div id="wrapper">
+		<div id="pager"></div>
+		<div id="tabs">
+			<div id="blue">
+				
+				<h3>Cupcake ipsum</h3>
+				
+			</div>
+			<div id="pink">
+				<h3>Cupcake ipsum</h3>
+			</div>
+			<div id="white">
+				<h3>Cupcake ipsum</h3>
+			</div>
 		</div>
-
-
 	</div>
 </body>
 </html>
