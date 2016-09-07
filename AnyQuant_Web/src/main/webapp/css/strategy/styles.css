@@ -6,13 +6,14 @@ body {
 }
 .htmleaf-content {
 	font-size: 150%;
-	padding: 1em 0;
+	padding: 1em 0;	
+	margin-bottom: 50px;
 }
 /*form styles*/
 #msform {
 	width: 90%;
 	min-width:300px;
-	margin: 50px auto;
+	margin: 20px auto;
 	text-align: center;
 	position: relative;
 }
@@ -125,6 +126,15 @@ body {
 }
 .choose-stocks{
 	float:left;
-	width:50%;
-	height:80%;
+	width:40%;
+	min-height:50px;
+	font-size: 19px;
+	font-weight: normal;
+}
+.list-stocks{
+	float:left;
+	width:60%;
+	min-height:50px;
+	font-size: 19px;
+	font-weight: normal;
 }
