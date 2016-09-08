@@ -51,21 +51,14 @@
 	<div class="head">
 		<jsp:include page="/WEB-INF/jsp/main/NavBar.jsp"></jsp:include>
 	</div>
+	
 	<div class="userIcon">
 		<div class="icon">
 			<img alt="" src="graphics/introduction/image1.jpg"></img>
 		</div>
-		<div class="r_out">
-
-			<div class="r_in">
-
-				<div class="r_c c1"></div>
-	
-				<div class="r_num">Lv4</div>
-
-			</div>
-			<p class="userName">congye6</p>
-		</div>
+		
+		<p class="userName">congye6</p>
+		
 	</div>
 	
 	<div id="wrapper">
@@ -73,16 +66,18 @@
 		<div id="tabs">
 			<div id="blue">
 				
-				<h3>Cupcake ipsum</h3>
+				<h3>我的策略</h3>
 				
 			</div>
 			<div id="pink">
-				<h3>Cupcake ipsum</h3>
+				<h3>收藏策略</h3>
 			</div>
 			<div id="white">
-				<h3>Cupcake ipsum</h3>
+				<h3>收藏股票</h3>
 			</div>
 		</div>
 	</div>
+	
+	
 </body>
 </html>

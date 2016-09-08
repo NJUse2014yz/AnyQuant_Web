@@ -1,6 +1,6 @@
 div.userIcon{
 	position: relative;
-	left:500px;
+	left:600px;
 	width:900px;
 	top:50px;
 	
@@ -26,7 +26,8 @@ div{
 
 p.userName{
 	position: relative;
-	right:200px;
+	right:180px;
+	top:150px;
 	font-size:28px !important;
 }
 
@@ -54,7 +55,7 @@ body * {
 	padding-top: 25px;
 	
 	position: absolute;
-	left: 200px;
+	left: 0px;
 	top: 300px;
 }
 #tabs > div {
@@ -73,7 +74,7 @@ body * {
 	width: 700px;
 	margin: -76px auto 25px auto;
 	text-align: center;
-	left:200px;
+	left:330px;
 }
 #pager a {
 	border: 1px solid transparent;

@@ -19,6 +19,7 @@ ol, ul {
     top:0px;
     z-index: 100;
     background-color: #000000;
+    z-index:1
 }
 .top img{
 	margin-top:0px;
@@ -253,7 +254,8 @@ ol, ul {
 	width: 130px;
   	height:30px;
   	right:20px;
-    top:5px
+    top:5px;
+    z-index:2
 }
 .unlogin{
 	position:relative;
