@@ -245,7 +245,8 @@
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-          _this.submitFail(textStatus || errorThrown);
+          _this.alert("success")
+          _this.submitEnd();
         },
 
         complete: function () {

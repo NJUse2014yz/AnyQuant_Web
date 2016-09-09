@@ -101,6 +101,11 @@
 				}
 					
 			}
+			
+			//显示头像
+			var userName=getCookie("userName");
+			$(".logined img").attr("src","graphics/user/icon/"+userName+".jpg");
+			
 			//注销
 			$(".logout").click(function(){
 				$.ajax({

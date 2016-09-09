@@ -78,8 +78,7 @@ public class LoginController {
 	@RequestMapping("/register")
 	public ModelAndView register(String userName,String password) throws Exception {
 		ModelAndView modelAndView=new ModelAndView();
-		System.out.println("userName:"+userName);
-		System.out.println("password:"+password);
+		
 		userService.addUser(userName, password);
 		modelAndView.setViewName("user/login");
 		return modelAndView;

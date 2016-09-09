@@ -15,14 +15,10 @@
 <script src="js/user/jquery.carouFredSel-6.0.4-packed.js"></script>
 <script src="js/user/cropper.min.js"></script>
 <script src="js/user/sitelogo.js"></script>
+
 <script type="text/javascript">
 	$(function(){
-	      //头像
-          $('.userIcon img').jqthumb({
-              width: 150,
-              height: 150,
-              after:null
-          });
+	      
           
           //等级显示
           $(".c1").animate({
@@ -46,6 +42,18 @@
 		});
 		$('#tabs h3').hide();
 
+		
+		//设置用户头像和用户名
+		var userName=getCookie("userName");
+		$("p.userName").text(userName);
+		$(".userIcon img").attr("src","graphics/user/icon/"+userName+".jpg");
+		
+		//头像
+         $('.userIcon img').jqthumb({
+             width: 150,
+             height: 150,
+             after:null
+         });
 
       })
 </script>
@@ -61,7 +69,7 @@
 		<div class="row">
 			<div id="crop-avatar" class="col-md-6">
 				<div class="avatar-view" title="Change Logo Picture">
-			    	<img src="graphics/introduction/image1.jpg" alt="Logo">
+			    	<img  alt="Logo">
 			    </div>
 			</div>
 		</div>
@@ -71,7 +79,7 @@
 
 	<div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
 		
-		<p class="userName">congye6</p>
+		<p class="userName"></p>
 		
 	</div>
 	
@@ -79,7 +87,7 @@
 	<div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
-				<form class="avatar-form" action="{{url('admin/upload-logo')}}" enctype="multipart/form-data" method="post">
+				<form class="avatar-form" action="/AnyQuant_Web/uploadIcon.action" enctype="multipart/form-data" method="post">
 					<div class="modal-header" style="width:898px">
 						<button class="close" data-dismiss="modal" type="button">&times;</button>
 						<h4 class="modal-title" id="avatar-modal-label">Change Logo Picture</h4>
