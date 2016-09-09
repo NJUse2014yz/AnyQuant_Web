@@ -10,7 +10,7 @@
     <link href="css/main/bootstrap.min.css" rel="stylesheet">
     <!-- 全局配置 CSS -->
     <link href="css/reset.css" rel="stylesheet">
-	<link href="css/strategy/styles.css" rel="stylesheet">
+	<link href="css/strategy/strategy.css" rel="stylesheet">
     <script src="js/jquery-3.1.0.min.js"></script>
     <script src="js/strategy/addStrategy.js"></script>
     <script src="js/strategy/jquery.easing.min.js" type="text/javascript"></script>
@@ -35,15 +35,46 @@
 	            <fieldset>
 	                <h2 class="fs-title">一个良好的策略从精准选股开始</h2>
 	                <h3 class="fs-subtitle">搜索 对冲 地区 概念 行业 属性 组合</h3>
-	                <div class="choose-stocks">
+	               
+	                <div class="choosing">
+		                <div class="list-stocks">
+		                	<p>筛选结果</p>
+		                	<ul class="inf-indice-list">
+								<li class="indice-menu">
+									<ul class="indice-inf">
+										<li class="col-name">指数名称</li>
+										<li class="col-id">指数ID</li>
+										<li class="col-close">收盘价</li>
+										<li class="col-per">涨跌幅</li>
+									</ul>
+								</li>
+							
+								<li class="indice">
+									<ul class="indice-inf" onclick="requiryStock('${list1.get(i).stockId}')">
+										<li class="col-name">${list1.get(i).name}</li>
+										<li class="col-id">${list1.get(i).stockId}</li>
+										<li class="col-close">${list1.get(i).close}</li>
+										<li class="col-per">${list1.get(i).incrPer}%</li>
+									</ul>
+								</li>
+							</ul>
+		                </div>
+		                <div class="select-part">
+		                	<div></div>
+		                	<input type="text" name="email" placeholder="Email地址" />
+			                <input type="password" name="pass" placeholder="密码" />
+			                <input type="password" name="cpass" placeholder="重复密码" />		                
+			                <input type="button"  class="add" value="添加条件" />
+		                </div>
+		                <input type="button" name="next" class="next action-button" value="Next" />
+	                </div>
+	                 <div class="choosed-stocks">
 	                	<p>已选股票</p>
 	                	<ul class="lists-choose-stocks">
 							<li class="stocks-menu">
 								<ul class="stock-inf">
 									<li class="col-name">股票名称</li>
 									<li class="col-id">指数代码</li>
-									<li class="col-close">收盘价</li>
-									<li class="col-per">涨跌幅</li>
 								</ul>
 							</li>
 						
@@ -56,38 +87,191 @@
 									</li>
 								</ul>
 							</li>
-						</ul>
-	                </div>
-	                <div class="list-stocks">
-	                	<p>筛选结果</p>
-	                	<ul class="inf-indice-list">
-							<li class="indice-menu">
-								<ul class="indice-inf">
-									<li class="col-name">指数名称</li>
-									<li class="col-id">指数ID</li>
-									<li class="col-close">收盘价</li>
-									<li class="col-per">涨跌幅</li>
+							<li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
 								</ul>
 							</li>
-						
-							<li class="indice">
-								<ul class="indice-inf" onclick="requiryStock('${list1.get(i).stockId}')">
-									<li class="col-name">${list1.get(i).name}</li>
-									<li class="col-id">${list1.get(i).stockId}</li>
-									<li class="col-close">${list1.get(i).close}</li>
-									<li class="col-per">${list1.get(i).incrPer}%</li>
+							<li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li>
+							<li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li>
+							<li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li>
+							<li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li>
+							<li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li>
+							<li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li>
+							<li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li>
+							
+							<li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li>
+							<li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li>
+							<li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li>
+							
+							<li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li><li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li>
+							<li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li><li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li><li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li><li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li><li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li><li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li><li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
+								</ul>
+							</li><li class="stock">
+								<ul class="stock-inf" onclick="requiryStock('${list1.get(i).stockId}')" onmouseover="chooseMOver(this)" onmouseout="chooseMOut(this)">
+									<li class="col-name">赛格国际</li>
+									<li class="col-id">sh600300</li>
+									<li class="col-delete">
+										<button onclick="chooseDetele(this)">删除</button>
+									</li>
 								</ul>
 							</li>
 						</ul>
 	                </div>
-	                <div class="select-part">
-	                	<div></div>
-	                	<input type="text" name="email" placeholder="Email地址" />
-		                <input type="password" name="pass" placeholder="密码" />
-		                <input type="password" name="cpass" placeholder="重复密码" />		                
-		                <input type="button"  class="add" value="添加条件" />
-	                </div>
-	                <input type="button" name="next" class="next action-button" value="Next" />
 	            </fieldset>
 	            <fieldset>
 	                <h2 class="fs-title">填写社交账号</h2>

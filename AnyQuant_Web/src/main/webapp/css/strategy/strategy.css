@@ -124,17 +124,70 @@ body {
 	background: #27AE60;
 	color: white;
 }
-.choose-stocks{
+.choosed-stocks{
 	float:left;
-	width:40%;
-	min-height:50px;
-	font-size: 19px;
+	width:35%;
+	font-size: 20px;
 	font-weight: normal;
 }
-.list-stocks{
+.lists-choose-stocks{
+	min-height:300px;
+	max-height:400px;
+	margin-bottom:30px;
+	overflow: hidden;
+	overflow-y:auto;
+}
+
+/* ¹ö¶¯Ìõ */
+.lists-choose-stocks::-webkit-scrollbar {
+ 	width: 5px;
+ 	background-color: #F5F5F5;
+}
+.lists-choose-stocks::-webkit-scrollbar-thumb {
+ 	border-radius: 10px;
+ 	background-image: -webkit-gradient(linear,left bottom,left top,
+ 	color-stop(0.44, rgb(70,36,69)),
+ 	color-stop(0.72, rgb(70,36,69)),
+ 	color-stop(0.86, rgb(70,36,69)));
+}
+.stocks-menu{
+	width:100%;
+	height:25px;
+	border-top: 1px solid rgb(70,36,69);
+	border-bottom: 1px solid rgb(70,36,69);
+	background-color: #f5f5f5;
+}
+.stocks-menu li{
+	font-size: 18px;
+	height:25px;
+	display:block;
+	color: rgb(70,36,69);
+}
+.stock{
+	width:100%;
+	height:15%;
+	border-bottom: 1px solid rgb(70,36,69);
+}
+.stock:HOVER{
+	cursor: pointer;
+}
+.stock-inf li{
 	float:left;
-	width:60%;
-	min-height:50px;
+	height:100%;
+	text-align: center;
+	font-size: 15px;
+}
+
+.col-name{
+	width:45%;
+}
+.col-id{
+	width:45%;
+}
+.choosing{
+	float:left;
+	width:65%;
+	min-height:300px;
 	font-size: 19px;
 	font-weight: normal;
 }
