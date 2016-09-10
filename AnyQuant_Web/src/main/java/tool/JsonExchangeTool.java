@@ -19,6 +19,7 @@ import function.choose.AreaFunction;
 import function.choose.AreaVO;
 import function.choose.AttributeFunction;
 import function.choose.AttributeVO;
+import function.choose.BestPairFunction;
 import function.choose.ChooseStock;
 import function.choose.ConceptFunction;
 import function.choose.ConceptVO;
@@ -26,6 +27,8 @@ import function.choose.IndustryFunction;
 import function.choose.IndustryVO;
 import function.choose.IntersectionFunction;
 import function.choose.IntersectionVO;
+import function.choose.MultFactFunction;
+import function.choose.MultFactVO;
 import function.choose.PairFunction;
 import function.choose.PairVO;
 import function.flag.CrossFunction;
@@ -294,6 +297,7 @@ public class JsonExchangeTool {
 			List<Double> valueList=null;
 			int mm=0;
 			int loc=0;
+			int stosum=10;
 			
 			Function attributeF=null;
 			Function siid1F=null;
@@ -317,6 +321,7 @@ public class JsonExchangeTool {
 			Function valueListF=null;
 			Function mmF=null;
 			Function locF=null;
+			Function stosumF=null;
 			
 			JSONObject attributeFJ=null;
 			JSONObject siid1FJ=null;
@@ -340,6 +345,7 @@ public class JsonExchangeTool {
 			JSONObject valueListFJ=null;
 			JSONObject mmFJ=null;
 			JSONObject locFJ=null;
+			JSONObject stosumFJ=null;
 			
 			switch(function)
 			{
@@ -352,6 +358,8 @@ public class JsonExchangeTool {
 				numFJ = jObject.getJSONObject("numF");
 				numF =getFunction(numFJ);
 				return new PairFunction(new PairVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, siid, siidF, num, numF));
+			case "BestPair":
+				return new BestPairFunction();
 			case "Area":
 				area=(String)jObject.get("area");
 				areaFJ=jObject.getJSONObject("areaF");
@@ -406,6 +414,27 @@ public class JsonExchangeTool {
 				attributeFJ = jObject.getJSONObject("attributeF");
 				attributeF = getFunction(attributeFJ);
 				return new AttributeFunction(new AttributeVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, up, upF, down, downF, attribute2, attributeF));
+			case "MultFact":
+				attribute = (String)jObject.get("attribute");
+				attributeFJ = jObject.getJSONObject("attributeF");
+				attributeF = getFunction(attributeFJ);
+				try{
+					day = jObject.getInt("days");
+				} catch(Exception e22)
+				{
+					System.err.println("JsonExchangeTool==>e17.5 json exception");
+				}
+				dayFJ = jObject.getJSONObject("dayF");
+				dayF = getFunction(dayFJ);
+				try{
+					stosum = jObject.getInt("stosum");
+				} catch(Exception e22)
+				{
+					System.err.println("JsonExchangeTool==>e17.55 json exception");
+				}
+				stosumFJ = jObject.getJSONObject("stosumF");
+				stosumF = getFunction(stosumFJ);
+				return new MultFactFunction(new MultFactVO(resultUpI, resultUpIF, resultDownI, resultDownIF, resultUpO, resultUpOF, resultDownO, resultDownOF, attribute, attributeF, day, dayF, stosum, stosumF));
 				
 			//risk	
 			case "StandardPercent":

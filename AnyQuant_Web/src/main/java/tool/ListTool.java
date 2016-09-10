@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -11,6 +13,7 @@ import po.AreaInf;
 import po.AreaInfPack;
 import po.DatePack;
 import po.HistoryData;
+import po.MultFactDataPack;
 import po.QuotaData;
 import po.StockInf;
 import mapper.AreaInfMapper;
@@ -20,6 +23,7 @@ import mapper.IndiceInfMapper;
 import mapper.IndustryInfMapper;
 import mapper.MonthHDataMapper;
 import mapper.MonthQDataMapper;
+import mapper.MultFactStockRecommendMapper;
 import mapper.QuotaDataMapper;
 import mapper.StockInfMapper;
 import mapper.StrategyMapper;
@@ -42,6 +46,7 @@ public class ListTool {
 	public static IndiceInfMapper indiceInfMapper=(IndiceInfMapper)applicationContext.getBean("indiceInfMapper");
 	public static StrategyMapper strategyMapper=(StrategyMapper)applicationContext.getBean("strategyMapper");
 	public static UserInfMapper userInfMapper=(UserInfMapper)applicationContext.getBean("userInfMapper");
+	public static MultFactStockRecommendMapper multFactStockRecommendMapper=(MultFactStockRecommendMapper)applicationContext.getBean("multFactStockRecommendMapper");
 	
 	public List<Long> getDate(String siid,Date start,Date end)
 	{
@@ -774,4 +779,19 @@ public class ListTool {
 		return value;
 	}
 	
+	public List<String> getStockGroup(String attribute,int days,int stosum)
+	{
+		MultFactDataPack pack=new MultFactDataPack();
+		pack.setAttribute(attribute);
+		pack.setDays(days);
+		pack.setSumsto(stosum);
+		String queryResult=null;
+		try {
+			queryResult=multFactStockRecommendMapper.selectGroup(pack);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		List<String> list=JSONArray.fromObject(queryResult);
+		return list;
+	}
 }

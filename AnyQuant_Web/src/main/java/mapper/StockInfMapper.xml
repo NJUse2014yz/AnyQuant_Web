@@ -46,4 +46,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectStockInf_sid" resultType="String">
 		select sid from StockInf
 	</select>
+	<select id="selectStockPair" resultType="StockPair">
+		select sid,partner1,coe1
+		from StockInf
+		where coe1 &gt;= all (select coe1 from StockInf)
+	</select>
 </mapper>

@@ -2,15 +2,25 @@ package po;
 
 import java.util.ArrayList;
 
-public class MultFactData {
+import net.sf.json.JSONArray;
 
+public class MultFactDataPack {
 	public String attribute;
-	public ArrayList<String> stolist;
+	public String stolist;
 	public double incPerc;
 	public int days;
 	public int sumsto;
 
-	public MultFactData(String attribute, ArrayList<String> stolist, double incPerc, int days, int sumsto) {
+	public MultFactDataPack(MultFactData data)
+	{
+		this.attribute = data.attribute;
+		this.stolist = JSONArray.fromObject(data.stolist).toString();
+		this.incPerc = data.incPerc;
+		this.days = data.days;
+		this.sumsto = data.sumsto;
+	}
+	
+	public MultFactDataPack(String attribute, String stolist, double incPerc, int days, int sumsto) {
 		super();
 		this.attribute = attribute;
 		this.stolist = stolist;
@@ -19,7 +29,7 @@ public class MultFactData {
 		this.sumsto = sumsto;
 	}
 	
-	public MultFactData(){
+	public MultFactDataPack(){
 		this.attribute = null;
 		this.stolist = null;
 		this.incPerc = 0.0;
@@ -35,11 +45,11 @@ public class MultFactData {
 		this.attribute = attribute;
 	}
 
-	public ArrayList<String> getStolist() {
+	public String getStolist() {
 		return stolist;
 	}
 
-	public void setStolist(ArrayList<String> stolist) {
+	public void setStolist(String stolist) {
 		this.stolist = stolist;
 	}
 
@@ -66,5 +76,5 @@ public class MultFactData {
 	public void setSumsto(int sumsto) {
 		this.sumsto = sumsto;
 	}
-
+	
 }

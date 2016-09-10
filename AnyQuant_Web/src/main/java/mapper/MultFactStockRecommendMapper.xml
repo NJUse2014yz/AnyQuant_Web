@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.MultFactStockRecommendMapper">
+	<select id="selectGroup" parameterType="MultFactDataPack" resultType="String">
+		select stolist from MultFactStockRecommend
+		where attribute=#{attribute}
+			and days=#{days}
+			and sumsto=#{sumsto}
+	</select>
+</mapper>

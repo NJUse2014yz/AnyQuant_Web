@@ -3,6 +3,7 @@ package mapper;
 import java.util.List;
 
 import po.StockInf;
+import po.StockPair;
 /**
  * @table stockinf
  * @po StockInf
@@ -31,5 +32,7 @@ public interface StockInfMapper {
 	public List<StockInf> selectStockInf_all() throws Exception;
 	/**查找股票信息-sid*/
 	public List<String> selectStockInf_sid() throws Exception;
+	/**查找配对性最好的股票对*/
+	public StockPair selectStockPair() throws Exception;
 	
 }
