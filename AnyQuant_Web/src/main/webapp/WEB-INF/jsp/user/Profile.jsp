@@ -6,15 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link rel="stylesheet" type="text/css" href="css/user/profile.css">
-<link rel="stylesheet" type="text/css" href="css/user/percent.css">
 <link href="css/user/cropper.css" rel="stylesheet">
 <link href="css/user/sitelogo.css" rel="stylesheet">
 <link href="css/main/bootstrap.min.css" rel="stylesheet">
+<link href="css/table.css" rel="stylesheet">
 
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/user/jquery.carouFredSel-6.0.4-packed.js"></script>
 <script src="js/user/cropper.min.js"></script>
 <script src="js/user/sitelogo.js"></script>
+<script src="js/tool/table.js"></script>
 
 <script type="text/javascript">
 	$(function(){
@@ -133,15 +134,205 @@
 		<div id="pager"></div>
 		<div id="tabs">
 			<div id="blue">
-				
 				<h3>我的策略</h3>
-				
+				<div class="component">
+					<table border="1" class="bordered">
+						
+							<tr>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Phone</th>
+								<th>Mobile</th>
+							</tr>
+						
+						
+							<tr>
+								<td class="user-name">gary coleman</td>
+								<td class="user-email">gary.coleman21@example.com</td>
+								<td class="user-phone">(398)-332-5385</td>
+								<td class="user-mobile">(888)-677-3719</td>
+							</tr>
+							<tr>
+								<td class="user-name">rose parker</td>
+								<td class="user-email">rose.parker16@example.com</td>
+								<td class="user-phone">(293)-873-2247</td>
+								<td class="user-mobile">(216)-889-4933</td>
+							</tr>
+							<tr>
+								<td class="user-name">gary coleman</td>
+								<td class="user-email">gary.coleman21@example.com</td>
+								<td class="user-phone">(398)-332-5385</td>
+								<td class="user-mobile">(888)-677-3719</td>
+							</tr>
+							<tr>
+								<td class="user-name">rose parker</td>
+								<td class="user-email">rose.parker16@example.com</td>
+								<td class="user-phone">(293)-873-2247</td>
+								<td class="user-mobile">(216)-889-4933</td>
+							</tr>
+							<tr>
+								<td class="user-name">gary coleman</td>
+								<td class="user-email">gary.coleman21@example.com</td>
+								<td class="user-phone">(398)-332-5385</td>
+								<td class="user-mobile">(888)-677-3719</td>
+							</tr>
+							<tr>
+								<td class="user-name">rose parker</td>
+								<td class="user-email">rose.parker16@example.com</td>
+								<td class="user-phone">(293)-873-2247</td>
+								<td class="user-mobile">(216)-889-4933</td>
+							</tr>
+							<tr>
+								<td class="user-name">gary coleman</td>
+								<td class="user-email">gary.coleman21@example.com</td>
+								<td class="user-phone">(398)-332-5385</td>
+								<td class="user-mobile">(888)-677-3719</td>
+							</tr>
+							<tr>
+								<td class="user-name">rose parker</td>
+								<td class="user-email">rose.parker16@example.com</td>
+								<td class="user-phone">(293)-873-2247</td>
+								<td class="user-mobile">(216)-889-4933</td>
+							</tr>
+							<tr>
+								<td class="user-name">gary coleman</td>
+								<td class="user-email">gary.coleman21@example.com</td>
+								<td class="user-phone">(398)-332-5385</td>
+								<td class="user-mobile">(888)-677-3719</td>
+							</tr>
+							<tr>
+								<td class="user-name">rose parker</td>
+								<td class="user-email">rose.parker16@example.com</td>
+								<td class="user-phone">(293)-873-2247</td>
+								<td class="user-mobile">(216)-889-4933</td>
+							</tr>
+							<tr>
+								<td class="user-name">gary coleman</td>
+								<td class="user-email">gary.coleman21@example.com</td>
+								<td class="user-phone">(398)-332-5385</td>
+								<td class="user-mobile">(888)-677-3719</td>
+							</tr>
+							<tr>
+								<td class="user-name">rose parker</td>
+								<td class="user-email">rose.parker16@example.com</td>
+								<td class="user-phone">(293)-873-2247</td>
+								<td class="user-mobile">(216)-889-4933</td>
+							</tr>
+							<tr>
+								<td class="user-name">gary coleman</td>
+								<td class="user-email">gary.coleman21@example.com</td>
+								<td class="user-phone">(398)-332-5385</td>
+								<td class="user-mobile">(888)-677-3719</td>
+							</tr>
+							<tr>
+								<td class="user-name">rose parker</td>
+								<td class="user-email">rose.parker16@example.com</td>
+								<td class="user-phone">(293)-873-2247</td>
+								<td class="user-mobile">(216)-889-4933</td>
+							</tr>
+							<tr>
+								<td class="user-name">gary coleman</td>
+								<td class="user-email">gary.coleman21@example.com</td>
+								<td class="user-phone">(398)-332-5385</td>
+								<td class="user-mobile">(888)-677-3719</td>
+							</tr>
+							<tr>
+								<td class="user-name">rose parker</td>
+								<td class="user-email">rose.parker16@example.com</td>
+								<td class="user-phone">(293)-873-2247</td>
+								<td class="user-mobile">(216)-889-4933</td>
+							</tr>
+							<tr>
+								<td class="user-name">gary coleman</td>
+								<td class="user-email">gary.coleman21@example.com</td>
+								<td class="user-phone">(398)-332-5385</td>
+								<td class="user-mobile">(888)-677-3719</td>
+							</tr>
+							<tr>
+								<td class="user-name">rose parker</td>
+								<td class="user-email">rose.parker16@example.com</td>
+								<td class="user-phone">(293)-873-2247</td>
+								<td class="user-mobile">(216)-889-4933</td>
+							</tr>
+							<tr>
+								<td class="user-name">gary coleman</td>
+								<td class="user-email">gary.coleman21@example.com</td>
+								<td class="user-phone">(398)-332-5385</td>
+								<td class="user-mobile">(888)-677-3719</td>
+							</tr>
+							<tr>
+								<td class="user-name">rose parker</td>
+								<td class="user-email">rose.parker16@example.com</td>
+								<td class="user-phone">(293)-873-2247</td>
+								<td class="user-mobile">(216)-889-4933</td>
+							</tr>
+							<tr>
+								<td class="user-name">gary coleman</td>
+								<td class="user-email">gary.coleman21@example.com</td>
+								<td class="user-phone">(398)-332-5385</td>
+								<td class="user-mobile">(888)-677-3719</td>
+							</tr>
+							<tr>
+								<td class="user-name">rose parker</td>
+								<td class="user-email">rose.parker16@example.com</td>
+								<td class="user-phone">(293)-873-2247</td>
+								<td class="user-mobile">(216)-889-4933</td>
+							</tr>
+							<tr>
+								<td class="user-name">gary coleman</td>
+								<td class="user-email">gary.coleman21@example.com</td>
+								<td class="user-phone">(398)-332-5385</td>
+								<td class="user-mobile">(888)-677-3719</td>
+							</tr>
+							<tr>
+								<td class="user-name">rose parker</td>
+								<td class="user-email">rose.parker16@example.com</td>
+								<td class="user-phone">(293)-873-2247</td>
+								<td class="user-mobile">(216)-889-4933</td>
+							</tr>
+							
+							<tr>
+								<td class="user-name">gary coleman</td>
+								<td class="user-email">gary.coleman21@example.com</td>
+								<td class="user-phone">(398)-332-5385</td>
+								<td class="user-mobile">(888)-677-3719</td>
+							</tr>
+							<tr>
+								<td class="user-name">rose parker</td>
+								<td class="user-email">rose.parker16@example.com</td>
+								<td class="user-phone">(293)-873-2247</td>
+								<td class="user-mobile">(216)-889-4933</td>
+							</tr>
+						
+
+					</table>
+
+				</div>
+
+
+
+
 			</div>
 			<div id="pink">
 				<h3>收藏策略</h3>
 			</div>
 			<div id="white">
 				<h3>收藏股票</h3>
+				<table id="stockList" border="1" class="bordered">
+					<tr>
+						<th>id</th>
+						<th>开盘价</th>
+						<th>收盘价</th>
+						<th>涨跌额</th>
+						<th>涨跌幅</th>
+						<th>最低价</th>
+						<th>最高价</th>
+						<th>成交量</th>
+						<th>成交额</th>
+						<th>换手率</th>
+					</tr>
+					
+				</table>
 			</div>
 		</div>
 	</div>

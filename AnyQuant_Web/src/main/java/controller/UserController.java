@@ -42,6 +42,14 @@ public class UserController {
         
         return "upload success";
 	}
+	
+	@RequestMapping("/message")
+	public ModelAndView message(){
+		ModelAndView modelAndView=new ModelAndView();
+		
+		modelAndView.setViewName("user/Message");
+		return modelAndView;
+	}
 
 	private void saveIcon(HttpServletRequest request) {
 		//得到上传文件的保存目录，将上传的文件存放于WEB-INF目录下，不允许外界直接访问，保证上传文件的安全

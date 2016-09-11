@@ -21,6 +21,9 @@ ol, ul {
     background-color: #000000;
     z-index:1
 }
+div{
+	float:left
+}
 .top img{
 	margin-top:0px;
 }

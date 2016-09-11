@@ -13,7 +13,7 @@
 		<script src="js/user/userIcon.js"></script>
 		<script type="text/javascript">
 			$(function(){
-	            $('.logined img').jqthumb({
+	            $('.logined img.icon').jqthumb({
 	                width: 30,
 	                height: 30,
 	                after: function(imgObj){
@@ -51,17 +51,18 @@
 						<li><a href="#">个人策略</a></li>
 						<li><a href="#">收藏策略</a></li>
 						<li><a href="/AnyQuant_Web/profile.action">个人资料</a></li>
-						<li><a href="#">消息空间</a></li>
+						<li><a href="/AnyQuant_Web/message.action">消息空间</a></li>
 					</ul>
 				</li>
 			</ul>	
 		</div>
 		
-		<div id="login-area">
+		<div id="login-area" style="float:left">
 			<!-- 已登录的界面 -->
 			<div class="logined">
 				<!-- todo -->
-				<img src="graphics/introduction/image1.jpg" style="width:30px;height:30px"></img>	
+				<img class="message" src="graphics/user/text-message.png" style="width:30px;height:30px;position:relative;right:70px;"></img>
+				<img class="icon" style="width:30px;height:30px"></img>	
 			
 			</div>
 		
@@ -104,7 +105,7 @@
 			
 			//显示头像
 			var userName=getCookie("userName");
-			$(".logined img").attr("src","graphics/user/icon/"+userName+".jpg");
+			$(".logined img.icon").attr("src","graphics/user/icon/"+userName+".jpg");
 			
 			//注销
 			$(".logout").click(function(){
