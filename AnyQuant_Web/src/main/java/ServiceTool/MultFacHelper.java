@@ -130,10 +130,10 @@ public class MultFacHelper {
 				max=t;
 			}
 		}
-//		for(int i=0;i<sumsto;i++){
-//			result.add(templist.get(max*sumsto+i).stockId);
-//			System.out.println(i+"  "+templist.get(max*sumsto+i).stockId);
-//		}
+		for(int i=0;i<sumsto;i++){
+			result.add(templist.get(max*sumsto+i).stockId);
+			System.out.println(i+"  "+templist.get(max*sumsto+i).stockId);
+		}
 		
 		multfactdata=new MultFactData(Attribute,result,testResult[max]/10,days,sumsto);
 		
@@ -158,7 +158,7 @@ public class MultFacHelper {
 //	}
 
 	public static void main(String[] args) throws Exception {
-		MultFacHelper.getAttriTop("turnover",30,10);
+		System.out.println(MultFacHelper.getAttriTop("turnover",30,10));
 	}
 	
 	
