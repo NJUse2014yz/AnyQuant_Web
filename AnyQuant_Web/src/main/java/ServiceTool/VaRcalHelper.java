@@ -17,7 +17,7 @@ public class VaRcalHelper {
 
 	// 单只股票的正态
 	public static double getSingleStock_cal(String stockid, int num_of_stock, int days, double alpha) throws Exception {
-		// 只考虑 alpha=0.90,0.975,0.95,0.99的情况
+		// 只考虑 alpha=0.90,0.95,0.99的情况
 		double perc = 0.0;
 		if (alpha == 0.9)
 			perc = 0.8159;
